@@ -1,0 +1,63 @@
+{
+  "name": "nspfrp-omnimission-station",
+  "version": "17.0.0",
+  "description": "NSPFRP OmniMission Station v17 - Higher-Octave RAG Architecture with Autonomous Discovery",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "pretest": "tsx src/tests/run-pretest.ts",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "migrate": "tsx src/database/migrate.ts",
+    "discover": "tsx src/cli/discover.ts",
+    "sync": "tsx src/cli/sync.ts"
+  },
+  "keywords": [
+    "nspfrp",
+    "rag",
+    "ai",
+    "protocol",
+    "autonomous-agents",
+    "fsr",
+    "vibeverse"
+  ],
+  "author": "FractiAI",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "zod": "^3.22.4",
+    "openai": "^4.20.1",
+    "pg": "^8.11.3",
+    "redis": "^4.6.11",
+    "crypto": "^1.0.1",
+    "node-fetch": "^3.3.2",
+    "marked": "^11.1.1",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.5",
+    "@types/cors": "^2.8.17",
+    "@types/pg": "^8.10.9",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
