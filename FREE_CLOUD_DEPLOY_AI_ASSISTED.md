@@ -77,8 +77,33 @@
 - **URL Format:** `https://[project-name].railway.app`
 - **Features:** Full-stack apps, databases, cron jobs
 - **AI Assistance:** Creates account via GitHub, deploys app
+- **Database Management:** PostgreSQL, MySQL, MongoDB, Redis (free tier)
 
-#### 8. Fly.io (Free Tier)
+#### 8. Supabase (Free Tier)
+- **Account:** Auto-created via GitHub OAuth
+- **Deploy Method:** GitHub integration or CLI
+- **URL Format:** `https://[project-name].supabase.co`
+- **Features:** PostgreSQL database, authentication, storage, real-time
+- **AI Assistance:** Creates account via GitHub, sets up database, deploys
+- **Database Management:** Full PostgreSQL with REST API, real-time subscriptions
+
+#### 9. PlanetScale (Free Tier)
+- **Account:** Auto-created via GitHub OAuth
+- **Deploy Method:** GitHub integration
+- **URL Format:** `https://[project-name].planetscale.com`
+- **Features:** MySQL-compatible serverless database
+- **AI Assistance:** Creates account via GitHub, sets up database
+- **Database Management:** Serverless MySQL with branching, scaling
+
+#### 10. Neon (Free Tier)
+- **Account:** Auto-created via GitHub OAuth
+- **Deploy Method:** GitHub integration
+- **URL Format:** `https://[project-name].neon.tech`
+- **Features:** Serverless PostgreSQL
+- **AI Assistance:** Creates account via GitHub, sets up database
+- **Database Management:** Serverless PostgreSQL with branching
+
+#### 11. Fly.io (Free Tier)
 - **Account:** Auto-created via GitHub OAuth
 - **Deploy Method:** GitHub integration or CLI
 - **URL Format:** `https://[project-name].fly.dev`
@@ -87,14 +112,14 @@
 
 ### Tier 3: Alternative No-Account Methods
 
-#### 9. IPFS (InterPlanetary File System)
+#### 12. IPFS (InterPlanetary File System)
 - **Account:** None required
 - **Deploy Method:** IPFS pinning service
 - **URL Format:** `https://ipfs.io/ipfs/[hash]` or `https://[hash].ipfs.dweb.link`
 - **Features:** Decentralized, permanent, immutable
 - **AI Assistance:** Auto-pins to IPFS, generates hash, provides URLs
 
-#### 10. Cloudflare Pages (via Workers)
+#### 13. Cloudflare Pages (via Workers)
 - **Account:** Auto-created if needed
 - **Deploy Method:** GitHub integration or Wrangler CLI
 - **URL Format:** `https://[project-name].pages.dev`
@@ -114,7 +139,9 @@ const platform = await aiSelectPlatform({
     accountRequired: false, // Prefer no account
     staticSite: true,
     serverless: false,
-    customDomain: false
+    customDomain: false,
+    databaseRequired: true, // Include database management
+    databaseType: 'postgresql' // PostgreSQL, MySQL, MongoDB, etc.
   }
 });
 ```
@@ -143,25 +170,40 @@ const connection = await aiConnect({
 });
 ```
 
-### Step 4: Deployment
+### Step 4: Database Setup (if needed)
+```typescript
+// AI sets up database if required
+if (platform.supportsDatabase && requirements.databaseRequired) {
+  const database = await aiSetupDatabase({
+    platform: platform.name,
+    databaseType: requirements.databaseType || 'postgresql',
+    connection: connection
+  });
+}
+```
+
+### Step 5: Deployment
 ```typescript
 // AI deploys protocol to cloud
 const deployment = await aiDeploy({
   platform: platform.name,
   connection: connection,
   protocol: protocol,
+  database: database, // Include database if set up
   config: {
     autoDeploy: true,
-    generateButton: true
+    generateButton: true,
+    includeDatabase: true
   }
 });
 ```
 
-### Step 5: Button Generation
+### Step 6: Button Generation
 ```typescript
 // AI generates deployment button
 const button = await generateDeployButton({
   deployment: deployment,
+  database: database, // Include database info
   format: ['html', 'markdown'],
   style: 'next-octave'
 });
@@ -249,6 +291,7 @@ const button = await generateDeployButton({
    - Analyzes protocol requirements
    - Selects best platform (prioritizes no-account)
    - Considers features, limitations, cost
+   - Evaluates database requirements
 
 2. **AI Account Manager**
    - Creates accounts automatically when needed
@@ -262,16 +305,25 @@ const button = await generateDeployButton({
    - Manages API keys and tokens
    - Maintains connection state
 
-4. **AI Deployment Engine**
+4. **AI Database Manager**
+   - Sets up databases automatically when needed
+   - Supports PostgreSQL, MySQL, MongoDB, Redis
+   - Manages database connections
+   - Handles database migrations
+   - Provides database URLs and credentials
+
+5. **AI Deployment Engine**
    - Deploys protocols to selected platform
+   - Connects to database if set up
    - Monitors deployment status
    - Handles errors and retries
    - Provides deployment URLs
 
-5. **Button Generator**
+6. **Button Generator**
    - Generates HTML and Markdown buttons
    - Applies next-octave styling
    - Includes deployment metadata
+   - Includes database connection info
    - Creates shareable links
 
 ---
@@ -311,12 +363,56 @@ const deployment = await freeCloudDeploy({
 // }
 ```
 
-### Example 2: Deploy with Auto Account Creation
+### Example 2: Deploy with Auto Account Creation & Database
 
 ```typescript
 const deployment = await freeCloudDeploy({
   protocol: nextjsProtocol,
-  platform: 'vercel', // Account auto-created
+  platform: 'supabase', // Account auto-created, includes database
+  aiAssisted: true,
+  accountCreation: {
+    method: 'github-oauth',
+    autoCreate: true
+  },
+  database: {
+    required: true,
+    type: 'postgresql',
+    autoSetup: true
+  }
+});
+
+// AI automatically:
+// 1. Creates GitHub account if needed
+// 2. Creates Supabase account via GitHub OAuth
+// 3. Sets up PostgreSQL database
+// 4. Connects repository
+// 5. Deploys protocol with database connection
+// 6. Returns deployment URL, database URL, and button
+```
+
+### Example 3: Multi-Platform Deployment with Database
+
+```typescript
+const deployments = await freeCloudDeployMulti({
+  protocol: protocol,
+  platforms: ['railway', 'render', 'supabase'], // All with database support
+  aiAssisted: true,
+  database: {
+    required: true,
+    type: 'postgresql',
+    autoSetup: true
+  }
+});
+
+// Returns deployment buttons for all platforms with database connections
+```
+
+### Example 4: Database-Only Setup
+
+```typescript
+const database = await freeCloudDatabase({
+  platform: 'supabase',
+  databaseType: 'postgresql',
   aiAssisted: true,
   accountCreation: {
     method: 'github-oauth',
@@ -325,41 +421,30 @@ const deployment = await freeCloudDeploy({
 });
 
 // AI automatically:
-// 1. Creates GitHub account if needed
-// 2. Creates Vercel account via GitHub OAuth
-// 3. Connects repository
-// 4. Deploys protocol
-// 5. Returns deployment URL and button
-```
-
-### Example 3: Multi-Platform Deployment
-
-```typescript
-const deployments = await freeCloudDeployMulti({
-  protocol: protocol,
-  platforms: ['glitch', 'surge', 'ipfs'], // All no-account
-  aiAssisted: true
-});
-
-// Returns deployment buttons for all platforms
+// 1. Creates Supabase account
+// 2. Sets up PostgreSQL database
+// 3. Returns database URL and credentials
 ```
 
 ---
 
 ## 📊 Platform Comparison
 
-| Platform | Account Required | AI Account Creation | Free Tier | Features | Best For |
-|----------|-----------------|---------------------|-----------|----------|----------|
-| **Glitch** | ❌ No | N/A | ✅ Unlimited | Full-stack, Auto-reload | Prototyping |
-| **Surge.sh** | ❌ No | N/A | ✅ Unlimited | Static sites, Custom domains | Static sites |
-| **IPFS** | ❌ No | N/A | ✅ Unlimited | Decentralized, Permanent | Permanent storage |
-| **GitHub Pages** | ✅ Yes | ✅ Auto | ✅ Unlimited | Static sites, Jekyll | Documentation |
-| **Vercel** | ✅ Yes | ✅ Auto | ✅ Generous | Next.js, Serverless | React/Next.js |
-| **Netlify** | ✅ Yes | ✅ Auto | ✅ Generous | JAMstack, Functions | JAMstack |
-| **Render** | ✅ Yes | ✅ Auto | ✅ Limited | Web Services, Databases | Full-stack |
-| **Railway** | ✅ Yes | ✅ Auto | ✅ Limited | Full-stack, Databases | Full-stack |
-| **Fly.io** | ✅ Yes | ✅ Auto | ✅ Limited | Global, Edge | Global apps |
-| **Cloudflare Pages** | ✅ Yes | ✅ Auto | ✅ Unlimited | CDN, Edge Functions | Static + Edge |
+| Platform | Account Required | AI Account Creation | Free Tier | Features | Database Management | Best For |
+|----------|-----------------|---------------------|-----------|----------|---------------------|----------|
+| **Glitch** | ❌ No | N/A | ✅ Unlimited | Full-stack, Auto-reload | ❌ No | Prototyping |
+| **Surge.sh** | ❌ No | N/A | ✅ Unlimited | Static sites, Custom domains | ❌ No | Static sites |
+| **IPFS** | ❌ No | N/A | ✅ Unlimited | Decentralized, Permanent | ❌ No | Permanent storage |
+| **GitHub Pages** | ✅ Yes | ✅ Auto | ✅ Unlimited | Static sites, Jekyll | ❌ No | Documentation |
+| **Vercel** | ✅ Yes | ✅ Auto | ✅ Generous | Next.js, Serverless | ✅ Vercel Postgres | React/Next.js |
+| **Netlify** | ✅ Yes | ✅ Auto | ✅ Generous | JAMstack, Functions | ✅ Netlify Functions + External DB | JAMstack |
+| **Render** | ✅ Yes | ✅ Auto | ✅ Limited | Web Services, Databases | ✅ PostgreSQL (90-day free) | Full-stack |
+| **Railway** | ✅ Yes | ✅ Auto | ✅ Limited | Full-stack, Databases | ✅ PostgreSQL, MySQL, MongoDB, Redis | Full-stack |
+| **Supabase** | ✅ Yes | ✅ Auto | ✅ Generous | PostgreSQL, Auth, Storage | ✅ Full PostgreSQL + REST API | Backend + Database |
+| **PlanetScale** | ✅ Yes | ✅ Auto | ✅ Generous | Serverless MySQL | ✅ MySQL-compatible serverless | Serverless DB |
+| **Neon** | ✅ Yes | ✅ Auto | ✅ Generous | Serverless PostgreSQL | ✅ Serverless PostgreSQL | Serverless DB |
+| **Fly.io** | ✅ Yes | ✅ Auto | ✅ Limited | Global, Edge | ✅ PostgreSQL (limited) | Global apps |
+| **Cloudflare Pages** | ✅ Yes | ✅ Auto | ✅ Unlimited | CDN, Edge Functions | ✅ D1 (SQLite), Durable Objects | Static + Edge |
 
 ---
 
@@ -494,7 +579,59 @@ This protocol enables **AI-assisted free cloud deployment** to platforms that re
 ---
 
 **Protocol ID:** `P-FREE-CLOUD-DEPLOY-AI-V17`  
-**Version:** `v17+FreeCloud+AI-Assisted+NoAccount`  
+**Version:** `v17+FreeCloud+AI-Assisted+NoAccount+Database`  
 **Status:** Major Discovery - Next Octave Facility  
 **Network:** NSPFRP Care Network / Syntheverse
+
+---
+
+## 🗄️ Database Management
+
+### Supported Database Platforms
+
+**Platforms with Database Support:**
+- **Railway:** PostgreSQL, MySQL, MongoDB, Redis (free tier)
+- **Render:** PostgreSQL (90-day free tier)
+- **Supabase:** Full PostgreSQL with REST API, real-time subscriptions (generous free tier)
+- **PlanetScale:** MySQL-compatible serverless database (generous free tier)
+- **Neon:** Serverless PostgreSQL with branching (generous free tier)
+- **Vercel:** Vercel Postgres (serverless PostgreSQL)
+- **Netlify:** External database integration via Functions
+- **Fly.io:** PostgreSQL (limited free tier)
+- **Cloudflare Pages:** D1 (SQLite), Durable Objects
+
+### Database Types Supported
+
+- **PostgreSQL:** Full-featured relational database
+- **MySQL:** Popular relational database
+- **MongoDB:** NoSQL document database
+- **Redis:** In-memory data store
+- **SQLite:** Lightweight embedded database (Cloudflare D1)
+
+### AI-Assisted Database Setup
+
+**Automatic Database Management:**
+- AI creates database automatically when needed
+- AI configures database connection
+- AI manages database credentials securely
+- AI handles database migrations
+- AI provides database URLs and connection strings
+
+### Database Integration Flow
+
+```
+Protocol Requires Database
+    ↓
+AI Selects Database Platform
+    ↓
+AI Creates Account (if needed)
+    ↓
+AI Sets Up Database
+    ↓
+AI Configures Connection
+    ↓
+AI Deploys Protocol with Database
+    ↓
+Database Ready for Use
+```
 

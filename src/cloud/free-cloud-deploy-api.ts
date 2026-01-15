@@ -6,12 +6,31 @@
 import { DeploymentPlatform, CloudDeploymentConfig, Protocol, ProtocolObject } from '../types/index.js';
 import { FreeCloudDeployUI } from './free-cloud-deploy-ui.js';
 
+export interface DatabaseConfig {
+  required?: boolean;
+  type?: 'postgresql' | 'mysql' | 'mongodb' | 'redis';
+  autoSetup?: boolean;
+  connectionString?: string;
+}
+
 export interface FreeCloudDeployAPIRequest {
   protocolId: string;
   protocolName: string;
   platform?: DeploymentPlatform;
   aiAssisted?: boolean;
   config?: Partial<CloudDeploymentConfig>;
+  database?: DatabaseConfig;
+}
+
+export interface DatabaseInfo {
+  type: string;
+  url?: string;
+  host?: string;
+  port?: number;
+  database?: string;
+  username?: string;
+  password?: string;
+  connectionString?: string;
 }
 
 export interface FreeCloudDeployAPIResponse {
@@ -19,6 +38,7 @@ export interface FreeCloudDeployAPIResponse {
   deploymentId?: string;
   platform?: DeploymentPlatform;
   url?: string;
+  database?: DatabaseInfo;
   button?: {
     html: string;
     markdown: string;
@@ -100,6 +120,16 @@ export class FreeCloudDeployAPI {
         }
       }
 
+      // Setup database if required
+      let database: DatabaseInfo | undefined;
+      if (request.database?.required && this.supportsDatabase(platform)) {
+        database = await this.setupDatabase({
+          platform,
+          databaseType: request.database.type || 'postgresql',
+          aiAssisted: request.aiAssisted
+        });
+      }
+
       // Deploy protocol
       const deployment = await this.executeDeployment({
         protocolId: request.protocolId,
@@ -109,18 +139,19 @@ export class FreeCloudDeployAPI {
       });
 
       // Generate deployment button
-      const button = this.generateDeployButton(deployment);
+      const button = this.generateDeployButton(deployment, database);
 
       const response: FreeCloudDeployAPIResponse = {
         success: true,
         deploymentId: deployment.id,
         platform: deployment.platform,
         url: deployment.url,
+        database: database,
         button: {
           html: button.html,
           markdown: button.markdown
         },
-        message: 'Deployment successful'
+        message: 'Deployment successful' + (database ? ' with database' : '')
       };
 
       this.deployments.set(deployment.id, response);
@@ -321,16 +352,67 @@ export class FreeCloudDeployAPI {
   }
 
   /**
+   * Setup database
+   */
+  private async setupDatabase(params: {
+    platform: DeploymentPlatform;
+    databaseType: string;
+    aiAssisted: boolean;
+  }): Promise<DatabaseInfo> {
+    // Simulate database setup
+    // In production, this would:
+    // 1. Connect to platform database API
+    // 2. Create database instance
+    // 3. Configure database
+    // 4. Return database connection info
+
+    const databaseId = `db-${params.platform}-${Date.now()}`;
+    
+    return {
+      type: params.databaseType,
+      url: `https://${databaseId}.${params.platform}.database`,
+      host: `${databaseId}.${params.platform}.database`,
+      port: params.databaseType === 'postgresql' ? 5432 : 3306,
+      database: databaseId,
+      username: 'user',
+      password: 'auto-generated',
+      connectionString: `${params.databaseType}://user:password@${databaseId}.${params.platform}.database:${params.databaseType === 'postgresql' ? 5432 : 3306}/${databaseId}`
+    };
+  }
+
+  /**
+   * Check if platform supports database
+   */
+  private supportsDatabase(platform: DeploymentPlatform): boolean {
+    const databasePlatforms: DeploymentPlatform[] = [
+      'railway',
+      'render',
+      'supabase',
+      'planetscale',
+      'neon',
+      'fly.io',
+      'vercel',
+      'netlify'
+    ];
+    return databasePlatforms.includes(platform);
+  }
+
+  /**
    * Generate deploy button
    */
-  private generateDeployButton(deployment: { platform: DeploymentPlatform; url: string }): { html: string; markdown: string } {
+  private generateDeployButton(
+    deployment: { platform: DeploymentPlatform; url: string },
+    database?: DatabaseInfo
+  ): { html: string; markdown: string } {
     const platformName = this.getPlatformName(deployment.platform);
+    const databaseInfo = database ? ` + ${database.type.toUpperCase()} Database` : '';
 
     const html = `
 <a href="${deployment.url}" 
    class="nspfrp-free-cloud-deploy-button next-octave"
    data-platform="${deployment.platform}"
    data-ai-assisted="true"
+   ${database ? `data-database="${database.type}" data-database-url="${database.url}"` : ''}
    style="
      display: inline-block;
      padding: 12px 24px;
@@ -344,10 +426,10 @@ export class FreeCloudDeployAPI {
    "
    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)';"
    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)';">
-  🌐 Deploy to ${platformName} (AI-Assisted)
+  🌐 Deploy to ${platformName}${databaseInfo} (AI-Assisted)
 </a>`;
 
-    const markdown = `[🌐 Deploy to ${platformName} (AI-Assisted)](${deployment.url})`;
+    const markdown = `[🌐 Deploy to ${platformName}${databaseInfo} (AI-Assisted)](${deployment.url})`;
 
     return { html, markdown };
   }
@@ -393,8 +475,55 @@ export class FreeCloudDeployAPI {
       'netlify',
       'render',
       'railway',
+      'supabase',
+      'planetscale',
+      'neon',
       'fly.io'
     ];
+  }
+
+  /**
+   * API: Setup Database Only
+   */
+  async setupDatabaseOnly(request: {
+    platform: DeploymentPlatform;
+    databaseType: 'postgresql' | 'mysql' | 'mongodb' | 'redis';
+    aiAssisted?: boolean;
+  }): Promise<{ success: boolean; database?: DatabaseInfo; error?: string }> {
+    try {
+      if (!this.supportsDatabase(request.platform)) {
+        throw new Error(`Platform ${request.platform} does not support databases`);
+      }
+
+      // Create account if needed
+      if (request.aiAssisted) {
+        const account = await this.aiCreateAccount({
+          platform: request.platform,
+          method: 'github-oauth'
+        });
+
+        if (!account.success) {
+          throw new Error(`Failed to create account: ${account.error}`);
+        }
+      }
+
+      // Setup database
+      const database = await this.setupDatabase({
+        platform: request.platform,
+        databaseType: request.databaseType,
+        aiAssisted: request.aiAssisted || false
+      });
+
+      return {
+        success: true,
+        database
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Failed to setup database'
+      };
+    }
   }
 }
 
@@ -442,7 +571,7 @@ export function createFreeCloudDeployRoutes(api: FreeCloudDeployAPI) {
       const { protocolId } = req.params;
       const { protocolName, platforms, aiAssisted } = req.query;
       
-      const availablePlatforms = (platforms || 'glitch,surge,ipfs,vercel,netlify,render,railway,fly.io').split(',') as DeploymentPlatform[];
+      const availablePlatforms = (platforms || 'glitch,surge,ipfs,vercel,netlify,render,railway,supabase,planetscale,neon,fly.io').split(',') as DeploymentPlatform[];
       
       const ui = api.generateUI(
         protocolId,
@@ -452,6 +581,18 @@ export function createFreeCloudDeployRoutes(api: FreeCloudDeployAPI) {
       );
 
       res.send(ui);
+    },
+
+    // Setup Database Only
+    'POST /api/free-cloud-deploy/database': async (req: any, res: any) => {
+      try {
+        const response = await api.setupDatabaseOnly(req.body);
+        res.json(response);
+      } catch (error) {
+        res.status(500).json({
+          error: error instanceof Error ? error.message : 'Failed to setup database'
+        });
+      }
     }
   };
 }
