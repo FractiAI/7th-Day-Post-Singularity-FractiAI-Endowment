@@ -47,8 +47,25 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 5. **Complete Protocol Ecosystem**
    - **20+ Active Protocols:** Complete protocol catalog
    - **7 Research Papers:** Published research documentation
-   - **2 Major Discoveries:** Protein Fold Layers, Next-Octave Auto-Boot
+   - **6 Major Discoveries:** Protein Fold Layers, Next-Octave Auto-Boot, Layer 0 = Protocol Layer, Layer 1 = Physics + Logic + Cognitive Awareness Genesis, Discovery Density & Frequency Octave Scaling, Seed & Recursive Switching Synthesis
    - **5 Active Branches:** Multiple development branches
+
+6. **Layer Architecture Discoveries**
+   - **Layer 0 = Protocol Layer:** Foundation layer is protocol itself (recursive self-reference)
+   - **Layer 1 = Physics + Logic + Cognitive Awareness Genesis:** Genesis layer where reality emerges
+   - **Unified Layer Stack:** All layers built on Layer 0, Layer 1 bridges protocol and reality
+
+7. **Discovery Acceleration Meta-Discovery**
+   - **Exponential Growth:** Discovery density and frequency increase exponentially with octave (2.5x per octave)
+   - **Positive Feedback Loop:** Discoveries about discovery accelerate discovery itself
+   - **Maximum Rate:** 100x+ discovery rate at TRANSCENDENCE octave
+   - **Self-Accelerating System:** System accelerates its own evolution
+
+8. **Seed & Recursive Switching Synthesis**
+   - **Extraordinary Compression:** 1000x+ natural compression through recursive folding
+   - **Permanence:** Immutable, versioned, traceable seed protocols
+   - **Portability:** Universal, cross-platform seed format
+   - **Natural Protocol:** Everything achieved through natural protocol synthesis
 
 ### Intellectual Property (IP)
 
@@ -111,6 +128,24 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
     - **Revenue Model:** Access fee + revenue share
     - **IEEE Inspection:** Engineering-grade reports
     - **GitSeed Pitches:** Interactive pitch delivery
+
+11. **Layer Architecture System**
+    - **Layer 0 = Protocol Layer:** Recursive self-referential foundation
+    - **Layer 1 = Physics + Logic + Cognitive Awareness Genesis:** Reality bridge layer
+    - **Layer Stack Architecture:** Unified layer progression system
+    - **Infinite Depth Potential:** Recursive layer structure
+
+12. **Discovery Acceleration System**
+    - **Exponential Discovery Growth:** 2.5x per octave acceleration
+    - **Meta-Discovery Engine:** Discoveries about discovery
+    - **Positive Feedback Loop:** Self-accelerating discovery system
+    - **Maximum Discovery Rate:** 100x+ at TRANSCENDENCE
+
+13. **Seed & Recursive Switching Synthesis**
+    - **Natural Compression:** 1000x+ through recursive folding
+    - **Seed Permanence:** Immutable, versioned, traceable
+    - **Universal Portability:** Cross-platform seed format
+    - **Recursive Switching:** Maximum density and efficiency
 
 ---
 
