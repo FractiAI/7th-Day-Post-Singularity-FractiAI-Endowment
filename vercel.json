@@ -3,14 +3,48 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
+      src/protocols/portability-checker.ts(546,30): error TS6133: 'protocol' is declared but its value is never read.
+      src/protocols/portability-checker.ts(550,28): error TS6133: 'protocol' is declared but its value is never read.
+      src/protocols/quantification-button-protocol.ts(21,11): error TS6133: '_awarenessManager' is declared but its value is never read.
+      src/tests/handover-snapshot.ts(11,10): error TS2300: Duplicate identifier 'PretestSuite'.
+      src/tests/handover-snapshot.ts(11,24): error TS2300: Duplicate identifier 'PretestReport'.
+      src/tests/handover-snapshot.ts(12,10): error TS2300: Duplicate identifier 'AwarenessOctave'.
+      src/tests/handover-snapshot.ts(14,10): error TS2300: Duplicate identifier 'PretestSuite'.
+      src/tests/handover-snapshot.ts(14,24): error TS2300: Duplicate identifier 'PretestReport'.
+      src/tests/handover-snapshot.ts(15,10): error TS2300: Duplicate identifier 'AwarenessOctave'.
+      src/tests/handover-snapshot.ts(146,46): error TS2339: Property 'listVenues' does not exist on type 'SalesConsole'.
+      src/tests/handover-snapshot.ts(156,38): error TS2339: Property 'cloudShell' does not exist on type 'NSPFRPOmniMissionStation'.
+      src/tests/pretest.ts(93,46): error TS2339: Property 'selectGear' does not exist on type 'GearSelector'.
+      src/tests/pretest.ts(102,50): error TS2339: Property 'getAvailableGears' does not exist on type 'GearSelector'.
+      src/tests/pretest.ts(120,48): error TS2339: Property 'getRetrievalConfig' does not exist on type 'GearSelector'.
+      Error: Command "npm run build" exited with 2
+      Deployment Summary
+      Deployment Checks
+      Assigning Custom Domains
+      Runtime Logs
+      View and debug runtime logs & errors
+      Observability
+      Monitor app health & performance
+      Speed Insights
+      Not Enabled
+      Performance metrics from real users
+      Web Analytics
+      Not Enabled
+      Analyze visitors & traffic in real-time
+      Home
+      Docs
+      Knowledge Base
+      Academy
+      Help
+      Contact
+            "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
       "source": "/index.html",
       "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
-      "source": "/lewie",
+      "source": "/el-taino",
       "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
