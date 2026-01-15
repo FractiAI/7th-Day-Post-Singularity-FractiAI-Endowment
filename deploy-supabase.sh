@@ -1,11 +1,22 @@
 #!/bin/bash
 # Automated Supabase Deployment Script
 # Uses SUPABASE_ACCESS_TOKEN and SUPABASE_PROJECT_REF environment variables
+# Auto-checks environment before deployment
 
 set -e
 
 echo "🚀 NSPFRP Cloud Deployment Protocol - Supabase Deployment"
 echo "=================================================="
+
+# Check environment first
+echo "🔍 Checking environment..."
+node check-env.js || {
+    echo ""
+    echo "⚠️  Environment check failed. Please set missing variables."
+    exit 1
+}
+
+echo ""
 
 # Check for Supabase CLI
 if ! command -v supabase &> /dev/null; then
@@ -17,6 +28,7 @@ fi
 if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
     echo "⚠️  SUPABASE_ACCESS_TOKEN not found in environment"
     echo "💡 Set it with: export SUPABASE_ACCESS_TOKEN=your_token_here"
+    echo "   Or add to .env file"
     echo "💡 Also set: export SUPABASE_PROJECT_REF=your_project_ref"
     exit 1
 fi
@@ -24,6 +36,7 @@ fi
 if [ -z "$SUPABASE_PROJECT_REF" ]; then
     echo "⚠️  SUPABASE_PROJECT_REF not found in environment"
     echo "💡 Set it with: export SUPABASE_PROJECT_REF=your_project_ref"
+    echo "   Or add to .env file"
     exit 1
 fi
 
