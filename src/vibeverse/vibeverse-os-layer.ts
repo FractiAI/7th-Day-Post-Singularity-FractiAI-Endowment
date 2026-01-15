@@ -74,7 +74,6 @@ export interface HHSCConnection {
 export class VibeverseOSLayerSystem {
   private snapshotManager: ProtocolSnapshotManager;
   private gearSelector: TransmissionGearSelector;
-  private _heroHost: HeroHostOrchestrator;
   private layers: Map<string, VibeverseOSLayer>;
   private capabilities: Map<string, VibeCreateCapability>;
   private hhscConnections: Map<string, HHSCConnection>;
@@ -82,11 +81,10 @@ export class VibeverseOSLayerSystem {
   constructor(
     snapshotManager: ProtocolSnapshotManager,
     gearSelector: TransmissionGearSelector,
-    heroHost: HeroHostOrchestrator
+    _heroHost: HeroHostOrchestrator
   ) {
     this.snapshotManager = snapshotManager;
     this.gearSelector = gearSelector;
-    this._heroHost = heroHost;
     this.layers = new Map();
     this.capabilities = new Map();
     this.hhscConnections = new Map();

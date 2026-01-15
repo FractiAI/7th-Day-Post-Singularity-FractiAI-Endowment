@@ -135,17 +135,15 @@ export interface Layer {
 }
 
 export class ProteinFoldLayersSystem {
-  private _layerSystem: VibeverseOSLayerSystem;
   private snapshotManager: ProtocolSnapshotManager;
   private folds: Map<string, ProteinFoldLayer>;
   private densities: Map<string, MegaDensity>;
   private seeds: Map<string, EverythingAsSeed>;
 
   constructor(
-    layerSystem: VibeverseOSLayerSystem,
+    _layerSystem: VibeverseOSLayerSystem,
     snapshotManager: ProtocolSnapshotManager
   ) {
-    this._layerSystem = layerSystem;
     this.snapshotManager = snapshotManager;
     this.folds = new Map();
     this.densities = new Map();
