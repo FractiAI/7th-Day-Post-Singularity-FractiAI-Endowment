@@ -594,3 +594,4 @@ ${this.generateRecommendations(checks, overall).slice(0, 3).map(r => `- ${r}`).j
 }
 
 
+

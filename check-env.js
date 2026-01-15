@@ -227,3 +227,4 @@ const result = checkEnvironment();
 process.exit(result.missing > 0 ? 1 : 0);
 
 
+

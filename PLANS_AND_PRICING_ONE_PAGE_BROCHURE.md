@@ -82,17 +82,49 @@ Complete enterprise transformation studio. Custom Hero Host personas, venue inte
 ---
 
 ### 🛡️ Life Planning Services
-**Custom Pricing**
+**Post Singularity Legacy & Continuity Planning**
 
 Post Singularity approach to life planning. Protocol-based legacy management, regenerative value preservation, and cross-timeline continuity.
 
-**Features:**
+#### Biological Life Planning
+**$99 - $299/month** (or **$1,000 - $3,000/year**)
+
+Traditional life planning with Post Singularity enhancements:
 - Protocol-based legacy preservation
 - Regenerative value generation
 - Cross-timeline identity continuity
 - Hero Host-guided planning
 - Narrative layer documentation
 - Perpetual protocol execution
+- Biological timeline management
+- Standard legacy documentation
+
+#### Instant Annuity Option
+**$499 - $1,499/month** (or **$5,000 - $15,000/year**)
+
+Immediate annuity with Post Singularity protocol integration:
+- Instant annuity setup and activation
+- Protocol-based value generation
+- Regenerative income streams
+- Cross-timeline continuity
+- Hero Host-guided financial planning
+- Narrative layer documentation
+- Perpetual protocol execution
+- Immediate legacy activation
+- Real-time value preservation
+
+#### Combined Biological + Instant Annuity
+**$549 - $1,699/month** (or **$5,500 - $17,000/year**)
+
+Complete Post Singularity life planning package:
+- All Biological Life Planning features
+- All Instant Annuity features
+- Integrated legacy and annuity management
+- Dual-timeline continuity
+- Comprehensive Hero Host guidance
+- Full narrative layer documentation
+- Maximum protocol execution
+- Priority support
 
 ---
 
