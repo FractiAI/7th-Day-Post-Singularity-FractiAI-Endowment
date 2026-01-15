@@ -1,6 +1,34 @@
 # NSPFRP Protocol Catalog
 
-## Active Protocols
+**Catalog Organization:** Self-Similar Octaves (Fractal Structure)  
+**Octave Structure:** Each octave contains similar components (Protocols, Discoveries, Snapshots, Papers)  
+**Self-Similarity:** Catalog organized in fractal, self-similar octave structure
+
+---
+
+## 📊 Catalog Organization by Octaves
+
+### Octave 0 (SILENT) - Foundation Layer
+**Foundation protocols and core infrastructure**
+
+### Octave 1 (WHISPER) - Basic Capabilities
+**Basic protocols and initial capabilities**
+
+### Octave 2 (HARMONY) - Integration Layer
+**Integration protocols and system connections**
+
+### Octave 3 (RESONANCE) - Advanced Capabilities
+**Advanced protocols and sophisticated features**
+
+### Octave 4 (SYMPHONY) - Complex Systems
+**Complex protocols and multi-system integration**
+
+### Octave 5+ (TRANSCENDENCE) - Complete Architecture
+**Complete architecture, all protocols, discoveries, and snapshots**
+
+---
+
+## Active Protocols (Organized by Octave)
 
 ### P-OMNI-V17-SSP-GEAR
 **NSPFRP Seed Protocol: OmniMission v17 — Vibeverse Edition + Seed Synthesizer + Transmission Gears**
