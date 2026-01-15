@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "name": "nspfrp-post-singularity-fsr",
+  "builds": [
+    {
+      "src": "TODAYS_CALL_ONE_PAGE_POST_SINGULARITY_FSR.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/TODAYS_CALL_ONE_PAGE_POST_SINGULARITY_FSR.html"
+    },
+    {
+      "src": "/index.html",
+      "dest": "/TODAYS_CALL_ONE_PAGE_POST_SINGULARITY_FSR.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        }
+      ]
+    }
+  ]
+}
+
