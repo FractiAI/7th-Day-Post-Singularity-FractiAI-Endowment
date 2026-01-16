@@ -15,7 +15,7 @@
 
 ### Discovery Count
 
-**Total Major Discoveries:** 40
+**Total Major Discoveries:** 41
 
 **Organization:** All discoveries organized by octave levels through SynthScan Protocol
 
