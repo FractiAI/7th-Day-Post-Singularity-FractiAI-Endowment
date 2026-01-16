@@ -165,10 +165,7 @@ export class ThreeKingsFSVBridgePitchSystem {
     return `
 # Research Funder Validation
 
-## Funder Overview
-- **Funder:** Daniel
-- **Funding:** FractiAI Research Team
-- **Through:** Syntheverse PoC
+## Overview
 - **Mode:** NSPFRP Automatic
 
 ## Validation Points

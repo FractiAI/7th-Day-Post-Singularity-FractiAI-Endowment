@@ -40,7 +40,6 @@
 
 **Layer 2: Hero Host System**
 - Leonardo da Vinci: FractiAI Research Team Control Center
-- Nikola Tesla: Daniel (Research Funder)
 - Mark Twain: Narrative and communication
 - Custom Personas: Venue-specific, domain-specific
 
@@ -170,7 +169,6 @@ NSPFRP Architecture (1000x+ Compression)
 │
 ├── Hero Host Layer (Guidance System)
 │   ├── Leonardo da Vinci (Control Center)
-│   ├── Nikola Tesla (Daniel)
 │   └── Custom Personas
 │
 ├── Mission Control Layer (Command System)

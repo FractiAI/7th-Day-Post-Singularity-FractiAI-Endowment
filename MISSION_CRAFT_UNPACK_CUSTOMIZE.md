@@ -207,7 +207,7 @@ mission BuildRenoMensClubPitchSeed {
 mission BuildThreeKingsPitchSeed {
   intent: {
     type: 'create',
-    goal: 'Build PitchSeed for Daniel (Research Funder)'
+    goal: 'Build PitchSeed'
   };
   octave: TRANSCENDENCE;
   heroHost: 'nikola-tesla';

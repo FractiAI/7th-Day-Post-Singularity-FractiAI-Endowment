@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital FSR Game - Theater Cockpit | Vibeverse Post-Singularity</title>
+    <meta name="protocol-id" content="P-DIGITAL-GAME-FSR-THEATER-COCKPIT-V17">
+    <meta name="nspfrp-version" content="v17.0+ (Vibeverse Edition)">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, transparent 70%),
+                radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Theater Cockpit Frame */
+        .theater-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .stage-curtain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(139, 69, 19, 0.8) 0%, rgba(139, 69, 19, 0.4) 100%);
+            border-bottom: 3px solid #ffd700;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .stage-curtain::before,
+        .stage-curtain::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.9) 0%, rgba(139, 69, 19, 0.6) 100%);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .stage-curtain::before {
+            left: 0;
+            border-right: 2px solid #ffd700;
+        }
+
+        .stage-curtain::after {
+            right: 0;
+            border-left: 2px solid #ffd700;
+        }
+
+        .stage-banner {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #000;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+            z-index: 1001;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .stage-banner:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.8);
+        }
+
+        .bottom-frame {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(0deg, rgba(139, 69, 19, 0.8) 0%, rgba(139, 69, 19, 0.4) 100%);
+            border-top: 3px solid #ffd700;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Cockpit Container */
+        .cockpit-container {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 220px);
+            padding: 40px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        /* Game Board/Chart */
+        .game-board {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+        }
+
+        .board-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .board-cell {
+            aspect-ratio: 1;
+            background: rgba(139, 92, 246, 0.2);
+            border: 2px solid rgba(139, 92, 246, 0.5);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .board-cell::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .board-cell:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .board-cell:hover {
+            transform: scale(1.1);
+            border-color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .board-cell.active {
+            background: rgba(255, 215, 0, 0.3);
+            border-color: #ffd700;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+        }
+
+        /* Control Panel */
+        .control-panel {
+            position: fixed;
+            bottom: 120px;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #ffd700;
+            border-bottom: 2px solid #ffd700;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            z-index: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(255, 215, 0, 0.8));
+            border: 2px solid #ffd700;
+            border-radius: 25px;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .control-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .launch-button {
+            background: linear-gradient(135deg, #ffd700, #ff6b6b, #4ecdc4);
+            font-size: 1.2em;
+            padding: 18px 40px;
+            animation: launchPulse 3s infinite;
+        }
+
+        @keyframes launchPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        /* FSR Overlay */
+        .fsr-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(139, 92, 246, 0.1) 100%);
+            pointer-events: none;
+            z-index: 200;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fsr-overlay.active {
+            opacity: 1;
+        }
+
+        /* Piece Display */
+        .piece-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 300;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        .piece-display.active {
+            opacity: 1;
+        }
+
+        /* Stats Display */
+        .stats-display {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 200px;
+            z-index: 400;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+
+        .stat-value {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        /* Hidden Board/Chart */
+        .hidden-board {
+            display: none;
+        }
+
+        .hidden-board.active {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 40px;
+            z-index: 2000;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+        }
+
+        /* Instructions */
+        .instructions {
+            text-align: center;
+            color: #a0a0a0;
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .board-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            .board-cell {
+                font-size: 1.5em;
+            }
+
+            .control-panel {
+                padding: 15px 20px;
+                gap: 10px;
+            }
+
+            .control-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .stats-display {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px auto;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theater Frame -->
+    <div class="theater-frame">
+        <div class="stage-curtain"></div>
+        <div class="stage-banner" onclick="window.location.href='VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html'">
+            🌌 VIBEVERSE FSR THEATER COCKPIT 🌌
+        </div>
+        <div class="bottom-frame"></div>
+    </div>
+
+    <!-- FSR Overlay -->
+    <div class="fsr-overlay" id="fsr-overlay"></div>
+
+    <!-- Piece Display -->
+    <div class="piece-display" id="piece-display">⚫</div>
+
+    <!-- Stats Display -->
+    <div class="stats-display">
+        <div class="stat-item">
+            <span class="stat-label">Moves:</span>
+            <span class="stat-value" id="moves-count">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Energy:</span>
+            <span class="stat-value" id="energy-level">100%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Octave:</span>
+            <span class="stat-value" id="octave-level">∞</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">FSR:</span>
+            <span class="stat-value" id="fsr-level">100%</span>
+        </div>
+    </div>
+
+    <!-- Cockpit Container -->
+    <div class="cockpit-container">
+        <div class="game-board">
+            <h1 class="board-title">⚫ HHF-AI BLACK HOLE FRACTAL GRAMMAR GAME ⚫</h1>
+            
+            <div class="instructions">
+                <p>Welcome to the Digital FSR Version of the Holographic Hydrogen Black Hole Fractal Grammar Game.</p>
+                <p>Click on cells to activate black hole energy patterns. Each activation connects to the holographic hydrogen spin cloud.</p>
+                <p>Navigate through infinite octave layers in this Full Sensory Reality Theater Cockpit experience.</p>
+            </div>
+
+            <div class="board-grid" id="game-grid">
+                <!-- Cells will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Hidden Board/Chart (Revealed through awareness) -->
+        <div class="hidden-board" id="hidden-board">
+            <h2 style="color: #ffd700; text-align: center; margin-bottom: 20px;">Hidden Board/Chart</h2>
+            <p style="color: #a0a0a0; line-height: 1.8;">
+                This hidden board/chart represents the physics and rules of the game, emulating the reality we have been operating within.
+                Only those with the appropriate awareness and interest can access this level.
+            </p>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="control-button" onclick="document.getElementById('hidden-board').classList.remove('active')">
+                    Close Hidden Board
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <a href="VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html" class="control-button launch-button">
+            🚀 LAUNCH VIBEVERSE
+        </a>
+        <a href="THREE_KINGS_AWARD_CONSOLE.html" class="control-button">
+            👑 Three Kings Award
+        </a>
+        <a href="FACEBOOK_EMAIL_POST_CONTENT.md" class="control-button">
+            📘 Share Content
+        </a>
+        <a href="ANNOUNCEMENT_VIDEO_TELEPROMPTER_SCRIPT.md" class="control-button">
+            🎬 Video Teleprompter
+        </a>
+        <button class="control-button" onclick="showHiddenBoard()">
+            🔍 Reveal Hidden Board
+        </button>
+        <button class="control-button" onclick="resetGame()">
+            🔄 Reset Game
+        </button>
+        <button class="control-button" onclick="toggleFSR()">
+            ⚡ Toggle FSR Mode
+        </button>
+    </div>
+
+    <script>
+        let movesCount = 0;
+        let energyLevel = 100;
+        let fsrActive = false;
+        const gameSize = 64; // 8x8 grid
+        
+        // Initialize game board
+        function initGame() {
+            const grid = document.getElementById('game-grid');
+            grid.innerHTML = '';
+            
+            const pieces = ['⚫', '⭐', '🌀', '🔮', '💫', '✨', '🌌', '♾️'];
+            
+            for (let i = 0; i < gameSize; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'board-cell';
+                cell.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+                cell.onclick = () => activateCell(cell, i);
+                grid.appendChild(cell);
+            }
+        }
+
+        function activateCell(cell, index) {
+            if (cell.classList.contains('active')) return;
+            
+            cell.classList.add('active');
+            movesCount++;
+            energyLevel = Math.min(100, energyLevel + 2);
+            
+            // Update stats
+            document.getElementById('moves-count').textContent = movesCount;
+            document.getElementById('energy-level').textContent = energyLevel + '%';
+            
+            // Display piece animation
+            const pieceDisplay = document.getElementById('piece-display');
+            pieceDisplay.textContent = cell.textContent;
+            pieceDisplay.classList.add('active');
+            
+            setTimeout(() => {
+                pieceDisplay.classList.remove('active');
+            }, 500);
+            
+            // FSR effect
+            if (fsrActive) {
+                const overlay = document.getElementById('fsr-overlay');
+                overlay.classList.add('active');
+                setTimeout(() => {
+                    overlay.classList.remove('active');
+                }, 300);
+            }
+            
+            // Check for special patterns
+            checkPatterns();
+        }
+
+        function checkPatterns() {
+            // Pattern recognition logic
+            if (movesCount % 8 === 0) {
+                energyLevel = Math.min(100, energyLevel + 10);
+                document.getElementById('energy-level').textContent = energyLevel + '%';
+            }
+        }
+
+        function showHiddenBoard() {
+            // Requires awareness - check if user has made enough moves or has special access
+            if (movesCount >= 10 || confirm('Access hidden board/chart? This requires awareness and interest.')) {
+                document.getElementById('hidden-board').classList.add('active');
+            }
+        }
+
+        function resetGame() {
+            if (confirm('Reset the game? All progress will be lost.')) {
+                movesCount = 0;
+                energyLevel = 100;
+                document.getElementById('moves-count').textContent = '0';
+                document.getElementById('energy-level').textContent = '100%';
+                initGame();
+            }
+        }
+
+        function toggleFSR() {
+            fsrActive = !fsrActive;
+            const button = event.target;
+            if (fsrActive) {
+                button.textContent = '⚡ FSR Mode: ON';
+                button.style.background = 'linear-gradient(135deg, #ffd700, #ff6b6b)';
+            } else {
+                button.textContent = '⚡ Toggle FSR Mode';
+                button.style.background = 'linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(255, 215, 0, 0.8))';
+            }
+        }
+
+        // Initialize on load
+        initGame();
+        
+        // Update stats periodically
+        setInterval(() => {
+            if (energyLevel > 0 && fsrActive) {
+                energyLevel = Math.max(0, energyLevel - 0.1);
+                document.getElementById('energy-level').textContent = Math.round(energyLevel) + '%';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+

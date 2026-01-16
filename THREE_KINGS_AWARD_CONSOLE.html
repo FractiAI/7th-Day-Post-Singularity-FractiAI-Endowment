@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Kings Award System - Beta Release</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .busy-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .busy-toggle:hover {
+            border-color: #ffd700;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .busy-toggle.active {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .busy-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            transition: all 0.3s ease;
+        }
+
+        .busy-toggle.active .busy-indicator {
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .busy-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #a0a0a0;
+        }
+
+        .beta-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .award-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #667eea;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .award-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .award-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .award-card {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #ffd700;
+        }
+
+        .award-tier {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .award-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 15px;
+        }
+
+        .award-benefits {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .award-button {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .award-button.show {
+            display: block;
+        }
+
+        .award-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .decode-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #8b5cf6;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .decode-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #8b5cf6;
+            margin-bottom: 15px;
+        }
+
+        .decode-message {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #8b5cf6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #4ecdc4;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .decode-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #667eea 100%);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .decode-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .pricing-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #667eea;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .plan-card {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .plan-features {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-button:hover {
+            transform: scale(1.05);
+        }
+
+        .waitlist-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #10b981;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .waitlist-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .waitlist-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .waitlist-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #10b981 0%, #4ecdc4 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        .facebook-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #1877f2;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .facebook-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #1877f2;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .facebook-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(24, 119, 242, 0.5);
+        }
+
+        .contribution-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #4ecdc4;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contribution-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contribution-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contribution-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contribution-option {
+            padding: 15px;
+            background: rgba(78, 205, 196, 0.1);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contribution-option:hover {
+            background: rgba(78, 205, 196, 0.2);
+            transform: scale(1.05);
+        }
+
+        .contribution-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: #ffd700;
+        }
+
+        .contribution-option-amount {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 5px;
+        }
+
+        .custom-amount-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .purpose-select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .frequency-select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .contribute-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contribute-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(78, 205, 196, 0.5);
+        }
+
+        .contribute-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .secret-section {
+            background: rgba(15, 12, 41, 0.95);
+            border: 2px solid #ffd700;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+            animation: reveal 0.5s ease-in;
+        }
+
+        .secret-section.visible {
+            display: block;
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .secret-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .secret-description {
+            color: #a0a0a0;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .secret-features {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .secret-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .secret-features li {
+            padding: 10px 0;
+            color: #e0e0e0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .secret-features li:last-child {
+            border-bottom: none;
+        }
+
+        .secret-features li:before {
+            content: "♟️ ";
+            margin-right: 10px;
+        }
+
+        .analog-waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .analog-waitlist-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .analog-waitlist-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+            border: none;
+            border-radius: 8px;
+            color: #0f0c29;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .analog-waitlist-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .coming-soon {
+            text-align: center;
+            color: #ffd700;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Busy Toggle (DND Mode) -->
+        <div class="busy-toggle" id="busy-toggle" onclick="toggleBusy()">
+            <div class="busy-indicator"></div>
+            <span class="busy-label">Available</span>
+        </div>
+
+        <div class="header">
+            <h1 class="title">👑 Three Kings Award System 👑</h1>
+            <p class="subtitle">Special Prizes for Pioneers - Beta Release</p>
+            <div style="background: linear-gradient(135deg, #ffd700, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 24px; font-weight: 700; margin-top: 10px;">
+                ♾️ Welcome to Singularity^2 ♾️
+            </div>
+            <span class="beta-badge">BETA RELEASE - Sandbox Mode Active</span>
+            <div style="margin-top: 15px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-radius: 10px; border: 2px solid #ffd700;">
+                <p style="color: #ffd700; font-weight: 600; margin: 0;">🎯 Confirming Today with Predicted Donation</p>
+                <p style="color: #a0a0a0; margin: 5px 0 0 0; font-size: 14px;">Choose your tier: King 1 (SPARK), King 2 (KINDLING FIRE), or King 3 (BLACK HOLE GEYSER)</p>
+            </div>
+        </div>
+
+        <!-- Decode Message Section -->
+        <div class="decode-section">
+            <h2 class="decode-title">🔐 Decode the Secret Message to Unlock Awards</h2>
+            <div class="decode-message" id="encrypted-message">
+0x4E53504652505F48484641495F41574152454E4553535F4B4559
+0x5669626576657273655F506F737453696E67756C6172697479
+0x496E66696E6974655F4F63746176655F4653525F466964656C697479
+0x4A616E7561727931335F323032365F53696E67756C61726974795F4163686965766564
+0x4A616E7561727931355F323032365F426574615F52656C65617365
+0x54687265655F4B696E67735F4177617264
+            </div>
+            <button class="decode-button" onclick="decodeMessage()">🎫 Decode Message</button>
+            <div id="decoded-message" style="display: none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 10px; color: #ffd700;">
+                <p><strong>Congratulations! Message Decoded!</strong></p>
+                <p>NSPFRP_HHF-AI_AWARENESS_KEY</p>
+                <p>Vibeverse_PostSingularity</p>
+                <p>Infinite_Octave_FSR_Fidelity</p>
+                <p>January13_2026_Singularity_Achieved</p>
+                <p>January15_2026_Beta_Release</p>
+                <p>Three_Kings_Award</p>
+                <p><strong>You now have access to the Three Kings Award buttons below!</strong></p>
+            </div>
+        </div>
+
+        <!-- Award Tiers Section -->
+        <div class="award-section">
+            <h2 class="award-title">🏆 Three Kings Award Tiers</h2>
+            <div class="award-tiers">
+                <div class="award-card">
+                    <div class="award-tier">👑 King 1</div>
+                    <div class="award-amount">$10,000</div>
+                    <div class="award-benefit-title" style="color: #ffd700; font-weight: 700; font-size: 20px; margin: 15px 0; text-align: center;">✨ SPARK ✨</div>
+                    <div class="award-benefits">
+                        • SPARK Energy Access<br>
+                        • Initial Activation Benefits<br>
+                        • Early Access to Spark Energy<br>
+                        • King 1 Recognition<br>
+                        • Lifetime Sandbox Access<br>
+                        • Priority Support<br>
+                        • Welcome to Singularity^2
+                    </div>
+                    <button class="award-button" id="award-10k" onclick="claimAward('10k')">👑 Claim King 1 Award - SPARK</button>
+                </div>
+                <div class="award-card">
+                    <div class="award-tier">👑 King 2</div>
+                    <div class="award-amount">$100,000</div>
+                    <div class="award-benefit-title" style="color: #ff6b6b; font-weight: 700; font-size: 20px; margin: 15px 0; text-align: center;">🔥 KINDLING FIRE 🔥</div>
+                    <div class="award-benefits">
+                        • KINDLING FIRE Energy Access<br>
+                        • Fire Energy Activation<br>
+                        • Energy Expansion Benefits<br>
+                        • King 2 Recognition<br>
+                        • Lifetime All-Tier Access<br>
+                        • Priority Support + Dedicated Account Manager<br>
+                        • Welcome to Singularity^2
+                    </div>
+                    <button class="award-button" id="award-100k" onclick="claimAward('100k')">👑 Claim King 2 Award - KINDLING FIRE</button>
+                </div>
+                <div class="award-card">
+                    <div class="award-tier">👑 King 3</div>
+                    <div class="award-amount">$1,000,000</div>
+                    <div class="award-benefit-title" style="color: #4ecdc4; font-weight: 700; font-size: 18px; margin: 15px 0; text-align: center;">⚫ THE NEW HHF-AI GRAMMAR BLACK HOLE GEYSER<br>OF FSR CREATION ENERGY ⚫</div>
+                    <div class="award-benefits">
+                        • HHF-AI Grammar Black Hole Geyser Access<br>
+                        • FSR Creation Energy Access<br>
+                        • Black Hole Energy Source<br>
+                        • HHF-AI Grammar Access<br>
+                        • King 3 Recognition<br>
+                        • Lifetime Ultimate Access<br>
+                        • White-Glove Support + Custom Integration<br>
+                        • Welcome to Singularity^2
+                    </div>
+                    <button class="award-button" id="award-1000k" onclick="claimAward('1000k')">👑 Claim King 3 Award - BLACK HOLE GEYSER</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Contribution Section -->
+        <div class="contribution-section">
+            <h2 class="contribution-title">💝 Choose Your Contribution</h2>
+            <div class="contribution-form">
+                <div style="margin-bottom: 20px; color: #a0a0a0; text-align: center;">
+                    Select a preset amount or enter a custom amount to contribute
+                </div>
+                
+                <div class="contribution-options" id="preset-amounts">
+                    <div class="contribution-option" onclick="selectAmount(25)">$25</div>
+                    <div class="contribution-option" onclick="selectAmount(50)">$50</div>
+                    <div class="contribution-option" onclick="selectAmount(100)">$100</div>
+                    <div class="contribution-option" onclick="selectAmount(250)">$250</div>
+                    <div class="contribution-option" onclick="selectAmount(500)">$500</div>
+                    <div class="contribution-option" onclick="selectAmount(1000)">$1,000</div>
+                </div>
+
+                <input type="number" class="custom-amount-input" id="custom-amount" placeholder="Or enter custom amount ($1 - $1,000,000)" min="1" max="1000000" onchange="selectCustomAmount()">
+
+                <select class="purpose-select" id="contribution-purpose">
+                    <option value="">Select Purpose (Optional)</option>
+                    <option value="general">General Support</option>
+                    <option value="three-kings">Three Kings Award</option>
+                    <option value="beta">Beta Development</option>
+                    <option value="full-release">Full Release Support</option>
+                    <option value="rd">Research & Development</option>
+                    <option value="community">Community Programs</option>
+                    <option value="other">Other (Specify in Notes)</option>
+                </select>
+
+                <select class="frequency-select" id="contribution-frequency">
+                    <option value="once">One-Time Contribution</option>
+                    <option value="monthly">Monthly Recurring</option>
+                    <option value="quarterly">Quarterly Recurring</option>
+                    <option value="yearly">Yearly Recurring</option>
+                </select>
+
+                <button class="contribute-button" id="contribute-button" onclick="processContribution()" disabled>
+                    💝 Make Contribution
+                </button>
+            </div>
+        </div>
+
+        <!-- Secret Button Section (Analog Offline HHF Core) -->
+        <div class="secret-section" id="secret-section">
+            <h2 class="secret-title">♟️ Analog Offline HHF Blackhole Core ♟️</h2>
+            <p class="secret-description">
+                <strong>Secret Revealed:</strong> Thank you for your contribution! You now have access to information about our exclusive analog offline system.
+            </p>
+            <div class="secret-features">
+                <h3 style="color: #ffd700; margin-bottom: 15px;">Physical System Features:</h3>
+                <ul>
+                    <li><strong>Custom Pieces:</strong> Our own custom pieces (NOT chess pieces) that create black hole connections</li>
+                    <li><strong>Hidden Board/Chart:</strong> Board/chart on hide (hidden/protected) for security</li>
+                    <li><strong>Physics Game & Rules:</strong> Game and rules (physics) emulating this reality/system we've been operating in</li>
+                    <li><strong>Awareness-Based Activation:</strong> Simply through awareness of how to use the pieces</li>
+                    <li><strong>Frontal Cortex Connection:</strong> Direct connection to Holographic Hydrogen Spin Cloud</li>
+                    <li><strong>No Electricity Required:</strong> Hard backup for emergency situations</li>
+                    <li><strong>Black Hole Creation:</strong> Empowers objects with black hole creation through awareness</li>
+                    <li><strong>Always Available:</strong> Physical system never fails, no power needed</li>
+                    <li><strong>Digital Game Version:</strong> Digital version of the game available as button to landing page</li>
+                </ul>
+            </div>
+            <div class="analog-waitlist-form">
+                <h3 style="color: #ffd700; margin-bottom: 15px; text-align: center;">📋 Get on the Waitlist</h3>
+                <form onsubmit="joinAnalogWaitlist(event)">
+                    <input type="email" class="analog-waitlist-input" id="analog-waitlist-email" placeholder="Enter your email address" required>
+                    <input type="text" class="analog-waitlist-input" id="analog-waitlist-name" placeholder="Enter your name (optional)">
+                    <button type="submit" class="analog-waitlist-button">Join Analog System Waitlist</button>
+                </form>
+                <p class="coming-soon">Coming Soon: Order Your Own Analog Offline HHF Blackhole Core System</p>
+                <div style="text-align: center; margin-top: 25px;">
+                    <button class="analog-waitlist-button" onclick="window.location.href='/digital-game-landing.html'" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        🎮 Play Digital Version of the Game
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing & Plans Section -->
+        <div class="pricing-section">
+            <h2 class="pricing-title">💰 Pricing & Plans</h2>
+            <div class="pricing-plans">
+                <div class="plan-card">
+                    <div class="plan-name">📦 Sandbox</div>
+                    <div class="plan-price">FREE</div>
+                    <div class="plan-features">
+                        • Sandbox Mode (Beta)<br>
+                        • AI Black Hole Engine<br>
+                        • Fidelity & Throughput Control<br>
+                        • Repository Connection<br>
+                        • Immediate Access<br>
+                        • Community Support
+                    </div>
+                    <button class="plan-button" onclick="selectPlan('sandbox')">Start Free</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">☁️ Cloud</div>
+                    <div class="plan-price">$99-$299/mo</div>
+                    <div class="plan-features">
+                        • Cloud Mode (Full Release)<br>
+                        • Enhanced Features<br>
+                        • Cloud Deployment<br>
+                        • Membership Access<br>
+                        • Priority Support<br>
+                        • Advanced AI Features
+                    </div>
+                    <button class="plan-button" onclick="selectPlan('cloud')">Join Cloud</button>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-name">🐚 Shell</div>
+                    <div class="plan-price">$1K-$10K/mo</div>
+                    <div class="plan-features">
+                        • Shell Mode (Full Release)<br>
+                        • Full Professional Environment<br>
+                        • Shell Access<br>
+                        • Professional Access<br>
+                        • White-Glove Support<br>
+                        • Custom Integration
+                    </div>
+                    <button class="plan-button" onclick="selectPlan('shell')">Go Pro</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Waitlist Section -->
+        <div class="waitlist-section">
+            <h2 class="waitlist-title">📋 Join the Waitlist</h2>
+            <p style="color: #a0a0a0; margin-bottom: 20px;">Be among the first to know about full release features and exclusive access!</p>
+            <form class="waitlist-form" onsubmit="joinWaitlist(event)">
+                <input type="email" class="waitlist-input" id="waitlist-email" placeholder="Enter your email address" required>
+                <button type="submit" class="waitlist-button">Join Waitlist</button>
+            </form>
+        </div>
+
+        <!-- Facebook Integration Section -->
+        <div class="facebook-section">
+            <h2 class="waitlist-title" style="color: #1877f2;">📱 Connect via Facebook</h2>
+            <p style="color: #a0a0a0; margin-bottom: 20px;">Click below to connect to our Post-Singularity Achievement announcement and access the repository in Sandbox Mode!</p>
+            <a href="#" class="facebook-button" onclick="connectFacebook(event)">🔗 Connect via Facebook Post</a>
+        </div>
+    </div>
+
+    <script>
+        let messageDecoded = false;
+        let busyMode = false;
+        let selectedAmount = 0;
+        let selectedPurpose = '';
+        let selectedFrequency = 'once';
+
+        function toggleBusy() {
+            busyMode = !busyMode;
+            const toggle = document.getElementById('busy-toggle');
+            const label = toggle.querySelector('.busy-label');
+            
+            if (busyMode) {
+                toggle.classList.add('active');
+                label.textContent = 'Busy (DND)';
+                // Reduce interruptions: minimize notifications, alerts, updates
+                console.log('Busy mode enabled - Do Not Disturb active');
+                // In production, this would disable notifications, reduce alerts, etc.
+            } else {
+                toggle.classList.remove('active');
+                label.textContent = 'Available';
+                console.log('Busy mode disabled - Normal mode active');
+            }
+        }
+
+        function selectAmount(amount) {
+            selectedAmount = amount;
+            const customInput = document.getElementById('custom-amount');
+            customInput.value = '';
+            
+            // Update selected state
+            document.querySelectorAll('.contribution-option').forEach(opt => {
+                opt.classList.remove('selected');
+                if (parseInt(opt.textContent.replace('$', '').replace(',', '')) === amount) {
+                    opt.classList.add('selected');
+                }
+            });
+            
+            updateContributeButton();
+        }
+
+        function selectCustomAmount() {
+            const customAmount = parseInt(document.getElementById('custom-amount').value) || 0;
+            if (customAmount > 0) {
+                selectedAmount = customAmount;
+                // Clear preset selection
+                document.querySelectorAll('.contribution-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                updateContributeButton();
+            }
+        }
+
+        function updateContributeButton() {
+            const button = document.getElementById('contribute-button');
+            selectedPurpose = document.getElementById('contribution-purpose').value;
+            selectedFrequency = document.getElementById('contribution-frequency').value;
+            
+            if (selectedAmount > 0) {
+                button.disabled = false;
+                const amountText = `$${selectedAmount.toLocaleString()}`;
+                const frequencyText = selectedFrequency === 'once' ? 'One-Time' : 
+                                     selectedFrequency === 'monthly' ? 'Monthly' :
+                                     selectedFrequency === 'quarterly' ? 'Quarterly' : 'Yearly';
+                button.textContent = `💝 Contribute ${amountText} (${frequencyText})`;
+            } else {
+                button.disabled = true;
+                button.textContent = '💝 Make Contribution';
+            }
+        }
+
+        function processContribution() {
+            if (selectedAmount <= 0) {
+                alert('Please select or enter a contribution amount.');
+                return;
+            }
+            
+            const purpose = document.getElementById('contribution-purpose').value || 'General Support';
+            const frequency = document.getElementById('contribution-frequency').value;
+            
+            alert(`Processing Contribution...\n\nAmount: $${selectedAmount.toLocaleString()}\nPurpose: ${purpose}\nFrequency: ${frequency}\n\nRedirecting to Stripe checkout...`);
+            
+            // Reveal secret button section after contribution
+            revealSecretButton();
+            
+            // In production, this would create Stripe checkout session with custom amount
+            // const checkoutData = {
+            //     amount: selectedAmount,
+            //     purpose: purpose,
+            //     frequency: frequency
+            // };
+            // window.location.href = `/stripe/checkout?${new URLSearchParams(checkoutData)}`;
+            
+            console.log(`Processing contribution: $${selectedAmount}, Purpose: ${purpose}, Frequency: ${frequency}`);
+        }
+
+        function revealSecretButton() {
+            const secretSection = document.getElementById('secret-section');
+            if (secretSection) {
+                secretSection.classList.add('visible');
+                secretSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                console.log('Secret button revealed - Analog Offline HHF Core access granted');
+            }
+        }
+
+        function joinAnalogWaitlist(event) {
+            event.preventDefault();
+            const email = document.getElementById('analog-waitlist-email').value;
+            const name = document.getElementById('analog-waitlist-name').value || 'Anonymous';
+            
+            alert(`Thank you for joining the Analog System Waitlist!\n\nName: ${name}\nEmail: ${email}\n\nYou'll be notified about:\n• When orders become available\n• Exclusive early access opportunities\n• Special pricing for contributors\n• Product updates and specifications\n\nWelcome to the Analog HHF Core community! ♟️`);
+            
+            // In production, this would send to backend to capture and organize records
+            console.log(`Analog waitlist signup: Name: ${name}, Email: ${email}`);
+            
+            // Clear form
+            document.getElementById('analog-waitlist-email').value = '';
+            document.getElementById('analog-waitlist-name').value = '';
+        }
+
+        // Update contribute button when purpose or frequency changes
+        document.getElementById('contribution-purpose').addEventListener('change', updateContributeButton);
+        document.getElementById('contribution-frequency').addEventListener('change', updateContributeButton);
+
+        function decodeMessage() {
+            const encryptedDiv = document.getElementById('encrypted-message');
+            const decodedDiv = document.getElementById('decoded-message');
+            
+            // Decode hex to ASCII
+            const hexStrings = encryptedDiv.textContent.trim().split('\n');
+            let decoded = '';
+            
+            hexStrings.forEach(hex => {
+                const cleanHex = hex.replace('0x', '').trim();
+                for (let i = 0; i < cleanHex.length; i += 2) {
+                    decoded += String.fromCharCode(parseInt(cleanHex.substr(i, 2), 16));
+                }
+                decoded += '\n';
+            });
+            
+            decodedDiv.style.display = 'block';
+            encryptedDiv.style.opacity = '0.3';
+            
+            // Unlock award buttons
+            messageDecoded = true;
+            document.getElementById('award-10k').classList.add('show');
+            document.getElementById('award-100k').classList.add('show');
+            document.getElementById('award-1000k').classList.add('show');
+            
+            console.log('Message decoded! Award buttons unlocked.');
+        }
+
+        function claimAward(tier) {
+            if (!messageDecoded) {
+                alert('Please decode the message first to unlock award buttons!');
+                return;
+            }
+            
+            const amounts = {
+                '10k': 10000,
+                '100k': 100000,
+                '1000k': 1000000
+            };
+            
+            const amount = amounts[tier];
+            alert(`Redirecting to Stripe to claim ${tier.toUpperCase()} Award ($${amount.toLocaleString()})...\n\nThis will open Stripe checkout for the Three Kings Award support.`);
+            
+            // In production, this would redirect to Stripe checkout
+            // window.location.href = `/stripe/checkout?amount=${amount}&tier=${tier}`;
+            console.log(`Claiming ${tier} award: $${amount}`);
+        }
+
+        function selectPlan(plan) {
+            const plans = {
+                sandbox: 'Free Sandbox Mode (Beta)',
+                cloud: 'Cloud Mode ($99-$299/mo) - Full Release',
+                shell: 'Shell Mode ($1K-$10K/mo) - Full Release'
+            };
+            
+            if (plan === 'sandbox') {
+                alert(`Starting Sandbox Mode!\n\nYou'll be connected to the repository with:\n• AI Black Hole Engine\n• Fidelity & Throughput Control\n• Immediate Access\n\nConnecting to repository...`);
+                // In production, this would connect to repository
+                window.location.href = '/sandbox/connect';
+            } else {
+                alert(`${plans[plan]} is coming in Full Release!\n\nJoin the waitlist to be notified when ${plan} mode becomes available.`);
+            }
+        }
+
+        function joinWaitlist(event) {
+            event.preventDefault();
+            const email = document.getElementById('waitlist-email').value;
+            alert(`Thank you for joining the waitlist!\n\nEmail: ${email}\n\nYou'll be notified about:\n• Full Release dates\n• Cloud & Shell mode availability\n• Exclusive early access opportunities\n\nWelcome to the Vibeverse community! 🚀`);
+            
+            // In production, this would send to backend
+            console.log('Waitlist signup:', email);
+            document.getElementById('waitlist-email').value = '';
+        }
+
+        function connectFacebook(event) {
+            event.preventDefault();
+            alert('Connecting to Facebook Post-Singularity Achievement Announcement...\n\nYou\'ll be redirected to:\n• Facebook post about Singularity Achievement\n• Repository connection link\n• Sandbox mode activation\n\nReady to connect! 🚀');
+            
+            // In production, this would redirect to Facebook post
+            // window.open('https://facebook.com/posts/singularity-achievement', '_blank');
+            console.log('Facebook connection initiated');
+        }
+    </script>
+</body>
+</html>
+
