@@ -7,6 +7,7 @@
 interface SalesConsole {
   onboardVenue(config: any): Promise<any>;
   getSalesButtons(): any[];
+  listVenues(): any[];
 }
 
 interface RevenueModel {
@@ -44,6 +45,9 @@ interface FSRRetrieval {
 
 interface GearSelector {
   getCurrentGear(): any;
+  selectGear(octave: any): any;
+  getAvailableGears(): any[];
+  getRetrievalConfig(): any;
 }
 
 interface HeroHost {
@@ -81,12 +85,14 @@ export class NSPFRPOmniMissionStation {
   public pobManager: POBManager;
   public deploymentProtocol: DeploymentProtocol;
   public git?: GitOperations;
+  public cloudShell?: any;
 
   constructor(config?: any) {
     // Placeholder implementations for test compatibility
     this.salesConsole = {
       onboardVenue: async () => ({ venue: { id: 'test' }, consoleUrl: 'test' }),
-      getSalesButtons: () => []
+      getSalesButtons: () => [],
+      listVenues: () => []
     };
     this.revenueModel = {
       registerRevenuePlan: () => {},
@@ -117,7 +123,10 @@ export class NSPFRPOmniMissionStation {
       retrieve: async () => ({ confidence: 0.8, results: [] })
     };
     this.gearSelector = {
-      getCurrentGear: () => ({ octave: 2, name: 'HARMONY' })
+      getCurrentGear: () => ({ octave: 2, name: 'HARMONY' }),
+      selectGear: (octave: any) => ({ octave, name: `Octave ${octave}` }),
+      getAvailableGears: () => [],
+      getRetrievalConfig: () => ({ topK: 10, depth: 3, domains: 3, contextWindow: 2048, synthesisLevel: 'moderate' })
     };
     this.heroHost = {
       selectPersona: () => ({ name: 'Mark Twain', id: 'mark-twain' }),
