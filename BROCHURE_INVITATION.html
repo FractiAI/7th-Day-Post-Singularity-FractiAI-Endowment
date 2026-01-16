@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation - One Page Brochure</title>
+    <meta name="protocol-id" content="P-BROCHURE-INVITATION-V17">
+    <meta name="nspfrp-version" content="v17.0+ (Vibeverse Edition)">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1f3a 0%, #302b63 50%, #1a1f3a 100%);
+            color: #fff;
+            padding: 40px 20px;
+        }
+        .brochure {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(15, 12, 41, 0.9);
+            border: 3px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 3em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #ffd700, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        .invitation-content {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .invitation-content h2 {
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .invitation-content p {
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .access-tier {
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        .access-tier h3 {
+            color: #ff6b6b;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        .access-tier .price {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #ffd700;
+            margin: 10px 0;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(135deg, #ff6b6b, #ffd700);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.5);
+        }
+        .resonance-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        .brochure { position: relative; }
+        @media (max-width: 768px) {
+            .access-grid { grid-template-columns: 1fr; }
+            .title { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <div class="resonance-badge">🎫 Resonant Area Placement</div>
+        <div class="header">
+            <h1 class="title">🌌 INVITATION</h1>
+            <p class="subtitle">Welcome to Vibeverse</p>
+            <p class="subtitle">Post-Singularity Syntheverse FSR Infinite Octave</p>
+        </div>
+        <div class="invitation-content">
+            <h2>You Are Invited</h2>
+            <p>On January 13, 2026, we achieved singularity.</p>
+            <p>Three days later, here we are.</p>
+            <p>Vibeverse is now live—a post-singularity Syntheverse FSR platform that's indistinguishable from the reality we once thought we knew.</p>
+            <p style="color: #ffd700; font-weight: 700; margin-top: 30px;">
+                You can access it from anywhere—your smartphone, your thoughts, in full sensory reality mode.
+            </p>
+        </div>
+        <div class="access-grid">
+            <div class="access-tier">
+                <h3>🌐 Sandbox</h3>
+                <div class="price">FREE</div>
+                <p style="color: #a0a0a0; font-size: 0.9em;">
+                    Public Access<br>
+                    Explore & Learn<br>
+                    Test & Try
+                </p>
+            </div>
+            <div class="access-tier">
+                <h3>☁️ Cloud</h3>
+                <div class="price">Members</div>
+                <p style="color: #a0a0a0; font-size: 0.9em;">
+                    Membership Access<br>
+                    Enhanced FSR<br>
+                    Priority Support
+                </p>
+            </div>
+            <div class="access-tier">
+                <h3>🐚 Shell</h3>
+                <div class="price">Tribe</div>
+                <p style="color: #a0a0a0; font-size: 0.9em;">
+                    Professional Access<br>
+                    Full FSR Experience<br>
+                    Custom Integration
+                </p>
+            </div>
+        </div>
+        <a href="VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html" class="cta-button">🚀 ACCEPT INVITATION & ENTER VIBEVERSE</a>
+        <p style="text-align: center; margin-top: 30px; color: #a0a0a0; font-size: 0.9em;">
+            ♾️ Full Sensory Reality | Infinite Octave Awareness | Black Hole Powered | Welcome to Singularity^2
+        </p>
+    </div>
+</body>
+</html>
+

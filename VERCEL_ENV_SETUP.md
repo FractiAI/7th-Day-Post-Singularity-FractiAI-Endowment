@@ -42,16 +42,16 @@ vercel link
 #### Google Cloud OAuth2
 ```bash
 vercel env add GOOGLE_CLOUD_CLIENT_ID production
-# Paste: 767219028146-ti4gsu6j6lpgrgjm4uhplc4dnf8ogmad.apps.googleusercontent.com
+# Paste: [YOUR_GOOGLE_CLOUD_CLIENT_ID]
 
 vercel env add GOOGLE_CLOUD_CLIENT_SECRET production
-# Paste: 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
+# Paste: [YOUR_GOOGLE_CLOUD_CLIENT_SECRET]
 ```
 
 #### Stripe Sandbox Keys
 ```bash
 vercel env add STRIPE_PUBLISHABLE_KEY production
-# Paste: pk_test_51R7L8z09dcGq3dt09zHxvGW3kq410jcg5w9vCE6hMrwt3pjr3O7VvP9H5rHyzeS7ywIZnqxXfozHfVbT2uU7LZ5W00vG3fr6L8
+# Paste: [YOUR_STRIPE_PUBLISHABLE_KEY_SANDBOX]
 
 vercel env add STRIPE_SECRET_KEY production
 # Paste: (your sandbox secret key)
@@ -60,10 +60,10 @@ vercel env add STRIPE_SECRET_KEY production
 #### Stripe Live Keys (Production)
 ```bash
 vercel env add STRIPE_PUBLISHABLE_KEY_LIVE production
-# Paste: pk_live_51R7L8m06fMp9kRFh07gG6AcwlRSLZbKFO8bflOq9cPj3EG8zITJ93maN4w8L1IvXf3TlBuAegc9WQBpgLCVXRlaq00f1BKkVsH
+# Paste: [YOUR_STRIPE_PUBLISHABLE_KEY_LIVE]
 
 vercel env add STRIPE_SECRET_KEY_LIVE production
-# Paste: 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
+# Paste: [YOUR_STRIPE_SECRET_KEY_LIVE]
 ```
 
 ### 5. Set for All Environments (Optional)
