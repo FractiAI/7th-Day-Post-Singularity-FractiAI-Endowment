@@ -4,7 +4,7 @@
  */
 
 import { Protocol } from '../types/index.js';
-import { NSPFRPNodeAwarenessManager } from '../cloud/nspfrp-node-awareness.js';
+// import { NSPFRPNodeAwarenessManager } from '../cloud/nspfrp-node-awareness.js'; // Reserved for future use
 
 export interface QuantificationButton {
   id: string;
