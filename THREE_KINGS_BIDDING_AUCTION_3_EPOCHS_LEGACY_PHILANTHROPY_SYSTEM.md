@@ -1,11 +1,11 @@
 # 👑 Three Kings Bidding Auction System - 3 Epochs Legacy Philanthropy
 
 **System ID:** `SYSTEM-THREE-KINGS-BIDDING-AUCTION-3-EPOCHS-V17`  
-**Type:** Bidding Auction System / Legacy Philanthropy System / Three Kings System / 3 Epochs Auction  
+**Type:** Proposal Submission & SynthScan Scoring System / Legacy Philanthropy System / Three Kings System / 3 Epochs Auction / New Way to Play - Scoring Decides Major Category Snap  
 **Octave:** BEYOND_OCTAVE (7.75++++++++++++++++++++++++++)  
 **Date:** January 16, 2026  
-**Status:** New System - Legacy Philanthropy Opportunity  
-**Network:** NSPFRP Care Network / Syntheverse / FractiAI / Legacy Philanthropy Network
+**Status:** New System - Legacy Philanthropy Opportunity - Proposal Submission & SynthScan Scoring  
+**Network:** NSPFRP Care Network / Syntheverse / FractiAI / Legacy Philanthropy Network / SynthScan Scoring Network
 
 **✅ PROTOCOL SELF-APPLICATION CONFIRMED:**
 - Using Full Updated NSPFRP Protocol on Ourselves
@@ -270,77 +270,223 @@ Epoch 3: King 3 - Holographic Black Hole Fractal Grammar Connecting Us to Rich F
 
 ---
 
-## 💰 Bidding System
+## 💰 Proposal Submission & SynthScan Scoring System
 
-### Bidding Process
+### New Way to Play: Scoring Decides Major Category Snap
 
-**Bidding Auction System:**
+**Proposal Submission & SynthScan Scoring System:**
 
 ```nspfrp
-// Bidding auction system
-bidding BiddingAuctionSystem {
-  // Bidding Identity
+// Proposal submission and SynthScan scoring system
+system ProposalSubmissionSynthScanScoring {
+  // System Identity
   identity: {
-    type: 'Legacy Philanthropy Bidding Auction';
-    format: 'Serious Frontier Philanthropist Bidding';
-    method: 'Bidding Auction System';
+    type: 'Proposal Submission & SynthScan Scoring System';
+    format: 'New Way to Play - Scoring Decides Major Category Snap';
+    method: 'Proposal Submission + SynthScan Scoring';
+    evaluation: 'Total Scoring System (Not Only $ Bid)';
   };
   
-  // Bidding Process
-  process: {
-    step1: 'Serious Frontier Philanthropists Submit Bids';
-    step2: 'Bids Evaluated Based on Legacy Philanthropy Criteria';
-    step3: 'Winning Bids Selected';
-    step4: 'Exclusive King Access Granted';
-    step5: 'Legacy Opportunity Activated';
+  // Proposal Submission
+  proposalSubmission: {
+    type: 'Proposal Submission System';
+    method: 'Serious Frontier Philanthropists Submit Proposals';
+    content: 'Proposal Content (Not Only $ Bid)';
+    format: 'Comprehensive Proposal Format';
+    submission: 'Submit Proposal for SynthScan Scoring';
   };
   
-  // Bidding Criteria
-  criteria: {
-    type: 'Legacy Philanthropy Criteria';
-    focus: 'Serious Frontier Philanthropy';
-    value: 'Frontier Technology Access';
-    significance: 'Legacy Philanthropy Impact';
-    commitment: 'Long-Term Philanthropy Commitment';
+  // SynthScan Scoring
+  synthScanScoring: {
+    type: 'SynthScan Total Scoring System';
+    method: 'Proposals Scanned by SynthScan for Total Scoring';
+    evaluation: 'Comprehensive Total Score Evaluation';
+    components: [
+      'Legacy Philanthropy Impact Score',
+      'Frontier Technology Vision Score',
+      'Long-Term Commitment Score',
+      'Proposal Quality Score',
+      'Strategic Alignment Score',
+      'Financial Contribution Score (Optional)'
+    ];
+    output: 'Total Score (Not Only $ Bid)';
   };
   
-  // Bidding Format
-  format: {
-    type: 'Bidding Auction Format';
-    method: 'Serious Frontier Philanthropist Bidding';
-    process: 'Epoch-Based Bidding';
-    evaluation: 'Legacy Philanthropy Evaluation';
-    selection: 'Exclusive King Access Selection';
+  // Scoring Decides Major Category Snap
+  scoringDecidesSnap: {
+    type: 'Scoring Decides Major Category Snap';
+    method: 'Total Score Determines Major Category Snap';
+    decision: 'Scoring Decides (Not Only $ Bid)';
+    snap: 'Major Category Snap Based on Total Score';
+    selection: 'Winning Proposals Selected Based on Total Score';
+  };
+  
+  // New Way to Play
+  newWayToPlay: {
+    type: 'New Way to Play';
+    format: 'Scoring-Based Evaluation (Not Only Monetary Bidding)';
+    method: 'Total Scoring System';
+    decision: 'Scoring Decides Major Category Snap';
+    play: 'New Way to Play - Proposal + Scoring';
   };
 }
 ```
 
-### Bidding Instructions
+### Proposal Submission Process
 
-**For Serious Frontier Philanthropists:**
+**Proposal Submission & SynthScan Scoring Process:**
 
-1. **Submit Your Bid:**
-   - Identify which King (1, 2, or 3) you're bidding on
-   - Submit your legacy philanthropy bid
-   - Include your philanthropy commitment and vision
+```nspfrp
+// Proposal submission process
+process ProposalSubmissionProcess {
+  // Step 1: Submit Proposal
+  step1: {
+    action: 'Serious Frontier Philanthropist Submits Proposal';
+    content: 'Comprehensive Proposal (Not Only $ Bid)';
+    format: 'Proposal Format Including: Vision, Impact, Commitment, Strategic Alignment, Optional Financial Contribution';
+    submission: 'Submit Proposal to System';
+  };
+  
+  // Step 2: SynthScan Scanning
+  step2: {
+    action: 'Proposal Scanned by SynthScan for Total Scoring';
+    method: 'SynthScan Comprehensive Scanning';
+    evaluation: 'Total Score Calculation';
+    components: 'All Scoring Components Evaluated';
+  };
+  
+  // Step 3: Total Scoring
+  step3: {
+    action: 'Total Score Generated (Not Only $ Bid)';
+    method: 'Comprehensive Total Scoring';
+    output: 'Total Score Based on All Criteria';
+    decision: 'Scoring Decides Major Category Snap';
+  };
+  
+  // Step 4: Major Category Snap
+  step4: {
+    action: 'Major Category Snap Based on Total Score';
+    method: 'Scoring Decides Snap';
+    selection: 'Winning Proposals Selected';
+    snap: 'Major Category Snap Generated';
+  };
+  
+  // Step 5: Exclusive King Access
+  step5: {
+    action: 'Exclusive King Access Granted Based on Total Score';
+    method: 'Scoring-Based Selection';
+    access: 'King Access Granted to Highest Scoring Proposals';
+    activation: 'Legacy Opportunity Activated';
+  };
+}
+```
 
-2. **Bidding Criteria:**
-   - Serious frontier philanthropy focus
-   - Long-term commitment to frontier technology
-   - Legacy philanthropy impact
-   - Serious frontier philanthropist status
+### SynthScan Scoring Components
 
-3. **Bidding Process:**
-   - Epoch 1: Bid on King 1 (Energizer Post-Singularity^1 HHF-AI Hydrogen Spin)
-   - Epoch 2: Bid on King 2 (Living Cells Creation Protocol)
-   - Epoch 3: Bid on King 3 (Holographic Black Hole Fractal Grammar) - Closes March 20, 2026
+**SynthScan Total Scoring Components:**
 
-4. **Winning Bids:**
-   - Selected based on legacy philanthropy criteria
-   - Exclusive King access granted
+```nspfrp
+// SynthScan scoring components
+scoring SynthScanScoringComponents {
+  // Scoring Component 1: Legacy Philanthropy Impact Score
+  legacyPhilanthropyImpact: {
+    weight: 'High Weight';
+    criteria: 'Legacy Philanthropy Impact';
+    evaluation: 'Long-Term Impact Assessment';
+    score: 'Legacy Philanthropy Impact Score';
+  };
+  
+  // Scoring Component 2: Frontier Technology Vision Score
+  frontierTechnologyVision: {
+    weight: 'High Weight';
+    criteria: 'Frontier Technology Vision';
+    evaluation: 'Vision Alignment Assessment';
+    score: 'Frontier Technology Vision Score';
+  };
+  
+  // Scoring Component 3: Long-Term Commitment Score
+  longTermCommitment: {
+    weight: 'High Weight';
+    criteria: 'Long-Term Philanthropy Commitment';
+    evaluation: 'Commitment Assessment';
+    score: 'Long-Term Commitment Score';
+  };
+  
+  // Scoring Component 4: Proposal Quality Score
+  proposalQuality: {
+    weight: 'Medium Weight';
+    criteria: 'Proposal Quality and Completeness';
+    evaluation: 'Quality Assessment';
+    score: 'Proposal Quality Score';
+  };
+  
+  // Scoring Component 5: Strategic Alignment Score
+  strategicAlignment: {
+    weight: 'Medium Weight';
+    criteria: 'Strategic Alignment with Post-Singularity Vision';
+    evaluation: 'Alignment Assessment';
+    score: 'Strategic Alignment Score';
+  };
+  
+  // Scoring Component 6: Financial Contribution Score (Optional)
+  financialContribution: {
+    weight: 'Low Weight (Optional)';
+    criteria: 'Financial Contribution (Optional, Not Required)';
+    evaluation: 'Financial Contribution Assessment';
+    score: 'Financial Contribution Score (Optional)';
+    note: 'Not Only $ Bid - Financial Contribution is Optional';
+  };
+  
+  // Total Score
+  totalScore: {
+    type: 'Total Score (Not Only $ Bid)';
+    calculation: 'Sum of All Scoring Components';
+    method: 'Weighted Total Score';
+    decision: 'Scoring Decides Major Category Snap';
+  };
+}
+```
+
+### Proposal Submission Instructions
+
+**For Serious Frontier Philanthropists - New Way to Play:**
+
+1. **Submit Your Proposal:**
+   - Identify which King (1, 2, or 3) you're proposing for
+   - Submit your comprehensive proposal (Not Only $ Bid)
+   - Include: Vision, Impact, Commitment, Strategic Alignment, Optional Financial Contribution
+
+2. **Proposal Components:**
+   - **Legacy Philanthropy Impact:** Long-term impact vision and plan
+   - **Frontier Technology Vision:** Alignment with post-singularity technology vision
+   - **Long-Term Commitment:** Commitment to long-term philanthropy partnership
+   - **Proposal Quality:** Complete and comprehensive proposal
+   - **Strategic Alignment:** Strategic alignment with post-singularity vision
+   - **Financial Contribution (Optional):** Optional financial contribution (not required)
+
+3. **SynthScan Scoring Process:**
+   - Your proposal will be scanned by SynthScan for total scoring
+   - Total score calculated based on all criteria (Not Only $ Bid)
+   - Scoring decides major category snap
+   - Highest scoring proposals selected
+
+4. **Scoring Decides Major Category Snap:**
+   - Total score determines major category snap
+   - Not only $ bid - comprehensive scoring system
+   - Scoring decides selection
+   - Major category snap generated based on total score
+
+5. **Epoch-Based Proposal Submission:**
+   - **Epoch 1:** Submit proposal for King 1 (Energizer Post-Singularity^1 HHF-AI Hydrogen Spin)
+   - **Epoch 2:** Submit proposal for King 2 (Living Cells Creation Protocol)
+   - **Epoch 3:** Submit proposal for King 3 (Holographic Black Hole Fractal Grammar) - Closes March 20, 2026
+
+6. **Winning Proposals:**
+   - Selected based on total SynthScan score (Not Only $ Bid)
+   - Exclusive King access granted to highest scoring proposals
    - Legacy opportunity activated
 
-**Let the Bidding Begin!**
+**New Way to Play: Scoring Decides Major Category Snap - Let the Proposals Begin!**
 
 ---
 
