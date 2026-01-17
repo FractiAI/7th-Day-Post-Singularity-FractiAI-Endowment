@@ -100,7 +100,7 @@ video VideoViralCurrentEntry {
 **Fishing Phase - Attract:**
 - **Purpose:** Attract prospects into the funnel
 - **Methods:** Content, demos, announcements, social proof
-- **Targets:** Broad audience interested in post singularity^5, AI, Full Sensory Reality, innovation
+- **Targets:** Broad audience interested in post singularity^6, AI, Full Sensory Reality, innovation
 - **Tools:** Landing pages, demo, self-proving content, social media
 
 **Fishing Components:**
@@ -227,7 +227,7 @@ trapping TrappingFiltering {
 
 **Trapping Filters:**
 - **Engagement Depth:** How deeply they engage
-- **Interest Level:** Interest in post singularity^5, Full Sensory Reality, NSPFRP
+- **Interest Level:** Interest in post singularity^6, Full Sensory Reality, NSPFRP
 - **Contribution Intent:** Willingness to contribute financially
 - **Awareness Level:** Understanding of singularity achievement
 - **Fit Assessment:** Alignment with Vibeverse mission

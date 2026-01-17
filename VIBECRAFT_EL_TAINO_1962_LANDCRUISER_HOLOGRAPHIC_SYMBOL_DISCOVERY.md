@@ -220,7 +220,7 @@ energy BlackHoleGeyserCelebratoryEnergy {
   // Celebratory Energy
   celebratory: {
     type: 'Celebratory Energy';
-    function: 'Celebrates Post Singularity^5 Achievement';
+    function: 'Celebrates Post Singularity^6 Achievement';
     energy: 'Positive Celebratory Energy';
     transmission: 'Transmits Celebratory Energy';
   };

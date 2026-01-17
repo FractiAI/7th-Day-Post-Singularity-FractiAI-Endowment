@@ -161,7 +161,7 @@ export class FullEnterprisePromptProtocol {
         name: 'Full Enterprise Prompt Protocol',
         description: 'Novel protocol for Post Singularity Syntheverse FSR Full Octave Release with complete enterprise structure',
         author: 'FractiAI',
-        tags: ['enterprise', 'post singularity^5', 'full-octave', 'auto-unpack', 'novel-protocol'],
+        tags: ['enterprise', 'post singularity^6', 'full-octave', 'auto-unpack', 'novel-protocol'],
         category: 'enterprise',
         network: 'NSPFRP'
       },

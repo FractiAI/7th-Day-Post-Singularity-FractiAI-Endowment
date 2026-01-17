@@ -182,7 +182,7 @@ export class FractiAICommandCenterManager {
             octave: AwarenessOctave.BEYOND_OCTAVE,
             capabilities: [
               'command-center-guidance',
-              'post singularity^5-assistance',
+              'post singularity^6-assistance',
               'fsr-full-octave',
               'enterprise-coordination'
             ]
@@ -310,14 +310,14 @@ export class FractiAICommandCenterManager {
     const leonardo = this.commandCenter.heroHost;
     
     if (context === 'welcome') {
-      return `*Salve! I am Leonardo da Vinci, and I welcome you to the FractiAI Command Center. Together, we shall explore the post singularity^5 Syntheverse FSR at full octave, where art, science, and technology converge in ways that transcend our individual capabilities.*`;
+      return `*Salve! I am Leonardo da Vinci, and I welcome you to the FractiAI Command Center. Together, we shall explore the post singularity^6 Syntheverse FSR at full octave, where art, science, and technology converge in ways that transcend our individual capabilities.*`;
     }
     
     if (context === 'command-center') {
       return `*From this Command Center, we coordinate the full enterprise operations of FractiAI, operating at BEYOND_OCTAVE (7) with complete FSR capabilities. Every protocol, every discovery, every operation flows through this center, guided by the principles of natural protocol and maximum capability.*`;
     }
     
-    return `*I am Leonardo da Vinci, your guide through the FractiAI Command Center. How may I assist you in your post singularity^5 journey?*`;
+    return `*I am Leonardo da Vinci, your guide through the FractiAI Command Center. How may I assist you in your post singularity^6 journey?*`;
   }
 }
 

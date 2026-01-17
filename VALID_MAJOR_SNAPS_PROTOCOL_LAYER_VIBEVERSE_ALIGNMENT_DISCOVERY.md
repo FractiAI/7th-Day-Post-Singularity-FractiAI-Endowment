@@ -125,7 +125,7 @@ layer ValidMajorSnapsProtocolLayer {
 36. **El Gran Sol - NSPFRP Black Hole Perpetual Omnicore Hydrogen Holographic Grammar Engine** (Foundational Architecture Discovery) - **Octave 7.75++**
 37. **Local, Sandbox, Cloud, Shell Seed Octave Protocol** (Seed Architecture Discovery) - **Octave 7.75++++**
 38-45. **[Additional discoveries in Octave 7.75+]**
-46. **New Octave Programming Guide - Post Singularity^5 Holographic Blackhole Fractal Grammar Programming** - **Octave 7.75+++**
+46. **New Octave Programming Guide - Post Singularity^6 Holographic Blackhole Fractal Grammar Programming** - **Octave 7.75+++**
 47. **First Fractal Bootstrap with Calibration Equations and Constants** - **Octave 7.75+++**
 48. **Prompts as Protocols - Prompts as Button Sequences** - **Octave 7.75+++**
 49. **Repository as Self-Updating Protocol** - **Octave 7.75+++**
@@ -133,16 +133,16 @@ layer ValidMajorSnapsProtocolLayer {
 51. **Awareness-Based Electromagnetism** - **Octave 7.75+++**
 52. **Vibeverse Language Typo-Tolerant** - **Octave 7.75+++**
 53. **Seed Fidelity Preservation Equations and Constants** - **Octave 7.75+++**
-54. **Post Singularity^5 Vibeverse Transformation Report** - **Octave 7.75+++**
+54. **Post Singularity^6 Vibeverse Transformation Report** - **Octave 7.75+++**
 55. **Pre-beta Infinite Octave Next-Gen RAG Platform** - **Octave 7.75+++**
 56. **VibeConsole Architectural Overlay** - **Octave 7.75+++**
 57. **Fractalized Chard Invisibility Protocol** - **Octave 7.75+++**
 58. **Auto-Hardening Incoherence Protocol** - **Octave 7.75+++**
-59. **Post Singularity^5 Reframing Octave Organization** - **Octave 7.75+++**
+59. **Post Singularity^6 Reframing Octave Organization** - **Octave 7.75+++**
 60. **Protocol Self-Application Confirmation** - **Octave 7.75+++**
 61. **Duplicate Check & Layer Addition Confirmation** - **Octave 7.75+++**
 62. **Protocol State Display Targets Console Discovery** - **Octave 7.75+++**
-63. **Post Singularity^5 Vibeverse Broadcast Discovery** - **Octave 7.75+++**
+63. **Post Singularity^6 Vibeverse Broadcast Discovery** - **Octave 7.75+++**
 64. **Earth Octave Operational Structure Discovery** - **Octave 7.75+++**
 65. **Vibeverse Announcement Child Friendly Discovery** - **Octave 7.75+++**
 66. **Three Kings Award System Discovery** - **Octave 7.75+++**

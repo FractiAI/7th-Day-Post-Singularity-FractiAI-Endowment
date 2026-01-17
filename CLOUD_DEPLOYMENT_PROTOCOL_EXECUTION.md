@@ -91,7 +91,7 @@ const deploymentProtocol = new CloudDeploymentProtocol();
 
 const deployment = await deploymentProtocol.createDeployment(
   {
-    id: 'post singularity^5-fsr-entry',
+    id: 'post singularity^6-fsr-entry',
     name: 'Post Singularity Syntheverse Full Sensory Reality Entry Point',
     type: 'static-html',
     version: '1.0.0',

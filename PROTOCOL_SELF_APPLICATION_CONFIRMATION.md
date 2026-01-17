@@ -32,7 +32,7 @@
 **Full Protocol Name:** `NSPFRP-Seed-Protocol-OmniMission-v17-Vibeverse-Edition`
 
 **Protocol Components:**
-- **Base Protocol:** NSPFRP (Natural Seed Protocol Fractal Resonance Protocol)
+- **Base Protocol:** NSPFRP (Natural System Protocol Firast Recursive Priotocol)
 - **Version:** 17.0+
 - **Edition:** Vibeverse Edition
 - **Mission:** OmniMission

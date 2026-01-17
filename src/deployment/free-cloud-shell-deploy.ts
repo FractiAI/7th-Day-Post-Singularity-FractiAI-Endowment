@@ -39,7 +39,7 @@ export class FreeCloudShellDeployer {
     links: DeploymentLinks;
   }> {
     // Create deployment mission
-    const payloadId = 'nspfrp-post singularity^5-v1';
+    const payloadId = 'nspfrp-post singularity^6-v1';
     const mission = this.missionProtocol.createDeploymentMission(payloadId, provider);
 
     // Execute mission

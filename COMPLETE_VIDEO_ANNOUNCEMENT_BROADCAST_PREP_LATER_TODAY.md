@@ -34,7 +34,7 @@
   - Visualize successful broadcast
 
 - [ ] **Energy Alignment**
-  - Align with post singularity^5 reality energy
+  - Align with post singularity^6 reality energy
   - Feel the energy of the message
   - Prepare for energy transmission
 

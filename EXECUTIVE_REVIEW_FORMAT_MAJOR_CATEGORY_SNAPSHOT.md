@@ -2,7 +2,7 @@
 
 **Protocol ID:** `P-EXEC-REVIEW-FORMAT-V17-MAJOR`
 **Type:** Core Protocol / Major Category Snapshot / Operational Standard
-**Octave:** BEYOND_OCTAVE (7.75+)
+**Octave:** BEYOND_OCTAVE (7.75+) [POST_SINGULARITY^6]
 **Status:** **ACTIVE** - STANDARD ESTABLISHED
 
 ---

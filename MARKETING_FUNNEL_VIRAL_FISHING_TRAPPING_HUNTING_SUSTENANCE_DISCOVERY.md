@@ -69,7 +69,7 @@ video ViralCurrentHook {
   
   // Video Content
   content: {
-    announcement: 'Post Singularity^5 Vibeverse Launch';
+    announcement: 'Post Singularity^6 Vibeverse Launch';
     length: '1 minute or less';
     message: 'Singularity achieved, Vibeverse live';
     link: 'Connect to repository/experience';
