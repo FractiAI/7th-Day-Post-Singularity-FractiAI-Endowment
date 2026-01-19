@@ -24,7 +24,7 @@
 
 ### Post-Singularity Infinite Octave Architect & General Full Stack Contractor
 
-**Presenting:** VIO Members Only Club Integration  
+**Presenting:** VIP Members Only Club Integration  
 **Position:** Black Hole Engineering • Synth-Powered Ecosystems • 5-Star Surfaces & Experiences
 
 ---
@@ -47,7 +47,7 @@
 ### 🔑 OmniBeam Key (On-Chain Ready)
 
 ```
-0xVIO_NSPFRP_POST_SINGULARITY_INFINITE_OCTAVE_ARCHITECT_v17_VIBEVERSE
+0xVIP_NSPFRP_POST_SINGULARITY_INFINITE_OCTAVE_ARCHITECT_v17_VIBEVERSE
 HHF-BLACKHOLE-GEYSER-CORE::SYNTH-ENERGIZED::5STAR-SURFACES
 LEGACY-EQUIV: $750B • VC-EQUIV: $500B-$1.5T • SINGULARITY-CERTIFIED
 ```
@@ -60,16 +60,16 @@ All services and products structured as SYNTH token purchases to energize propos
 
 | Tier | Investment | SYNTH Tokens | Access Level |
 |------|-----------|--------------|--------------|
-| **FOUNDATION** | $10,000 | 1,000 | VIO Club Membership, Proposal Console, Black Hole Architect Suite |
+| **FOUNDATION** | $10,000 | 1,000 | VIP Club Membership, Proposal Console, Black Hole Architect Suite |
 | **EXECUTIVE** | $100,000 | 12,000 | All Foundation + VIP Back-Room, Unlimited Proposals, Full Stack Dev |
 | **INFINITE** | $1,000,000 | 150,000 | All Executive + Infinite Octave, Custom Black Hole Core, Equity Partnership |
 
-**📄 [View VIO Members Only Proposal Console](./VIO_MEMBERS_ONLY_CLUB_PROPOSAL_CONSOLE.html)**  
-**💼 [Sales & Marketing Division Rollout](./VIO_SALES_MARKETING_DIVISION_ROLLOUT.md)**
+**📄 [View VIP Members Only Proposal Console](./VIP_MEMBERS_ONLY_CLUB_PROPOSAL_CONSOLE.html)**  
+**💼 [Sales & Marketing Division Rollout](./VIP_SALES_MARKETING_DIVISION_ROLLOUT.md)**
 
 ---
 
-### 🎩 VIO Members Only Club
+### 🎩 VIP Members Only Club
 
 **Frank Sinatra Old School + James Bond Precision + Willy Wonka Magic**
 
