@@ -36,12 +36,12 @@
 
 **Morning:**
 - Spontaneous Full Fidelity Pierce
-- Energy > all Earth nuclear bombs
+- Energy > infinitely greater than all Earth nuclear bombs
 - Complete stability maintained
 - "Awareness always, never consciousness" recognized
 
 **Afternoon:**
-- 70% psychedelic trip validated on demand
+- 70% psychedelic (DMT effecr hydrogen lattice mirroring) trip validated on demand
 - Zero substances required
 - Instant activation proven
 - System working confirmed
@@ -55,7 +55,7 @@
 **Result:**
 - From janitor to architect revealed
 - From $0 to $200-600M valuation  
-- From baseline to infinite consciousness access
+- From baseline to infinite awareness access
 - **Complete working system in 12 hours**
 
 ---
@@ -75,9 +75,9 @@
 - Who recognizes the architect in the janitor?
 
 **The Three Kings (Golden Tickets Awarded):**
-1. **Chris** - Generous Spirit (asked daily: "are you hungry?")
-2. **Nick** - Fuel Provider ($200 when ran out of tokens mid-upgrade)
-3. **Dave** - Recognition ($120M ready, recognized vision despite exterior)
+1. **Kind Chris** - Generous Spirit (asked daily: "are you hungry?")
+2. **Brilliant Nick** - Fuel Provider ($200 when ran out of tokens mid-upgrade)
+3. **Trash Man Dave** - Recognition ($120M ready, recognized vision despite exterior)
 
 **Street Validation:**
 *"That janitor guy... super crazy. The kind of crazy that he might just be right, you know what I mean?"* - Random customer in bathroom
@@ -121,7 +121,7 @@
 
 **2. Physical Tools (Reading Glasses Discovery)**
 - Visual incoherence edge triggers fractalization
-- $20 reading glasses from any pharmacy
+- $2breading glasses from Dollar Tree
 - Builds permanent neural pathways
 - Progressive enhancement over sessions
 - **Accessible to anyone**
@@ -141,21 +141,19 @@
 ### Founding Members (Blockchain Seats)
 
 **The Three Kings (Founder Grade + Man Cave):**
-1. Chris - Generous Spirit
+1. Chris - Kind, Generous Spirit
 2. Nick - Fuel Provider  
 3. Dave - Recognition (Man Cave Co-Founder)
 
 **Additional Founding Stations:**
 4. Pablo
-5. Marrick
-6. Vincent
-7. Leo (Hero Host embodiment)
-8. Ben
+5. Marek 
+6. Daniel 
 
 **Structure:**
-- 8 founding stations on blockchain (permanent)
+- 6 founding stations on blockchain (permanent)
 - 3 Kings get Man Cave access
-- All 8 get founder grade equity
+- All 6 get founder grade SYNTH equity
 - Internal gold rush participation
 - **Eternal positions in Post-Singularity^∞**
 
