@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craft Console - The Man Cave Upgrade Project</title>
+    <link rel="stylesheet" href="members-only-mens-club-infinite-octaves-skin.css">
+    <style>
+        body {
+            font-family: 'Didot', 'Garamond', serif;
+            background: #0a0a0a;
+            color: #d4af37;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .craft-dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 30px;
+        }
+
+        .dashboard-title {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 12px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .dashboard-subtitle {
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: #999;
+        }
+
+        .project-button-container {
+            display: flex;
+            justify-content: center;
+            margin: 80px 0;
+        }
+
+        .project-button {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .project-button::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(212, 175, 55, 0.3) 50%, 
+                transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .project-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .project-button:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+            border-color: #ffd700;
+        }
+
+        .project-icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .project-name {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .project-client {
+            font-size: 18px;
+            color: #999;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .project-value {
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .project-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Proposal Modal */
+        .proposal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .proposal-modal.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .proposal-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #1a1a1a;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 60px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .proposal-header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 30px;
+        }
+
+        .proposal-title {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .proposal-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 2px;
+        }
+
+        .proposal-section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+            letter-spacing: 1px;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tier-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .tier-card.recommended {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .tier-name {
+            font-size: 24px;
+            color: #ffd700;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .tier-price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d4af37;
+            margin: 20px 0;
+        }
+
+        .tier-features {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .tier-features li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            color: #999;
+            font-size: 14px;
+        }
+
+        .authorization-section {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .auth-title {
+            font-size: 32px;
+            color: #ffd700;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .auth-button {
+            padding: 15px 40px;
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 2px solid #d4af37;
+            background: transparent;
+            color: #d4af37;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .auth-button.primary {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            color: #000;
+            border: none;
+        }
+
+        .auth-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .gc-note {
+            background: rgba(0, 0, 0, 0.8);
+            border-left: 4px solid #d4af37;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <!-- Craft Dashboard -->
+    <div class="craft-dashboard">
+        <div class="dashboard-header">
+            <div class="dashboard-title">CRAFT CONSOLE</div>
+            <div class="dashboard-subtitle">Post-Singularity General Contractor • Project Delivery System</div>
+        </div>
+
+        <!-- Project Button -->
+        <div class="project-button-container">
+            <div class="project-button" onclick="openProposal()">
+                <div class="project-status">READY FOR REVIEW</div>
+                <div class="project-icon">🏗️</div>
+                <div class="project-name">MAN CAVE UPGRADE</div>
+                <div class="project-client">For: Dave, Chairman</div>
+                <div class="project-value">VIP Tier: $12,000,000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proposal Modal -->
+    <div class="proposal-modal" id="proposalModal">
+        <div class="proposal-content">
+            <button class="close-button" onclick="closeProposal()">×</button>
+            
+            <!-- Header -->
+            <div class="proposal-header">
+                <div class="proposal-title">THE MAN CAVE UPGRADE</div>
+                <div class="proposal-meta">
+                    <div><strong>TO:</strong> Dave, Chairman</div>
+                    <div><strong>FROM:</strong> Post-Singularity GC ($S^7$ Studio)</div>
+                    <div><strong>DATE:</strong> January 19, 2026</div>
+                    <div><strong>PROJECT ID:</strong> DAVE-MAN-CAVE-001</div>
+                </div>
+            </div>
+
+            <!-- Scope -->
+            <div class="proposal-section">
+                <div class="section-title">🎯 PROJECT SCOPE</div>
+                <div class="section-content">
+                    <strong>Decommissioning:</strong> The "Yard" (Snow, Fog, Mud)<br>
+                    <strong>Commissioning:</strong> The Accretion Bridge<br><br>
+                    <p>Dave, you've put in your time in the rain. This project <strong>guts the old-world friction</strong> and installs a <strong>sovereign command center</strong>. You don't manage trucks anymore; you manage <strong>gravity</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Core Systems -->
+            <div class="proposal-section">
+                <div class="section-title">💎 THE CORE SYSTEMS</div>
+                <div class="section-content">
+                    <h3 style="color: #ffd700; margin: 20px 0 10px;">1. The Black Hole Interface</h3>
+                    <p>Your 8K tactical desk. Watch as your nodes <strong>"Point, Click, and Digest"</strong> entropy. You aren't recycling; you're <strong>phasing out waste</strong> and <strong>harvesting pure SYNTH</strong> from your chair.</p>
+
+                    <h3 style="color: #ffd700; margin: 30px 0 10px;">2. The Hero Host (AI CEO)</h3>
+                    <p>Your direct-report superintelligence. It handles the 4:00 AM logistics, the node maintenance, and the "groundskeeping." It works the weather; <strong>you stay in the dry</strong>.</p>
+
+                    <h3 style="color: #ffd700; margin: 30px 0 10px;">3. The 50% Gold Rush</h3>
+                    <p>We activate the global referral engine. The public hunts for trash to earn a <strong>50% commission</strong>. They feed the machine; you reap the yield as the <strong>Root Node</strong>.</p>
+
+                    <h3 style="color: #ffd700; margin: 30px 0 10px;">4. The Safe-Bridge</h3>
+                    <p>Biometric liquidity dial. Convert SYNTH to USD/EUR for old-world spending, while your <strong>$120M legacy</strong> stays shielded in the <strong>collapse-proof Shell</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Tier Options -->
+            <div class="proposal-section">
+                <div class="section-title">💰 THE CLUB (OPTIONS)</div>
+                <div class="tier-grid">
+                    <div class="tier-card">
+                        <div class="tier-name">GUEST (The 0)</div>
+                        <div class="tier-price">$120K</div>
+                        <ul class="tier-features">
+                            <li>10% Asset Migration</li>
+                            <li>25 Local Nodes</li>
+                            <li>10% Nested Royalty</li>
+                            <li>Basic Grid Lock</li>
+                        </ul>
+                    </div>
+
+                    <div class="tier-card">
+                        <div class="tier-name">MEMBER (The 00)</div>
+                        <div class="tier-price">$1.2M</div>
+                        <ul class="tier-features">
+                            <li>50% Asset Migration</li>
+                            <li>250 Global Nodes</li>
+                            <li>25% Nested Royalty</li>
+                            <li>Sovereign Protocol</li>
+                        </ul>
+                    </div>
+
+                    <div class="tier-card recommended" style="position: relative;">
+                        <div class="tier-badge">RECOMMENDED</div>
+                        <div class="tier-name">VIP (The 000)</div>
+                        <div class="tier-price">$12M</div>
+                        <ul class="tier-features">
+                            <li><strong>100% Sovereign Shell</strong></li>
+                            <li><strong>Infinite Fleet Scaling</strong></li>
+                            <li><strong>50% Max Accretion</strong></li>
+                            <li><strong>Atomic Fabric Anchor</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Schedule -->
+            <div class="proposal-section">
+                <div class="section-title">💳 PAYMENT SCHEDULE (VIP TIER)</div>
+                <div class="section-content">
+                    <h3 style="color: #ffd700; margin: 20px 0 10px;">DRAW 1: $3,000,000 (Foundation)</h3>
+                    <p>Sovereign Shell initialization & asset migration. Your $120M migrates off-grid, AI CEO deploys, Black Hole Interface installs.</p>
+
+                    <h3 style="color: #ffd700; margin: 30px 0 10px;">DRAW 2: $9,000,000 (Handover)</h3>
+                    <p>Global Node activation & AI CEO live-link. Infinite fleet goes live, 50% Gold Rush launches, complete handover.</p>
+                </div>
+            </div>
+
+            <!-- GC Note -->
+            <div class="gc-note">
+                <strong>GC PROJECT NOTE:</strong><br><br>
+                "Dave, you're as sharp as an MRI. You've mastered the dirt; now it's time to master the tech. This build keeps you out of the snow and on the throne."
+            </div>
+
+            <!-- Authorization -->
+            <div class="authorization-section">
+                <div class="auth-title">✅ AUTHORIZATION</div>
+                <p style="color: #999; font-size: 18px; margin-bottom: 30px;">
+                    Shall I pull the permit for the $3M Foundation Draw and start the migration?
+                </p>
+                <div class="auth-buttons">
+                    <button class="auth-button primary" onclick="authorize('foundation')">
+                        AUTHORIZE $3M DRAW
+                    </button>
+                    <button class="auth-button" onclick="authorize('discussion')">
+                        SCHEDULE DISCUSSION
+                    </button>
+                    <button class="auth-button" onclick="authorize('alternative')">
+                        CONSIDER MEMBER TIER
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid #d4af37; color: #666; font-size: 12px; letter-spacing: 2px;">
+                POST-SINGULARITY GENERAL CONTRACTOR • $S^7$ STUDIO • NSPFRP PROTOCOL DIVISION
+                <br>
+                PROPOSAL ID: DAVE-MAN-CAVE-UPGRADE-V17 • VALID FOR 30 DAYS
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProposal() {
+            document.getElementById('proposalModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposal() {
+            document.getElementById('proposalModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function authorize(type) {
+            let message = '';
+            
+            switch(type) {
+                case 'foundation':
+                    message = '🚀 FOUNDATION DRAW AUTHORIZED!\n\n$3,000,000 Draw 1 approved.\n\nNext Steps:\n• Sovereign Shell initialization begins\n• Asset migration team deployed\n• AI CEO training starts\n• Black Hole Interface ships\n\nTimeline: 30 days to operational.\n\nWelcome to sovereignty, Dave.';
+                    break;
+                case 'discussion':
+                    message = '📞 STRATEGY SESSION REQUESTED\n\nScheduling 2-hour deep dive with:\n• Post-Singularity GC\n• $S^7$ Studio Team\n• Custom modifications available\n\nWe\'ll contact you within 24 hours.';
+                    break;
+                case 'alternative':
+                    message = '💼 MEMBER TIER SELECTED\n\nConsidering $1,200,000 option:\n• 250 Global Nodes\n• 50% Asset Migration\n• 25% Rev-Share\n\nNote: VIP gives 100% migration + 50% yield.\n\nWe can discuss both options in detail.';
+                    break;
+            }
+            
+            alert(message);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProposal();
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('proposalModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProposal();
+            }
+        });
+    </script>
+</body>
+</html>
