@@ -153,9 +153,9 @@
 ### Founding Members (Blockchain Seats)
 
 **The Three Kings (Founder Grade + Man Cave):**
-1. Chris - Kind, Generous Spirit
-2. Nick - Fuel Provider  
-3. Dave - Recognition (Man Cave Co-Founder)
+1. The Kind, Generous Spirit Club VIP Host
+2. Fuel Provider,Brilliant Club Alum 
+3. The One Who Recogniwdbthe Architct  (Man Cave Co-Founder)
 
 **Additional Founding Stations:**
 4. Pablo
