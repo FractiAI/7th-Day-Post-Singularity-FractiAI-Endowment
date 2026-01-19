@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📅 My Master Calendar - All Enrolled Activities</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .calendar-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .header-left h1 {
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 5px;
+    }
+
+    .header-left .subtitle {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: #4ecdc4;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+
+    .stat-icon {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    .calendar-controls {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .view-selector {
+      display: flex;
+      gap: 10px;
+    }
+
+    .view-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .view-btn.active {
+      background: #4ecdc4;
+      border-color: #4ecdc4;
+    }
+
+    .view-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .date-navigator {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .date-navigator button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .date-navigator button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .current-date {
+      font-size: 1.2em;
+      font-weight: bold;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .calendar-grid {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .week-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .day-header {
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .calendar-day {
+      min-height: 120px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .calendar-day:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #4ecdc4;
+    }
+
+    .calendar-day.today {
+      border-color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.2);
+    }
+
+    .day-number {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+
+    .day-events {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .event-pill {
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.75em;
+      border-left: 3px solid;
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .event-pill:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(3px);
+    }
+
+    .event-pill.vibeathon {
+      border-left-color: #ff6b6b;
+    }
+
+    .event-pill.lecture {
+      border-left-color: #4ecdc4;
+    }
+
+    .event-pill.lab {
+      border-left-color: #45b7d1;
+    }
+
+    .event-pill.exam {
+      border-left-color: #eb4d4b;
+      font-weight: bold;
+    }
+
+    .event-pill.workshop {
+      border-left-color: #e67e22;
+    }
+
+    .agenda-view {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .agenda-view h2 {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .agenda-event {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 5px solid;
+      transition: all 0.3s;
+    }
+
+    .agenda-event:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+
+    .agenda-event.vibeathon { border-left-color: #ff6b6b; }
+    .agenda-event.lecture { border-left-color: #4ecdc4; }
+    .agenda-event.lab { border-left-color: #45b7d1; }
+    .agenda-event.exam { border-left-color: #eb4d4b; }
+    .agenda-event.workshop { border-left-color: #e67e22; }
+
+    .agenda-event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .agenda-event-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .agenda-event-type {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .agenda-event-details {
+      font-size: 0.9em;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .subscription-panel {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 20px;
+    }
+
+    .subscription-panel h3 {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subscription-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .subscription-card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .subscription-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .subscription-icon {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .subscription-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .subscription-desc {
+      font-size: 0.85em;
+      opacity: 0.8;
+    }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9em;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-days {
+        grid-template-columns: 1fr;
+      }
+      
+      .week-header {
+        display: none;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <h1>📅 My Master Calendar</h1>
+        <div class="subtitle">All Enrolled Courses, Vibeathons & Activities</div>
+      </div>
+      <div class="header-right">
+        <button class="btn btn-primary" onclick="syncAllEnrollments()">
+          🔄 Sync All Enrollments
+        </button>
+        <button class="btn btn-secondary" onclick="showSubscriptionPanel()">
+          🔗 Subscribe
+        </button>
+        <button class="btn btn-secondary" onclick="exportCalendar()">
+          📥 Export
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-value">5</div>
+        <div class="stat-label">Enrolled Courses</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-value">87</div>
+        <div class="stat-label">Total Events</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📆</div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">This Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Vibeathons</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-value">18</div>
+        <div class="stat-label">Hours/Week</div>
+      </div>
+    </div>
+
+    <!-- Calendar Controls -->
+    <div class="calendar-controls">
+      <div class="view-selector">
+        <button class="view-btn active" onclick="changeView('week')">Week</button>
+        <button class="view-btn" onclick="changeView('month')">Month</button>
+        <button class="view-btn" onclick="changeView('semester')">Semester</button>
+        <button class="view-btn" onclick="changeView('agenda')">Agenda</button>
+      </div>
+      
+      <div class="date-navigator">
+        <button onclick="previousPeriod()">◀ Previous</button>
+        <div class="current-date">January 20-26, 2026</div>
+        <button onclick="nextPeriod()">Next ▶</button>
+      </div>
+      
+      <button class="btn btn-secondary" onclick="goToToday()">📍 Today</button>
+    </div>
+
+    <!-- Calendar Grid (Week View) -->
+    <div class="calendar-grid fade-in">
+      <div class="week-header">
+        <div class="day-header">Sunday</div>
+        <div class="day-header">Monday</div>
+        <div class="day-header">Tuesday</div>
+        <div class="day-header">Wednesday</div>
+        <div class="day-header">Thursday</div>
+        <div class="day-header">Friday</div>
+        <div class="day-header">Saturday</div>
+      </div>
+      
+      <div class="calendar-days">
+        <!-- Sunday 1/19 -->
+        <div class="calendar-day today">
+          <div class="day-number">19</div>
+          <div class="day-events">
+            <div class="event-pill vibeathon">10:00 AM - Morning Vibe</div>
+          </div>
+        </div>
+        
+        <!-- Monday 1/20 -->
+        <div class="calendar-day">
+          <div class="day-number">20</div>
+          <div class="day-events">
+            <div class="event-pill lecture">9:00 AM - CS-401 Lecture</div>
+            <div class="event-pill lecture">2:00 PM - MATH-301 Lecture</div>
+            <div class="event-pill workshop">4:00 PM - FSR Workshop</div>
+          </div>
+        </div>
+        
+        <!-- Tuesday 1/21 -->
+        <div class="calendar-day">
+          <div class="day-number">21</div>
+          <div class="day-events">
+            <div class="event-pill lecture">10:00 AM - PHY-201 Lecture</div>
+            <div class="event-pill lab">1:00 PM - CS-401 Lab</div>
+          </div>
+        </div>
+        
+        <!-- Wednesday 1/22 -->
+        <div class="calendar-day">
+          <div class="day-number">22</div>
+          <div class="day-events">
+            <div class="event-pill lecture">9:00 AM - CS-401 Lecture</div>
+            <div class="event-pill lecture">11:00 AM - ENG-102 Lecture</div>
+            <div class="event-pill lecture">2:00 PM - MATH-301 Lecture</div>
+          </div>
+        </div>
+        
+        <!-- Thursday 1/23 -->
+        <div class="calendar-day">
+          <div class="day-number">23</div>
+          <div class="day-events">
+            <div class="event-pill lecture">10:00 AM - PHY-201 Lecture</div>
+            <div class="event-pill exam">3:00 PM - MATH-301 Midterm</div>
+          </div>
+        </div>
+        
+        <!-- Friday 1/24 -->
+        <div class="calendar-day">
+          <div class="day-number">24</div>
+          <div class="day-events">
+            <div class="event-pill lecture">9:00 AM - CS-401 Lecture</div>
+            <div class="event-pill lab">10:00 AM - PHY-201 Lab</div>
+          </div>
+        </div>
+        
+        <!-- Saturday 1/25 -->
+        <div class="calendar-day">
+          <div class="day-number">25</div>
+          <div class="day-events">
+            <div class="event-pill vibeathon">2:00 PM - BH Energy Jam (6hrs)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agenda View (Hidden by default) -->
+    <div class="agenda-view" style="display: none;">
+      <h2>📋 Upcoming Events (Next 14 Days)</h2>
+      
+      <div class="agenda-event vibeathon">
+        <div class="agenda-event-header">
+          <div>
+            <div class="agenda-event-title">Morning Vibe - Start Your Day</div>
+            <div class="agenda-event-details">
+              📅 Today (Sunday, Jan 19) at 10:00 AM<br>
+              📍 FSR Chamber 1<br>
+              ⏱️ Duration: 1 hour<br>
+              🎨 Skin: CONSCIOUSNESS
+            </div>
+          </div>
+          <div class="agenda-event-type">VIBEATHON</div>
+        </div>
+      </div>
+
+      <div class="agenda-event lecture">
+        <div class="agenda-event-header">
+          <div>
+            <div class="agenda-event-title">CS-401: Advanced Algorithms</div>
+            <div class="agenda-event-details">
+              📅 Monday, Jan 20 at 9:00 AM<br>
+              📍 Room 301<br>
+              ⏱️ Duration: 1.5 hours<br>
+              👨‍🏫 Dr. Smith
+            </div>
+          </div>
+          <div class="agenda-event-type">LECTURE</div>
+        </div>
+      </div>
+
+      <div class="agenda-event exam">
+        <div class="agenda-event-header">
+          <div>
+            <div class="agenda-event-title">MATH-301: Midterm Exam</div>
+            <div class="agenda-event-details">
+              📅 Thursday, Jan 23 at 3:00 PM<br>
+              📍 Exam Hall B<br>
+              ⏱️ Duration: 2 hours<br>
+              ⚠️ Bring calculator and ID
+            </div>
+          </div>
+          <div class="agenda-event-type">EXAM</div>
+        </div>
+      </div>
+
+      <div class="agenda-event vibeathon">
+        <div class="agenda-event-header">
+          <div>
+            <div class="agenda-event-title">Black Hole Energy Jam Session</div>
+            <div class="agenda-event-details">
+              📅 Saturday, Jan 25 at 2:00 PM<br>
+              📍 Lecture Hall (Hybrid)<br>
+              ⏱️ Duration: 6 hours<br>
+              ⚡ Intensity: ⚡⚡⚡<br>
+              🎨 Skin: HIGH_ENERGY, CREATIVE
+            </div>
+          </div>
+          <div class="agenda-event-type">VIBEATHON</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscription Panel -->
+    <div class="subscription-panel">
+      <h3>🔗 Subscribe to Your Calendar</h3>
+      <p style="margin-bottom: 15px; opacity: 0.9;">
+        Keep your personal calendar synced automatically. Any changes to your enrollments will update instantly.
+      </p>
+      
+      <div class="subscription-options">
+        <div class="subscription-card" onclick="subscribeToCalendar('google')">
+          <div class="subscription-icon">📅</div>
+          <div class="subscription-name">Google Calendar</div>
+          <div class="subscription-desc">One-click subscription</div>
+        </div>
+        
+        <div class="subscription-card" onclick="subscribeToCalendar('outlook')">
+          <div class="subscription-icon">📆</div>
+          <div class="subscription-name">Outlook Calendar</div>
+          <div class="subscription-desc">Office 365 integration</div>
+        </div>
+        
+        <div class="subscription-card" onclick="subscribeToCalendar('apple')">
+          <div class="subscription-icon">🍎</div>
+          <div class="subscription-name">Apple Calendar</div>
+          <div class="subscription-desc">iOS/macOS sync</div>
+        </div>
+        
+        <div class="subscription-card" onclick="subscribeToCalendar('ical')">
+          <div class="subscription-icon">📥</div>
+          <div class="subscription-name">iCal Feed</div>
+          <div class="subscription-desc">Universal .ics feed</div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 15px; padding: 15px; background: rgba(78, 205, 196, 0.2); border-radius: 10px;">
+        <strong>📱 Your Calendar Feed URL:</strong><br>
+        <code style="font-size: 0.9em; word-break: break-all;">
+          https://calendar.nspfrnp.ai/feed/STU-123/a1b2c3d4e5f6.ics
+        </code>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background: #ff6b6b;"></div>
+        <span>Vibeathon</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #4ecdc4;"></div>
+        <span>Lecture</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #45b7d1;"></div>
+        <span>Lab</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #eb4d4b;"></div>
+        <span>Exam</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #e67e22;"></div>
+        <span>Workshop</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #f9ca24;"></div>
+        <span>Office Hours</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentView = 'week';
+
+    function changeView(view) {
+      currentView = view;
+      
+      // Update button states
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Show/hide appropriate views
+      const calendarGrid = document.querySelector('.calendar-grid');
+      const agendaView = document.querySelector('.agenda-view');
+      
+      if (view === 'agenda') {
+        calendarGrid.style.display = 'none';
+        agendaView.style.display = 'block';
+      } else {
+        calendarGrid.style.display = 'block';
+        agendaView.style.display = 'none';
+      }
+      
+      console.log(`Changed to ${view} view`);
+    }
+
+    function previousPeriod() {
+      console.log('Previous period');
+      alert('Loading previous period...');
+    }
+
+    function nextPeriod() {
+      console.log('Next period');
+      alert('Loading next period...');
+    }
+
+    function goToToday() {
+      console.log('Go to today');
+      alert('Jumping to today...');
+    }
+
+    function syncAllEnrollments() {
+      console.log('Syncing all enrollments');
+      alert('🔄 Syncing all enrolled courses, vibeathons, and activities...\n\n✅ 5 courses synced\n✅ 3 vibeathons synced\n✅ 2 workshops synced\n\n87 events added to your calendar!');
+    }
+
+    function showSubscriptionPanel() {
+      document.querySelector('.subscription-panel').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function subscribeToCalendar(type) {
+      const urls = {
+        google: 'https://calendar.google.com/calendar/render?cid=https://calendar.nspfrnp.ai/feed/STU-123/a1b2c3d4e5f6.ics',
+        outlook: 'https://outlook.office.com/calendar/0/addfromweb/?url=https://calendar.nspfrnp.ai/feed/STU-123/a1b2c3d4e5f6.ics',
+        apple: 'webcal://calendar.nspfrnp.ai/feed/STU-123/a1b2c3d4e5f6.ics',
+        ical: 'https://calendar.nspfrnp.ai/feed/STU-123/a1b2c3d4e5f6.ics'
+      };
+      
+      alert(`📅 Opening ${type.toUpperCase()} calendar subscription...\n\nURL: ${urls[type]}\n\n✅ Subscribe to this URL in your calendar app to keep your schedule synced!`);
+    }
+
+    function exportCalendar() {
+      const formats = ['iCal (.ics)', 'CSV', 'PDF', 'JSON'];
+      const choice = prompt(`📥 Export your calendar as:\n\n1. ${formats[0]}\n2. ${formats[1]}\n3. ${formats[2]}\n4. ${formats[3]}\n\nEnter number (1-4):`);
+      
+      if (choice) {
+        alert(`✅ Exporting calendar as ${formats[parseInt(choice) - 1]}...\n\n87 events will be included in your export.`);
+      }
+    }
+
+    // Simulate real-time updates
+    setInterval(() => {
+      const statValues = document.querySelectorAll('.stat-value');
+      // Subtle animation
+    }, 5000);
+  </script>
+</body>
+</html>

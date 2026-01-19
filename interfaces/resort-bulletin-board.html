@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏔️ Rustic Royal Lodge - Daily Bulletin & Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #ecf0f1;
+    }
+
+    .resort-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #d4af37;
+      padding-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.8em;
+      color: #d4af37;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 10px;
+    }
+
+    .header .tagline {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #bdc3c7;
+    }
+
+    .date-banner {
+      background: linear-gradient(90deg, #d4af37 0%, #f39c12 100%);
+      color: #2c3e50;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .bulletin-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .bulletin-board {
+      background: rgba(44, 62, 80, 0.9);
+      border: 3px solid #d4af37;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .board-title {
+      font-size: 1.8em;
+      color: #d4af37;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #34495e;
+      padding-bottom: 10px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section-header {
+      font-size: 1.2em;
+      color: #f39c12;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schedule-item, .menu-item, .announcement {
+      background: rgba(52, 73, 94, 0.7);
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border-left: 4px solid #d4af37;
+      transition: all 0.3s;
+    }
+
+    .schedule-item:hover, .menu-item:hover, .announcement:hover {
+      background: rgba(52, 73, 94, 0.9);
+      transform: translateX(5px);
+      border-left-color: #f39c12;
+    }
+
+    .time {
+      font-weight: bold;
+      color: #f39c12;
+      margin-right: 10px;
+    }
+
+    .menu-section {
+      background: rgba(44, 62, 80, 0.9);
+      border: 3px solid #d4af37;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .menu-options {
+      list-style: none;
+    }
+
+    .menu-option {
+      background: rgba(52, 73, 94, 0.7);
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-option:hover {
+      background: rgba(52, 152, 219, 0.3);
+      transform: translateX(5px);
+      border-left-color: #f39c12;
+    }
+
+    .option-number {
+      background: #d4af37;
+      color: #2c3e50;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .concierge-section {
+      grid-column: 1 / -1;
+      background: rgba(44, 62, 80, 0.9);
+      border: 3px solid #e74c3c;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .concierge-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      float: left;
+      margin-right: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .concierge-message {
+      font-size: 1.1em;
+      line-height: 1.6;
+      font-style: italic;
+      padding: 10px;
+      background: rgba(231, 76, 60, 0.1);
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37, #f39c12);
+      color: #2c3e50;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .hot-badge {
+      background: #e74c3c;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    .status-available { background: #2ecc71; }
+    .status-busy { background: #f39c12; }
+    .status-full { background: #e74c3c; }
+
+    .recommendation-card {
+      background: rgba(46, 204, 113, 0.1);
+      border: 2px solid #2ecc71;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 968px) {
+      .bulletin-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .live-indicator {
+      animation: pulse 2s infinite;
+      color: #e74c3c;
+    }
+
+    .decoration {
+      text-align: center;
+      color: #d4af37;
+      font-size: 2em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="resort-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🏔️ Rustic Royal Lodge</h1>
+      <div class="tagline">"Frontier Elegance • Infinite Possibilities"</div>
+    </div>
+
+    <!-- Date Banner -->
+    <div class="date-banner">
+      📅 Sunday, January 19, 2026 • Good Morning, Alex!
+    </div>
+
+    <div class="decoration">⚜ • ⚜ • ⚜</div>
+
+    <!-- Main Grid -->
+    <div class="bulletin-grid">
+      <!-- Bulletin Board -->
+      <div class="bulletin-board">
+        <div class="board-title">📋 Today's Bulletin</div>
+
+        <!-- Today's Schedule -->
+        <div class="section">
+          <div class="section-header">📅 Today's Schedule</div>
+          <div class="schedule-item">
+            <span class="time">10:00 AM</span>
+            <span>Morning Meditation with The Boss</span>
+            <span class="live-indicator">● LIVE SOON</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">12:00 PM</span>
+            <span>Chef's Table Lunch (Limited Seating)</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">2:00 PM</span>
+            <span>Black Hole Energy Workshop</span>
+            <span class="hot-badge">🔥 HOT</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">4:00 PM</span>
+            <span>Whiskey Tasting in the Library</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">7:00 PM</span>
+            <span>Live Jazz Performance in the Lounge</span>
+            <span class="live-indicator">● TONIGHT</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">9:00 PM</span>
+            <span>Members-Only Poker Night</span>
+          </div>
+        </div>
+
+        <!-- Today's Menu -->
+        <div class="section">
+          <div class="section-header">🍽️ Today's Menu</div>
+          <div class="menu-item">
+            <strong>Breakfast (7-11 AM):</strong> Chef's Choice<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Fresh pastries, farm eggs, artisanal coffee</span>
+          </div>
+          <div class="menu-item">
+            <strong>Lunch (12-3 PM):</strong> Mediterranean Tapas<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Today's special featuring imported cheeses</span>
+          </div>
+          <div class="menu-item">
+            <strong>Dinner (6-10 PM):</strong> Prime Rib & Wild Salmon<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Reservations recommended</span>
+          </div>
+          <div class="menu-item">
+            <strong>Bar:</strong> Open until 2:00 AM<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Full cocktail menu, whiskey tasting at 4 PM</span>
+          </div>
+        </div>
+
+        <!-- Announcements -->
+        <div class="section">
+          <div class="section-header">📢 Announcements</div>
+          <div class="announcement">
+            ✨ New FSR experience available: "Ancient Egypt" - Book now!
+          </div>
+          <div class="announcement">
+            📚 Library hours extended to midnight all week
+          </div>
+          <div class="announcement">
+            🧘 Spa appointments filling up fast - book early for this week
+          </div>
+        </div>
+
+        <!-- What's Hot -->
+        <div class="section">
+          <div class="section-header">⚡ What's Hot Right Now</div>
+          <div class="announcement" style="border-left-color: #e74c3c;">
+            <span class="status-indicator status-available"></span>
+            <strong>12 members</strong> in the Quantum Lounge
+          </div>
+          <div class="announcement" style="border-left-color: #e74c3c;">
+            <span class="status-indicator status-busy"></span>
+            Hot discussion: <strong>"Time Dilation Techniques"</strong>
+          </div>
+          <div class="announcement" style="border-left-color: #e74c3c;">
+            <span class="status-indicator status-full"></span>
+            FSR Chambers at <strong>85% capacity</strong>
+          </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="section">
+          <div class="section-header">🎯 Recommended for You</div>
+          <div class="recommendation-card">
+            <strong>✨ Eternity Mode Session</strong><br>
+            Chamber 3, 3:00 PM<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Based on your interest in consciousness</span>
+          </div>
+          <div class="recommendation-card">
+            <strong>📚 New in Library</strong><br>
+            "Consciousness Engineering"<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Perfect for your research</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Menu -->
+      <div class="menu-section">
+        <div class="board-title">🎯 Main Menu</div>
+        <div class="section-header">Select an option:</div>
+        <ul class="menu-options">
+          <li class="menu-option" onclick="selectMenu(1)">
+            <span class="option-number">1</span>
+            <span>📅 View Full Schedule</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(2)">
+            <span class="option-number">2</span>
+            <span>🎯 Browse Experiences</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(3)">
+            <span class="option-number">3</span>
+            <span>🍽️ Dining & Bar Menu</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(4)">
+            <span class="option-number">4</span>
+            <span>🏨 Accommodations</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(5)">
+            <span class="option-number">5</span>
+            <span>🎓 Learning & Development</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(6)">
+            <span class="option-number">6</span>
+            <span>🎭 Entertainment & Events</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(7)">
+            <span class="option-number">7</span>
+            <span>🧘 Wellness & Spa</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(8)">
+            <span class="option-number">8</span>
+            <span>👥 Social & Networking</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(9)">
+            <span class="option-number">9</span>
+            <span>💼 Business Services</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(10)">
+            <span class="option-number">10</span>
+            <span>⚙️ Concierge Service</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(11)">
+            <span class="option-number">11</span>
+            <span>📊 My Dashboard</span>
+          </li>
+          <li class="menu-option" onclick="selectMenu(12)">
+            <span class="option-number">12</span>
+            <span>🚪 Exit to Campus</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decoration">⚜ • ⚜ • ⚜</div>
+
+    <!-- Concierge Section -->
+    <div class="concierge-section">
+      <div class="board-title">🎩 Ask The Boss (Concierge Service)</div>
+      <div class="concierge-avatar">🎩</div>
+      <div class="concierge-message">
+        "Hey there, friend. The Boss here. What can I do for ya today? I see you're interested in the consciousness stuff - might I recommend that Eternity Mode session at 3? Private chamber, nice and quiet. After that, we got that whiskey tasting at 4. Then maybe some of that wild salmon for dinner at 7, and I'll join ya for a nightcap by the fire around 9. Sound good?"
+      </div>
+      <div class="action-buttons">
+        <button class="btn btn-primary" onclick="bookBossRecommendation()">📅 Book The Boss's Plan</button>
+        <button class="btn btn-secondary" onclick="customizeRequest()">✏️ Customize Request</button>
+        <button class="btn btn-secondary" onclick="askBoss()">💬 Ask Different Question</button>
+      </div>
+    </div>
+
+    <div class="decoration" style="margin-top: 30px;">⚜ • ⚜ • ⚜</div>
+
+    <!-- Footer Info -->
+    <div style="text-align: center; padding: 20px; opacity: 0.7;">
+      <p>🏔️ Rustic Royal Lodge • Frontier Elegance • Member Services Available 24/7</p>
+      <p style="margin-top: 10px;">For immediate assistance, press the Call Button or ask The Boss</p>
+    </div>
+  </div>
+
+  <script>
+    function selectMenu(option) {
+      const menuNames = [
+        'Full Schedule',
+        'Browse Experiences',
+        'Dining & Bar Menu',
+        'Accommodations',
+        'Learning & Development',
+        'Entertainment & Events',
+        'Wellness & Spa',
+        'Social & Networking',
+        'Business Services',
+        'Concierge Service',
+        'My Dashboard',
+        'Exit to Campus'
+      ];
+      
+      alert(`📋 Opening: ${menuNames[option - 1]}\n\nThis would take you to a detailed menu-driven interface for this category with numbered options to choose from.`);
+    }
+
+    function bookBossRecommendation() {
+      alert(`✅ Perfect! I'll get it all set up for ya.\n\n📅 Booked:\n• 3:00 PM - Eternity Mode (Chamber 3)\n• 4:00 PM - Whiskey Tasting (Library)\n• 7:00 PM - Dinner Reservation (Wild Salmon)\n• 9:00 PM - Nightcap with The Boss (Fireplace)\n\nReminders will be sent 15 minutes before each activity. See you at 3!`);
+    }
+
+    function customizeRequest() {
+      const custom = prompt('What would you like to customize?\n\n1. Change times\n2. Swap activities\n3. Add something\n4. Different dining option\n\nEnter number or describe:');
+      if (custom) {
+        alert(`The Boss: "You got it! Let me adjust that for ya..."\n\n[Customization interface would appear here with menu-driven options]`);
+      }
+    }
+
+    function askBoss() {
+      const question = prompt('What can The Boss help you with?\n\nCommon requests:\n- "What\'s good tonight?"\n- "Find me something relaxing"\n- "Where\'s the best whiskey?"\n- "I\'m looking for deep conversation"\n- "Surprise me with something special"\n\nOr type your own:');
+      
+      if (question) {
+        setTimeout(() => {
+          alert(`The Boss: "Let me think on that..."\n\n[The Boss would provide personalized recommendations based on your request, presented as menu options]`);
+        }, 500);
+      }
+    }
+
+    // Simulate live updates
+    setInterval(() => {
+      const liveIndicators = document.querySelectorAll('.live-indicator');
+      liveIndicators.forEach(el => {
+        el.style.opacity = el.style.opacity === '0.3' ? '1' : '0.3';
+      });
+    }, 1000);
+  </script>
+</body>
+</html>

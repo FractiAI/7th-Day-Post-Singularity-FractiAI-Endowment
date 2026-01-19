@@ -2,7 +2,11 @@
  * Vibeathon System - SNAP #13
  * Complete social vibing and promotional infrastructure
  * Octave 13: Higher Infinity 3 - Social Vibing Architecture
+ * 
+ * Enhanced with SNAP #18: Calendar Invitation & Reminder System
  */
+
+import { calendarInvitationSystem } from './calendar-invitation-system.js';
 
 // ========== SNAP 13.1: VIBEATHON TYPES & INTERFACES ==========
 
@@ -435,6 +439,31 @@ export class VibeathonSystem {
     
     // Update banner conversion
     await this.trackConversion(vibeathonId);
+    
+    // SNAP #18: Generate calendar invitation & create reminder schedule
+    try {
+      console.log(`📅 Generating calendar invitation & reminders...`);
+      
+      // Generate calendar invitation (iCal, Google, Outlook, Apple)
+      const invitation = await calendarInvitationSystem.generateInvitation(
+        vibeathon,
+        registration
+      );
+      
+      // Create automated reminder schedule (1 week, 1 day, 1 hour, 15 min)
+      const reminders = await calendarInvitationSystem.createReminderSchedule(
+        vibeathon,
+        registration,
+        ['1WEEK', '1DAY', '1HOUR', '15MIN']
+      );
+      
+      console.log(`✅ Calendar & reminders configured!`);
+      console.log(`   Calendar invitation: ${invitation.id}`);
+      console.log(`   Reminders scheduled: ${reminders.length}`);
+    } catch (error) {
+      console.error(`⚠️ Calendar/reminder setup failed (non-critical):`, error);
+      // Continue even if calendar setup fails
+    }
     
     return registration;
   }

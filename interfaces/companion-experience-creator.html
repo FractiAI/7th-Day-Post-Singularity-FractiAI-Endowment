@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎭 Companion Experience Creator - Man Cave</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .creator-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, #2c1810, #1a1a1a);
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      color: #d4af37;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 1.1em;
+      color: #c0c0c0;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dressing-room {
+      background: linear-gradient(135deg, #2c1810, #1a1a1a);
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      color: #d4af37;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #3a3a3a;
+      padding-bottom: 10px;
+    }
+
+    .house-monitor {
+      background: #000;
+      border: 3px solid #d4af37;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      min-height: 500px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .monitor-screen {
+      background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+      border: 2px solid #4a4a6a;
+      border-radius: 8px;
+      padding: 40px;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .monitor-screen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255,255,255,0.03) 50%,
+        transparent 100%
+      );
+      animation: scanline 2s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    .companion-preview {
+      font-size: 8em;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+    }
+
+    .preview-info {
+      text-align: center;
+      color: #d4af37;
+    }
+
+    .preview-name {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .preview-details {
+      font-size: 1em;
+      opacity: 0.8;
+      line-height: 1.8;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .creator-button {
+      background: linear-gradient(135deg, #3a2a1a, #2a1a0a);
+      border: 2px solid #d4af37;
+      color: #d4af37;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Georgia', serif;
+    }
+
+    .creator-button:hover {
+      background: linear-gradient(135deg, #4a3a2a, #3a2a1a);
+      border-color: #f0c050;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .creator-button.active {
+      background: linear-gradient(135deg, #d4af37, #c09030);
+      color: #1a1a1a;
+      border-color: #f0c050;
+    }
+
+    .icon {
+      font-size: 1.5em;
+    }
+
+    .experience-playlists {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #2c1810, #1a1a1a);
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .playlist-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .playlist-card {
+      background: linear-gradient(135deg, #3a2a1a, #2a1a0a);
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .playlist-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .playlist-card:hover::before {
+      left: 100%;
+    }
+
+    .playlist-card:hover {
+      border-color: #f0c050;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .playlist-icon {
+      font-size: 3em;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .playlist-title {
+      font-size: 1.3em;
+      color: #d4af37;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .playlist-description {
+      font-size: 0.9em;
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .playlist-features {
+      font-size: 0.85em;
+      opacity: 0.7;
+      line-height: 1.8;
+    }
+
+    .action-bar {
+      background: linear-gradient(135deg, #1a1a1a, #2c1810);
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border: 2px solid #d4af37;
+      background: linear-gradient(135deg, #d4af37, #c09030);
+      color: #1a1a1a;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Georgia', serif;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #f0c050, #d4af37);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #3a2a1a, #2a1a0a);
+      color: #d4af37;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #4a3a2a, #3a2a1a);
+    }
+
+    .saved-profiles {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .profile-chip {
+      background: #3a2a1a;
+      border: 1px solid #d4af37;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .profile-chip:hover {
+      background: #4a3a2a;
+      border-color: #f0c050;
+    }
+
+    .status-bar {
+      text-align: center;
+      padding: 15px;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    @media (max-width: 1200px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .badge {
+      background: #d4af37;
+      color: #1a1a1a;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="creator-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🎭 Companion Experience Creator</h1>
+      <div class="tagline">"Design Your Perfect Experience" - Man Cave Exclusive</div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      👤 Current Mode: Design Phase • 📺 House Monitor: Active • 🎯 Ready to Create
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Creator Controls -->
+      <div class="dressing-room">
+        <div class="section-title">👗 Companion Designer</div>
+        
+        <div class="button-grid">
+          <button class="creator-button" onclick="selectCategory('wardrobe')">
+            <span class="icon">👗</span>
+            <div>
+              <div><strong>Wardrobe & Style</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">24 styles available</div>
+            </div>
+          </button>
+
+          <button class="creator-button" onclick="selectCategory('personality')">
+            <span class="icon">😊</span>
+            <div>
+              <div><strong>Personality Type</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">24 archetypes</div>
+            </div>
+          </button>
+
+          <button class="creator-button" onclick="selectCategory('interests')">
+            <span class="icon">🎯</span>
+            <div>
+              <div><strong>Interests & Hobbies</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">40+ categories</div>
+            </div>
+          </button>
+
+          <button class="creator-button" onclick="selectCategory('communication')">
+            <span class="icon">🗣️</span>
+            <div>
+              <div><strong>Communication Style</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">Talkative to Zen</div>
+            </div>
+          </button>
+
+          <button class="creator-button" onclick="selectCategory('archetype')">
+            <span class="icon">🎭</span>
+            <div>
+              <div><strong>Character Archetype</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">Classic templates</div>
+            </div>
+          </button>
+
+          <button class="creator-button" onclick="selectCategory('traits')">
+            <span class="icon">🌟</span>
+            <div>
+              <div><strong>Special Traits</strong></div>
+              <div style="font-size: 0.8em; opacity: 0.7;">Unique qualities</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-title">⚡ Quick Presets</div>
+        <div class="button-grid">
+          <button class="creator-button" onclick="loadPreset('elegant')">
+            <span class="icon">🍸</span>
+            <span>Elegant Evening</span>
+          </button>
+          <button class="creator-button" onclick="loadPreset('adventure')">
+            <span class="icon">🏔️</span>
+            <span>Adventure Seeker</span>
+          </button>
+          <button class="creator-button" onclick="loadPreset('creative')">
+            <span class="icon">🎨</span>
+            <span>Creative Soul</span>
+          </button>
+          <button class="creator-button" onclick="loadPreset('power')">
+            <span class="icon">💼</span>
+            <span>Power Player</span>
+          </button>
+          <button class="creator-button" onclick="loadPreset('zen')">
+            <span class="icon">🧘</span>
+            <span>Zen Master</span>
+          </button>
+          <button class="creator-button" onclick="loadPreset('wildcard')">
+            <span class="icon">🎭</span>
+            <span>Wild Card</span>
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-title">💾 Saved Profiles</div>
+        <div class="saved-profiles">
+          <div class="profile-chip" onclick="loadProfile('sophia')">👗 Sophia</div>
+          <div class="profile-chip" onclick="loadProfile('alex')">🏔️ Alex</div>
+          <div class="profile-chip" onclick="loadProfile('morgan')">🎨 Morgan</div>
+          <div class="profile-chip" onclick="loadProfile('jamie')">🎸 Jamie</div>
+          <div class="profile-chip" onclick="loadProfile('random')">🎲 Random</div>
+        </div>
+      </div>
+
+      <!-- House Monitor -->
+      <div class="house-monitor">
+        <div class="section-title" style="margin-bottom: 15px;">
+          📺 House Monitor Display
+        </div>
+        <div class="monitor-screen">
+          <div class="companion-preview" id="preview-avatar">🎭</div>
+          <div class="preview-info">
+            <div class="preview-name" id="preview-name">Awaiting Design</div>
+            <div class="preview-details" id="preview-details">
+              Select options to begin creating<br>
+              your perfect companion experience
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Playlists -->
+    <div class="experience-playlists">
+      <div class="section-title">
+        🎬 Experience Playlists
+        <span class="badge">6 CATEGORIES</span>
+      </div>
+      
+      <div class="playlist-cards">
+        <div class="playlist-card" onclick="selectPlaylist('nightout')">
+          <div class="playlist-icon">🌃</div>
+          <div class="playlist-title">Night Out in Town</div>
+          <div class="playlist-description">
+            Urban nightlife adventures from elegant dining to exclusive clubs
+          </div>
+          <div class="playlist-features">
+            ✨ 4 themed variations<br>
+            ⏱️ 4-8 hours<br>
+            🎯 Customizable stops
+          </div>
+        </div>
+
+        <div class="playlist-card" onclick="selectPlaylist('weekend')">
+          <div class="playlist-icon">🏖️</div>
+          <div class="playlist-title">Weekend Getaway</div>
+          <div class="playlist-description">
+            2-3 day escapes to beach resorts, mountains, cities, or wine country
+          </div>
+          <div class="playlist-features">
+            ✨ 4 destination types<br>
+            ⏱️ 2-3 days<br>
+            🎯 All-inclusive luxury
+          </div>
+        </div>
+
+        <div class="playlist-card" onclick="selectPlaylist('international')">
+          <div class="playlist-icon">✈️</div>
+          <div class="playlist-title">International Adventures</div>
+          <div class="playlist-description">
+            Paris, Italy, Japan, Greek Islands, Swiss Alps, African Safari
+          </div>
+          <div class="playlist-features">
+            ✨ 6 destinations<br>
+            ⏱️ 5-14 days<br>
+            🎯 Private jet ready
+          </div>
+        </div>
+
+        <div class="playlist-card" onclick="selectPlaylist('billionaire')">
+          <div class="playlist-icon">💎</div>
+          <div class="playlist-title">Billionaire Experience</div>
+          <div class="playlist-description">
+            Mega yachts, private jets, Monaco Grand Prix, private islands
+          </div>
+          <div class="playlist-features">
+            ✨ 6 ultra-luxury scenarios<br>
+            ⏱️ Flexible duration<br>
+            🎯 Ultimate exclusivity
+          </div>
+        </div>
+
+        <div class="playlist-card" onclick="selectPlaylist('rockstar')">
+          <div class="playlist-icon">🎸</div>
+          <div class="playlist-title">Rock Star Experience</div>
+          <div class="playlist-description">
+            Stadium tours, recording studios, music festivals, VIP backstage
+          </div>
+          <div class="playlist-features">
+            ✨ 6 music experiences<br>
+            ⏱️ Variable<br>
+            🎯 All-access passes
+          </div>
+        </div>
+
+        <div class="playlist-card" onclick="selectPlaylist('custom')">
+          <div class="playlist-icon">🎨</div>
+          <div class="playlist-title">Custom Mix & Match</div>
+          <div class="playlist-description">
+            Build your own perfect sequence from unlimited combinations
+          </div>
+          <div class="playlist-features">
+            ✨ Unlimited options<br>
+            ⏱️ Your choice<br>
+            🎯 Full creative control
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <div class="saved-profiles">
+        <span style="opacity: 0.7;">Current Selection:</span>
+        <span style="color: #d4af37; margin-left: 10px;" id="current-selection">None selected</span>
+      </div>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+        <button class="btn btn-secondary" onclick="saveProfile()">💾 Save Profile</button>
+        <button class="btn btn-secondary" onclick="previewExperience()">👁️ Preview</button>
+        <button class="btn" onclick="activateExperience()">✅ Activate Experience</button>
+        <button class="btn btn-secondary" onclick="backToManCave()">⬅️ Back to Man Cave</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentProfile = {
+      name: 'Untitled',
+      wardrobe: null,
+      personality: null,
+      interests: [],
+      avatar: '🎭'
+    };
+
+    function selectCategory(category) {
+      const categories = {
+        wardrobe: { name: 'Wardrobe & Style', options: 24 },
+        personality: { name: 'Personality Type', options: 24 },
+        interests: { name: 'Interests & Hobbies', options: 40 },
+        communication: { name: 'Communication Style', options: 4 },
+        archetype: { name: 'Character Archetype', options: 12 },
+        traits: { name: 'Special Traits', options: 20 }
+      };
+
+      const cat = categories[category];
+      alert(`📋 Opening ${cat.name}\n\n${cat.options} options available\n\n[This would open a detailed selection menu]\n\nYour selection will update the House Monitor in real-time.`);
+      
+      // Simulate selection
+      updatePreview();
+    }
+
+    function loadPreset(preset) {
+      const presets = {
+        elegant: { name: 'Sophia', avatar: '💃', desc: 'Sophisticated • Wine & Art • Intellectual' },
+        adventure: { name: 'Alex', avatar: '🏔️', desc: 'Thrill Seeker • Outdoors • Explorer' },
+        creative: { name: 'Morgan', avatar: '🎨', desc: 'Artistic • Creative • Musical' },
+        power: { name: 'Jordan', avatar: '💼', desc: 'Business Savvy • Ambitious • Sharp' },
+        zen: { name: 'River', avatar: '🧘', desc: 'Peaceful • Spiritual • Mindful' },
+        wildcard: { name: 'Mystery', avatar: '🎭', desc: 'Spontaneous • Unpredictable • Fun' }
+      };
+
+      const p = presets[preset];
+      currentProfile = { ...p };
+      
+      document.getElementById('preview-avatar').textContent = p.avatar;
+      document.getElementById('preview-name').textContent = p.name;
+      document.getElementById('preview-details').innerHTML = p.desc;
+      document.getElementById('current-selection').textContent = p.name;
+
+      console.log(`Loaded preset: ${preset}`);
+    }
+
+    function loadProfile(name) {
+      alert(`💾 Loading saved profile: "${name}"\n\n[This would load all settings from your saved profile]\n\nHouse Monitor will update with the saved design.`);
+      
+      if (name !== 'random') {
+        loadPreset('elegant'); // Simulate loading
+      }
+    }
+
+    function selectPlaylist(playlist) {
+      const playlists = {
+        nightout: { title: 'Night Out in Town', duration: '4-8 hours', variations: 4 },
+        weekend: { title: 'Weekend Getaway', duration: '2-3 days', variations: 4 },
+        international: { title: 'International Adventures', duration: '5-14 days', variations: 6 },
+        billionaire: { title: 'Billionaire Experience', duration: 'Flexible', variations: 6 },
+        rockstar: { title: 'Rock Star Experience', duration: 'Variable', variations: 6 },
+        custom: { title: 'Custom Mix & Match', duration: 'Your choice', variations: '∞' }
+      };
+
+      const p = playlists[playlist];
+      alert(`🎬 Selected: ${p.title}\n\nDuration: ${p.duration}\nVariations: ${p.variations}\n\n[This would open the detailed experience builder]\n\nYou can combine this experience with your companion design.`);
+    }
+
+    function updatePreview() {
+      // Simulate random updates
+      const avatars = ['👗', '🎸', '🏔️', '💃', '🎨', '💼'];
+      const names = ['Sophia', 'Alex', 'Morgan', 'Jamie', 'River', 'Jordan'];
+      const idx = Math.floor(Math.random() * avatars.length);
+      
+      document.getElementById('preview-avatar').textContent = avatars[idx];
+      document.getElementById('preview-name').textContent = names[idx];
+      document.getElementById('preview-details').innerHTML = 
+        'Style: Elegant Evening<br>Personality: Sophisticated<br>Interests: Art, Wine, Culture';
+    }
+
+    function saveProfile() {
+      const name = prompt('💾 Save Profile As:', 'My Companion');
+      if (name) {
+        alert(`✅ Profile saved as "${name}"!\n\nYou can load this profile anytime from the Saved Profiles section.`);
+      }
+    }
+
+    function previewExperience() {
+      alert(`👁️ Preview Mode\n\n[This would show a complete walkthrough of your designed experience]\n\n• Companion: ${currentProfile.name}\n• Experience: Selected playlist\n• Duration: Estimated time\n• Highlights: Key moments\n\nReady to activate?`);
+    }
+
+    function activateExperience() {
+      alert(`✅ Activating Experience!\n\n🎭 Companion: ${currentProfile.name}\n🎬 Experience: Ready to begin\n\n[The experience would now start]\n\nEnjoy your perfectly designed companion experience in the Man Cave!`);
+    }
+
+    function backToManCave() {
+      if (confirm('Return to Man Cave Main Menu?\n\nUnsaved changes will be lost.')) {
+        alert('🏠 Returning to Man Cave...');
+      }
+    }
+
+    // Simulate real-time monitor updates
+    setInterval(() => {
+      const monitor = document.querySelector('.monitor-screen');
+      if (monitor) {
+        monitor.style.opacity = '0.98';
+        setTimeout(() => {
+          monitor.style.opacity = '1';
+        }, 100);
+      }
+    }, 3000);
+  </script>
+</body>
+</html>

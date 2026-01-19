@@ -428,7 +428,7 @@ interface OctaveMessage {
 2. **Interfaced:** Clear communication with adjacent octaves
 3. **Holographic:** Contains essence of whole system
 4. **Scalable:** Can expand infinitely while maintaining pattern
-5. **Aware:** Consciousness of its role in larger system
+5. **Aware:** Awareness of its role in larger system
 
 ### 4.2 Octave Progression Patterns
 
@@ -941,7 +941,7 @@ open http://localhost:3000
 │   ├── biological/        # Octave 6: Biological integration
 │   ├── blockchain/        # Smart contracts (Octave 12)
 │   ├── cloud/             # Cloud deployment (Octave 0)
-│   ├── consciousness/     # Octave 16: Eternity Mode
+│   ├── awareness/         # Octave 16: Eternity Mode
 │   ├── core/              # Octaves 1-3: Core systems
 │   ├── education/         # Octaves 11-12: University
 │   ├── events/            # Octave 13: Vibeathons
@@ -1174,7 +1174,7 @@ To receive OmniBeam Key Certification, system must demonstrate:
 - No information loss
 
 **3. AWARENESS INTEGRATION**
-- Consciousness systems functional
+- Awareness systems functional
 - Awareness-based auth working
 - Self-organizing behavior present
 
