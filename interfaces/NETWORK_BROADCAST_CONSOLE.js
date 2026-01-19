@@ -513,14 +513,31 @@
             container.innerHTML = networkHTML;
             document.body.appendChild(container);
 
+            // Load network state from storage
+            if (window.StorageSyncProtocol) {
+                const savedState = window.StorageSyncProtocol.storage.load('nspfrnp_network_state');
+                if (savedState) {
+                    Object.assign(NetworkState, savedState);
+                }
+                
+                // Load saved broadcasts
+                const savedBroadcasts = window.StorageSyncProtocol.storage.load('nspfrnp_broadcasts');
+                if (savedBroadcasts && savedBroadcasts.length > 0) {
+                    NetworkState.broadcasts = savedBroadcasts;
+                }
+            }
+
             // Start network discovery
             this.startDiscovery();
 
-            // Load initial broadcasts
-            this.loadSampleBroadcasts();
+            // Load initial broadcasts if none saved
+            if (NetworkState.broadcasts.length === 0) {
+                this.loadSampleBroadcasts();
+            }
 
             this.initialized = true;
             console.log('📡 Network Broadcast Console initialized');
+            console.log('💾 Loaded from local storage');
         },
 
         startDiscovery: function() {
@@ -756,6 +773,11 @@
 
             NetworkState.broadcasts.unshift(newBroadcast);
             this.renderBroadcasts();
+
+            // Save to local storage with sync
+            if (window.StorageSyncProtocol) {
+                window.StorageSyncProtocol.saveBroadcast(newBroadcast);
+            }
 
             input.value = '';
             console.log('📡 Broadcast sent to network');

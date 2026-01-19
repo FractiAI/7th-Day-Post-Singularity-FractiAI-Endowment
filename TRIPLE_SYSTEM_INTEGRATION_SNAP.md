@@ -466,12 +466,15 @@ Already Integrated:
 - [x] CREATOR_ASSISTANCE_CONSOLE.html (Newton)
 - [x] GOLDEN_TICKET_NAVIGATOR.html (built-in)
 
-**Next: Add all 3 systems:**
+**Next: Add all 4 systems (including storage/sync):**
 ```html
-<!-- Add these 3 lines to each HTML file before </body> -->
+<!-- Add these 4 lines to each HTML file before </body> -->
+<script src="LOCAL_STORAGE_SYNC_PROTOCOL.js"></script>
 <script src="REQUEST_GRANT_SYSTEM.js"></script>
 <script src="NETWORK_BROADCAST_CONSOLE.js"></script>
 <script src="VIBING_CONSOLE.js"></script>
+
+<!-- IMPORTANT: Storage protocol must load first! -->
 ```
 
 ### Phase 2: Roll Out to All 36+ Demos
@@ -483,12 +486,12 @@ Already Integrated:
 
 **Script for Mass Deployment:**
 ```bash
-# Add all 3 systems to every demo
+# Add all 4 systems to every demo (storage protocol first!)
 for file in interfaces/demos/*.html interfaces/portals/*.html interfaces/*.html; do
     # Check if already has systems
     if ! grep -q "REQUEST_GRANT_SYSTEM.js" "$file"; then
         # Add before </body>
-        sed -i '' 's|</body>|    <!-- Universal Systems -->\n    <script src="../REQUEST_GRANT_SYSTEM.js"></script>\n    <script src="../NETWORK_BROADCAST_CONSOLE.js"></script>\n    <script src="../VIBING_CONSOLE.js"></script>\n</body>|' "$file"
+        sed -i '' 's|</body>|    <!-- Universal Systems -->\n    <script src="../LOCAL_STORAGE_SYNC_PROTOCOL.js"></script>\n    <script src="../REQUEST_GRANT_SYSTEM.js"></script>\n    <script src="../NETWORK_BROADCAST_CONSOLE.js"></script>\n    <script src="../VIBING_CONSOLE.js"></script>\n</body>|' "$file"
         echo "✅ Added systems to $file"
     fi
 done

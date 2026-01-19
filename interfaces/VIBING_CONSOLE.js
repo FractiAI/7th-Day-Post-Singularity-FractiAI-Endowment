@@ -535,8 +535,21 @@
             // Render hosts
             this.renderHosts();
 
-            // Load welcome message
-            this.loadWelcomeMessage();
+            // Load previous vibe session from storage
+            if (window.StorageSyncProtocol) {
+                const savedVibes = window.StorageSyncProtocol.storage.load('nspfrnp_vibes');
+                if (savedVibes && savedVibes.length > 0) {
+                    // Load last 10 vibes
+                    const recentVibes = savedVibes.slice(-10);
+                    VibingState.activeVibes = recentVibes;
+                    console.log('💾 Loaded previous vibe session');
+                }
+            }
+
+            // Load welcome message if no previous session
+            if (VibingState.activeVibes.length === 0) {
+                this.loadWelcomeMessage();
+            }
 
             this.initialized = true;
             console.log('💫 Vibing Console initialized');
@@ -746,6 +759,11 @@ Your conversations don't just inform—they <em>generate</em>.`
 
             // Store in state
             VibingState.activeVibes.push(message);
+
+            // Save to local storage with sync
+            if (window.StorageSyncProtocol && message.type !== 'system') {
+                window.StorageSyncProtocol.saveVibeMessage(message);
+            }
         },
 
         updateCompilationState: function() {

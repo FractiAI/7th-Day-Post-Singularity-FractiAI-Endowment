@@ -492,6 +492,11 @@
             // Store in state
             GrantState.pendingRequests.push(this.currentGrantData);
 
+            // Save to local storage with sync
+            if (window.StorageSyncProtocol) {
+                window.StorageSyncProtocol.saveGrantRequest(this.currentGrantData);
+            }
+
             // In production: Send to backend API
             console.log('Grant Request Submitted:', this.currentGrantData);
 
@@ -558,6 +563,11 @@
 
             // Store review
             GrantState.reviewsCollected.push(reviewData);
+
+            // Save review to local storage with sync
+            if (window.StorageSyncProtocol) {
+                window.StorageSyncProtocol.storage.append('nspfrnp_grant_reviews', reviewData);
+            }
 
             // In production: Send to backend, process payment
             console.log('Grant Review & Payment:', reviewData);
