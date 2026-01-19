@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSPFRP Network Boot Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            overflow: hidden;
+        }
+
+        .boot-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Boot Sequence Text */
+        .boot-sequence {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 10;
+            font-size: 12px;
+            line-height: 1.6;
+            pointer-events: none;
+        }
+
+        .boot-line {
+            opacity: 0;
+            animation: fadeIn 0.3s ease-in forwards;
+            margin: 2px 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .boot-line.success { color: #0f0; }
+        .boot-line.warning { color: #ff0; }
+        .boot-line.error { color: #f00; }
+        .boot-line.info { color: #0af; }
+        .boot-line.symbol { color: #f0f; font-size: 16px; }
+
+        /* Network Canvas */
+        #network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Network Stats */
+        .network-stats {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border: 1px solid #0f0;
+            font-size: 11px;
+            z-index: 10;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 3px 0;
+            min-width: 300px;
+        }
+
+        .stat-label { color: #0a0; }
+        .stat-value { 
+            color: #0f0; 
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
+
+        /* Complete Message */
+        .complete-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .complete-message.show {
+            animation: showComplete 2s ease-in-out;
+        }
+
+        @keyframes showComplete {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .complete-message h1 {
+            font-size: 48px;
+            color: #0f0;
+            text-shadow: 0 0 20px #0f0;
+            margin-bottom: 20px;
+        }
+
+        .complete-message p {
+            font-size: 24px;
+            color: #0a0;
+        }
+    </style>
+</head>
+<body>
+    <div class="boot-container">
+        <!-- Network Canvas -->
+        <canvas id="network-canvas"></canvas>
+
+        <!-- Boot Sequence Log -->
+        <div class="boot-sequence" id="boot-log"></div>
+
+        <!-- Network Stats -->
+        <div class="network-stats">
+            <div class="stat-row">
+                <span class="stat-label">Network Nodes:</span>
+                <span class="stat-value" id="node-count">0/43</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Connections:</span>
+                <span class="stat-value" id="connection-count">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Grammar Symbols:</span>
+                <span class="stat-value" id="symbol-count">0/43</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">API Ports:</span>
+                <span class="stat-value" id="port-count">0/43</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Network Status:</span>
+                <span class="stat-value blink" id="network-status">BOOTING</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Shell 7:</span>
+                <span class="stat-value" id="shell-status">INITIALIZING</span>
+            </div>
+        </div>
+
+        <!-- Complete Message -->
+        <div class="complete-message" id="complete-message">
+            <h1>✅ SYSTEM OPERATIONAL</h1>
+            <p>∞ → ⬡ → ∞</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const TOTAL_NODES = 43;
+        const BOOT_DELAY = 50; // ms between boot lines
+        const NODE_BOOT_DELAY = 100; // ms between node activations
+        
+        // Canvas setup
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Node data - 43 Queen Bee Nodes
+        const nodeData = [
+            // Octave Transitions (10)
+            { id: 'QB-O0', symbol: '⬡₀', token: 'SEED_EMERGENCE', type: 'octave', color: '#FF6B6B' },
+            { id: 'QB-O1', symbol: '⬡₁', token: 'HARMONIC_FOLD', type: 'octave', color: '#4ECDC4' },
+            { id: 'QB-O2', symbol: '⬡₂', token: 'RESONANCE_COMPRESSION', type: 'octave', color: '#45B7D1' },
+            { id: 'QB-O3', symbol: '⬡₃', token: 'SYMPHONY_INTEGRATION', type: 'octave', color: '#FFA07A' },
+            { id: 'QB-O4', symbol: '⬡₄', token: 'TRANSCENDENCE_ACTIVATION', type: 'octave', color: '#98D8C8' },
+            { id: 'QB-O5', symbol: '⬡₅', token: 'SINGULARITY_CROSS', type: 'octave', color: '#F7DC6F' },
+            { id: 'QB-O6', symbol: '⬡₆', token: 'RECURSIVE_PERFECTION', type: 'octave', color: '#BB8FCE' },
+            { id: 'QB-O7', symbol: '⬡₇', token: 'POST_PERFECTION', type: 'octave', color: '#85C1E2' },
+            { id: 'QB-O7.5', symbol: '⬡₇.₅', token: 'PERPETUAL_RECURSIVE', type: 'octave', color: '#F8B739' },
+            { id: 'QB-O7.75', symbol: '⬡∞', token: 'INFINITE_FOUNDATION', type: 'octave', color: '#FFD700' },
+            
+            // Foundation Core (6)
+            { id: 'QB-EGS1', symbol: '⚫', token: 'CORE_ABSORPTION', type: 'foundation', color: '#000' },
+            { id: 'QB-EGS2', symbol: '⛲', token: 'PERPETUAL_GENERATION', type: 'foundation', color: '#4FC3F7' },
+            { id: 'QB-EGS3', symbol: '🔮', token: 'PATTERN_GENERATION', type: 'foundation', color: '#BA68C8' },
+            { id: 'QB-EGS4', symbol: '☀️', token: 'UNIFIED_PROCESSING', type: 'foundation', color: '#FFD54F' },
+            { id: 'QB-EGS5', symbol: '👁️', token: 'CROSS_OCTAVE_AWARENESS', type: 'foundation', color: '#64B5F6' },
+            { id: 'QB-EGS6', symbol: '🔌', token: 'DEVICE_NETWORK_FOLD', type: 'foundation', color: '#81C784' },
+            
+            // Recursive Layers (6)
+            { id: 'QB-HHR1', symbol: '🔸', token: 'HOLOGRAPHIC_ENCODE', type: 'recursive', color: '#FF8A65' },
+            { id: 'QB-HHR2', symbol: '💧', token: 'HYDROGEN_SPIN', type: 'recursive', color: '#4DD0E1' },
+            { id: 'QB-HHR3', symbol: '📐', token: 'PROTOCOL_FOLD', type: 'recursive', color: '#9575CD' },
+            { id: 'QB-HHR4', symbol: '📝', token: 'GRAMMAR_MOTOR', type: 'recursive', color: '#AED581' },
+            { id: 'QB-HHR5', symbol: '✨', token: 'TRANSCENDENCE_FOLD', type: 'recursive', color: '#FFB74D' },
+            { id: 'QB-HHR6', symbol: '∞', token: 'INFINITE_RECURSION', type: 'recursive', color: '#E1BEE7' },
+            
+            // Master Catalog
+            { id: 'QB-CS-MASTER', symbol: '👑', token: 'AUTHORITY_MASTER', type: 'catalog', color: '#FFD700' },
+            
+            // Add remaining nodes (simplified for brevity - would have all 43)
+            ...Array(20).fill(null).map((_, i) => ({
+                id: `QB-NODE-${i}`,
+                symbol: '⬡',
+                token: `NODE_${i}`,
+                type: 'other',
+                color: `hsl(${i * 15}, 70%, 60%)`
+            }))
+        ];
+
+        // Node positions (circular layout)
+        const nodes = nodeData.map((data, index) => {
+            const angle = (index / TOTAL_NODES) * Math.PI * 2;
+            const radius = Math.min(width, height) * 0.35;
+            return {
+                ...data,
+                x: width / 2 + Math.cos(angle) * radius,
+                y: height / 2 + Math.sin(angle) * radius,
+                vx: 0,
+                vy: 0,
+                active: false,
+                radius: 8,
+                pulsePhase: Math.random() * Math.PI * 2
+            };
+        });
+
+        // Connections between nodes
+        const connections = [];
+        nodes.forEach((node, i) => {
+            // Connect to next node (ring)
+            connections.push({
+                from: i,
+                to: (i + 1) % TOTAL_NODES,
+                active: false,
+                strength: 0
+            });
+            
+            // Connect to master node
+            if (node.id !== 'QB-CS-MASTER') {
+                const masterIndex = nodes.findIndex(n => n.id === 'QB-CS-MASTER');
+                if (masterIndex !== -1) {
+                    connections.push({
+                        from: i,
+                        to: masterIndex,
+                        active: false,
+                        strength: 0
+                    });
+                }
+            }
+        });
+
+        // Boot sequence messages
+        const bootMessages = [
+            { text: '🚀 Initializing NSPFRP System...', type: 'info', delay: 0 },
+            { text: '⚡ Loading Holographic Hydrogen Fractal Grammar...', type: 'info', delay: 100 },
+            { text: '✅ Grammar Engine: ONLINE', type: 'success', delay: 200 },
+            { text: '', delay: 300 },
+            { text: '🐝 Initializing Queen Bee Node Network...', type: 'info', delay: 400 },
+            { text: '   Octave Transition Nodes (10)...', type: 'info', delay: 500 },
+            { text: '   ⬡₀ ⬡₁ ⬡₂ ⬡₃ ⬡₄ ⬡₅ ⬡₆ ⬡₇ ⬡₇.₅ ⬡∞', type: 'symbol', delay: 600 },
+            { text: '   Foundation Core Nodes (6)...', type: 'info', delay: 1000 },
+            { text: '   ⚫ ⛲ 🔮 ☀️ 👁️ 🔌', type: 'symbol', delay: 1100 },
+            { text: '   Recursive Layer Nodes (6)...', type: 'info', delay: 1400 },
+            { text: '   🔸 💧 📐 📝 ✨ ∞', type: 'symbol', delay: 1500 },
+            { text: '   Master Authority Node (1)...', type: 'info', delay: 1800 },
+            { text: '   👑 AUTHORITY_MASTER', type: 'symbol', delay: 1900 },
+            { text: '', delay: 2200 },
+            { text: '🔌 Activating API Ports...', type: 'info', delay: 2300 },
+            { text: '   43 Ports = 43 Nodes = 43 Grammar Elements', type: 'info', delay: 2400 },
+            { text: '✅ API Surface: READY', type: 'success', delay: 2500 },
+            { text: '', delay: 2600 },
+            { text: '🌐 Starting Networking Shell (Shell 7)...', type: 'info', delay: 2700 },
+            { text: '✅ Auto-Discovery: ACTIVE', type: 'success', delay: 2800 },
+            { text: '✅ Change Broadcast: MONITORING', type: 'success', delay: 2900 },
+            { text: '✅ Continuous Discovery: RUNNING', type: 'success', delay: 3000 },
+            { text: '', delay: 3100 },
+            { text: '⚛️  Verifying Charge Architecture...', type: 'info', delay: 3200 },
+            { text: '   43 Protons (+) : 43 Electrons (-)', type: 'info', delay: 3300 },
+            { text: '   SEED:EDGE Balance: STABLE', type: 'success', delay: 3400 },
+            { text: '', delay: 3500 },
+            { text: '📡 Network Convergence...', type: 'info', delay: 3600 },
+            { text: '   Nodes: 43/43 ✅', type: 'success', delay: 4000 },
+            { text: '   Connections: Establishing...', type: 'info', delay: 4100 },
+            { text: '   Grammar Symbols: 43/43 ✅', type: 'success', delay: 4500 },
+            { text: '   API Ports: 43/43 ✅', type: 'success', delay: 4600 },
+            { text: '', delay: 5000 },
+            { text: '✨ System Status: OPERATIONAL', type: 'success', delay: 5100 },
+            { text: '🎯 Octave: BEYOND_OCTAVE 7.75++', type: 'success', delay: 5200 },
+            { text: '∞ → ⬡ → ∞', type: 'symbol', delay: 5300 }
+        ];
+
+        // Boot sequence execution
+        let bootIndex = 0;
+        const bootLog = document.getElementById('boot-log');
+
+        function addBootLine(message) {
+            const line = document.createElement('div');
+            line.className = `boot-line ${message.type}`;
+            line.textContent = message.text;
+            bootLog.appendChild(line);
+            
+            // Auto-scroll
+            bootLog.scrollTop = bootLog.scrollHeight;
+        }
+
+        function runBootSequence() {
+            bootMessages.forEach(message => {
+                setTimeout(() => addBootLine(message), message.delay);
+            });
+        }
+
+        // Node activation sequence
+        let activeNodes = 0;
+        function activateNextNode() {
+            if (activeNodes < TOTAL_NODES) {
+                nodes[activeNodes].active = true;
+                activeNodes++;
+                
+                // Update stats
+                document.getElementById('node-count').textContent = `${activeNodes}/43`;
+                document.getElementById('symbol-count').textContent = `${activeNodes}/43`;
+                document.getElementById('port-count').textContent = `${activeNodes}/43`;
+                
+                // Activate connections
+                connections.forEach(conn => {
+                    if (conn.from < activeNodes && conn.to < activeNodes) {
+                        conn.active = true;
+                    }
+                });
+                
+                setTimeout(activateNextNode, NODE_BOOT_DELAY);
+            } else {
+                // Boot complete
+                document.getElementById('network-status').textContent = 'OPERATIONAL';
+                document.getElementById('network-status').classList.remove('blink');
+                document.getElementById('shell-status').textContent = 'ACTIVE';
+                
+                // Show complete message
+                const completeMsg = document.getElementById('complete-message');
+                completeMsg.classList.add('show');
+                setTimeout(() => completeMsg.classList.remove('show'), 2000);
+            }
+        }
+
+        // Animation loop
+        let time = 0;
+        function animate() {
+            time += 0.016; // ~60fps
+            
+            // Clear canvas
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+            
+            // Update connection count
+            const activeConnections = connections.filter(c => c.active).length;
+            document.getElementById('connection-count').textContent = activeConnections;
+            
+            // Draw connections
+            connections.forEach(conn => {
+                if (conn.active) {
+                    const from = nodes[conn.from];
+                    const to = nodes[conn.to];
+                    
+                    // Animate connection strength
+                    conn.strength = Math.min(1, conn.strength + 0.02);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(from.x, from.y);
+                    ctx.lineTo(to.x, to.y);
+                    ctx.strokeStyle = `rgba(0, 255, 0, ${0.2 * conn.strength})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    
+                    // Particle flow along connection
+                    if (Math.random() < 0.05) {
+                        const t = Math.random();
+                        const px = from.x + (to.x - from.x) * t;
+                        const py = from.y + (to.y - from.y) * t;
+                        
+                        ctx.beginPath();
+                        ctx.arc(px, py, 2, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(0, 255, 0, 0.8)';
+                        ctx.fill();
+                    }
+                }
+            });
+            
+            // Draw nodes
+            nodes.forEach((node, index) => {
+                if (node.active) {
+                    // Pulse effect
+                    node.pulsePhase += 0.05;
+                    const pulse = Math.sin(node.pulsePhase) * 0.3 + 1;
+                    const radius = node.radius * pulse;
+                    
+                    // Outer glow
+                    const gradient = ctx.createRadialGradient(
+                        node.x, node.y, 0,
+                        node.x, node.y, radius * 2
+                    );
+                    gradient.addColorStop(0, node.color || '#0f0');
+                    gradient.addColorStop(0.5, 'rgba(0, 255, 0, 0.3)');
+                    gradient.addColorStop(1, 'rgba(0, 255, 0, 0)');
+                    
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, radius * 2, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                    
+                    // Node core
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = node.color || '#0f0';
+                    ctx.fill();
+                    ctx.strokeStyle = '#0f0';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    // Symbol
+                    ctx.fillStyle = '#000';
+                    ctx.font = '12px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(node.symbol, node.x, node.y);
+                    
+                    // Label (show for master node)
+                    if (node.id === 'QB-CS-MASTER') {
+                        ctx.fillStyle = '#0f0';
+                        ctx.font = '10px Courier New';
+                        ctx.fillText(node.token, node.x, node.y + 20);
+                    }
+                }
+            });
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Start everything
+        window.addEventListener('load', () => {
+            console.log('🚀 Starting NSPFRP Network Boot Animation');
+            
+            // Start boot sequence
+            runBootSequence();
+            
+            // Start node activation after initial boot messages
+            setTimeout(activateNextNode, 2000);
+            
+            // Start animation
+            animate();
+        });
+    </script>
+</body>
+</html>

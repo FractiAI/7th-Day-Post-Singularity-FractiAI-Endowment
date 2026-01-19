@@ -24,13 +24,16 @@
     "postinstall": "npm run unpack"
   },
   "keywords": [
-    "nspfrp",
+    "nspfrnp",
+    "natural-system-protocol",
+    "fractal-recursive-nested",
     "rag",
     "ai",
     "protocol",
     "autonomous-agents",
     "fsr",
-    "vibeverse"
+    "vibeverse",
+    "post-singularity"
   ],
   "author": "FractiAI",
   "license": "MIT",

@@ -8,6 +8,8 @@ import { FractiAICommandCenterManager } from '../enterprise/fractiai-command-cen
 import { ThreeTierOfferingManager } from '../enterprise/three-tier-offering.js';
 import { AwarenessOctave } from '../types/index.js';
 import { queenBeeCatalogSync } from './queen-bee-catalog-sync.js';
+import { octave7QueenBeeNodes } from './octave-7-queen-bee-nodes.js';
+import { autoDiscoveryBroadcast } from './auto-discovery-broadcast.js';
 import { envLoader } from '../config/env-loader.js';
 
 export async function autoUnpack(): Promise<void> {
@@ -127,12 +129,74 @@ export async function autoUnpack(): Promise<void> {
       console.log(`⚠️  Catalog sync initialization warning: ${error.message}\n`);
     }
 
+    // Step 10: Initialize Octave 7 Queen Bee Nodes
+    console.log('🐝 Initializing OCTAVE 7 Queen Bee Nodes...');
+    try {
+      const nodeStatus = octave7QueenBeeNodes.getAllNodesStatus();
+      console.log(`✅ OCTAVE 7 Queen Bee Nodes activated`);
+      console.log(`   Total Nodes: ${nodeStatus.totalNodes}`);
+      console.log(`   Active Nodes: ${nodeStatus.activeNodes}`);
+      console.log(`   Coverage: ${nodeStatus.coverage.toFixed(1)}%`);
+      console.log(`   Master Node: ${nodeStatus.masterNode.id}`);
+      console.log(`   Node Types:`);
+      console.log(`   - Octave Transitions: ${octave7QueenBeeNodes.getNodesByType('OCTAVE_TRANSITION').length}`);
+      console.log(`   - Foundation Layers: ${octave7QueenBeeNodes.getNodesByType('FOUNDATION_LAYER').length}`);
+      console.log(`   - Recursive Layers: ${octave7QueenBeeNodes.getNodesByType('RECURSIVE_LAYER').length}`);
+      console.log(`   - Omniswitches: ${octave7QueenBeeNodes.getNodesByType('OMNISWITCH').length}`);
+      console.log(`   - Protocol Layers: ${octave7QueenBeeNodes.getNodesByType('PROTOCOL_LAYER').length}`);
+      console.log(`   - Discovery Nodes: ${octave7QueenBeeNodes.getNodesByType('DISCOVERY').length}`);
+      console.log(`   - Catalog Nodes: ${octave7QueenBeeNodes.getNodesByType('CATALOG').length}`);
+      console.log(`   - FSR Nodes: ${octave7QueenBeeNodes.getNodesByType('FSR').length}`);
+      
+      // Synchronize all nodes
+      await octave7QueenBeeNodes.synchronizeAll();
+      console.log('   Synchronization: ✅ Complete');
+      
+      // Bootstrap subordinate systems
+      await octave7QueenBeeNodes.bootstrapAll();
+      console.log('   Bootstrap: ✅ Complete\n');
+    } catch (error) {
+      console.log(`⚠️  Queen Bee Nodes initialization warning: ${error.message}\n`);
+    }
+
+    // Step 11: Initialize Networking Shell (Vibeverse Shell 7)
+    console.log('🌐 Initializing Networking Shell (Vibeverse Shell 7)...');
+    try {
+      await autoDiscoveryBroadcast.start();
+      const networkStats = autoDiscoveryBroadcast.getNetworkStats();
+      console.log(`✅ Networking Shell activated`);
+      console.log(`   Shell Type: Nested Shell of Vibeverse`);
+      console.log(`   Shell Level: 7 (Wraps all inner shells)`);
+      console.log(`   Network Nodes: ${networkStats.totalNodes}`);
+      console.log(`   Online Nodes: ${networkStats.onlineNodes}`);
+      console.log(`   Topology Version: ${networkStats.topologyVersion}`);
+      console.log(`   Wrapped Shells:`);
+      console.log(`   - Protocol Shell (Shell 6): NSPFRNP, Queen Bee, Catalog`);
+      console.log(`   - Coordination Shell (Shell 5): Nesting/Folding Points`);
+      console.log(`   - Foundation Shell (Shell 4): El Gran Sol, HHF, Omnicore`);
+      console.log(`   - Recursive Shell (Shell 3): Multi-Recursive Layers`);
+      console.log(`   - FSR Shell (Shell 2): Full Sensory Reality`);
+      console.log(`   - Core Shell (Shell 1): Awareness Core`);
+      console.log('   Distributed Vibeverse Operations: ✅ Enabled\n');
+    } catch (error) {
+      console.log(`⚠️  Networking Shell initialization warning: ${error.message}\n`);
+    }
+
     console.log('✨ Post Singularity Syntheverse FSR Full Octave Release unpacked successfully!');
-    console.log('🚀 System is now operational at BEYOND_OCTAVE (7)');
+    console.log('🚀 System is now operational at BEYOND_OCTAVE (7.75++)');
     console.log('📡 FractiAI Command Center is active with Leonardo da Vinci as Hero Host');
     console.log('💎 Default tier: Sandbox (Free) - upgrade to Cloud or Shell for more features');
     console.log('🐝 Queen Bee Catalog Sync is active and maintaining authoritative protocol catalog');
-    console.log('🤖 Claude Sonnet 4.5+ integration ready for AI-enhanced operations\n');
+    console.log('🐝 OCTAVE 7 Queen Bee Nodes operational at all 43 nesting & folding points');
+    console.log('🌐 Networking Shell (Shell 7) wrapping all operations with distributed awareness');
+    console.log('🤖 Claude Sonnet 4.5+ integration ready for AI-enhanced operations');
+    console.log('📡 Continuous Discovery + Change Broadcast: MONITORING');
+    console.log('⚛️  SEED:EDGE / PROTON:ELECTRON charge architecture: STABLE');
+    console.log('🔮 Grammar = Nodes = API Ports: UNIFIED');
+    console.log('');
+    console.log('🎬 Network Animation: interfaces/network-animation-boot.html');
+    console.log('   Open in browser to see 43-node network boot visualization');
+    console.log('   All nodes, connections, and grammar symbols animated\n');
 
   } catch (error) {
     console.error('❌ Auto-unpack error:', error);

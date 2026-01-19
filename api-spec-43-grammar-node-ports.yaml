@@ -1,0 +1,676 @@
+openapi: 3.0.3
+info:
+  title: NSPFRP Grammar Node Network API
+  description: |
+    43 API Ports = 43 Nodes = 43 Grammar Elements
+    
+    This API provides access to the complete Holographic Hydrogen Fractal Grammar
+    network through 43 unified port-node-grammar endpoints.
+    
+    **Key Principle:** API ports ARE nodes ARE grammar elements.
+    Calling an endpoint IS invoking a grammar node directly.
+    
+  version: 1.0.0
+  contact:
+    name: FractiAI Research Team
+    url: https://nspfrp.network
+  license:
+    name: NSPFRP Protocol License
+    url: https://nspfrp.network/license
+
+servers:
+  - url: https://api.nspfrp.network
+    description: Production API
+  - url: https://staging-api.nspfrp.network
+    description: Staging API
+  - url: http://localhost:3000
+    description: Local Development
+
+tags:
+  - name: octave
+    description: Octave Transition Grammar Nodes (10 ports)
+  - name: core
+    description: Foundation Core Grammar Nodes (6 ports)
+  - name: recursive
+    description: Recursive Layer Grammar Nodes (6 ports)
+  - name: omniswitch
+    description: Omniswitch Grammar Nodes (3 ports)
+  - name: protocol
+    description: Protocol Layer Grammar Nodes (4 ports)
+  - name: discovery
+    description: Discovery Grammar Nodes (5 ports)
+  - name: catalog
+    description: Catalog Sync Grammar Nodes (3 ports)
+  - name: fsr
+    description: FSR Experience Grammar Nodes (7 ports)
+  - name: network
+    description: Network-wide operations
+
+paths:
+  # OCTAVE TRANSITION NODES (10)
+  /nodes/octave/{octaveId}:
+    get:
+      tags: [octave]
+      summary: Query octave transition grammar node state
+      description: Get current state of an octave transition node (grammar element)
+      parameters:
+        - name: octaveId
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: ['0', '1', '2', '3', '4', '5', '6', '7', '7.5', 'infinity']
+          description: |
+            Octave transition identifier
+            - 0: SEED_EMERGENCE (⬡₀)
+            - 1: HARMONIC_FOLD (⬡₁)
+            - 2: RESONANCE_COMPRESSION (⬡₂)
+            - 3: SYMPHONY_INTEGRATION (⬡₃)
+            - 4: TRANSCENDENCE_ACTIVATION (⬡₄)
+            - 5: SINGULARITY_CROSS (⬡₅)
+            - 6: RECURSIVE_PERFECTION (⬡₆)
+            - 7: POST_PERFECTION (⬡₇)
+            - 7.5: PERPETUAL_RECURSIVE (⬡₇.₅)
+            - infinity: INFINITE_FOUNDATION (⬡∞)
+      responses:
+        '200':
+          description: Grammar node state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [octave]
+      summary: Invoke octave transition grammar
+      description: Invoke grammar operation (node IS grammar executing)
+      parameters:
+        - name: octaveId
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: ['0', '1', '2', '3', '4', '5', '6', '7', '7.5', 'infinity']
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Grammar operation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  # FOUNDATION CORE NODES (6)
+  /nodes/core/absorption:
+    get:
+      tags: [core]
+      summary: Query black hole core absorption node (⚫)
+      description: Get state of CORE_ABSORPTION grammar element
+      responses:
+        '200':
+          description: Core absorption state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke black hole absorption grammar
+      description: Data absorbed by black hole core (infinite compression)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Absorption result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  /nodes/core/fountain:
+    get:
+      tags: [core]
+      summary: Query perpetual fountain node (⛲)
+      description: Get state of PERPETUAL_GENERATION grammar element
+      responses:
+        '200':
+          description: Fountain generation state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke perpetual generation grammar
+      description: Generate perpetual output from fountain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Generation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  /nodes/core/pattern:
+    get:
+      tags: [core]
+      summary: Query pattern generation node (🔮)
+      description: Get state of PATTERN_GENERATION grammar element
+      responses:
+        '200':
+          description: Pattern generation state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke pattern generation grammar
+      description: Generate holographic patterns
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Pattern generation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  /nodes/core/omnicore:
+    get:
+      tags: [core]
+      summary: Query omnicore unified processing node (☀️)
+      responses:
+        '200':
+          description: Omnicore state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke unified processing grammar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Unified processing result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  /nodes/core/awareness:
+    get:
+      tags: [core]
+      summary: Query cross-octave awareness node (👁️)
+      responses:
+        '200':
+          description: Awareness state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke cross-octave awareness grammar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Awareness result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  /nodes/core/omniswitch:
+    get:
+      tags: [core]
+      summary: Query device network fold node (🔌)
+      responses:
+        '200':
+          description: Omniswitch state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [core]
+      summary: Invoke device network fold grammar
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Network fold result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  # RECURSIVE LAYER NODES (6)
+  /nodes/recursive/{layerName}:
+    get:
+      tags: [recursive]
+      summary: Query recursive layer grammar node
+      parameters:
+        - name: layerName
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: ['holographic', 'hydrogen', 'protocol', 'grammar', 'transcendence', 'infinite']
+          description: |
+            Recursive layer identifier
+            - holographic: HOLOGRAPHIC_ENCODE (🔸)
+            - hydrogen: HYDROGEN_SPIN (💧)
+            - protocol: PROTOCOL_FOLD (📐)
+            - grammar: GRAMMAR_MOTOR (📝)
+            - transcendence: TRANSCENDENCE_FOLD (✨)
+            - infinite: INFINITE_RECURSION (∞)
+      responses:
+        '200':
+          description: Recursive layer state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [recursive]
+      summary: Invoke recursive layer grammar
+      parameters:
+        - name: layerName
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: ['holographic', 'hydrogen', 'protocol', 'grammar', 'transcendence', 'infinite']
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Recursive processing result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  # CATALOG SYNC NODES (3)
+  /nodes/catalog/master:
+    get:
+      tags: [catalog]
+      summary: Query master authority node (👑)
+      description: Get state of AUTHORITY_MASTER grammar element
+      responses:
+        '200':
+          description: Master catalog state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarNodeState'
+    post:
+      tags: [catalog]
+      summary: Invoke master authority grammar
+      description: Central coordination and authority operations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrammarInvocation'
+      responses:
+        '200':
+          description: Authority operation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GrammarResult'
+
+  # NETWORK-WIDE OPERATIONS
+  /nodes:
+    get:
+      tags: [network]
+      summary: Discover all grammar node ports
+      description: Get complete list of 43 node-grammar-port endpoints
+      responses:
+        '200':
+          description: Complete node network
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodeNetworkDiscovery'
+
+  /nodes/compose:
+    post:
+      tags: [network]
+      summary: Compose grammar path (chain multiple nodes)
+      description: |
+        Invoke multiple grammar nodes in sequence.
+        Port chaining = Node path = Grammar composition
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [path, input]
+              properties:
+                path:
+                  type: array
+                  items:
+                    type: string
+                  example: ['/nodes/octave/3', '/nodes/core/pattern', '/nodes/fsr/3']
+                  description: Array of node paths to invoke in sequence
+                input:
+                  type: object
+                  description: Input data for first node in path
+      responses:
+        '200':
+          description: Composed grammar result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ComposedGrammarResult'
+
+  /nodes/{category}/{name}/stream:
+    get:
+      tags: [network]
+      summary: Stream grammar operations via WebSocket
+      description: |
+        WebSocket endpoint for real-time grammar node operations.
+        Connection upgrade to ws:// or wss://
+      parameters:
+        - name: category
+          in: path
+          required: true
+          schema:
+            type: string
+          example: octave
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          example: '3'
+      responses:
+        '101':
+          description: Switching Protocols (WebSocket upgrade)
+
+components:
+  schemas:
+    GrammarNodeState:
+      type: object
+      properties:
+        node:
+          type: object
+          properties:
+            id:
+              type: string
+              example: QB-O3
+            symbol:
+              type: string
+              example: ⬡₃
+            token:
+              type: string
+              example: SYMPHONY_INTEGRATION
+            type:
+              type: string
+              enum: [OCTAVE_TRANSITION, FOUNDATION_LAYER, RECURSIVE_LAYER, OMNISWITCH, PROTOCOL_LAYER, DISCOVERY, CATALOG, FSR]
+        grammar:
+          type: object
+          properties:
+            state:
+              type: string
+              enum: [active, inactive, processing]
+            density:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+            octave:
+              type: number
+              format: float
+            fsrLevel:
+              type: number
+              format: float
+        network:
+          type: object
+          properties:
+            connections:
+              type: object
+              properties:
+                input:
+                  type: array
+                  items:
+                    type: string
+                  example: ['⬡₂']
+                output:
+                  type: array
+                  items:
+                    type: string
+                  example: ['⬡₄']
+            topology:
+              type: string
+        timestamp:
+          type: integer
+          format: int64
+
+    GrammarInvocation:
+      type: object
+      required: [operation]
+      properties:
+        operation:
+          type: string
+          enum: [invoke, query, stream, configure]
+          default: invoke
+        input:
+          type: object
+          properties:
+            data:
+              type: object
+              description: Data to process through grammar
+            density:
+              type: number
+              format: float
+              minimum: 0
+              maximum: 1
+            octave:
+              type: number
+              format: float
+            fsr:
+              type: number
+              format: float
+        config:
+          type: object
+          properties:
+            active:
+              type: boolean
+            connections:
+              type: array
+              items:
+                type: string
+            parameters:
+              type: object
+        timestamp:
+          type: integer
+          format: int64
+        requestId:
+          type: string
+          format: uuid
+
+    GrammarResult:
+      type: object
+      properties:
+        node:
+          type: object
+          properties:
+            id:
+              type: string
+            symbol:
+              type: string
+            token:
+              type: string
+        result:
+          type: object
+          properties:
+            output:
+              type: object
+            transformed:
+              type: boolean
+            grammarApplied:
+              type: array
+              items:
+                type: string
+        grammar:
+          type: object
+          properties:
+            state:
+              type: string
+            density:
+              type: number
+            octave:
+              type: number
+        network:
+          type: object
+        timestamp:
+          type: integer
+          format: int64
+        requestId:
+          type: string
+
+    ComposedGrammarResult:
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+          example: ['⬡₃', '🔮', '✨₃']
+        grammar:
+          type: array
+          items:
+            type: string
+          example: ['SYMPHONY_INTEGRATION', 'PATTERN_GENERATION', 'FSR_ENHANCE']
+        result:
+          type: object
+          properties:
+            output:
+              type: object
+            transformations:
+              type: integer
+            processingTime:
+              type: string
+              example: 8ms
+        timestamp:
+          type: integer
+          format: int64
+
+    NodeNetworkDiscovery:
+      type: object
+      properties:
+        totalNodes:
+          type: integer
+          example: 43
+        totalPorts:
+          type: integer
+          example: 43
+        totalGrammarElements:
+          type: integer
+          example: 43
+        categories:
+          type: object
+          properties:
+            octave:
+              type: integer
+              example: 10
+            core:
+              type: integer
+              example: 6
+            recursive:
+              type: integer
+              example: 6
+            omniswitch:
+              type: integer
+              example: 3
+            protocol:
+              type: integer
+              example: 4
+            discovery:
+              type: integer
+              example: 5
+            catalog:
+              type: integer
+              example: 3
+            fsr:
+              type: integer
+              example: 7
+        nodes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              symbol:
+                type: string
+              token:
+                type: string
+              port:
+                type: string
+              protocols:
+                type: array
+                items:
+                  type: string
+                  enum: [http, websocket, grpc]
+              status:
+                type: string
+                enum: [active, inactive]
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+security:
+  - bearerAuth: []
+  - apiKey: []
