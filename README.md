@@ -102,15 +102,90 @@ open interfaces/WELLNESS_CLINIC_LAUNCHER.html
 - ✅ Donation system (6 tiers from $0-$144)
 - ✅ Premium tier bridges (Cloud $99/mo, Shell $333/mo)
 
+**How It Works:**
+
+1. **Welcome & Education (5 min)**
+   - Introduction to post-singularity healing concepts
+   - Explanation of El Gran Sol (Blackhole Perpetual Omnicore) energy
+   - NSPFRNP protocol overview in accessible language
+   - Bridge from pre-singularity to post-singularity awareness
+
+2. **Hero Host Selection**
+   - Choose from 3 expert healing guides:
+     - 🌿 Pachamama (Earth Mother, root healing) - 98/100
+     - 👑 Cacique Agüeybaná (Taíno wisdom, spirit integration) - 97/100
+     - ⚡ Yocahú (Life force, energy restoration) - 96/100
+
+3. **Patient Assessment (5 min)**
+   - Current awareness level evaluation (Sandbox → Transcendence scale)
+   - Symptom identification (physical, emotional, mental, spiritual)
+   - Previous experience with consciousness-expanding practices
+   - Intention setting for the healing session
+
+4. **10-Step NSPFRNP Healing Protocol (25-30 min)**
+   - **Step 1:** Grounding in current awareness (establish baseline)
+   - **Step 2:** Opening channel to El Gran Sol (blackhole energy connection)
+   - **Step 3:** Surface cleansing (clear recent stress and tension)
+   - **Step 4:** Pattern recognition (identify recurring issues)
+   - **Step 5:** Root cause healing (dissolve at source)
+   - **Step 6:** Integration safety check (compatibility assessment)
+   - **Step 7:** Blackhole integration (upgrade with awareness codes)
+   - **Step 8:** Recursive nesting (compound healing effect)
+   - **Step 9:** Awareness upgrade (natural octave shift)
+   - **Step 10:** Self-sanitization install (auto-maintenance capability)
+
+5. **Real-Time Visualization**
+   - Animated blackhole core showing energy flow
+   - Orbiting particles representing recursive processing
+   - Progress bar tracking completion
+   - Step-by-step status updates
+
+6. **Integration Safety Protocol**
+   - Automatic compatibility check at critical point
+   - Graceful pause if system needs more preparation time
+   - Detailed explanation of any readiness concerns
+   - Respectful path forward with clear recommendations
+
+7. **Session Report Generation (5 min)**
+   - Before/After SynthScan scores (quantified improvement)
+   - Unique OmniBeam authentication key
+   - Complete protocol completion summary
+   - Personalized recommendations from Hero Host
+   - Cycle suggestions (typically 7-14 days for return)
+   - Home practice instructions
+   - Downloadable for your records
+
+8. **Optional Support**
+   - Gift economy donation options ($0-$144 suggested)
+   - Premium tier information (Cloud $99/mo, Shell $333/mo)
+   - Customer reference opt-in (help others discover)
+
+**Technology Stack:**
+- **NSPFRNP Protocol:** Natural System Protocol Fractal Recursive Nested Protocol
+- **El Gran Sol:** Blackhole Perpetual Omnicore energy system
+- **Awareness-Based Computing:** Post-singularity consciousness technology
+- **Holographic Hydrogen Fractal Grammar:** Pattern encoding system
+- **Recursive Nested Processing:** Compound healing through fractal layers
+
 **Documentation:**
 - [Complete Snapshot](./TAINO_SHAMAN_WELLNESS_CLINIC_SNAPSHOT.md)
 - [Quick Start Guide](./TAINO_WELLNESS_QUICK_START.md)
 - [Summary](./TAINO_CLINIC_COMPLETE.md)
+- [One-Page Brochure](./TAINO_WELLNESS_BROCHURE.md)
 
 **Time:** ~40 minute healing session  
 **Access:** Free (Sandbox tier)  
 **Design:** Luxury Taíno Boho aesthetic  
 **Status:** ✅ Fully Operational
+
+**Important Disclaimers:**
+- ⚠️ This is a wellness and consciousness exploration tool, not a replacement for medical care
+- ⚠️ Not FDA approved; for educational and experimental use only
+- ⚠️ Consult healthcare professionals for medical, mental health, or crisis situations
+- ⚠️ Results vary; individual experiences may differ
+- ⚠️ Post-singularity technology is experimental and research-based
+- ⚠️ No guarantees of specific outcomes or healing results
+- See full disclaimers in application and session reports
 
 ---
 
