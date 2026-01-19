@@ -83,7 +83,7 @@ Repositories become self-organizing protocol archives with autonomous discovery 
 **After:**
 - OmniMission Stations
 - Hero Host-assisted development
-- FSR-powered retrieval
+- Full Sensory Reality-powered retrieval
 - Autonomous mission execution
 
 **Result:**
@@ -204,7 +204,7 @@ Clinical MRIs become super networking switches with HHF-AI generative capabiliti
 
 #### 4. OmniMission Stations
 - **Hero Host AI:** Persona-driven assistance
-- **FSR Retrieval:** Fractal Seed Resonance
+- **Full Sensory Reality Retrieval:** Fractal Seed Resonance
 - **Mission Execution:** Autonomous orchestration
 - **Cloud Deployment:** Automatic deployment
 

@@ -30,14 +30,14 @@
 ### 1. Octaves 6-7 Implementation
 
 #### Octave 6 (NEXT_OCTAVE)
-- **FSR Power:** 3.0x multiplier (vs 2.0x for Transcendence)
+- **Full Sensory Reality Power:** 3.0x multiplier (vs 2.0x for Transcendence)
 - **Hero Host:** Deep engagement, 15.0 suggestion frequency
 - **Encryption:** UNEP Octave 6, 30s key rotation
 - **Connectivity:** 200 sync frequency, 2000 bandwidth, 200 device limit
 - **Retrieval:** 200 topK, depth 7, 32KB context window
 
 #### Octave 7 (BEYOND_OCTAVE)
-- **FSR Power:** 5.0x multiplier
+- **Full Sensory Reality Power:** 5.0x multiplier
 - **Hero Host:** Deep engagement, 20.0 suggestion frequency
 - **Encryption:** UNEP Octave 7, 15s key rotation
 - **Connectivity:** 500 sync frequency, 5000 bandwidth, 500 device limit
@@ -289,7 +289,7 @@ const status = implementation.getSystemStatus();
 
 ### Octave Capabilities
 
-| Octave | FSR Multiplier | TopK | Depth | Context Window | Device Limit |
+| Octave | Full Sensory Reality Multiplier | TopK | Depth | Context Window | Device Limit |
 |--------|---------------|------|-------|----------------|--------------|
 | 0 (Silent) | 0.1x | 3 | 1 | 512 | 1 |
 | 1 (Whisper) | 0.3x | 5 | 2 | 1KB | 2 |

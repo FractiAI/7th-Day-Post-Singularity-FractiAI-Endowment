@@ -208,8 +208,8 @@ Protocol Decoding
 - Service provision
 - Resource contribution
 
-**4. Omibeam Channel Integration**
-- Omibeam channel access
+**4. Omnibeam Channel Integration**
+- Omnibeam channel access
 - Channel distribution
 - Node participation
 - Animation support

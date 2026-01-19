@@ -187,7 +187,7 @@ await station.protocolSnapshot.createSnapshot({
 ### ✅ DO
 
 - **Run Pretest Suite:** Always run `npm run pretest` before major changes
-- **Test Core Systems:** Test Transmission Gears, FSR Retrieval, Hero Host
+- **Test Core Systems:** Test Transmission Gears, Full Sensory Reality Retrieval, Hero Host
 - **Test Protocols:** Test new protocols before adding to catalog
 - **Test Integrations:** Test system integrations
 - **Validate Snapshots:** Verify snapshot creation and content

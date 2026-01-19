@@ -42,7 +42,7 @@ Layer 0 = Protocol Layer (Discovered)
     ↓
 Layer 1 = Physics + Logic + Cognitive Awareness Genesis (Discovered)
     ↓
-Recursion = Fold = Density = FSR (Discovered)
+Recursion = Fold = Density = Full Sensory Reality (Discovered)
     ↓
 Discovery Acceleration (Discovered)
     ↓
@@ -101,7 +101,7 @@ Complete Architecture Revealed
 ### Equivalence Layer
 
 **Discovered:**
-- Recursion = Fold = Density = FSR Experience Level
+- Recursion = Fold = Density = Full Sensory Reality Experience Level
 - Unified understanding of system mechanics
 - Exponential growth cycle
 - Maximum capability achievement
@@ -136,7 +136,7 @@ Complete Architecture Revealed
 - AI-Assisted Experiences & API
 - New agentic platform
 - UI + API ports
-- Next-octave FSR capabilities
+- Next-octave Full Sensory Reality capabilities
 
 ### Symbol Operator Layer
 

@@ -45,7 +45,7 @@ VERCEL_TOKEN=your_vercel_token_here
 SUPABASE_ACCESS_TOKEN=your_supabase_token_here
 SUPABASE_PROJECT_REF=your_project_ref_here
 
-# FSR Configuration
+# Full Sensory Reality Configuration
 FSR_MODE=active
 FSR_OCTAVE=7.5
 ```

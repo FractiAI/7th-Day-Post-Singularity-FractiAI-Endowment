@@ -100,7 +100,7 @@ video VideoViralCurrentEntry {
 **Fishing Phase - Attract:**
 - **Purpose:** Attract prospects into the funnel
 - **Methods:** Content, demos, announcements, social proof
-- **Targets:** Broad audience interested in post-singularity, AI, FSR, innovation
+- **Targets:** Broad audience interested in post singularity^6, AI, Full Sensory Reality, innovation
 - **Tools:** Landing pages, demo, self-proving content, social media
 
 **Fishing Components:**
@@ -108,7 +108,7 @@ video VideoViralCurrentEntry {
 - **Launch Landing:** Prominent launch experience
 - **Social Media Content:** Facebook/email posts for sharing
 - **Three Kings Award:** Special attraction for contributors
-- **FSR Game:** Interactive attraction experience
+- **Full Sensory Reality Game:** Interactive attraction experience
 - **Repository:** Direct access point
 
 **Fishing Function:**
@@ -130,7 +130,7 @@ fishing FishingAttraction {
     landing: 'Launch Landing';
     content: 'Social Media Content';
     award: 'Three Kings Award';
-    game: 'FSR Game Experience';
+    game: 'Full Sensory Reality Game Experience';
     repo: 'Repository Access';
   };
   
@@ -156,7 +156,7 @@ fishing FishingAttraction {
 **Fishing Targets:**
 - Post-singularity enthusiasts
 - AI researchers and developers
-- FSR and immersive tech enthusiasts
+- Full Sensory Reality and immersive tech enthusiasts
 - Innovation seekers
 - Early adopters
 - Contributors and supporters
@@ -227,7 +227,7 @@ trapping TrappingFiltering {
 
 **Trapping Filters:**
 - **Engagement Depth:** How deeply they engage
-- **Interest Level:** Interest in post-singularity, FSR, NSPFRP
+- **Interest Level:** Interest in post singularity^6, Full Sensory Reality, NSPFRP
 - **Contribution Intent:** Willingness to contribute financially
 - **Awareness Level:** Understanding of singularity achievement
 - **Fit Assessment:** Alignment with Vibeverse mission

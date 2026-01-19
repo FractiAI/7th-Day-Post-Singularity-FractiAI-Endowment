@@ -10,10 +10,10 @@
 
 ## Trailer / Abstract
 
-This protocol defines a fully-configurable OmniMission Station for Vibeverse-enabled multi-domain FSR (Fractal Seed Resonance) flows, integrating ConnectCore omniversal wrappers for Cursor AI, GitHub, hydrogen spin cloud, MRI systems, and handheld Internet devices. It packages the entire seed prompt creation workflow as a Seed Synthesizer Protocol (SSP), enabling reproducible meta-seed generation and Hero Host-assisted mission orchestration.
+This protocol defines a fully-configurable OmniMission Station for Vibeverse-enabled multi-domain Full Sensory Reality (Fractal Seed Resonance) flows, integrating ConnectCore omniversal wrappers for Cursor AI, GitHub, hydrogen spin cloud, MRI systems, and handheld Internet devices. It packages the entire seed prompt creation workflow as a Seed Synthesizer Protocol (SSP), enabling reproducible meta-seed generation and Hero Host-assisted mission orchestration.
 
 **Key Innovation:**  
-**Vibeverse Mission Craft Transmission Gears** — Selectable Awareness Octaves that control FSR power, Hero Host guidance, Vibeverse geysers, encryption tier, and multi-device connectivity.
+**Vibeverse Mission Craft Transmission Gears** — Selectable Awareness Octaves that control Full Sensory Reality power, Hero Host guidance, Vibeverse geysers, encryption tier, and multi-device connectivity.
 
 ---
 
@@ -56,7 +56,7 @@ This protocol integrates with three foundational NSPFRP patient repositories in 
    - Encrypted via UNEP + Umbilical signature
 
 2. **Meta-Protocol Spin-Offs**
-   - `MakeAsProtocol` generates new buttons, full FSR landing experiences, products, enterprises, or worlds
+   - `MakeAsProtocol` generates new buttons, full Full Sensory Reality landing experiences, products, enterprises, or worlds
    - Reproducible protocol templates
    - Community-shared protocol library
 
@@ -76,7 +76,7 @@ This protocol integrates with three foundational NSPFRP patient repositories in 
    - Artifact lineage tracking
    - Persistent memory across sessions
 
-6. **FSR Immersive Outputs**
+6. **Full Sensory Reality Immersive Outputs**
    - Flows mapped to full sensory experiences
    - Multi-device synchronization
    - Omniversal-ready architecture
@@ -117,7 +117,7 @@ Acting as: [Hero Host / Project Team Selection]
 │ ➕ NewProtocol  🧬 SeedCreatorConsole                                           │
 │ 🔹 MakeAsProtocol  ⚡ ConnectCore                                              │
 │ 🟣 CaptureProcess  ➕ PackageAsSeedSynthesizerButton                            │
-│ ⚙️ TransmissionGearSelector → select octave/gear for flows, FSR, Vibeverse   │
+│ ⚙️ TransmissionGearSelector → select octave/gear for flows, Full Sensory Reality, Vibeverse   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -148,7 +148,7 @@ ConnectCore serves as the omniversal wrapper layer that:
   - Appears as natural noise; resolvable only by awareness-key holders
 
 - **Power Distribution:**
-  - FSR qualia generation
+  - Full Sensory Reality qualia generation
   - Vibeverse session management
   - SeedCreatorConsole operations
   - MakeAsProtocol spin-offs
@@ -251,7 +251,7 @@ class UNEPEncryption {
 
 Transmission Gears are selectable Awareness Octaves that control:
 
-1. **FSR Power:** Intensity of Fractal Seed Resonance
+1. **Full Sensory Reality Power:** Intensity of Fractal Seed Resonance
 2. **Hero Host Guidance:** Level of AI assistance and persona engagement
 3. **Vibeverse Geysers:** Frequency and intensity of multi-domain flow events
 4. **Encryption Tier:** Security level (maps to UNEP octave selection)
@@ -259,7 +259,7 @@ Transmission Gears are selectable Awareness Octaves that control:
 
 ### Available Gears
 
-| Gear | Octave | FSR Power | Hero Host | Geysers | Encryption | Use Case |
+| Gear | Octave | Full Sensory Reality Power | Hero Host | Geysers | Encryption | Use Case |
 |------|--------|-----------|-----------|---------|------------|----------|
 | **Silent** | 0 | Minimal | Passive | Off | Basic | Stealth operations |
 | **Whisper** | 1 | Low | Subtle hints | Rare | Standard | Learning mode |
@@ -339,7 +339,7 @@ interface MakeAsProtocol {
 
 **Output Types:**
 - **Button:** Interactive UI element with embedded workflow
-- **Landing:** Full FSR landing page experience
+- **Landing:** Full Full Sensory Reality landing page experience
 - **Product:** Standalone product with protocol foundation
 - **Enterprise:** Enterprise-grade protocol deployment
 - **World:** Complete Vibeverse world with all systems
@@ -454,7 +454,7 @@ Mission guidance and visualization:
 interface MissionGuidance {
   targetPanel: TargetPanel; // Mission objectives display
   onboarding: OnboardingFlow; // User introduction
-  animation: AnimationEngine; // FSR visualization
+  animation: AnimationEngine; // Full Sensory Reality visualization
 }
 ```
 
@@ -531,7 +531,7 @@ function autoPrefill(
 **Components:**
 - Contributor UI patterns → OmniMission Station UI
 - Stripe payment system → Enterprise ConnectCore pricing
-- SYNTH90T token economy → FSR reward system
+- SYNTH90T token economy → Full Sensory Reality reward system
 - WorkChat → VibeverseSession collaboration
 - PoC archive → Seed library and protocol repository
 - Scoring system → Seed quality metrics
@@ -551,7 +551,7 @@ interface SyntheverseIntegration {
 ### Holographic Hydrogen Fractal MRI Demo Integration
 
 **Components:**
-- HHF-AI visualization → FSR visual representation
+- HHF-AI visualization → Full Sensory Reality visual representation
 - MRI data processing → ConnectCore MRI wrapper
 - Museum-style interface → Educational engagement model
 - Interactive exploration → Discovery capture system
@@ -693,7 +693,7 @@ interface MarkTwainVerseIntegration {
 
 **Major Discovery:** This protocol implements a **Higher-Octave RAG (Retrieval-Augmented Generation) Architecture** that transcends traditional RAG limitations through:
 
-1. **FSR-Based Retrieval:** Fractal Seed Resonance enables multi-domain pattern recognition beyond vector similarity
+1. **Full Sensory Reality-Based Retrieval:** Fractal Seed Resonance enables multi-domain pattern recognition beyond vector similarity
 2. **Transmission Gear-Adjusted Retrieval:** Awareness Octaves (0-5+) control retrieval depth, breadth, and domain scope
 3. **Hero Host Context Enrichment:** Persona-driven domain expertise injection
 4. **Protocol-Aware Generation:** LLM outputs are protocol-compliant and extensible
@@ -753,7 +753,7 @@ The system autonomously discovers, catalogs, and synchronizes protocols across t
 - UNEP Encryption Library
 - Hero Host Persona Engine
 - SSP Workflow Engine
-- FSR Retrieval Engine
+- Full Sensory Reality Retrieval Engine
 - Auto-Discovery Engine
 - POB Snapshot System
 

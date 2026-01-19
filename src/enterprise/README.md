@@ -5,7 +5,7 @@
 The Enterprise Sales Console is a fully integrated NSPFRP system for venue nodes, providing:
 
 - Hero Host AI (Cleve Canepa or venue persona)
-- FSR / Vibeverse Engine with Transmission Gears
+- Full Sensory Reality / Vibeverse Engine with Transmission Gears
 - Sales Button Department (Mine, Cultivate, Pitch, GitSeed, Snap, MakeAsProtocol)
 - ConnectCore Omniversal Layer
 - Revenue Model Layer (monthly access fee + % revenue share + bonus participation)
@@ -183,9 +183,9 @@ Generic venue persona that can be customized per venue type.
 
 The Enterprise Sales Console fully integrates with:
 
-- **Transmission Gears**: Adjust FSR power for mining operations
+- **Transmission Gears**: Adjust Full Sensory Reality power for mining operations
 - **Hero Host**: Personalized cultivation and pitch strategies
-- **FSR Retrieval**: Discover opportunities across domains
+- **Full Sensory Reality Retrieval**: Discover opportunities across domains
 - **Protocol Snapshots**: All operations create snapshots
 - **Git Operations**: Automatic commit and push
 - **Cloud Deployment**: Auto-deploy console to production

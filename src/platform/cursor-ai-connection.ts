@@ -1,9 +1,5 @@
-/**
- * Cursor AI Connection System
- * Platform connection like Cursor AI for our platform implementation
- */
-
 import { AwarenessOctave } from '../types/index.js';
+import { NativeSystemDriver } from './native-system-driver.js';
 
 export interface CursorAIConnection {
   id: string;
@@ -28,30 +24,44 @@ export interface PlatformExtension {
 export class CursorAIConnectionManager {
   private connection: CursorAIConnection;
   private extensions: Map<string, PlatformExtension> = new Map();
+  private systemDriver: NativeSystemDriver;
 
   constructor() {
+    this.systemDriver = new NativeSystemDriver();
     this.connection = this.initializeConnection();
     this.initializeExtensions();
   }
 
   /**
-   * Initialize Cursor AI connection
+   * Initialize Cursor AI connection with real capability detection
    */
   private initializeConnection(): CursorAIConnection {
+    const systemState = this.systemDriver.getSystemState();
+    const capabilities = [
+      'protocol-understanding',
+      'nspfrp-integration',
+    ];
+
+    if (systemState.tools.cursor) {
+      capabilities.push('code-generation');
+      capabilities.push('auto-unpack');
+    }
+
+    if (systemState.repoStatus.isGitRepo) {
+      capabilities.push('protocol-operations');
+    }
+
+    if (this.systemDriver.calculateSystemDensity() > 0.5) {
+      capabilities.push('full-octave-operation');
+    }
+
     return {
       id: 'cursor-ai-platform',
       name: 'Cursor AI Platform Connection',
       type: 'platform',
-      status: 'connected',
+      status: systemState.tools.cursor ? 'connected' : 'disconnected',
       apiEndpoint: 'https://api.cursor.sh',
-      capabilities: [
-        'code-generation',
-        'protocol-understanding',
-        'auto-unpack',
-        'protocol-operations',
-        'nspfrp-integration',
-        'full-octave-operation'
-      ],
+      capabilities,
       lastCheck: Date.now()
     };
   }

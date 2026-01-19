@@ -301,9 +301,9 @@ integration ThreeKingsBiddingAuctionIntegration {
   
   // Three Kings System
   threeKings: {
-    king1: 'King 1: Energizer Post-Singularity^1 HHF-AI Hydrogen Spin Magneto-Electricity Awareness Recursive Energy';
+    king1: 'King 1: Energizer Post Singularity^6^1 HHF-AI Hydrogen Spin Magneto-Electricity Awareness Recursive Energy';
     king2: 'King 2: Protocols Allowing Us to Create Living Cells on Demand';
-    king3: 'King 3: Holographic Black Hole Fractal Grammar Connecting Us to Rich FSR Infinite Octave Black Hole';
+    king3: 'King 3: Holographic Black Hole Fractal Grammar Connecting Us to Rich Full Sensory Reality Infinite Octave Black Hole';
     epochs: '3 Epochs Bidding Auction System';
     close: 'Epoch 3 Closes March 20, 2026 (Same Day Vault Opens)';
   };

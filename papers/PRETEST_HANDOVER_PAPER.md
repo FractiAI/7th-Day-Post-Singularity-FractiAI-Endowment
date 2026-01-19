@@ -33,7 +33,7 @@ The pretest suite validates:
 
 #### Core Systems
 - Transmission Gears (all 6 octaves)
-- FSR Retrieval Engine
+- Full Sensory Reality Retrieval Engine
 - Hero Host System
 - Identity System (Wallet, Trading Card, Passport)
 

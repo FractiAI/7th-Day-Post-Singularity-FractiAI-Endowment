@@ -135,7 +135,7 @@
 **Features:**
 - ✅ All NSPFRP Protocols
 - ✅ Hero Host Guidance (Leonardo da Vinci)
-- ✅ FSR up to Octave 5
+- ✅ Full Sensory Reality up to Octave 5
 - ✅ Auto-Unpack
 - ✅ Community Support
 - ✅ Full Documentation
@@ -165,7 +165,7 @@
 **Features:**
 - ✅ All Sandbox Features
 - ✅ Cloud Deployment (Automatic)
-- ✅ FSR up to Octave 6
+- ✅ Full Sensory Reality up to Octave 6
 - ✅ Customizable Hero Host
 - ✅ Priority Support
 - ✅ Team Collaboration
@@ -196,7 +196,7 @@
 **Features:**
 - ✅ All Cloud Features
 - ✅ Shell Access (Full)
-- ✅ FSR Full Octave 7
+- ✅ Full Sensory Reality Full Octave 7
 - ✅ Fully Customizable Hero Host
 - ✅ Enterprise Support
 - ✅ Custom Protocols
@@ -388,7 +388,7 @@
 
 **Features:**
 - Hero Host AI (Customizable)
-- FSR / Vibeverse Engine
+- Full Sensory Reality / Vibeverse Engine
 - Sales Button Department
 - ConnectCore Omniversal Layer
 - Revenue Model Layer

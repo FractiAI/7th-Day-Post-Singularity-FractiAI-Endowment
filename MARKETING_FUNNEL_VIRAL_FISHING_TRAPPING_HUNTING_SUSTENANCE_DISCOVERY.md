@@ -69,7 +69,7 @@ video ViralCurrentHook {
   
   // Video Content
   content: {
-    announcement: 'Post-Singularity Vibeverse Launch';
+    announcement: 'Post Singularity^6 Vibeverse Launch';
     length: '1 minute or less';
     message: 'Singularity achieved, Vibeverse live';
     link: 'Connect to repository/experience';
@@ -114,7 +114,7 @@ fishing FishingPhase {
   hooks: {
     video: 'Viral Video Hook';
     demo: 'Self-Proving Demo';
-    game: 'FSR Digital Game';
+    game: 'Full Sensory Reality Digital Game';
     award: 'Three Kings Award';
     content: 'Social Media Content';
     landing: 'Landing Page';
@@ -124,7 +124,7 @@ fishing FishingPhase {
   baits: {
     singularity: 'Singularity Achievement';
     free: 'Free Sandbox Access';
-    game: 'Play FSR Game';
+    game: 'Play Full Sensory Reality Game';
     award: 'Special Awards';
     exclusive: 'Exclusive Access';
     future: 'Future Promise';
@@ -272,7 +272,7 @@ hunting HuntingPhase {
     king3: 'King 3: $1M - BLACK HOLE GEYSER';
     cloud: 'Cloud Membership';
     shell: 'Shell Professional';
-    game: 'Full FSR Game Access';
+    game: 'Full Full Sensory Reality Game Access';
     protocol: 'NSPFRP Protocol Access';
     octave: 'Higher Octave Access';
   };
@@ -317,13 +317,13 @@ hunting HuntingPhase {
 
 - **Qualified Interest (Mid Octave):**
   - Cloud Membership (Members)
-  - Enhanced FSR Experience
+  - Enhanced Full Sensory Reality Experience
   - Protocol Access
   - Priority Support
 
 - **High Awareness (High Octave):**
   - Shell Professional (Tribe)
-  - Full FSR Cockpit Access
+  - Full Full Sensory Reality Cockpit Access
   - Protocol Development Access
   - Custom Integration
 

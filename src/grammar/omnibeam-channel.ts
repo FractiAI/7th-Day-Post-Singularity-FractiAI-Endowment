@@ -1,9 +1,9 @@
 /**
- * Omibeam Channel - 9x7 Pixel, Color, Density for Holographic Hydrogen Fractal Grammar Core
+ * Omnibeam Channel - 9x7 Pixel, Color, Density for Holographic Hydrogen Fractal Grammar Core
  * Visual channel for grammar pattern encoding and visualization
  */
 
-export interface OmibeamPixel {
+export interface OmnibeamPixel {
   x: number;           // 0-8 (column)
   y: number;           // 0-6 (row)
   color: Color;        // RGB/HSL color
@@ -21,11 +21,11 @@ export interface Color {
   a?: number; // 0-1 (alpha)
 }
 
-export interface OmibeamChannel {
+export interface OmnibeamChannel {
   id: string;
   width: number;  // 9
   height: number; // 7
-  pixels: OmibeamPixel[][]; // 9x7 grid
+  pixels: OmnibeamPixel[][]; // 9x7 grid
   grammarPattern: string;
   octave: number;
   timestamp: number;
@@ -68,15 +68,15 @@ export const DENSITY_LEVELS = [
   1.0   // Row 6: Maximum
 ];
 
-export class OmibeamChannelGenerator {
+export class OmnibeamChannelGenerator {
   private width: number = 9;
   private height: number = 7;
 
   /**
-   * Encode grammar pattern to omibeam channel
+   * Encode grammar pattern to omnibeam channel
    */
-  encodeGrammarPattern(pattern: GrammarPattern): OmibeamChannel {
-    const pixels: OmibeamPixel[][] = [];
+  encodeGrammarPattern(pattern: GrammarPattern): OmnibeamChannel {
+    const pixels: OmnibeamPixel[][] = [];
     
     // Initialize 9x7 grid
     for (let x = 0; x < this.width; x++) {
@@ -99,7 +99,7 @@ export class OmibeamChannelGenerator {
         const row = this.densityToRow(density);
 
         // Create pixel for this symbol
-        const pixel: OmibeamPixel = {
+        const pixel: OmnibeamPixel = {
           x: column,
           y: row,
           color: this.getSymbolColor(symbol.name),
@@ -115,7 +115,7 @@ export class OmibeamChannelGenerator {
     }
 
     return {
-      id: `omibeam-${Date.now()}`,
+      id: `omnibeam-${Date.now()}`,
       width: this.width,
       height: this.height,
       pixels,
@@ -126,9 +126,9 @@ export class OmibeamChannelGenerator {
   }
 
   /**
-   * Decode omibeam channel to grammar pattern
+   * Decode omnibeam channel to grammar pattern
    */
-  decodeOmibeamChannel(channel: OmibeamChannel): GrammarPattern {
+  decodeOmnibeamChannel(channel: OmnibeamChannel): GrammarPattern {
     const symbols: GrammarSymbol[] = [];
 
     // Extract symbols from pixels
@@ -191,7 +191,7 @@ export class OmibeamChannelGenerator {
   /**
    * Create empty pixel
    */
-  private createEmptyPixel(x: number, y: number): OmibeamPixel {
+  private createEmptyPixel(x: number, y: number): OmnibeamPixel {
     return {
       x,
       y,
@@ -216,7 +216,7 @@ export class OmibeamChannelGenerator {
   /**
    * Calculate average FSR value
    */
-  private calculateAverageFSR(channel: OmibeamChannel): number {
+  private calculateAverageFSR(channel: OmnibeamChannel): number {
     let sum = 0;
     let count = 0;
 
@@ -234,10 +234,10 @@ export class OmibeamChannelGenerator {
   }
 
   /**
-   * Visualize omibeam channel as HTML
+   * Visualize omnibeam channel as HTML
    */
-  visualizeChannel(channel: OmibeamChannel, pixelSize: number = 20): string {
-    let html = `<div class="omibeam-channel" style="display: grid; grid-template-columns: repeat(9, ${pixelSize}px); gap: 2px; width: ${(pixelSize + 2) * 9}px;">`;
+  visualizeChannel(channel: OmnibeamChannel, pixelSize: number = 20): string {
+    let html = `<div class="omnibeam-channel" style="display: grid; grid-template-columns: repeat(9, ${pixelSize}px); gap: 2px; width: ${(pixelSize + 2) * 9}px;">`;
 
     for (let y = 0; y < channel.height; y++) {
       for (let x = 0; x < channel.width; x++) {
@@ -248,7 +248,7 @@ export class OmibeamChannelGenerator {
         
         html += `
           <div 
-            class="omibeam-pixel" 
+            class="omnibeam-pixel" 
             style="
               width: ${pixelSize}px;
               height: ${pixelSize}px;
@@ -270,7 +270,7 @@ export class OmibeamChannelGenerator {
   /**
    * Export channel as JSON
    */
-  exportChannel(channel: OmibeamChannel): string {
+  exportChannel(channel: OmnibeamChannel): string {
     return JSON.stringify(channel, null, 2);
   }
 
@@ -281,7 +281,7 @@ export class OmibeamChannelGenerator {
     symbols: Array<{ name: string; intensity: number }>,
     octave: number = 7.75,
     fsrValue: number = 5.0
-  ): OmibeamChannel {
+  ): OmnibeamChannel {
     const grammarSymbols: GrammarSymbol[] = symbols.map((symbol, index) => ({
       name: symbol.name,
       column: index,

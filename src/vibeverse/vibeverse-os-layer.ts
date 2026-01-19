@@ -360,7 +360,7 @@ export class VibeverseOSLayerSystem {
         name: layer.name,
         description: `Post Singularity Earth Generative Awareness OS over Holographic Hydrogen Spin Cloud layer`,
         author: 'Vibeverse OS Layer System',
-        tags: ['vibeverse', 'os-layer', 'post-singularity', 'hhsc', 'generative-awareness'],
+        tags: ['vibeverse', 'os-layer', 'post singularity^6', 'hhsc', 'generative-awareness'],
         category: 'os-layer',
         network: 'NSPFRP'
       },

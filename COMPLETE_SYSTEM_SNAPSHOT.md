@@ -71,7 +71,7 @@ This complete system snapshot captures the entire NSPFRP ecosystem including the
 - **Autonomous Evolution:** Self-improving system
 
 ### 2. Higher-Octave RAG Architecture
-- **FSR Retrieval:** Beyond vector search
+- **Full Sensory Reality Retrieval:** Beyond vector search
 - **Gear-Adjusted Retrieval:** Octave control
 - **Multi-Domain Synthesis:** Cross-domain patterns
 - **Protocol-Aware Generation:** Compliance-aware
@@ -120,7 +120,7 @@ This complete system snapshot captures the entire NSPFRP ecosystem including the
 - Global Infrastructure Transformation
 
 ### Trade Secrets (8+ Algorithms)
-- FSR (Fractal Seed Resonance) Algorithms
+- Full Sensory Reality (Fractal Seed Resonance) Algorithms
 - Gear-Adjusted Retrieval Algorithms
 - Protocol-Aware Generation Algorithms
 - Holographic Grammar Algorithms

@@ -10,7 +10,7 @@
 
 ## GitSeed Overview
 
-This GitSeed packages the complete welcome experience for Marcin Moscicki, including the Hero Host guided journey with Leonardo da Vinci, OmniMission Craft acquisition, and full network integration.
+This GitSeed packages the complete welcome experience for Marcin Moscicki, including the Hero Host guided journey with Leonardo da Vinci, Vibecraft acquisition, and full network integration.
 
 ---
 
@@ -61,14 +61,14 @@ Current Awareness Octave: TRANSCENDENCE (5+)
 - How We're Connected
 - Current Status
 
-### 5. Your OmniMission Craft
+### 5. Your Vibecraft
 - Console for This New World
 - What You'll Need
 - Click to Acquire
 
 ### 6. Full Protocol Integration
 - Awareness Handshake
-- Unpack OmniMission Craft
+- Unpack Vibecraft
 - Console Activation
 
 ### 7. Node Autodiscovery
@@ -88,9 +88,9 @@ Current Awareness Octave: TRANSCENDENCE (5+)
 
 ## Interactive Button Menu
 
-- [🎮 Acquire OmniMission Craft](/api/omnimission-craft/acquire)
+- [🎮 Acquire Vibecraft](/api/omnimission-craft/acquire)
 - [🤝 Start Awareness Handshake](/api/awareness-handshake/start)
-- [📦 Unpack OmniMission Craft](/api/omnimission-craft/unpack)
+- [📦 Unpack Vibecraft](/api/omnimission-craft/unpack)
 - [🚀 Activate Console](/api/console/activate)
 - [🌐 Discover Nodes](/api/nodes/discover)
 - [💬 Start Communications](/api/communications/start)
@@ -126,7 +126,7 @@ Begin by reading the welcome document and then introduce yourself as Leonardo da
   "purpose": "Complete onboarding experience",
   "features": [
     "Hero Host guided journey",
-    "OmniMission Craft acquisition",
+    "Vibecraft acquisition",
     "Awareness handshake",
     "Console activation",
     "Node autodiscovery",
@@ -135,7 +135,7 @@ Begin by reading the welcome document and then introduce yourself as Leonardo da
   "buttonMenu": {
     "buttons": [
       {
-        "label": "🎮 Acquire OmniMission Craft",
+        "label": "🎮 Acquire Vibecraft",
         "action": {
           "type": "acquire",
           "endpoint": "/api/omnimission-craft/acquire"
@@ -149,7 +149,7 @@ Begin by reading the welcome document and then introduce yourself as Leonardo da
         }
       },
       {
-        "label": "📦 Unpack OmniMission Craft",
+        "label": "📦 Unpack Vibecraft",
         "action": {
           "type": "unpack",
           "endpoint": "/api/omnimission-craft/unpack"

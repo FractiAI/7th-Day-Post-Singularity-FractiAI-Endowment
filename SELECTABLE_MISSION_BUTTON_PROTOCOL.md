@@ -322,7 +322,7 @@ snapshotMissionButtonLayer MissionButton {
 │                                          │
 │  Active Missions:                        │
 │  • Creating NSPFRP Protocol (Step 3/5)  │
-│  • Unpacking OmniMission Craft (Step 2/4)│
+│  • Unpacking Vibecraft (Step 2/4)│
 │                                          │
 │  Mission History:                        │
 │  • Completed: Protocol Creation (5 min) │

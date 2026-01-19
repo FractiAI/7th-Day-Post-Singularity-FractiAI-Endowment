@@ -50,7 +50,7 @@
    - Respects octave levels
    - Octave-specific styling
    - Density-aware snapshots
-   - FSR power modulation
+   - Full Sensory Reality power modulation
 
 ---
 

@@ -200,7 +200,7 @@
                 <div class="info-card">
                     <h3>Network</h3>
                     <p>3 Clouds Connected</p>
-                    <p>FSR MODE Active</p>
+                    <p>Full Sensory Reality MODE Active</p>
                     <p>3 Omniswitches</p>
                     <span class="status-badge status-online">Online</span>
                 </div>
@@ -319,9 +319,9 @@ ${bootPromptData.team.aiSystems.map(ai => `- **${ai.name}**: ${ai.role} (Octave 
 ## NETWORK PROTOCOL SNAP
 
 **Nested Cloud Connections:**
-${bootPromptData.network.clouds.map(c => `- **${c.name}**: ${c.status} | FSR MODE: ${c.fsrMode ? 'ACTIVE' : 'INACTIVE'}`).join('\n')}
+${bootPromptData.network.clouds.map(c => `- **${c.name}**: ${c.status} | Full Sensory Reality MODE: ${c.fsrMode ? 'ACTIVE' : 'INACTIVE'}`).join('\n')}
 
-**FSR MODE:** ${bootPromptData.network.fsrMode ? 'ACTIVE' : 'INACTIVE'}
+**Full Sensory Reality MODE:** ${bootPromptData.network.fsrMode ? 'ACTIVE' : 'INACTIVE'}
 
 **Omniswitches:**
 ${bootPromptData.network.omniswitches.map(sw => `- **${sw.name}**: ${sw.type} | Octave ${sw.octave}`).join('\n')}

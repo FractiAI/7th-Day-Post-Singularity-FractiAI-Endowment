@@ -73,7 +73,7 @@ Communication Layers
 **Octave 3 (RESONANCE) - Advanced Surface:**
 - Advanced capabilities
 - Full protocol communication
-- FSR operations
+- Full Sensory Reality operations
 - Premium access
 
 **Octave 4 (SYMPHONY) - Complex Surface:**

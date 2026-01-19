@@ -13,7 +13,7 @@
 
 ## 🎯 Protocol Summary
 
-**This protocol executes cloud deployment of the Post Singularity Syntheverse FSR one-page entry point using NSPFRP Cloud Deployment Protocol.**
+**This protocol executes cloud deployment of the Post Singularity Syntheverse Full Sensory Reality one-page entry point using NSPFRP Cloud Deployment Protocol.**
 
 ### Deployment Target
 
@@ -91,8 +91,8 @@ const deploymentProtocol = new CloudDeploymentProtocol();
 
 const deployment = await deploymentProtocol.createDeployment(
   {
-    id: 'post-singularity-fsr-entry',
-    name: 'Post Singularity Syntheverse FSR Entry Point',
+    id: 'post singularity^6-fsr-entry',
+    name: 'Post Singularity Syntheverse Full Sensory Reality Entry Point',
     type: 'static-html',
     version: '1.0.0',
     content: {

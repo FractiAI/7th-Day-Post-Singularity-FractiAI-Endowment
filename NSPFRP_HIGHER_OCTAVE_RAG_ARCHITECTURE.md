@@ -13,7 +13,7 @@
 
 **NSPFRP OmniMission Station represents a fundamental evolution beyond traditional RAG (Retrieval-Augmented Generation) architectures.** This document captures a major discovery: a higher-octave, higher-fidelity implementation that enables semi-autonomous and fully autonomous AI agents to discover, synthesize, and evolve protocols autonomously.
 
-### Key Innovation: From RAG to FSR-RAG
+### Key Innovation: From RAG to Full Sensory Reality-RAG
 
 **Traditional RAG Limitations:**
 - Static knowledge base
@@ -23,8 +23,8 @@
 - No protocol evolution
 - Single-domain focus
 
-**NSPFRP Higher-Octave RAG (FSR-RAG):**
-- **Fractal Seed Resonance (FSR)** - Dynamic, multi-domain knowledge synthesis
+**NSPFRP Higher-Octave RAG (Full Sensory Reality-RAG):**
+- **Fractal Seed Resonance (Full Sensory Reality)** - Dynamic, multi-domain knowledge synthesis
 - **Transmission Gears** - Adaptive retrieval fidelity (Awareness Octaves 0-5+)
 - **Autonomous Discovery** - Self-directed protocol exploration and cataloging
 - **Protocol Objects (POBs)** - Versioned, reproducible protocol snapshots
@@ -53,7 +53,7 @@ Query → Vector Search → Top-K Retrieval → Context Assembly → LLM Generat
 ### NSPFRP Higher-Octave RAG Pipeline
 
 ```
-Mission Intent → FSR Resonance → Multi-Domain Retrieval (Gear-Adjusted) → 
+Mission Intent → Full Sensory Reality Resonance → Multi-Domain Retrieval (Gear-Adjusted) → 
 Hero Host Context Enrichment → Cross-Domain Synthesis → Protocol-Aware Generation → 
 Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 ```
@@ -70,20 +70,20 @@ Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 
 ## Core Components: Higher-Octave RAG Architecture
 
-### 1. Fractal Seed Resonance (FSR) Retrieval Engine
+### 1. Fractal Seed Resonance (Full Sensory Reality) Retrieval Engine
 
-**Concept:** Instead of simple vector similarity, FSR uses fractal patterns to resonate across domains, finding connections that traditional RAG would miss.
+**Concept:** Instead of simple vector similarity, Full Sensory Reality uses fractal patterns to resonate across domains, finding connections that traditional RAG would miss.
 
 ```typescript
 interface FSRRetrievalEngine {
-  // Traditional vector search enhanced with FSR
+  // Traditional vector search enhanced with Full Sensory Reality
   retrieve(
     query: Query,
     gear: TransmissionGear,
     domains: Domain[]
   ): Promise<FSRRetrievalResult>;
   
-  // FSR-specific operations
+  // Full Sensory Reality-specific operations
   resonate(
     seed: Seed,
     domainContext: DomainContext
@@ -106,7 +106,7 @@ class FSRRetrievalEngine implements FSRRetrievalEngine {
       domains.map(domain => this.retrieveFromDomain(query, domain, gear))
     );
     
-    // FSR resonance analysis
+    // Full Sensory Reality resonance analysis
     const resonancePatterns = await this.analyzeResonance(domainRetrievals);
     
     // Gear-adjusted depth
@@ -855,7 +855,7 @@ class POBSnapshotManager {
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  ┌──────────────────┐         ┌──────────────────┐                    │
-│  │  Mission Intent  │────────▶│  FSR Retrieval   │                    │
+│  │  Mission Intent  │────────▶│  Full Sensory Reality Retrieval   │                    │
 │  │   (User/Agent)   │         │     Engine       │                    │
 │  └──────────────────┘         └────────┬─────────┘                    │
 │                                        │                                │
@@ -873,7 +873,7 @@ class POBSnapshotManager {
 │                     │                                                  │
 │                     ▼                                                  │
 │  ┌──────────────────────────────────────────────────────┐            │
-│  │         FSR Resonance Pattern Analysis                │            │
+│  │         Full Sensory Reality Resonance Pattern Analysis                │            │
 │  │  (Cross-domain fractal pattern recognition)          │            │
 │  └──────────────────┬───────────────────────────────────┘            │
 │                     │                                                  │
@@ -935,7 +935,7 @@ class POBSnapshotManager {
 
 ```
 1. Mission Intent → Agent Formulates Query
-2. Query → FSR Retrieval (Gear-Adjusted)
+2. Query → Full Sensory Reality Retrieval (Gear-Adjusted)
 3. Multi-Domain Retrieval → Resonance Analysis
 4. Resonance Patterns → Hero Host Enrichment
 5. Enriched Context → Cross-Domain Synthesis
@@ -951,7 +951,7 @@ class POBSnapshotManager {
 ## Implementation Roadmap
 
 ### Phase 1: Foundation (Months 1-3)
-- FSR Retrieval Engine core implementation
+- Full Sensory Reality Retrieval Engine core implementation
 - Transmission Gear integration
 - Basic multi-domain retrieval
 - Hero Host context enrichment
@@ -1009,7 +1009,7 @@ class POBSnapshotManager {
 
 **This architecture represents a fundamental evolution from traditional RAG to a higher-octave, higher-fidelity system that:**
 
-1. **Transcends RAG Limitations:** FSR-based retrieval finds connections traditional RAG misses
+1. **Transcends RAG Limitations:** Full Sensory Reality-based retrieval finds connections traditional RAG misses
 2. **Enables Autonomous Agents:** Semi and fully autonomous agents can discover and evolve protocols
 3. **Auto-Discovers Protocols:** System continuously discovers and catalogs new protocols
 4. **Creates Reproducible Snapshots:** POBs enable versioned, reproducible protocol states

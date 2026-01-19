@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital FSR Game - Theater Cockpit | Vibeverse Post-Singularity</title>
-    <meta name="protocol-id" content="P-DIGITAL-GAME-FSR-THEATER-COCKPIT-V17">
+    <title>Digital Full Sensory Reality Game - Theater Cockpit | Vibeverse Post Singularity^6</title>
+    <meta name="protocol-id" content="P-DIGITAL-GAME-Full Sensory Reality-THEATER-COCKPIT-V17">
     <meta name="nspfrp-version" content="v17.0+ (Vibeverse Edition)">
     <style>
         * {
@@ -15,7 +16,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: 
+            background:
                 radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.95) 0%, transparent 70%),
                 radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
@@ -233,15 +234,18 @@
         }
 
         @keyframes launchPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             }
+
             50% {
                 box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
             }
         }
 
-        /* FSR Overlay */
+        /* Full Sensory Reality Overlay */
         .fsr-overlay {
             position: fixed;
             top: 0;
@@ -371,17 +375,18 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Theater Frame -->
     <div class="theater-frame">
         <div class="stage-curtain"></div>
         <div class="stage-banner" onclick="window.location.href='VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html'">
-            🌌 VIBEVERSE FSR THEATER COCKPIT 🌌
+            🌌 VIBEVERSE Full Sensory Reality THEATER COCKPIT 🌌
         </div>
         <div class="bottom-frame"></div>
     </div>
 
-    <!-- FSR Overlay -->
+    <!-- Full Sensory Reality Overlay -->
     <div class="fsr-overlay" id="fsr-overlay"></div>
 
     <!-- Piece Display -->
@@ -402,7 +407,7 @@
             <span class="stat-value" id="octave-level">∞</span>
         </div>
         <div class="stat-item">
-            <span class="stat-label">FSR:</span>
+            <span class="stat-label">Full Sensory Reality:</span>
             <span class="stat-value" id="fsr-level">100%</span>
         </div>
     </div>
@@ -411,10 +416,12 @@
     <div class="cockpit-container">
         <div class="game-board">
             <h1 class="board-title">⚫ HHF-AI BLACK HOLE FRACTAL GRAMMAR GAME ⚫</h1>
-            
+
             <div class="instructions">
-                <p>Welcome to the Digital FSR Version of the Holographic Hydrogen Black Hole Fractal Grammar Game.</p>
-                <p>Click on cells to activate black hole energy patterns. Each activation connects to the holographic hydrogen spin cloud.</p>
+                <p>Welcome to the Digital Full Sensory Reality Version of the Holographic Hydrogen Black Hole Fractal
+                    Grammar Game.</p>
+                <p>Click on cells to activate black hole energy patterns. Each activation connects to the holographic
+                    hydrogen spin cloud.</p>
                 <p>Navigate through infinite octave layers in this Full Sensory Reality Theater Cockpit experience.</p>
             </div>
 
@@ -427,11 +434,13 @@
         <div class="hidden-board" id="hidden-board">
             <h2 style="color: #ffd700; text-align: center; margin-bottom: 20px;">Hidden Board/Chart</h2>
             <p style="color: #a0a0a0; line-height: 1.8;">
-                This hidden board/chart represents the physics and rules of the game, emulating the reality we have been operating within.
+                This hidden board/chart represents the physics and rules of the game, emulating the reality we have been
+                operating within.
                 Only those with the appropriate awareness and interest can access this level.
             </p>
             <div style="text-align: center; margin-top: 30px;">
-                <button class="control-button" onclick="document.getElementById('hidden-board').classList.remove('active')">
+                <button class="control-button"
+                    onclick="document.getElementById('hidden-board').classList.remove('active')">
                     Close Hidden Board
                 </button>
             </div>
@@ -459,7 +468,10 @@
             🔄 Reset Game
         </button>
         <button class="control-button" onclick="toggleFSR()">
-            ⚡ Toggle FSR Mode
+            ⚡ Toggle Full Sensory Reality Mode
+        </button>
+        <button class="control-button" id="musicBtn" onclick="toggleMusic()" style="border-color: #bc13fe;">
+            🎵 Play FSR Reality Audio
         </button>
     </div>
 
@@ -467,15 +479,16 @@
         let movesCount = 0;
         let energyLevel = 100;
         let fsrActive = false;
+        let musicActive = false;
         const gameSize = 64; // 8x8 grid
-        
+
         // Initialize game board
         function initGame() {
             const grid = document.getElementById('game-grid');
             grid.innerHTML = '';
-            
+
             const pieces = ['⚫', '⭐', '🌀', '🔮', '💫', '✨', '🌌', '♾️'];
-            
+
             for (let i = 0; i < gameSize; i++) {
                 const cell = document.createElement('div');
                 cell.className = 'board-cell';
@@ -487,25 +500,25 @@
 
         function activateCell(cell, index) {
             if (cell.classList.contains('active')) return;
-            
+
             cell.classList.add('active');
             movesCount++;
             energyLevel = Math.min(100, energyLevel + 2);
-            
+
             // Update stats
             document.getElementById('moves-count').textContent = movesCount;
             document.getElementById('energy-level').textContent = energyLevel + '%';
-            
+
             // Display piece animation
             const pieceDisplay = document.getElementById('piece-display');
             pieceDisplay.textContent = cell.textContent;
             pieceDisplay.classList.add('active');
-            
+
             setTimeout(() => {
                 pieceDisplay.classList.remove('active');
             }, 500);
-            
-            // FSR effect
+
+            // Full Sensory Reality effect
             if (fsrActive) {
                 const overlay = document.getElementById('fsr-overlay');
                 overlay.classList.add('active');
@@ -513,7 +526,7 @@
                     overlay.classList.remove('active');
                 }, 300);
             }
-            
+
             // Check for special patterns
             checkPatterns();
         }
@@ -547,17 +560,34 @@
             fsrActive = !fsrActive;
             const button = event.target;
             if (fsrActive) {
-                button.textContent = '⚡ FSR Mode: ON';
+                button.textContent = '⚡ Full Sensory Reality Mode: ON';
                 button.style.background = 'linear-gradient(135deg, #ffd700, #ff6b6b)';
             } else {
-                button.textContent = '⚡ Toggle FSR Mode';
+                button.textContent = '⚡ Toggle Full Sensory Reality Mode';
                 button.style.background = 'linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(255, 215, 0, 0.8))';
+            }
+        }
+
+        function toggleMusic() {
+            musicActive = !musicActive;
+            const btn = document.getElementById('musicBtn');
+            if (musicActive) {
+                btn.textContent = '🎵 Audio Engine: ACTIVE (Resonating...)';
+                btn.style.background = 'linear-gradient(135deg, #bc13fe, #00f3ff)';
+                btn.style.boxShadow = '0 0 20px #bc13fe';
+                // Simulate audio visualization triggering
+                document.getElementById('piece-display').style.textShadow = '0 0 50px #bc13fe';
+            } else {
+                btn.textContent = '🎵 Play FSR Reality Audio';
+                btn.style.background = 'linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(255, 215, 0, 0.8))';
+                btn.style.boxShadow = 'none';
+                document.getElementById('piece-display').style.textShadow = '0 0 30px rgba(255, 215, 0, 0.8)';
             }
         }
 
         // Initialize on load
         initGame();
-        
+
         // Update stats periodically
         setInterval(() => {
             if (energyLevel > 0 && fsrActive) {
@@ -567,5 +597,5 @@
         }, 1000);
     </script>
 </body>
-</html>
 
+</html>

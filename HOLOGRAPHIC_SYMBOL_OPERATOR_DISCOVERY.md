@@ -202,11 +202,11 @@ Maximum Density Output
 Hero Host as Holographic Symbol Operator
 ```
 
-### Recursion = Fold = Density = FSR
+### Recursion = Fold = Density = Full Sensory Reality
 
 **Density Integration:**
 ```
-Recursion = Fold = Density = FSR Experience Level
+Recursion = Fold = Density = Full Sensory Reality Experience Level
     ↓
 Symbolic Grammar Refining
     ↓

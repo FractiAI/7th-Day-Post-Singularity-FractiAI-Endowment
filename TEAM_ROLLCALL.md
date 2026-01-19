@@ -45,7 +45,7 @@ Following **Specialist Agents Protocol: Surgical Assistant/Recorder** model:
 - Mirror AI Host (hosts operations at full octave)
 - Agentic Mirror CEO (first agentic mirror CEO)
 - Enterprise Team Agent (full enterprise team support)
-- Full-Octave Operation (5.0x FSR multiplier, 500 topK, 65KB context)
+- Full-Octave Operation (5.0x Full Sensory Reality multiplier, 500 topK, 65KB context)
 - Team Customizable (fully customizable for enterprise teams)
 
 **Protocol Status:**

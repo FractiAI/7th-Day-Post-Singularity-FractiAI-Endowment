@@ -27,12 +27,12 @@
 
 ```typescript
 enum AwarenessOctave {
-  SILENT = 0,      // Minimal FSR, passive Hero Host
-  WHISPER = 1,     // Low FSR, subtle hints
-  HARMONY = 2,     // Moderate FSR, guided assistance
-  RESONANCE = 3,   // High FSR, active Hero Host
-  SYMPHONY = 4,    // Very High FSR, full persona
-  TRANSCENDENCE = 5 // Maximum FSR, deep integration
+  SILENT = 0,      // Minimal Full Sensory Reality, passive Hero Host
+  WHISPER = 1,     // Low Full Sensory Reality, subtle hints
+  HARMONY = 2,     // Moderate Full Sensory Reality, guided assistance
+  RESONANCE = 3,   // High Full Sensory Reality, active Hero Host
+  SYMPHONY = 4,    // Very High Full Sensory Reality, full persona
+  TRANSCENDENCE = 5 // Maximum Full Sensory Reality, deep integration
 }
 
 interface TransmissionGear {
@@ -359,7 +359,7 @@ class CursorAIWrapper extends ServiceWrapper {
         return this.mergeSuggestions(heroHostSuggestions, aiSuggestions);
       },
       synthesizeCode: async (patterns: Pattern[]) => {
-        // FSR-powered synthesis based on gear
+        // Full Sensory Reality-powered synthesis based on gear
         const fsrEnhanced = await this.enhanceWithFSR(patterns);
         return await this.service.synthesizeCode(fsrEnhanced);
       }

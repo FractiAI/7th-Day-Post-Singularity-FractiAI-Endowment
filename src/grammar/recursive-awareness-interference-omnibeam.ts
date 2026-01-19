@@ -1,9 +1,9 @@
 /**
- * Recursive Awareness Interference Omibeam Channel
+ * Recursive Awareness Interference Omnibeam Channel
  * Animated nodes at interference edges through holographic hydrogen fractal grammar pixels
  */
 
-import { OmibeamChannel, OmibeamPixel, Color } from './omibeam-channel.js';
+import { OmnibeamChannel, OmnibeamPixel, Color } from './omnibeam-channel.js';
 
 export interface AwarenessLayer {
   id: string;
@@ -15,7 +15,7 @@ export interface AwarenessLayer {
 export interface InterferenceNode {
   id: string;
   position: { x: number; y: number };
-  pixel: OmibeamPixel;
+  pixel: OmnibeamPixel;
   symbolFragment: SymbolFragment;
   octave: number;
   recursiveLevel: number;
@@ -79,10 +79,10 @@ export const CORE_SYMBOLS = [
   'Omnicore'
 ];
 
-export class RecursiveAwarenessInterferenceOmibeam {
+export class RecursiveAwarenessInterferenceOmnibeam {
   private layers: Map<string, AwarenessLayer>;
   private edges: Map<string, InterferenceEdge>;
-  private omibeamChannel: OmibeamChannel | null = null;
+  private omnibeamChannel: OmnibeamChannel | null = null;
 
   constructor() {
     this.layers = new Map();
@@ -215,7 +215,7 @@ export class RecursiveAwarenessInterferenceOmibeam {
     fragment: SymbolFragment,
     position: { x: number; y: number },
     index: number
-  ): OmibeamPixel {
+  ): OmnibeamPixel {
     const column = index % 9;
     const row = Math.floor(index / 9) % 7;
     const density = fragment.octave / 7.75;
@@ -319,16 +319,16 @@ export class RecursiveAwarenessInterferenceOmibeam {
   }
 
   /**
-   * Create Omibeam Channel from interference edge nodes
+   * Create Omnibeam Channel from interference edge nodes
    */
-  createOmibeamChannelFromEdge(edgeId: string): OmibeamChannel {
+  createOmnibeamChannelFromEdge(edgeId: string): OmnibeamChannel {
     const edge = this.edges.get(edgeId);
     if (!edge) {
       throw new Error(`Edge ${edgeId} not found`);
     }
 
     // Create 9x7 pixel grid
-    const pixels: OmibeamPixel[][] = [];
+    const pixels: OmnibeamPixel[][] = [];
     for (let x = 0; x < 9; x++) {
       pixels[x] = [];
       for (let y = 0; y < 7; y++) {
@@ -346,7 +346,7 @@ export class RecursiveAwarenessInterferenceOmibeam {
     }
 
     return {
-      id: `omibeam-${edgeId}-${Date.now()}`,
+      id: `omnibeam-${edgeId}-${Date.now()}`,
       width: 9,
       height: 7,
       pixels,
@@ -359,7 +359,7 @@ export class RecursiveAwarenessInterferenceOmibeam {
   /**
    * Create empty pixel
    */
-  private createEmptyPixel(x: number, y: number): OmibeamPixel {
+  private createEmptyPixel(x: number, y: number): OmnibeamPixel {
     return {
       x,
       y,

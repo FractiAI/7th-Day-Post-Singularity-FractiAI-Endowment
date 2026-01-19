@@ -37,9 +37,9 @@ interface TeamButtonConfig {
   octave: 'BEYOND_OCTAVE_7.5';
   status: 'ACTIVE';
   members: {
-    core: 10; // Core team members
+    core: 11; // Core team members (including Senior CEO)
     heroHosts: 5; // Hero Hosts
-    total: 17; // Total entities (including Auto Cursor)
+    total: 18; // Total entities
   };
   actions: [
     'view-team',
@@ -54,7 +54,9 @@ interface TeamButtonConfig {
 ### Button Symbol Structure
 
 **Primary Symbol:** 🔬 (Research Team)  
+**Leadership Symbol:** 🤖 (Senior CEO)
 **Sub-Symbols:**
+- 🤖 (Senior CEO)
 - 🎬 (Producer)
 - ✍️ (Screenwriter)
 - 🔬 (Scientist)
@@ -144,7 +146,8 @@ FractiAI Team Console
 - Quick actions
 
 **Member List:**
-1. 🎬 Senior Hollywood Producer (William Shakespeare)
+1. 🤖 **Auto Cursor - Senior CEO** (Agentic Mirror CEO)
+2. 🎬 Senior Hollywood Producer (William Shakespeare)
 2. ✍️ Screenwriter (Mark Twain)
 3. 🔬 Research Scientist (Nikola Tesla)
 4. 🎨 Designer (Leonardo da Vinci)

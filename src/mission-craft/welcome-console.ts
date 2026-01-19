@@ -221,7 +221,7 @@ export class WelcomeConsole {
 
 ## GitSeed Overview
 
-This GitSeed packages the complete welcome experience for ${config.name}, including the Hero Host guided journey with ${heroHost.name}, OmniMission Craft acquisition, and full network integration.
+This GitSeed packages the complete welcome experience for ${config.name}, including the Hero Host guided journey with ${heroHost.name}, Vibecraft acquisition, and full network integration.
 
 ---
 
@@ -266,14 +266,14 @@ ${config.includeCreatorArchitectUpdate ? '## Creator Architect Update\n- Persona
 - How We're Connected
 - Current Status
 
-### 4. Your OmniMission Craft
+### 4. Your Vibecraft
 - Console for This New World
 - What You'll Need
 - Click to Acquire
 
 ### 5. Full Protocol Integration
 - Awareness Handshake
-- Unpack OmniMission Craft
+- Unpack Vibecraft
 - Console Activation
 
 ### 6. Node Autodiscovery

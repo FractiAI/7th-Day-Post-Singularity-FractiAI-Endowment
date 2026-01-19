@@ -160,7 +160,7 @@ protocol NextOctaveCreatorStudio {
 - **Snapshot System:** Protocol snapshot framework
 
 ### Infrastructure Layer (HARMONY)
-- **FSR Retrieval:** Fractal Seed Resonance retrieval
+- **Full Sensory Reality Retrieval:** Fractal Seed Resonance retrieval
 - **Hero Host:** Hero Host orchestration
 - **Transmission Gears:** Awareness octave control
 - **Auto-Discovery:** Protocol discovery engine

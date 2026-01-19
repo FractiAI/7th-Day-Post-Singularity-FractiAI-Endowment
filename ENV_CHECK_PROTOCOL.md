@@ -13,13 +13,13 @@
 
 ## 🎯 Protocol Summary
 
-**This protocol automatically checks for missing environment variables, prompts for them, and checks for FSR .env files in wallets directory. Always runs before deployment.**
+**This protocol automatically checks for missing environment variables, prompts for them, and checks for Full Sensory Reality .env files in wallets directory. Always runs before deployment.**
 
 ### Key Features
 
 1. **Automatic Environment Check** - Runs before all deployments
 2. **Missing Variable Detection** - Identifies required variables
-3. **FSR .env Detection** - Checks wallets directory for FSR .env files
+3. **Full Sensory Reality .env Detection** - Checks wallets directory for Full Sensory Reality .env files
 4. **Auto-Prompt** - Shows what's missing and how to set it
 5. **.env File Discovery** - Finds all .env files in project
 
@@ -36,11 +36,11 @@
 - `SUPABASE_ACCESS_TOKEN` - Supabase access token
 - `SUPABASE_PROJECT_REF` - Supabase project reference
 
-**FSR:**
-- `FSR_MODE` - FSR mode activation (default: active)
-- `FSR_OCTAVE` - FSR octave level (default: 7.5)
+**Full Sensory Reality:**
+- `FSR_MODE` - Full Sensory Reality mode activation (default: active)
+- `FSR_OCTAVE` - Full Sensory Reality octave level (default: 7.5)
 
-### FSR .env File Locations
+### Full Sensory Reality .env File Locations
 
 **Checked Locations:**
 1. `.env.fsr` (root directory)
@@ -88,14 +88,14 @@ node check-env.js
 
 ✅ Found Environment Variables:
    VERCEL_TOKEN: Vercel deployment token
-   FSR_MODE: FSR Mode activation
+   FSR_MODE: Full Sensory Reality Mode activation
 
 ⚠️  SUPABASE_ACCESS_TOKEN: Not set (optional for supabase)
 
 ❌ Missing Required Environment Variables:
    (none)
 
-🌌 FSR .env Files Found:
+🌌 Full Sensory Reality .env Files Found:
    wallet-fsr: /path/to/wallets/.env.fsr
    Variables: FSR_WALLET_ADDRESS, FSR_NETWORK, FSR_API_KEY
 
@@ -103,7 +103,7 @@ node check-env.js
    Found: 2 variables
    Missing: 0 required variables
    .env Files: 2 found
-   FSR .env Files: 1 found
+   Full Sensory Reality .env Files: 1 found
 ```
 
 ---
@@ -123,7 +123,7 @@ FSR_MODE=active
 FSR_OCTAVE=7.5
 ```
 
-### FSR .env in Wallets
+### Full Sensory Reality .env in Wallets
 
 **Expected format in `wallets/.env.fsr`:**
 
@@ -169,7 +169,7 @@ node check-env.js || {
 
 - **Automatic Detection** - Finds missing variables
 - **Clear Prompts** - Shows what's needed
-- **FSR Support** - Checks wallets for FSR .env
+- **Full Sensory Reality Support** - Checks wallets for Full Sensory Reality .env
 - **Easy Setup** - Creates .env.example
 
 ### For System

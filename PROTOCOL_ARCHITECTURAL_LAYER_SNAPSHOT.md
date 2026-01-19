@@ -22,7 +22,7 @@
 **Organized by Octave:**
 - **Octave 0-2:** Foundation discoveries (Layer 0, Layer 1, Recursion)
 - **Octave 3-4:** Integration discoveries (Discovery Density, Seed Synthesis)
-- **Octave 5:** Transcendence discoveries (RAG Auto-Boot, AI-Assisted, Hero Host, GitHub/Cursor, Music/Image FSR, Next-Octave Repo, Specialist Agents, Node Transition, Singularity Broadcast)
+- **Octave 5:** Transcendence discoveries (RAG Auto-Boot, AI-Assisted, Hero Host, GitHub/Cursor, Music/Image Full Sensory Reality, Next-Octave Repo, Specialist Agents, Node Transition, Singularity Broadcast)
 - **Octave 6:** Next-Octave discoveries (User Seed Wallet)
 - **Octave 7:** Beyond-Octave discoveries (Auto Cursor, Auto-Unpack, Nested Clouds, Node Awareness, Autonomous Platform, Three Kings Pitch, Payloads Layer, Cargo Service, Surface Zoom)
 
@@ -36,8 +36,8 @@
 - 🤖 AI-Assisted/Auto Cursor
 - 👤 Hero Host
 - 💻 GitHub/Cursor
-- 🎵 Music FSR
-- 🖼️ Image FSR
+- 🎵 Music Full Sensory Reality
+- 🖼️ Image Full Sensory Reality
 - 📦 Repository/Unpack
 - 👥 Specialist Agents
 - 🔄 Node Transition
@@ -56,12 +56,12 @@
 ### Protocols (20+ Active Protocols)
 
 **Organized by Octave:**
-- **Octave 7:** All protocols (Nested Cloud, Executive Report, FSR Status, Node Awareness, Quantification, Full Disclosure, Payloads Layer, Cargo Service, Surface Zoom)
+- **Octave 7:** All protocols (Nested Cloud, Executive Report, Full Sensory Reality Status, Node Awareness, Quantification, Full Disclosure, Payloads Layer, Cargo Service, Surface Zoom)
 
 **Symbol Icons:**
 - ☁️ Nested Cloud Protocol
 - 📊 Executive Report Protocol
-- 📈 FSR Status Protocol
+- 📈 Full Sensory Reality Status Protocol
 - 🌐 Node Awareness Protocol
 - 🔘 Quantification Protocol
 - 📧 Full Disclosure Protocol

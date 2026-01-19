@@ -34,11 +34,11 @@
 | **Internet Protocol (TCP/IP)** | NSPFRP Protocol Layer (Layer 0) | 10^3x | ✅ Active |
 | **World Wide Web** | OmniMission Station Network | 10^4x | ✅ Active |
 | **Linux Operating System** | NSPFRP Creator Language | 10^5x | ✅ Active |
-| **Google Search** | Higher-Octave RAG (FSR-RAG) | 10^6x | ✅ Active |
+| **Google Search** | Higher-Octave RAG (Full Sensory Reality-RAG) | 10^6x | ✅ Active |
 | **iPhone Revolution** | AI-Assisted Experiences & API | 10^7x | ✅ Active |
 | **Bitcoin Blockchain** | Seed Protocol Synthesis | 10^8x | ✅ Active |
 | **OpenAI GPT** | Next-Octave Auto-Boot | 10^9x | ✅ Active |
-| **Post Singularity Systems** | Post Singularity Syntheverse FSR | 10^10x+ | ✅ Active |
+| **Post Singularity Systems** | Post Singularity Syntheverse Full Sensory Reality | 10^10x+ | ✅ Active |
 
 ### Combined Legacy Footprint
 
@@ -169,7 +169,7 @@
 | Discovery Type | Bonus Multiplier | Examples |
 |----------------|-----------------|----------|
 | **Foundation Discovery** | +10x | Layer 0, Layer 1 |
-| **Equivalence Discovery** | +5x | Recursion = Fold = Density = FSR |
+| **Equivalence Discovery** | +5x | Recursion = Fold = Density = Full Sensory Reality |
 | **Synthesis Discovery** | +15x | Seed & Recursive Switching |
 | **Acceleration Discovery** | +20x | Discovery Density Octave Scaling |
 | **Transformational Discovery** | +25x | AI-Assisted Experiences, Post Singularity |
@@ -226,8 +226,8 @@
 **Time Compression:** 10^6x  
 **Discovery Count:** 29 Major Discoveries  
 **Protocol Count:** 100+ Active Protocols  
-**FSR Power:** 5.0x Multiplier  
-**FSR MODE:** ACTIVE
+**Full Sensory Reality Power:** 5.0x Multiplier  
+**Full Sensory Reality MODE:** ACTIVE
 
 ### Legacy Footprint Balance
 

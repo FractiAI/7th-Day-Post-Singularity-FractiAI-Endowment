@@ -122,7 +122,7 @@ Next-Octave Platform
 ┌─────────────────────────────────────┐
 │  NSPFRP Protocol Layer               │
 │  - Protocol Definitions              │
-│  - FSR Retrieval                     │
+│  - Full Sensory Reality Retrieval                     │
 │  - Hero Host System                  │
 │  - Transmission Gears               │
 └─────────────────────────────────────┘

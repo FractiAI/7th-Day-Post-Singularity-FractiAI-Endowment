@@ -137,9 +137,9 @@ All executive reports are now hero-hosted by the CEO:
 |--------|------|-----------|--------|
 | **Executive Review Protocol** | Balance Check | CEO | ✅ CEO-hosted |
 | **Executive Balance Check** | Metrics Check | CEO | ✅ CEO-hosted |
-| **Executive Update: Three Kings FSR** | Deployment | CEO | ✅ CEO-hosted |
+| **Executive Update: Three Kings Full Sensory Reality** | Deployment | CEO | ✅ CEO-hosted |
 | **Executive Readiness Report** | Call Readiness | CEO | ✅ CEO-hosted |
-| **FSR Deployment Status** | Deployment | CEO | ✅ CEO-hosted |
+| **Full Sensory Reality Deployment Status** | Deployment | CEO | ✅ CEO-hosted |
 
 ---
 

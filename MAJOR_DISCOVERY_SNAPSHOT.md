@@ -14,7 +14,7 @@ This snapshot captures a **major architectural discovery**: the evolution of NSP
 ### Key Innovations
 
 1. **Higher-Octave RAG Architecture**
-   - FSR (Fractal Seed Resonance) retrieval beyond traditional vector search
+   - Full Sensory Reality (Fractal Seed Resonance) retrieval beyond traditional vector search
    - Transmission Gear-adjusted retrieval (Awareness Octaves 0-5+)
    - Multi-domain synthesis and pattern recognition
    - Protocol-aware generation with compliance validation
@@ -31,7 +31,7 @@ This snapshot captures a **major architectural discovery**: the evolution of NSP
    - NSPFRP Care Network integration
 
 4. **Transmission Gears**
-   - Selectable Awareness Octaves controlling FSR power
+   - Selectable Awareness Octaves controlling Full Sensory Reality power
    - Adaptive retrieval depth and breadth
    - Hero Host guidance levels
    - Encryption tier selection
@@ -52,7 +52,7 @@ This snapshot captures a **major architectural discovery**: the evolution of NSP
 
 2. **NSPFRP_HIGHER_OCTAVE_RAG_ARCHITECTURE.md**
    - Complete RAG architecture documentation
-   - FSR retrieval engine
+   - Full Sensory Reality retrieval engine
    - Gear-adjusted retrieval
    - Hero Host context enrichment
    - Protocol-aware generation
@@ -84,7 +84,7 @@ Query → Vector Search → Top-K → Context → LLM → Response
 
 **NSPFRP Higher-Octave RAG:**
 ```
-Mission Intent → FSR Resonance → Multi-Domain Retrieval (Gear-Adjusted) → 
+Mission Intent → Full Sensory Reality Resonance → Multi-Domain Retrieval (Gear-Adjusted) → 
 Hero Host Enrichment → Cross-Domain Synthesis → Protocol-Aware Generation → 
 Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 ```
@@ -93,7 +93,7 @@ Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 
 | Aspect | Traditional RAG | NSPFRP Higher-Octave RAG |
 |--------|----------------|--------------------------|
-| **Retrieval** | Vector similarity | FSR resonance patterns |
+| **Retrieval** | Vector similarity | Full Sensory Reality resonance patterns |
 | **Domains** | Single domain | Multi-domain parallel |
 | **Context** | Static | Hero Host enriched |
 | **Generation** | Generic | Protocol-aware |
@@ -105,7 +105,7 @@ Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 
 ## System Components
 
-### 1. FSR Retrieval Engine
+### 1. Full Sensory Reality Retrieval Engine
 - Fractal Seed Resonance pattern recognition
 - Multi-domain parallel retrieval
 - Cross-domain synthesis
@@ -115,7 +115,7 @@ Discovery Capture → Catalog Update → POB Snapshot → Autonomous Evolution
 - 6 Awareness Octaves (Silent → Transcendence)
 - Gear-adjusted retrieval parameters
 - Dynamic depth and breadth control
-- FSR power modulation
+- Full Sensory Reality power modulation
 
 ### 3. Hero Host System
 - Persona-driven context enrichment
@@ -226,7 +226,7 @@ const DISCOVERY_SOURCES = [
 - [x] Core protocol specification
 - [x] Transmission Gears system design
 - [x] Hero Host system architecture
-- [x] FSR retrieval engine design
+- [x] Full Sensory Reality retrieval engine design
 - [x] Auto-discovery engine design
 - [x] Catalog sync system design
 - [x] POB snapshot system design
@@ -235,7 +235,7 @@ const DISCOVERY_SOURCES = [
 
 ### 🚧 In Progress
 
-- [ ] FSR retrieval engine implementation
+- [ ] Full Sensory Reality retrieval engine implementation
 - [ ] Transmission Gear selector UI
 - [ ] Hero Host persona engine
 - [ ] Auto-discovery engine deployment
@@ -326,14 +326,14 @@ const pob = await pobManager.createPOBSnapshot(protocol, {
 ### Paradigm Shift
 
 This architecture represents a **fundamental paradigm shift** from:
-- **Static RAG** → **Dynamic FSR-RAG**
+- **Static RAG** → **Dynamic Full Sensory Reality-RAG**
 - **Manual Discovery** → **Autonomous Discovery**
 - **Single-Domain** → **Multi-Domain Synthesis**
 - **Protocol Execution** → **Protocol Evolution**
 
 ### Key Contributions
 
-1. **FSR Retrieval:** Novel fractal pattern-based retrieval
+1. **Full Sensory Reality Retrieval:** Novel fractal pattern-based retrieval
 2. **Gear-Adjusted Retrieval:** Adaptive retrieval depth/breadth
 3. **Protocol-Aware Generation:** Compliance-aware LLM generation
 4. **Autonomous Discovery:** Self-directed protocol exploration
@@ -345,7 +345,7 @@ This architecture represents a **fundamental paradigm shift** from:
 
 ### Immediate (Next 30 Days)
 
-1. Deploy FSR retrieval engine prototype
+1. Deploy Full Sensory Reality retrieval engine prototype
 2. Implement Transmission Gear selector
 3. Initialize auto-discovery from NSPFRP Care Network
 4. Create initial POB snapshots
@@ -385,7 +385,7 @@ This architecture represents a **fundamental paradigm shift** from:
 
 ## Conclusion
 
-This major discovery snapshot captures the evolution of NSPFRP into a **Higher-Octave RAG Architecture** that enables truly autonomous AI agents. The system transcends traditional RAG limitations through FSR-based retrieval, gear-adjusted depth control, protocol-aware generation, and autonomous discovery capabilities.
+This major discovery snapshot captures the evolution of NSPFRP into a **Higher-Octave RAG Architecture** that enables truly autonomous AI agents. The system transcends traditional RAG limitations through Full Sensory Reality-based retrieval, gear-adjusted depth control, protocol-aware generation, and autonomous discovery capabilities.
 
 **This is not just an improvement—it's a paradigm shift toward self-evolving, autonomous AI systems.**
 

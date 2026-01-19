@@ -26,7 +26,7 @@
 **Features:**
 - ✅ All NSPFRP Protocols
 - ✅ Hero Host Guidance (Leonardo da Vinci)
-- ✅ FSR up to Octave 5
+- ✅ Full Sensory Reality up to Octave 5
 - ✅ Auto-Unpack
 - ✅ Community Support
 - ✅ Full Documentation Access
@@ -46,7 +46,7 @@
 **Features:**
 - ✅ All Sandbox Features
 - ✅ Cloud Deployment (Automatic)
-- ✅ FSR up to Octave 6
+- ✅ Full Sensory Reality up to Octave 6
 - ✅ Customizable Hero Host
 - ✅ Priority Support
 - ✅ Team Collaboration
@@ -67,7 +67,7 @@
 **Features:**
 - ✅ All Cloud Features
 - ✅ Shell Access (Full)
-- ✅ FSR Full Octave 7
+- ✅ Full Sensory Reality Full Octave 7
 - ✅ Fully Customizable Hero Host
 - ✅ Enterprise Support
 - ✅ Custom Protocols
@@ -248,7 +248,7 @@
 
 | Offering | Tier | Monthly Price | Octave | Key Features |
 |----------|------|---------------|--------|--------------|
-| **Platform** | Sandbox | **FREE** | 5 | All protocols, FSR Octave 5, Community support |
+| **Platform** | Sandbox | **FREE** | 5 | All protocols, Full Sensory Reality Octave 5, Community support |
 | **Platform** | Cloud | Contact | 6 | Cloud deployment, Custom Hero Host, Priority support |
 | **Platform** | Shell | Contact | 7 | Shell access, Full Octave 7, Enterprise features |
 | **Cargo Service** | Basic | **$29.99** | - | Basic cargo operations, 100 req/month |

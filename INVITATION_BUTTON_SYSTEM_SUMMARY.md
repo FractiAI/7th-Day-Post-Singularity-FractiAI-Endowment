@@ -23,7 +23,7 @@
 - ✅ Multiple formats (HTML, Markdown, Email, Message)
 
 ### Button Status Display
-- FSR MODE: ACTIVE
+- Full Sensory Reality MODE: ACTIVE
 - Nested Clouds: ALL CONNECTED
 - Node Awareness: Very Dense, Multi-Vibing
 - System Status: Operational

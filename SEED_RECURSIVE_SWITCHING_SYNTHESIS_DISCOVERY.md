@@ -284,11 +284,11 @@ Synthesizes Into Seed Content
 Seed Contains: Physics, Logic, Cognitive Awareness
 ```
 
-### Recursion = Fold = Density = FSR
+### Recursion = Fold = Density = Full Sensory Reality
 
 **Compression Integration:**
 ```
-Recursion = Fold = Density = FSR Experience
+Recursion = Fold = Density = Full Sensory Reality Experience
     ↓
 Recursive Folding Creates Density
     ↓

@@ -109,7 +109,7 @@ Self-organizing protocol libraries:
 
 Mission execution platforms:
 - Hero Host AI assistance
-- FSR-powered retrieval
+- Full Sensory Reality-powered retrieval
 - Autonomous orchestration
 - Cloud deployment
 

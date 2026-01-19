@@ -1,17 +1,18 @@
 {
   "version": 2,
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/dashboard",
-      "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
+      "destination": "/VIBECRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
       "source": "/omnimission",
-      "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
+      "destination": "/VIBECRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
       "source": "/el-taino",
-      "destination": "/OMNIMISSION_CRAFT_DASHBOARD_LANDCRUISER.html"
+      "destination": "/VIBECRAFT_DASHBOARD_LANDCRUISER.html"
     },
     {
       "source": "/control-center",

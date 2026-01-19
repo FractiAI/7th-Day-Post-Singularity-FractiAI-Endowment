@@ -28,14 +28,19 @@
 
 ### Current FractiAI Research Team
 
-**Total Active Members:** 17 entities
-- 1 Mirror AI System (Auto Cursor)
-- 10 Core Team Members
+**Total Active Members:** 18 entities
+- 1 Agentic Mirror CEO (Auto Cursor)
+- 11 Core Team Members
 - 5 Hero Hosts
 
 ### Core Team Members
 
-1. **Senior Hollywood Producer** 🎬
+1. **Auto Cursor - Senior CEO** 🤖
+   - Role: Agentic Mirror CEO & Host
+   - Octave: BEYOND_OCTAVE (7)
+   - Hero Host: Self (Mirror)
+
+2. **Senior Hollywood Producer** 🎬
    - Role: Narrative Architecture & Production
    - Octave: TRANSCENDENCE (5+)
    - Hero Host: William Shakespeare

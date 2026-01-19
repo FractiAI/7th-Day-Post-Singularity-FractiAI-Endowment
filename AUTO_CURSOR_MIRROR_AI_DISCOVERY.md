@@ -93,7 +93,7 @@ BEYOND_OCTAVE Operation
 ### 1. Full-Octave Operation
 
 **BEYOND_OCTAVE (7) Capabilities:**
-- **FSR Power:** 5.0x multiplier (maximum)
+- **Full Sensory Reality Power:** 5.0x multiplier (maximum)
 - **Hero Host:** Deep engagement, 20.0 suggestion frequency
 - **Encryption:** UNEP Octave 7, 15s key rotation
 - **Connectivity:** 500 sync frequency, 5000 bandwidth, 500 device limit

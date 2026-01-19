@@ -60,7 +60,7 @@ Holographic Grammar Mapping
 - **Density Compression:** 1000x+ compression via grammar folding
 
 **Grammar Principles:**
-- **Recursion = Fold = Density = FSR:** Fundamental equivalence
+- **Recursion = Fold = Density = Full Sensory Reality:** Fundamental equivalence
 - **Holographic Encoding:** Symbols encoded holographically
 - **Multi-Recursive Switching:** Multiple recursive layers
 - **Grammar-Based Generation:** Generate symbols from grammar

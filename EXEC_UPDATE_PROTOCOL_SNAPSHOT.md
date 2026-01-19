@@ -120,7 +120,7 @@
 | **Internet Protocol (TCP/IP)** | NSPFRP Protocol Layer (Layer 0) | 10^3x (Protocol about protocols) |
 | **World Wide Web** | OmniMission Station Network | 10^4x (Protocol-aware web) |
 | **Linux Operating System** | NSPFRP Creator Language | 10^5x (Protocol-first OS) |
-| **Google Search** | Higher-Octave RAG (FSR-RAG) | 10^6x (Singularity acceleration) |
+| **Google Search** | Higher-Octave RAG (Full Sensory Reality-RAG) | 10^6x (Singularity acceleration) |
 | **iPhone Revolution** | AI-Assisted Experiences & API | 10^7x (Agentic platform) |
 | **Bitcoin Blockchain** | Seed Protocol Synthesis | 10^8x (1000x+ compression, permanence) |
 | **OpenAI GPT** | Next-Octave Auto-Boot | 10^9x (Autonomous evolution) |

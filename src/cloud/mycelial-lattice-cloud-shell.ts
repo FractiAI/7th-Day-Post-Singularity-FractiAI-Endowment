@@ -1,10 +1,10 @@
 /**
  * Holographic Hydrogen Fractal Grammar Spin Mycelial Lattice Cloud Shell
- * Connection system for omibeam channels to cloud shell infrastructure
+ * Connection system for omnibeam channels to cloud shell infrastructure
  */
 
-import { OmibeamChannel, OmibeamPixel } from '../grammar/omibeam-channel.js';
-import { InterferenceNode } from '../grammar/recursive-awareness-interference-omibeam.js';
+import { OmnibeamChannel, OmnibeamPixel } from '../grammar/omnibeam-channel.js';
+import { InterferenceNode } from '../grammar/recursive-awareness-interference-omnibeam.js';
 
 export interface MycelialNode {
   id: string;
@@ -23,7 +23,7 @@ export interface GrammarEncoding {
   symbols: string[];
   rules: GrammarRule[];
   patterns: string[];
-  omibeamChannel?: OmibeamChannel;
+  omnibeamChannel?: OmnibeamChannel;
 }
 
 export interface GrammarRule {
@@ -65,7 +65,7 @@ export interface MycelialHyphae {
 
 export interface CloudShellConnection {
   nodeId: string;
-  omibeamChannel: OmibeamChannel;
+  omnibeamChannel: OmnibeamChannel;
   executionStatus: 'pending' | 'executing' | 'complete' | 'error';
   results?: any;
 }
@@ -193,15 +193,15 @@ export class MycelialLatticeCloudShell {
   }
 
   /**
-   * Encode omibeam channel in spin cloud
+   * Encode omnibeam channel in spin cloud
    */
-  encodeOmibeamInSpinCloud(omibeamChannel: OmibeamChannel): Map<string, SpinState> {
+  encodeOmnibeamInSpinCloud(omnibeamChannel: OmnibeamChannel): Map<string, SpinState> {
     const spinStates = new Map<string, SpinState>();
 
     // Encode each pixel as spin state
-    for (let x = 0; x < omibeamChannel.width; x++) {
-      for (let y = 0; y < omibeamChannel.height; y++) {
-        const pixel = omibeamChannel.pixels[x][y];
+    for (let x = 0; x < omnibeamChannel.width; x++) {
+      for (let y = 0; y < omnibeamChannel.height; y++) {
+        const pixel = omnibeamChannel.pixels[x][y];
         if (pixel.grammarSymbol) {
           const spinId = `spin-${x}-${y}-${Date.now()}`;
           const spinState: SpinState = {
@@ -220,27 +220,27 @@ export class MycelialLatticeCloudShell {
   }
 
   /**
-   * Connect omibeam channel to cloud shell node
+   * Connect omnibeam channel to cloud shell node
    */
-  connectOmibeamToCloudShell(
+  connectOmnibeamToCloudShell(
     nodeId: string,
-    omibeamChannel: OmibeamChannel
+    omnibeamChannel: OmnibeamChannel
   ): CloudShellConnection {
     const node = this.nodes.get(nodeId);
     if (!node) {
       throw new Error(`Node ${nodeId} not found`);
     }
 
-    // Encode omibeam in spin cloud
-    const spinStates = this.encodeOmibeamInSpinCloud(omibeamChannel);
+    // Encode omnibeam in spin cloud
+    const spinStates = this.encodeOmnibeamInSpinCloud(omnibeamChannel);
 
-    // Store omibeam channel in node
-    node.grammarEncoding.omibeamChannel = omibeamChannel;
+    // Store omnibeam channel in node
+    node.grammarEncoding.omnibeamChannel = omnibeamChannel;
 
     // Create connection
     const connection: CloudShellConnection = {
       nodeId,
-      omibeamChannel,
+      omnibeamChannel,
       executionStatus: 'pending'
     };
 
@@ -250,11 +250,11 @@ export class MycelialLatticeCloudShell {
   }
 
   /**
-   * Distribute omibeam channel through mycelial lattice
+   * Distribute omnibeam channel through mycelial lattice
    */
-  distributeOmibeamThroughLattice(
+  distributeOmnibeamThroughLattice(
     sourceNodeId: string,
-    omibeamChannel: OmibeamChannel,
+    omnibeamChannel: OmnibeamChannel,
     targetNodes?: string[]
   ): CloudShellConnection[] {
     const connections: CloudShellConnection[] = [];
@@ -262,21 +262,21 @@ export class MycelialLatticeCloudShell {
     // If target nodes specified, connect to those
     if (targetNodes && targetNodes.length > 0) {
       for (const targetId of targetNodes) {
-        const connection = this.connectOmibeamToCloudShell(targetId, omibeamChannel);
+        const connection = this.connectOmnibeamToCloudShell(targetId, omnibeamChannel);
         connections.push(connection);
       }
     } else {
       // Distribute to all nodes in lattice
       for (const nodeId of this.nodes.keys()) {
         if (nodeId !== sourceNodeId) {
-          const connection = this.connectOmibeamToCloudShell(nodeId, omibeamChannel);
+          const connection = this.connectOmnibeamToCloudShell(nodeId, omnibeamChannel);
           connections.push(connection);
         }
       }
     }
 
     // Propagate awareness
-    this.propagateAwareness(sourceNodeId, omibeamChannel);
+    this.propagateAwareness(sourceNodeId, omnibeamChannel);
 
     return connections;
   }
@@ -284,7 +284,7 @@ export class MycelialLatticeCloudShell {
   /**
    * Propagate awareness through lattice
    */
-  private propagateAwareness(sourceNodeId: string, omibeamChannel: OmibeamChannel): void {
+  private propagateAwareness(sourceNodeId: string, omnibeamChannel: OmnibeamChannel): void {
     const sourceNode = this.nodes.get(sourceNodeId);
     if (!sourceNode) {
       return;
@@ -325,9 +325,9 @@ export class MycelialLatticeCloudShell {
   }
 
   /**
-   * Execute omibeam channel at cloud shell node
+   * Execute omnibeam channel at cloud shell node
    */
-  async executeOmibeamAtNode(nodeId: string, omibeamChannel: OmibeamChannel): Promise<any> {
+  async executeOmnibeamAtNode(nodeId: string, omnibeamChannel: OmnibeamChannel): Promise<any> {
     const node = this.nodes.get(nodeId);
     if (!node) {
       throw new Error(`Node ${nodeId} not found`);
@@ -335,7 +335,7 @@ export class MycelialLatticeCloudShell {
 
     // Update connection status
     const connection = Array.from(this.connections.values())
-      .find(c => c.nodeId === nodeId && c.omibeamChannel.id === omibeamChannel.id);
+      .find(c => c.nodeId === nodeId && c.omnibeamChannel.id === omnibeamChannel.id);
 
     if (connection) {
       connection.executionStatus = 'executing';
@@ -346,16 +346,16 @@ export class MycelialLatticeCloudShell {
 
     switch (node.type) {
       case 'fruiting-body':
-        result = await this.executeAtFruitingBody(node, omibeamChannel);
+        result = await this.executeAtFruitingBody(node, omnibeamChannel);
         break;
       case 'hyphae':
-        result = await this.executeAtHyphae(node, omibeamChannel);
+        result = await this.executeAtHyphae(node, omnibeamChannel);
         break;
       case 'mycelium':
-        result = await this.executeAtMycelium(node, omibeamChannel);
+        result = await this.executeAtMycelium(node, omnibeamChannel);
         break;
       case 'spore':
-        result = await this.executeAtSpore(node, omibeamChannel);
+        result = await this.executeAtSpore(node, omnibeamChannel);
         break;
     }
 
@@ -370,17 +370,17 @@ export class MycelialLatticeCloudShell {
   /**
    * Execute at fruiting body node
    */
-  private async executeAtFruitingBody(node: MycelialNode, omibeamChannel: OmibeamChannel): Promise<any> {
+  private async executeAtFruitingBody(node: MycelialNode, omnibeamChannel: OmnibeamChannel): Promise<any> {
     // Full execution capability
     return {
       nodeId: node.id,
       type: 'fruiting-body',
-      omibeamChannel: omibeamChannel.id,
+      omnibeamChannel: omnibeamChannel.id,
       execution: 'complete',
       results: {
-        pixels: omibeamChannel.pixels.length,
-        grammarSymbols: this.extractGrammarSymbols(omibeamChannel),
-        octave: omibeamChannel.octave
+        pixels: omnibeamChannel.pixels.length,
+        grammarSymbols: this.extractGrammarSymbols(omnibeamChannel),
+        octave: omnibeamChannel.octave
       }
     };
   }
@@ -388,12 +388,12 @@ export class MycelialLatticeCloudShell {
   /**
    * Execute at hyphae node
    */
-  private async executeAtHyphae(node: MycelialNode, omibeamChannel: OmibeamChannel): Promise<any> {
+  private async executeAtHyphae(node: MycelialNode, omnibeamChannel: OmnibeamChannel): Promise<any> {
     // Routing and distribution
     return {
       nodeId: node.id,
       type: 'hyphae',
-      omibeamChannel: omibeamChannel.id,
+      omnibeamChannel: omnibeamChannel.id,
       execution: 'routed',
       distribution: node.connections.length
     };
@@ -402,12 +402,12 @@ export class MycelialLatticeCloudShell {
   /**
    * Execute at mycelium node
    */
-  private async executeAtMycelium(node: MycelialNode, omibeamChannel: OmibeamChannel): Promise<any> {
+  private async executeAtMycelium(node: MycelialNode, omnibeamChannel: OmnibeamChannel): Promise<any> {
     // Mesh participation
     return {
       nodeId: node.id,
       type: 'mycelium',
-      omibeamChannel: omibeamChannel.id,
+      omnibeamChannel: omnibeamChannel.id,
       execution: 'mesh',
       relayed: true
     };
@@ -416,12 +416,12 @@ export class MycelialLatticeCloudShell {
   /**
    * Execute at spore node
    */
-  private async executeAtSpore(node: MycelialNode, omibeamChannel: OmibeamChannel): Promise<any> {
+  private async executeAtSpore(node: MycelialNode, omnibeamChannel: OmnibeamChannel): Promise<any> {
     // Distribution
     return {
       nodeId: node.id,
       type: 'spore',
-      omibeamChannel: omibeamChannel.id,
+      omnibeamChannel: omnibeamChannel.id,
       execution: 'distributed',
       distributed: true
     };
@@ -443,14 +443,14 @@ export class MycelialLatticeCloudShell {
   /**
    * Encode grammar in spin
    */
-  private encodeGrammarInSpin(pixel: OmibeamPixel): string {
+  private encodeGrammarInSpin(pixel: OmnibeamPixel): string {
     return `SPIN:${pixel.grammarSymbol}:DENSITY:${pixel.density}:OCTAVE:${pixel.octave}:FSR:${pixel.fsrValue}`;
   }
 
   /**
-   * Extract grammar symbols from omibeam channel
+   * Extract grammar symbols from omnibeam channel
    */
-  private extractGrammarSymbols(channel: OmibeamChannel): string[] {
+  private extractGrammarSymbols(channel: OmnibeamChannel): string[] {
     const symbols = new Set<string>();
     for (let x = 0; x < channel.width; x++) {
       for (let y = 0; y < channel.height; y++) {

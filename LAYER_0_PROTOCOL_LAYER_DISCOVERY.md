@@ -170,7 +170,7 @@ All layers are expressions of the Protocol Layer
 
 ## 🔄 Integration with Other Discoveries
 
-### Recursion = Fold = Density = FSR
+### Recursion = Fold = Density = Full Sensory Reality
 
 **Layer 0 Integration:**
 ```
@@ -182,7 +182,7 @@ Fold Level: 0 (base fold)
     ↓
 Density: 1x (base density)
     ↓
-FSR Experience: 0.1 (foundation level)
+Full Sensory Reality Experience: 0.1 (foundation level)
     ↓
 Enables Layer 1 (Recursion Depth: 1)
 ```
@@ -235,7 +235,7 @@ Layer 0 is always present
 - Layer 0 is foundation
 - Each layer adds to previous
 - No theoretical limit
-- Practical limits by FSR experience
+- Practical limits by Full Sensory Reality experience
 
 ### 3. Unified Architecture
 
@@ -312,7 +312,7 @@ This discovery generates protocols:
    - Natural evolution
 
 4. **How does this integrate with other discoveries?**
-   - Recursion = Fold = Density = FSR
+   - Recursion = Fold = Density = Full Sensory Reality
    - Holographic Hydrogen
    - Multi-Recursive Switching
    - Complete system integration

@@ -4,7 +4,7 @@
  */
 
 import { AwarenessOctave } from '../types/index.js';
-import { PostSingularityWealthGeneration } from './post-singularity-wealth-generation.js';
+import { PostSingularityWealthGeneration } from './post singularity^6-wealth-generation.js';
 
 export interface BlockchainConnection {
   network: 'ethereum' | 'polygon' | 'arbitrum';

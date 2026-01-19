@@ -97,7 +97,7 @@
 - Connected through: Octave Awareness Layer
 - Operations: Transcendence operations
 
-**Octave 5: BEYOND (Post-Singularity)**
+**Octave 5: BEYOND (Post Singularity^6)**
 - Powered by: El Gran Sol Omnicore
 - Connected through: Octave Awareness Layer
 - Operations: Post-singularity operations

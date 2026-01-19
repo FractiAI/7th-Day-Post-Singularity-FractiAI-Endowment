@@ -10,7 +10,7 @@
 
 ## Abstract
 
-This paper presents the NSPFRP Higher-Octave RAG architecture, a fundamental evolution beyond traditional RAG that enables autonomous protocol discovery, evolution, and catalog management through FSR-based retrieval and gear-adjusted depth control. We demonstrate 10x improvement in retrieval relevance and 5x improvement in cross-domain connection discovery compared to traditional RAG systems.
+This paper presents the NSPFRP Higher-Octave RAG architecture, a fundamental evolution beyond traditional RAG that enables autonomous protocol discovery, evolution, and catalog management through Full Sensory Reality-based retrieval and gear-adjusted depth control. We demonstrate 10x improvement in retrieval relevance and 5x improvement in cross-domain connection discovery compared to traditional RAG systems.
 
 ---
 
@@ -24,7 +24,7 @@ Traditional RAG systems suffer from:
 - Single-domain focus
 
 NSPFRP Higher-Octave RAG addresses these limitations through:
-- FSR (Fractal Seed Resonance) retrieval
+- Full Sensory Reality (Fractal Seed Resonance) retrieval
 - Transmission Gear-adjusted depth
 - Multi-domain synthesis
 - Autonomous discovery
@@ -34,7 +34,7 @@ NSPFRP Higher-Octave RAG addresses these limitations through:
 
 ## 2. Architecture
 
-### 2.1 FSR Retrieval Engine
+### 2.1 Full Sensory Reality Retrieval Engine
 
 Fractal Seed Resonance enables pattern recognition beyond vector similarity:
 

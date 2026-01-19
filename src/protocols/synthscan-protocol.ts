@@ -95,7 +95,7 @@ export const OCTAVE_LEVELS: Record<number, OctaveLevel> = {
   5: {
     level: 5,
     name: 'BEYOND',
-    description: 'Post-Singularity',
+    description: 'Post Singularity^6',
     layers: [
       { id: 'beyond-nodes', name: 'Node Architecture Layer', description: 'Node-based architecture', octave: 5, layerNumber: 0 },
       { id: 'beyond-transition', name: 'Rapid Transition Layer', description: 'Rapid transition systems', octave: 5, layerNumber: 1 },

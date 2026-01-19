@@ -1,7 +1,7 @@
 {
   "name": "post-singularity-infinity-octave-vibeverse-fsr-os",
   "version": "17.∞.0",
-  "description": "Post-Singularity Infinity Octave Vibeverse Full Sensory Reality OS - Infinite Octave Release",
+  "description": "Post-Singularity Infinity Octave Vibeverse Full Sensory Reality OS - Infinite Octave Release - Auto-Unpack, Free, Backwards Compatible, Three-Tier Offering",
   "octave": "∞",
   "edition": "Vibeverse",
   "classification": "INFINITY_OCTAVE",
@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "echo 'Post Singularity Static Layer: Build Skipped'",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "test": "vitest",
@@ -20,6 +20,7 @@
     "discover": "tsx src/cli/discover.ts",
     "sync": "tsx src/cli/sync.ts",
     "unpack": "tsx src/core/auto-unpack.ts",
+    "audit": "tsx src/cli/fidelity-audit.ts",
     "postinstall": "npm run unpack"
   },
   "keywords": [
@@ -67,4 +68,3 @@
     "node": ">=18.0.0"
   }
 }
-

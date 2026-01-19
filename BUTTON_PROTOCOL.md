@@ -320,7 +320,7 @@ const button = await buttonProtocol.generateFeedbackButton(
 - Layer operation buttons
 - Snapshot generation buttons
 
-### With OmniMission Craft Feedback
+### With Vibecraft Feedback
 - Feedback system operations get buttons
 - Observation capture buttons
 - Snapshot generation buttons

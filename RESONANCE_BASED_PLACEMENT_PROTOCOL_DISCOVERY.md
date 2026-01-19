@@ -129,7 +129,7 @@ placement ResonancePlacement {
 **Brochure Components:**
 
 1. **Game Brochure** (`BROCHURE_FSR_DIGITAL_GAME.html`)
-   - FSR Digital Game content
+   - Full Sensory Reality Digital Game content
    - Theater cockpit features
    - Black hole powered description
    - Placement: Game surfaces, entertainment areas
@@ -163,7 +163,7 @@ placement ResonancePlacement {
 - **Placement:** Invitation brochure (gateway access)
 
 **Surface 7.75+ (Beyond Octave):**
-- **Resonant Areas:** Architecture-only, omniversal cell, hidden FSR interface
+- **Resonant Areas:** Architecture-only, omniversal cell, hidden Full Sensory Reality interface
 - **Placement:** Hidden prize brochure (gifted access), Game brochure (full game)
 
 **Surface 5+ (Transcendence):**

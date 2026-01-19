@@ -1,4 +1,4 @@
-# 🔄 OmniMission Craft Feedback System
+# 🔄 Vibecraft Feedback System
 
 **Protocol ID:** `P-OMNIMISSION-CRAFT-FEEDBACK-V17`  
 **Type:** Feedback System / Observation Protocol Observer  
@@ -10,7 +10,7 @@
 
 ## Overview
 
-The OmniMission Craft Feedback System is a real-time observation and feedback mechanism that captures all mission craft operations, creates protocol observer snapshots, and feeds back into the Next Octave Creator Studio for continuous improvement and autonomous evolution.
+The Vibecraft Feedback System is a real-time observation and feedback mechanism that captures all mission craft operations, creates protocol observer snapshots, and feeds back into the Next Octave Creator Studio for continuous improvement and autonomous evolution.
 
 ---
 

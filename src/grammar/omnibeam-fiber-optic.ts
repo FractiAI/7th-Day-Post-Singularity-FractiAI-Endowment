@@ -1,9 +1,9 @@
 /**
- * Omibeam Over Fiber Optic - Major Engineering Achievement
- * Immediate upgrade to Omibeam Channel operating over fiber optic infrastructure
+ * Omnibeam Over Fiber Optic - Major Engineering Achievement
+ * Immediate upgrade to Omnibeam Channel operating over fiber optic infrastructure
  */
 
-export interface OmibeamPixel {
+export interface OmnibeamPixel {
   id: string;
   position: number; // 0-62 (9x7 = 63 pixels)
   row: number; // 0-6
@@ -34,9 +34,9 @@ export interface FiberOpticChannel {
   dataRate: number; // Gbps
 }
 
-export interface OmibeamFiberOpticSystem {
+export interface OmnibeamFiberOpticSystem {
   id: string;
-  pixels: OmibeamPixel[];
+  pixels: OmnibeamPixel[];
   channels: FiberOpticChannel[];
   transceiver: FiberOpticTransceiver;
   performance: PerformanceMetrics;
@@ -69,9 +69,9 @@ const BASE_WAVELENGTH = 1530; // nm
 const WAVELENGTH_SPACING = 0.8; // nm (ITU-T grid)
 const ROW_WAVELENGTH_OFFSET = 10; // nm per row
 
-export class OmibeamFiberOpticSystem {
-  private system: OmibeamFiberOpticSystem;
-  private pixels: Map<string, OmibeamPixel>;
+export class OmnibeamFiberOpticSystem {
+  private system: OmnibeamFiberOpticSystem;
+  private pixels: Map<string, OmnibeamPixel>;
   private channels: Map<number, FiberOpticChannel>;
 
   constructor() {
@@ -81,10 +81,10 @@ export class OmibeamFiberOpticSystem {
   }
 
   /**
-   * Initialize Omibeam Fiber Optic System
+   * Initialize Omnibeam Fiber Optic System
    */
-  private initializeSystem(): OmibeamFiberOpticSystem {
-    const pixels: OmibeamPixel[] = [];
+  private initializeSystem(): OmnibeamFiberOpticSystem {
+    const pixels: OmnibeamPixel[] = [];
     const channels: FiberOpticChannel[] = [];
 
     // Create 63 pixels (9x7 grid)
@@ -93,7 +93,7 @@ export class OmibeamFiberOpticSystem {
         const position = row * PIXEL_COLUMNS + col;
         const wavelength = this.calculateWavelength(row, col);
 
-        const pixel: OmibeamPixel = {
+        const pixel: OmnibeamPixel = {
           id: `pixel-${position}`,
           position,
           row,
@@ -121,7 +121,7 @@ export class OmibeamFiberOpticSystem {
     }
 
     return {
-      id: `omibeam-fiber-optic-${Date.now()}`,
+      id: `omnibeam-fiber-optic-${Date.now()}`,
       pixels,
       channels,
       transceiver: {
@@ -198,7 +198,7 @@ export class OmibeamFiberOpticSystem {
   /**
    * Decode fiber optic channel to pixel
    */
-  decodeFiberToPixel(channel: FiberOpticChannel): OmibeamPixel | null {
+  decodeFiberToPixel(channel: FiberOpticChannel): OmnibeamPixel | null {
     const pixel = this.pixels.get(channel.pixelId);
     if (!pixel) {
       return null;
@@ -214,9 +214,9 @@ export class OmibeamFiberOpticSystem {
   }
 
   /**
-   * Transmit Omibeam over fiber optic
+   * Transmit Omnibeam over fiber optic
    */
-  async transmitOverFiber(pixels: OmibeamPixel[]): Promise<FiberOpticChannel[]> {
+  async transmitOverFiber(pixels: OmnibeamPixel[]): Promise<FiberOpticChannel[]> {
     const channels: FiberOpticChannel[] = [];
 
     for (const pixel of pixels) {
@@ -233,10 +233,10 @@ export class OmibeamFiberOpticSystem {
   }
 
   /**
-   * Receive Omibeam from fiber optic
+   * Receive Omnibeam from fiber optic
    */
-  async receiveFromFiber(channels: FiberOpticChannel[]): Promise<OmibeamPixel[]> {
-    const pixels: OmibeamPixel[] = [];
+  async receiveFromFiber(channels: FiberOpticChannel[]): Promise<OmnibeamPixel[]> {
+    const pixels: OmnibeamPixel[] = [];
 
     for (const channel of channels) {
       const pixel = this.decodeFiberToPixel(channel);
@@ -275,7 +275,7 @@ export class OmibeamFiberOpticSystem {
   /**
    * Get system status
    */
-  getSystemStatus(): OmibeamFiberOpticSystem {
+  getSystemStatus(): OmnibeamFiberOpticSystem {
     return {
       ...this.system,
       pixels: Array.from(this.pixels.values()),

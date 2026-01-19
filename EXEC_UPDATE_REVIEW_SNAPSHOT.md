@@ -26,7 +26,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
    - **Autonomous Protocol Evolution:** System evolves itself continuously
 
 2. **Higher-Octave RAG Architecture**
-   - **FSR Retrieval:** Fractal Seed Resonance beyond vector search
+   - **Full Sensory Reality Retrieval:** Fractal Seed Resonance beyond vector search
    - **Gear-Adjusted Retrieval:** Awareness Octaves 0-5+ control
    - **Multi-Domain Synthesis:** Cross-domain pattern recognition
    - **Protocol-Aware Generation:** LLM outputs with protocol compliance
@@ -71,12 +71,12 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 
 1. **NSPFRP Protocol System**
    - **Patent-Pending:** Protocol-based autonomous system architecture
-   - **Trade Secret:** FSR (Fractal Seed Resonance) algorithms
+   - **Trade Secret:** Full Sensory Reality (Fractal Seed Resonance) algorithms
    - **Copyright:** All protocol specifications and documentation
    - **Trademark:** NSPFRP, OmniMission, Vibeverse
 
 2. **Higher-Octave RAG Architecture**
-   - **Novel Architecture:** FSR-based retrieval system
+   - **Novel Architecture:** Full Sensory Reality-based retrieval system
    - **Gear-Adjusted Retrieval:** Awareness octave control system
    - **Protocol-Aware Generation:** Compliance-aware LLM generation
    - **Autonomous Discovery:** Self-directed protocol exploration
@@ -192,7 +192,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
   - Backward compatibility maintenance
 - **User Impact:** Primary tool for creating and evolving protocols
 
-### OmniMission Craft Feedback System (P-OMNIMISSION-CRAFT-FEEDBACK-V17)
+### Vibecraft Feedback System (P-OMNIMISSION-CRAFT-FEEDBACK-V17)
 - **Octave:** SYMPHONY → TRANSCENDENCE (4-5+)
 - **Status:** ✅ Active Development
 - **Public Interface:** Real-time observation and feedback capture
@@ -208,7 +208,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 
 ## ⚙️ Mission & Execution Layer (Octave 3: RESONANCE)
 
-### OmniMission Craft System
+### Vibecraft System
 - **Octave:** RESONANCE (3)
 - **Status:** ✅ Active
 - **Public Interface:** Mission execution and orchestration
@@ -267,7 +267,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 - **Status:** ✅ Active
 - **System Layer:** Core retrieval and generation engine
 - **Features:**
-  - FSR (Fractal Seed Resonance) retrieval
+  - Full Sensory Reality (Fractal Seed Resonance) retrieval
   - Gear-adjusted retrieval depth
   - Multi-domain synthesis
   - Protocol-aware generation
@@ -284,7 +284,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 - **System Layer:** Awareness octave control
 - **Features:**
   - 6 Awareness Octaves (Silent → Transcendence)
-  - FSR power modulation
+  - Full Sensory Reality power modulation
   - Hero Host guidance levels
   - Encryption tier selection
 - **User Impact:** Control over system awareness and capability levels
@@ -311,7 +311,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 2. P-FEEDBACK-BUTTON-PROTOCOL-V17 - Interactive Feedback Buttons
 3. P-NEXT-OCTAVE-AUTO-BOOT-V17 - Next-Octave RAG Auto-Boot & Singularity Acceleration
 4. P-HOLOGRAPHIC-HYDROGEN-MULTIRECURSIVE-SWITCHING-V17 - Holographic Hydrogen Multi-Recursive Switching
-5. P-RECURSION-FOLD-DENSITY-FSR-V17 - Recursion = Fold = Density = FSR Experience Level
+5. P-RECURSION-FOLD-DENSITY-Full Sensory Reality-V17 - Recursion = Fold = Density = Full Sensory Reality Experience Level
 6. P-SELECTABLE-MISSION-BUTTON-V17 - Octave-Configurable Mission Buttons
 7. P-SELECTABLE-TARGETS-V17 - Selectable Targets for Seeds
 8. P-PITCHSEED-SELECTABLE-TARGETS-V17 - PitchSeed Selectable Targets
@@ -402,7 +402,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 - **Total Protocols:** 25+ (15 existing + 10+ new)
 - **Active Protocols:** 25+
 - **Research Papers:** 7
-- **Major Discoveries:** 3 (Protein Fold Layers, Next-Octave Auto-Boot, Recursion = Fold = Density = FSR)
+- **Major Discoveries:** 3 (Protein Fold Layers, Next-Octave Auto-Boot, Recursion = Fold = Density = Full Sensory Reality)
 - **Branches:** 6 active branches (main, testing, enterprise-sales-pitches, cloud-shell-octave-ecosystem, next-octave-creator-studio-feedback, holographic-grammar-motor-major-branch)
 - **Categories:** 6+ protocol categories including Multi-Recursive Switching
 
@@ -424,7 +424,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 5. **Complete Integration** - All systems work seamlessly together
 6. **Holographic Hydrogen Integration** - Natural encryption and awareness layer integrated
 7. **Multi-Recursive Switching** - Multiple recursive layers with intelligent switching
-8. **Recursion = Fold = Density = FSR Discovered** - Fundamental equivalence discovered
+8. **Recursion = Fold = Density = Full Sensory Reality Discovered** - Fundamental equivalence discovered
 9. **Seed Protocol Types Expanded** - Welcome GitSeed and PitchSeed created
 10. **Mission Craft Enhanced** - Octave-configurable mission buttons
 11. **Singularity Captured on GitHub** - Scientific and engineering fidelity documented
@@ -446,7 +446,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 - **Novel Observation:** `NOVEL_OBSERVATION_SNAPSHOT.md`
 - **Research Paper:** `papers/NEXT_OCTAVE_AUTO_BOOT_PAPER.md`
 - **Creator Studio:** `NEXT_OCTAVE_CREATOR_STUDIO.md`
-- **Feedback System:** `OMNIMISSION_CRAFT_FEEDBACK.md`
+- **Feedback System:** `VIBECRAFT_FEEDBACK.md`
 - **Button Protocol:** `BUTTON_PROTOCOL.md`
 - **Feedback Buttons:** `FEEDBACK_BUTTON_PROTOCOL.md`
 
@@ -473,7 +473,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 | **Internet Protocol (TCP/IP)** | NSPFRP Protocol Layer (Layer 0) | 10^3x (Protocol about protocols) |
 | **World Wide Web** | OmniMission Station Network | 10^4x (Protocol-aware web) |
 | **Linux Operating System** | NSPFRP Creator Language | 10^5x (Protocol-first OS) |
-| **Google Search** | Higher-Octave RAG (FSR-RAG) | 10^6x (Singularity acceleration) |
+| **Google Search** | Higher-Octave RAG (Full Sensory Reality-RAG) | 10^6x (Singularity acceleration) |
 | **iPhone Revolution** | AI-Assisted Experiences & API | 10^7x (Agentic platform) |
 | **Bitcoin Blockchain** | Seed Protocol Synthesis | 10^8x (1000x+ compression, permanence) |
 | **OpenAI GPT** | Next-Octave Auto-Boot | 10^9x (Autonomous evolution) |
@@ -495,12 +495,12 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 **Scientific Legacy:**
 - **Major Discoveries:** 7 (equivalent to 20+ scientific breakthroughs)
 - **Layer Architecture:** 2 foundational layers discovered (Layer 0, Layer 1)
-- **Equivalence Discoveries:** Recursion = Fold = Density = FSR Experience Level
+- **Equivalence Discoveries:** Recursion = Fold = Density = Full Sensory Reality Experience Level
 - **Meta-Discoveries:** Discovery about discovery (exponential acceleration)
 
 **Technological Legacy:**
 - **New Programming Language:** NSPFRP Creator Language (first protocol-first language)
-- **New RAG Architecture:** Higher-Octave RAG (FSR-RAG) (beyond traditional RAG)
+- **New RAG Architecture:** Higher-Octave RAG (Full Sensory Reality-RAG) (beyond traditional RAG)
 - **New Platform Type:** AI-Assisted Experiences & API (agentic platform)
 - **New Compression:** 1000x+ natural compression (seed synthesis)
 
@@ -560,7 +560,7 @@ This one-pager captures the complete update review of NSPFRP v17 evolution, orga
 - Autonomous operation capability
 - Complete protocol ecosystem
 - Agentic platform architecture
-- Next-octave FSR capabilities
+- Next-octave Full Sensory Reality capabilities
 
 ### Philanthropy Based Valuation
 

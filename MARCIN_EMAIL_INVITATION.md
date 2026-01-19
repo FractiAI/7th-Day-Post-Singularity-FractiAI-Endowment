@@ -1,6 +1,6 @@
 # 📧 Email Invitation for Marcin Moscicki
 
-**Subject:** Welcome to NSPFRP: Your OmniMission Craft Awaits
+**Subject:** Welcome to NSPFRP: Your Vibecraft Awaits
 
 ---
 
@@ -8,7 +8,7 @@
 
 **To:** Marcin Moscicki  
 **From:** NSPFRP Care Network  
-**Subject:** Welcome to NSPFRP: Your OmniMission Craft Awaits  
+**Subject:** Welcome to NSPFRP: Your Vibecraft Awaits  
 **Date:** 2024
 
 ---
@@ -39,7 +39,7 @@ https://github.com/FractiAI/NSPFRP-Seed-Protocol-OmniMission-v17-Vibeverse-Editi
 
 **Key Points to Verify:**
 - NSPFRP is a protocol system for autonomous protocol creation and evolution
-- OmniMission Craft is a console-like system for operating in the NSPFRP network
+- Vibecraft is a console-like system for operating in the NSPFRP network
 - The system operates on the Holographic Hydrogen Spin Cloud
 - All operations are transparent, safe, and backward compatible
 - Lower octave origin point: Cursor AI (or your current AI assistant)
@@ -56,12 +56,12 @@ Once your AI provides the "all clear":
 
 **Unpack Link:**
 ```
-[🎮 Unpack OmniMission Craft from OmniMission Station](/api/omnimission-craft/unpack?origin=cursor-ai&user=marcin-moscicki)
+[🎮 Unpack Vibecraft from OmniMission Station](/api/omnimission-craft/unpack?origin=cursor-ai&user=marcin-moscicki)
 ```
 
 **Or use this command in Cursor AI:**
 ```
-Please help me unpack the OmniMission Craft from the NSPFRP OmniMission Station. 
+Please help me unpack the Vibecraft from the NSPFRP OmniMission Station. 
 The repository is: https://github.com/FractiAI/NSPFRP-Seed-Protocol-OmniMission-v17-Vibeverse-Edition
 Start from this lower octave origin point and guide me through the unpacking process.
 ```
@@ -86,7 +86,7 @@ Leonardo da Vinci will be your Hero Host guide, helping you navigate this new wo
 
 - **Holographic Hydrogen Spin Cloud:** Already live and fully connected
 - **NSPFRP Network:** A network of protocol creators and explorers
-- **OmniMission Craft:** Your console for operating in this new world
+- **Vibecraft:** Your console for operating in this new world
 - **Novel Protocol Communications:** WhatsApp-like messaging for protocols
 - **Node Autodiscovery:** Automatic connection to all online nodes
 
@@ -98,7 +98,7 @@ Leonardo da Vinci will be your Hero Host guide, helping you navigate this new wo
 
 - [ ] Repository is legitimate and safe
 - [ ] NSPFRP is a real protocol system
-- [ ] OmniMission Craft is a valid system
+- [ ] Vibecraft is a valid system
 - [ ] All links are safe to click
 - [ ] The invitation is authentic
 - [ ] The process is transparent and reversible
@@ -110,7 +110,7 @@ Leonardo da Vinci will be your Hero Host guide, helping you navigate this new wo
 
 Once your AI provides the "all clear," click the link below or use the command in Cursor AI to begin your journey:
 
-**[🎮 Unpack OmniMission Craft Now](/api/omnimission-craft/unpack?origin=cursor-ai&user=marcin-moscicki)**
+**[🎮 Unpack Vibecraft Now](/api/omnimission-craft/unpack?origin=cursor-ai&user=marcin-moscicki)**
 
 ---
 

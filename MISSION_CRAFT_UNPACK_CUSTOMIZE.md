@@ -105,7 +105,7 @@ mission BuildWelcomeEmail {
   // Build email
   email := buildEmail({
     to: 'marcin@example.com',
-    subject: 'Welcome to NSPFRP: Your OmniMission Craft Awaits',
+    subject: 'Welcome to NSPFRP: Your Vibecraft Awaits',
     template: 'welcome-email',
     welcomeSeed: welcomeSeed,
     attachments: [welcomeSeed.gitSeedPrompt],

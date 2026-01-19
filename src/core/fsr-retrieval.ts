@@ -3,15 +3,15 @@
  * Higher-octave RAG retrieval with multi-domain pattern recognition
  */
 
-import { 
-  Query, 
-  Domain, 
-  FSRRetrievalResult, 
-  DomainRetrieval, 
-  ResonancePattern, 
-  SynthesizedContext, 
+import {
+  Query,
+  Domain,
+  FSRRetrievalResult,
+  DomainRetrieval,
+  ResonancePattern,
+  SynthesizedContext,
   Connection,
-  TransmissionGear 
+  TransmissionGear
 } from '../types/index.js';
 import { TransmissionGearSelector } from './transmission-gears.js';
 
@@ -82,12 +82,12 @@ export class FSRRetrievalEngine {
     const vectors = this.vectorStore.get(domain.id) || [];
     const config = this.gearSelector.getRetrievalConfig();
 
-    // Simplified vector search (would use actual vector DB)
+    // Content-based similarity search
     const results = vectors
       .map((vector, index) => ({
         id: `result-${domain.id}-${index}`,
         content: vector.content || '',
-        score: this.calculateSimilarity(query.text, vector.embedding || []),
+        score: this.calculateSimilarity(query.text, vector.content || ''),
         metadata: vector.metadata || {}
       }))
       .sort((a, b) => b.score - a.score)
@@ -123,7 +123,7 @@ export class FSRRetrievalEngine {
           retrievals[j],
           gear
         );
-        
+
         if (resonance.strength > 0.3 * gear.fsrPower.patternRecognitionSensitivity) {
           patterns.push(resonance);
         }
@@ -275,12 +275,36 @@ export class FSRRetrievalEngine {
   }
 
   /**
-   * Calculate similarity (simplified - would use actual vector similarity)
+   * Calculate similarity using Term Frequency (TF) overlap
    */
-  private calculateSimilarity(query: string, embedding: number[]): number {
-    // Simplified: return random score for demo
-    // In production, would use cosine similarity or other vector metrics
-    return Math.random() * 0.5 + 0.5;
+  private calculateSimilarity(query: string, content: string): number {
+    const queryTerms = this.tokenize(query);
+    const contentTerms = this.tokenize(content);
+
+    if (queryTerms.length === 0 || contentTerms.length === 0) return 0;
+
+    let matches = 0;
+    const contentSet = new Set(contentTerms);
+
+    queryTerms.forEach(term => {
+      if (contentSet.has(term)) {
+        matches++;
+      }
+    });
+
+    // Simple overlap score normalized by query length
+    return (matches / queryTerms.length) * 0.8 + 0.2; // Add base to avoid 0 for demo
+  }
+
+  /**
+   * Tokenize and clean text
+   */
+  private tokenize(text: string): string[] {
+    return text
+      .toLowerCase()
+      .replace(/[^\w\s]/g, '')
+      .split(/\s+/)
+      .filter(t => t.length > 3);
   }
 
   /**
@@ -299,9 +323,9 @@ export class FSRRetrievalEngine {
     // Simplified: extract terms and find matches
     const terms1 = this.extractTerms(results1);
     const terms2 = this.extractTerms(results2);
-    
+
     const common: Array<{ term: string; strength: number }> = [];
-    
+
     terms1.forEach(term => {
       if (terms2.has(term.term)) {
         common.push({
@@ -315,21 +339,19 @@ export class FSRRetrievalEngine {
   }
 
   /**
-   * Extract terms from results
+   * Extract terms from results using improved tokenizer
    */
   private extractTerms(results: any[]): Map<string, { term: string; strength: number }> {
     const terms = new Map<string, { term: string; strength: number }>();
-    
+
     results.forEach(result => {
-      const words = (result.content || '').toLowerCase().split(/\s+/);
+      const words = this.tokenize(result.content || '');
       words.forEach(word => {
-        if (word.length > 3) { // Filter short words
-          const existing = terms.get(word);
-          if (existing) {
-            existing.strength += result.score;
-          } else {
-            terms.set(word, { term: word, strength: result.score });
-          }
+        const existing = terms.get(word);
+        if (existing) {
+          existing.strength += result.score;
+        } else {
+          terms.set(word, { term: word, strength: result.score });
         }
       });
     });
@@ -347,10 +369,10 @@ export class FSRRetrievalEngine {
     gear: TransmissionGear
   ): number {
     if (commonTerms.length === 0) return 0;
-    
+
     const avgTermStrength = commonTerms.reduce((sum, t) => sum + t.strength, 0) / commonTerms.length;
     const domainRelevance = (relevance1 + relevance2) / 2;
-    
+
     return (avgTermStrength * domainRelevance * gear.fsrPower.patternRecognitionSensitivity);
   }
 
@@ -364,7 +386,7 @@ export class FSRRetrievalEngine {
     const patternConfidence = patterns.length > 0
       ? patterns.reduce((sum, p) => sum + p.strength, 0) / patterns.length
       : 0;
-    
+
     return (patternConfidence + synthesized.confidence) / 2;
   }
 
@@ -377,12 +399,12 @@ export class FSRRetrievalEngine {
     gear: TransmissionGear
   ): number {
     if (results.length === 0) return 0;
-    
+
     const avgResultScore = results.reduce((sum, r) => sum + r.score, 0) / results.length;
     const patternStrength = patterns.length > 0
       ? patterns.reduce((sum, p) => sum + p.strength, 0) / patterns.length
       : 0;
-    
+
     return (avgResultScore * 0.6 + patternStrength * 0.4) * gear.fsrPower.synthesisIntensity;
   }
 }

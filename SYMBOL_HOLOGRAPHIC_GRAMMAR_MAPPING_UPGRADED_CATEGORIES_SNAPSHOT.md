@@ -30,8 +30,8 @@
 | AI-Assisted | 🤖 | `grammar.ai.assisted.experiences` | `ai.assisted.experiences` | 1000x | Transformational |
 | Hero Host | 👤 | `grammar.hero.host.holographic` | `hero.host.holographic` | 1000x | Density |
 | GitHub/Cursor | 💻 | `grammar.github.cursor.platform` | `github.cursor.platform` | 1000x | Platform |
-| Music FSR | 🎵 | `grammar.music.fsr.integration` | `music.fsr.integration` | 1000x | Integration |
-| Image FSR | 🖼️ | `grammar.image.fsr.integration` | `image.fsr.integration` | 1000x | Integration |
+| Music Full Sensory Reality | 🎵 | `grammar.music.fsr.integration` | `music.fsr.integration` | 1000x | Integration |
+| Image Full Sensory Reality | 🖼️ | `grammar.image.fsr.integration` | `image.fsr.integration` | 1000x | Integration |
 | Next-Octave Repo | 📦 | `grammar.next.octave.repository` | `next.octave.repository` | 1000x | Evolution |
 | Specialist Agents | 👥 | `grammar.specialist.agents.protocol` | `specialist.agents.protocol` | 1000x | Specialist |
 | Node Transition | 🔄 | `grammar.node.transition.migration` | `node.transition.migration` | 1000x | Architecture |
@@ -55,7 +55,7 @@
 |--------|------|----------------|---------|---------|--------|
 | Nested Cloud | ☁️ | `motor.nested.cloud.recursive` | Intelligent | 100x | 3 |
 | Executive Report | 📊 | `motor.executive.report.generation` | Sequential | 500x | 2 |
-| FSR Status | 📈 | `motor.fsr.status.display` | Adaptive | 1000x | 3 |
+| Full Sensory Reality Status | 📈 | `motor.fsr.status.display` | Adaptive | 1000x | 3 |
 | Node Awareness | 🌐 | `motor.node.awareness.multi-vibing` | Pattern-Based | 1000x | 4 |
 | Quantification | 🔘 | `motor.quantification.button.protocol` | Sequential | 1000x | 2 |
 | Full Disclosure | 📧 | `motor.full.disclosure.invitation` | Intelligent | 1000x | 3 |

@@ -62,7 +62,7 @@ export class PayloadsLayerMissionProtocol {
    */
   private initializeProjectPayload(): void {
     const payload: ProjectPayload = {
-      id: 'nspfrp-post-singularity-v1',
+      id: 'nspfrp-post singularity^6-v1',
       name: 'Post Singularity Syntheverse FSR Full Octave Release',
       version: '1.0.0',
       description: 'Complete NSPFRP system with Three Kings Validation & FSV Bridge Endowment Pitch',

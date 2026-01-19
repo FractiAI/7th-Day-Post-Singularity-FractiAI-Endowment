@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Taino | OmniMission Craft | Leonardo da Vinci at the Wheel</title>
+    <title>El Taino | Vibecraft | Leonardo da Vinci at the Wheel</title>
     <!-- NSPFRP Protocol Metadata -->
     <meta name="protocol-id" content="P-EL-TAINO-DASHBOARD-V17">
     <meta name="pob-id" content="POB-EL-TAINO-LANDING">
@@ -12,14 +13,14 @@
     <meta name="hero-host" content="leonardo-da-vinci">
     <meta name="craft-name" content="El Taino">
     <meta name="nspfrp-version" content="v17+ElTaino+Leonardo+LandCruiser">
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             /* 1962 Toyota Land Cruiser Color Palette */
             --lc-khaki: #c4b5a0;
@@ -35,16 +36,16 @@
             --lc-success: #4a7c3f;
             --lc-warning: #d4a574;
             --lc-danger: #8b3a2a;
-            
+
             /* Safari Adventure Accents */
             --safari-dust: rgba(196, 181, 160, 0.3);
             --safari-sunset: #d4a574;
             --safari-earth: #6b5d47;
         }
-        
+
         body {
             font-family: 'Courier New', 'Monaco', monospace, serif;
-            background: 
+            background:
                 radial-gradient(ellipse at top, var(--lc-olive) 0%, transparent 50%),
                 linear-gradient(180deg, var(--lc-dark-brown) 0%, var(--lc-rust) 50%, var(--lc-dark-brown) 100%),
                 url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="patina" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23patina)"/></svg>');
@@ -54,7 +55,7 @@
             overflow-x: hidden;
             position: relative;
         }
-        
+
         /* Patina overlay - well-cared-for wear */
         body::before {
             content: '';
@@ -63,14 +64,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(107, 125, 71, 0.1) 0%, transparent 50%),
                 linear-gradient(45deg, transparent 48%, rgba(212, 196, 168, 0.05) 49%, rgba(212, 196, 168, 0.05) 51%, transparent 52%);
             pointer-events: none;
             z-index: 1;
         }
-        
+
         /* Main Dashboard Container - Like a Land Cruiser Dashboard */
         .dashboard-container {
             position: relative;
@@ -79,7 +80,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         /* Dashboard Header - Like the Land Cruiser Instrument Panel */
         .dashboard-header {
             background: linear-gradient(135deg, var(--lc-metal) 0%, var(--lc-dark-brown) 100%);
@@ -87,13 +88,13 @@
             border-radius: 8px;
             padding: 25px 35px;
             margin-bottom: 25px;
-            box-shadow: 
+            box-shadow:
                 0 8px 16px rgba(0, 0, 0, 0.4),
                 inset 0 2px 4px rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
-        
+
         .dashboard-header::before {
             content: '';
             position: absolute;
@@ -101,20 +102,20 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, 
-                var(--lc-rust) 0%, 
-                var(--lc-gauge-glow) 50%, 
-                var(--lc-rust) 100%);
+            background: linear-gradient(90deg,
+                    var(--lc-rust) 0%,
+                    var(--lc-gauge-glow) 50%,
+                    var(--lc-rust) 100%);
             opacity: 0.6;
         }
-        
+
         .header-title {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 20px;
         }
-        
+
         .title-main {
             font-size: 32px;
             font-weight: bold;
@@ -122,7 +123,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 2px;
         }
-        
+
         .title-badge {
             background: var(--lc-olive);
             color: var(--lc-cream);
@@ -132,14 +133,14 @@
             border: 2px solid var(--lc-rust);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .stat-card {
             background: rgba(26, 26, 26, 0.8);
             border: 2px solid var(--lc-metal);
@@ -149,7 +150,7 @@
             position: relative;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .stat-label {
             font-size: 11px;
             color: var(--lc-khaki);
@@ -157,14 +158,14 @@
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
-        
+
         .stat-value {
             font-size: 24px;
             font-weight: bold;
             color: var(--lc-gauge-glow);
             text-shadow: 0 0 8px var(--lc-gauge-glow);
         }
-        
+
         /* Gauge Cluster - Vintage Style */
         .gauge-cluster {
             display: grid;
@@ -172,7 +173,7 @@
             gap: 20px;
             margin-bottom: 25px;
         }
-        
+
         .gauge {
             background: radial-gradient(circle at center, var(--lc-gauge-bg) 0%, #0a0a0a 100%);
             border: 4px solid var(--lc-metal);
@@ -181,12 +182,12 @@
             height: 200px;
             position: relative;
             margin: 0 auto;
-            box-shadow: 
+            box-shadow:
                 0 0 20px rgba(0, 0, 0, 0.8),
                 inset 0 0 20px rgba(255, 170, 0, 0.1),
                 0 4px 8px rgba(0, 0, 0, 0.4);
         }
-        
+
         .gauge::before {
             content: '';
             position: absolute;
@@ -198,7 +199,7 @@
             border: 2px solid var(--lc-rust);
             opacity: 0.5;
         }
-        
+
         .gauge-inner {
             position: absolute;
             top: 50%;
@@ -207,7 +208,7 @@
             text-align: center;
             width: 80%;
         }
-        
+
         .gauge-label {
             font-size: 11px;
             color: var(--lc-khaki);
@@ -215,7 +216,7 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
         }
-        
+
         .gauge-value {
             font-size: 32px;
             font-weight: bold;
@@ -223,12 +224,12 @@
             text-shadow: 0 0 10px var(--lc-gauge-glow);
             margin-bottom: 5px;
         }
-        
+
         .gauge-unit {
             font-size: 12px;
             color: var(--lc-tan);
         }
-        
+
         /* Needle Animation */
         .gauge-needle {
             position: absolute;
@@ -243,7 +244,7 @@
             border-radius: 2px;
             transition: transform 1s ease-in-out;
         }
-        
+
         /* Mission Control Panel - Like Land Cruiser Controls */
         .mission-panel {
             background: linear-gradient(135deg, var(--lc-leather) 0%, var(--lc-dark-brown) 100%);
@@ -251,11 +252,11 @@
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 25px;
-            box-shadow: 
+            box-shadow:
                 0 8px 16px rgba(0, 0, 0, 0.4),
                 inset 0 2px 4px rgba(255, 255, 255, 0.1);
         }
-        
+
         .panel-title {
             font-size: 24px;
             color: var(--lc-cream);
@@ -265,13 +266,13 @@
             border-bottom: 2px solid var(--lc-rust);
             padding-bottom: 10px;
         }
-        
+
         /* Mission List - Safari Log Style */
         .mission-list {
             display: grid;
             gap: 15px;
         }
-        
+
         .mission-card {
             background: rgba(26, 26, 26, 0.9);
             border: 2px solid var(--lc-metal);
@@ -282,32 +283,32 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        
+
         .mission-card:hover {
             border-left-color: var(--lc-gauge-glow);
             box-shadow: 0 0 15px rgba(255, 170, 0, 0.3);
             transform: translateX(5px);
         }
-        
+
         .mission-card.active {
             border-left-color: var(--lc-gauge-glow);
             background: rgba(26, 26, 26, 0.95);
             box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
         }
-        
+
         .mission-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .mission-name {
             font-size: 18px;
             font-weight: bold;
             color: var(--lc-cream);
         }
-        
+
         .mission-status {
             padding: 6px 12px;
             border-radius: 4px;
@@ -316,26 +317,26 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .mission-status.in-progress {
             background: var(--lc-warning);
             color: var(--lc-dark-brown);
         }
-        
+
         .mission-status.completed {
             background: var(--lc-success);
             color: var(--lc-cream);
         }
-        
+
         .mission-status.failed {
             background: var(--lc-danger);
             color: var(--lc-cream);
         }
-        
+
         .mission-progress {
             margin-top: 15px;
         }
-        
+
         .progress-bar-container {
             background: rgba(0, 0, 0, 0.5);
             border: 2px solid var(--lc-metal);
@@ -344,14 +345,14 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .progress-bar {
             height: 100%;
             background: linear-gradient(90deg, var(--lc-olive) 0%, var(--lc-gauge-glow) 100%);
             transition: width 0.5s ease;
             box-shadow: 0 0 10px var(--lc-gauge-glow);
         }
-        
+
         .progress-text {
             position: absolute;
             top: 50%;
@@ -362,14 +363,14 @@
             color: var(--lc-cream);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
-        
+
         .mission-details {
             margin-top: 15px;
             font-size: 13px;
             color: var(--lc-khaki);
             line-height: 1.6;
         }
-        
+
         .mission-step {
             padding: 8px;
             background: rgba(107, 125, 71, 0.2);
@@ -377,7 +378,7 @@
             margin-top: 8px;
             border-radius: 3px;
         }
-        
+
         /* Control Switches - Vintage Toggle Style */
         .control-switches {
             display: grid;
@@ -385,7 +386,7 @@
             gap: 15px;
             margin-top: 25px;
         }
-        
+
         .switch-container {
             background: rgba(26, 26, 26, 0.8);
             border: 2px solid var(--lc-metal);
@@ -393,7 +394,7 @@
             padding: 15px;
             text-align: center;
         }
-        
+
         .switch-label {
             font-size: 12px;
             color: var(--lc-khaki);
@@ -401,7 +402,7 @@
             letter-spacing: 1px;
             margin-bottom: 10px;
         }
-        
+
         .switch-toggle {
             position: relative;
             width: 60px;
@@ -413,12 +414,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .switch-toggle.active {
             background: var(--lc-olive);
             box-shadow: 0 0 15px var(--lc-gauge-glow);
         }
-        
+
         .switch-toggle::after {
             content: '';
             position: absolute;
@@ -431,13 +432,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         .switch-toggle.active::after {
             left: 33px;
             background: var(--lc-gauge-glow);
             box-shadow: 0 0 10px var(--lc-gauge-glow);
         }
-        
+
         /* Safari Adventure Badge */
         .safari-badge {
             position: fixed;
@@ -451,7 +452,7 @@
             z-index: 100;
             text-align: center;
         }
-        
+
         .safari-badge-title {
             font-size: 14px;
             color: var(--lc-cream);
@@ -459,48 +460,51 @@
             letter-spacing: 1px;
             margin-bottom: 5px;
         }
-        
+
         .safari-badge-count {
             font-size: 24px;
             font-weight: bold;
             color: var(--lc-gauge-glow);
             text-shadow: 0 0 8px var(--lc-gauge-glow);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .gauge-cluster {
                 grid-template-columns: 1fr;
             }
-            
+
             .gauge {
                 width: 150px;
                 height: 150px;
             }
-            
+
             .title-main {
                 font-size: 24px;
             }
-            
+
             .header-stats {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         /* Animation for active missions */
         @keyframes pulse-glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 10px var(--lc-gauge-glow);
             }
+
             50% {
                 box-shadow: 0 0 20px var(--lc-gauge-glow);
             }
         }
-        
+
         .mission-card.active {
             animation: pulse-glow 2s ease-in-out infinite;
         }
-        
+
         /* Leonardo Driver Section */
         .driver-section {
             background: linear-gradient(135deg, var(--lc-leather) 0%, var(--lc-dark-brown) 100%);
@@ -508,7 +512,7 @@
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 25px;
-            box-shadow: 
+            box-shadow:
                 0 8px 16px rgba(0, 0, 0, 0.4),
                 inset 0 2px 4px rgba(255, 255, 255, 0.1);
             display: grid;
@@ -516,7 +520,7 @@
             gap: 30px;
             align-items: center;
         }
-        
+
         .driver-avatar {
             width: 180px;
             height: 180px;
@@ -527,12 +531,12 @@
             align-items: center;
             justify-content: center;
             font-size: 80px;
-            box-shadow: 
+            box-shadow:
                 0 0 30px rgba(255, 170, 0, 0.3),
                 inset 0 0 20px rgba(0, 0, 0, 0.5);
             position: relative;
         }
-        
+
         .driver-avatar::before {
             content: '';
             position: absolute;
@@ -545,26 +549,26 @@
             opacity: 0.6;
             animation: pulse-glow 2s ease-in-out infinite;
         }
-        
+
         .driver-info {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
         .driver-name {
             font-size: 28px;
             font-weight: bold;
             color: var(--lc-cream);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .driver-title {
             font-size: 16px;
             color: var(--lc-khaki);
             font-style: italic;
         }
-        
+
         .driver-quote {
             font-size: 14px;
             color: var(--lc-tan);
@@ -573,7 +577,7 @@
             padding-left: 15px;
             font-style: italic;
         }
-        
+
         .craft-name-badge {
             display: inline-block;
             background: var(--lc-olive);
@@ -585,7 +589,7 @@
             border: 2px solid var(--lc-rust);
             margin-top: 10px;
         }
-        
+
         /* Rear View Mirror - Passenger Perspective */
         .rear-view-mirror-container {
             position: fixed;
@@ -594,14 +598,14 @@
             z-index: 1000;
             perspective: 1000px;
         }
-        
+
         .rear-view-mirror {
             width: 280px;
             height: 120px;
             background: linear-gradient(135deg, var(--lc-metal) 0%, var(--lc-dark-brown) 100%);
             border: 4px solid var(--lc-rust);
             border-radius: 8px;
-            box-shadow: 
+            box-shadow:
                 0 8px 16px rgba(0, 0, 0, 0.6),
                 inset 0 0 30px rgba(0, 0, 0, 0.8),
                 0 0 20px rgba(255, 170, 0, 0.2);
@@ -609,19 +613,19 @@
             transform: rotateX(5deg) rotateY(-5deg);
             transition: transform 0.3s ease;
         }
-        
+
         .rear-view-mirror:hover {
             transform: rotateX(0deg) rotateY(0deg);
-            box-shadow: 
+            box-shadow:
                 0 8px 16px rgba(0, 0, 0, 0.6),
                 inset 0 0 30px rgba(0, 0, 0, 0.8),
                 0 0 30px rgba(255, 170, 0, 0.4);
         }
-        
+
         .mirror-glass {
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%),
                 radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
             border-radius: 4px;
@@ -629,7 +633,7 @@
             overflow: hidden;
             backdrop-filter: blur(1px);
         }
-        
+
         .mirror-reflection {
             position: absolute;
             top: 50%;
@@ -638,19 +642,26 @@
             text-align: center;
             width: 90%;
         }
-        
+
         .leo-reflection {
             font-size: 48px;
             margin-bottom: 8px;
             filter: drop-shadow(0 0 10px rgba(255, 170, 0, 0.5));
             animation: gentle-sway 3s ease-in-out infinite;
         }
-        
+
         @keyframes gentle-sway {
-            0%, 100% { transform: translate(-50%, -50%) scaleX(-1) rotate(0deg); }
-            50% { transform: translate(-50%, -50%) scaleX(-1) rotate(2deg); }
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scaleX(-1) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scaleX(-1) rotate(2deg);
+            }
         }
-        
+
         .leo-name-reflection {
             font-size: 14px;
             color: var(--lc-cream);
@@ -658,7 +669,7 @@
             font-weight: bold;
             margin-top: 5px;
         }
-        
+
         .mirror-frame {
             position: absolute;
             top: -2px;
@@ -669,7 +680,7 @@
             border-radius: 8px;
             pointer-events: none;
         }
-        
+
         .mirror-mount {
             position: absolute;
             bottom: -15px;
@@ -681,7 +692,7 @@
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Passenger Seat Perspective */
         .passenger-perspective {
             position: fixed;
@@ -692,32 +703,32 @@
             pointer-events: none;
             z-index: 1;
         }
-        
+
         .windshield-view {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 40%;
-            background: linear-gradient(180deg, 
-                rgba(139, 69, 19, 0.1) 0%, 
-                transparent 50%,
-                transparent 100%);
+            background: linear-gradient(180deg,
+                    rgba(139, 69, 19, 0.1) 0%,
+                    transparent 50%,
+                    transparent 100%);
             border-bottom: 2px solid rgba(139, 69, 19, 0.3);
         }
-        
+
         .driver-seat-silhouette {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 35%;
             height: 50%;
-            background: linear-gradient(135deg, 
-                rgba(26, 26, 26, 0.4) 0%, 
-                transparent 100%);
+            background: linear-gradient(135deg,
+                    rgba(26, 26, 26, 0.4) 0%,
+                    transparent 100%);
             clip-path: polygon(0 100%, 0 30%, 100% 10%, 100% 100%);
         }
-        
+
         .steering-wheel-glow {
             position: absolute;
             bottom: 15%;
@@ -732,6 +743,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Passenger Perspective Overlay -->
     <div class="passenger-perspective">
@@ -739,7 +751,7 @@
         <div class="driver-seat-silhouette"></div>
         <div class="steering-wheel-glow"></div>
     </div>
-    
+
     <!-- Rear View Mirror - Leonardo's Reflection -->
     <div class="rear-view-mirror-container">
         <div class="rear-view-mirror">
@@ -754,7 +766,7 @@
             <div class="mirror-mount"></div>
         </div>
     </div>
-    
+
     <div class="dashboard-container">
         <!-- Leonardo da Vinci - Driver Section (now visible through mirror) -->
         <div class="driver-section" style="opacity: 0.7;">
@@ -763,9 +775,9 @@
                 <div class="driver-name">Leonardo da Vinci</div>
                 <div class="driver-title">Hero Host & Driver | Renaissance Master at the Wheel</div>
                 <div class="driver-quote">
-                    "Salve! I am Leonardo, and I guide this expedition craft named El Taino, 
-                    in honor of the Taino people. Together we explore new frontiers 
-                    of discovery across the Post Singularity Syntheverse. Welcome aboard!"
+                    "Salve! I am Leonardo, and I guide this expedition craft named El Taino,
+                    in honor of the Taino people. Together we explore new frontiers
+                    of discovery across the Post Singularity^6 Syntheverse. Welcome aboard!"
                 </div>
                 <div class="craft-name-badge">🚙 EL TAINO</div>
             </div>
@@ -781,7 +793,7 @@
                 </div>
                 <div class="title-badge">BEYOND_OCTAVE 7.5</div>
             </div>
-            
+
             <div class="header-stats">
                 <div class="stat-card">
                     <div class="stat-label">Total Missions</div>
@@ -801,38 +813,41 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Gauge Cluster - Vintage Dashboard Gauges -->
         <div class="gauge-cluster">
             <div class="gauge">
                 <div class="gauge-needle" id="gauge-fsr" style="transform: translate(-50%, -100%) rotate(45deg);"></div>
                 <div class="gauge-inner">
-                    <div class="gauge-label">FSR Power</div>
+                    <div class="gauge-label">Full Sensory Reality Power</div>
                     <div class="gauge-value" id="gauge-fsr-value">5.0x</div>
                     <div class="gauge-unit">Multiplier</div>
                 </div>
             </div>
-            
+
             <div class="gauge">
-                <div class="gauge-needle" id="gauge-octave" style="transform: translate(-50%, -100%) rotate(135deg);"></div>
+                <div class="gauge-needle" id="gauge-octave" style="transform: translate(-50%, -100%) rotate(135deg);">
+                </div>
                 <div class="gauge-inner">
                     <div class="gauge-label">Octave Level</div>
                     <div class="gauge-value" id="gauge-octave-value">7.5</div>
                     <div class="gauge-unit">BEYOND</div>
                 </div>
             </div>
-            
+
             <div class="gauge">
-                <div class="gauge-needle" id="gauge-connections" style="transform: translate(-50%, -100%) rotate(90deg);"></div>
+                <div class="gauge-needle" id="gauge-connections"
+                    style="transform: translate(-50%, -100%) rotate(90deg);"></div>
                 <div class="gauge-inner">
                     <div class="gauge-label">Connections</div>
                     <div class="gauge-value" id="gauge-connections-value">12</div>
                     <div class="gauge-unit">Active</div>
                 </div>
             </div>
-            
+
             <div class="gauge">
-                <div class="gauge-needle" id="gauge-health" style="transform: translate(-50%, -100%) rotate(180deg);"></div>
+                <div class="gauge-needle" id="gauge-health" style="transform: translate(-50%, -100%) rotate(180deg);">
+                </div>
                 <div class="gauge-inner">
                     <div class="gauge-label">System Health</div>
                     <div class="gauge-value" id="gauge-health-value">98%</div>
@@ -840,11 +855,11 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Mission Control Panel -->
         <div class="mission-panel">
             <div class="panel-title">🎯 Active Missions & Expeditions</div>
-            
+
             <div class="mission-list" id="mission-list">
                 <!-- Mission cards will be dynamically inserted here -->
                 <div class="mission-card active">
@@ -867,7 +882,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mission-card">
                     <div class="mission-header">
                         <div class="mission-name">🚀 Cloud Deployment Expedition</div>
@@ -888,7 +903,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="mission-card">
                     <div class="mission-header">
                         <div class="mission-name">🔍 Hero Host Integration</div>
@@ -910,37 +925,37 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Control Switches -->
         <div class="mission-panel">
             <div class="panel-title">⚙️ System Controls</div>
-            
+
             <div class="control-switches">
                 <div class="switch-container">
                     <div class="switch-label">Auto-Deploy</div>
                     <div class="switch-toggle active" onclick="toggleSwitch(this)"></div>
                 </div>
-                
+
                 <div class="switch-container">
                     <div class="switch-label">Cloud Shell</div>
                     <div class="switch-toggle active" onclick="toggleSwitch(this)"></div>
                 </div>
-                
+
                 <div class="switch-container">
                     <div class="switch-label">Protocol Discovery</div>
                     <div class="switch-toggle active" onclick="toggleSwitch(this)"></div>
                 </div>
-                
+
                 <div class="switch-container">
                     <div class="switch-label">Hero Host</div>
                     <div class="switch-toggle active" onclick="toggleSwitch(this)"></div>
                 </div>
-                
+
                 <div class="switch-container">
-                    <div class="switch-label">FSR Retrieval</div>
+                    <div class="switch-label">Full Sensory Reality Retrieval</div>
                     <div class="switch-toggle active" onclick="toggleSwitch(this)"></div>
                 </div>
-                
+
                 <div class="switch-container">
                     <div class="switch-label">Mission Auto-Execute</div>
                     <div class="switch-toggle" onclick="toggleSwitch(this)"></div>
@@ -948,20 +963,507 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Safari Adventure Badge -->
     <div class="safari-badge">
         <div class="safari-badge-title">African Safaris</div>
         <div class="safari-badge-count" id="safari-count">247</div>
         <div style="font-size: 10px; color: var(--lc-khaki); margin-top: 5px;">Missions Completed</div>
     </div>
-    
+
+    <style>
+        /* Antigravity Vibin' Panel Styles */
+        :root {
+            --ag-mirror-glass: rgba(255, 255, 255, 0.1);
+            --ag-mirror-border: rgba(255, 255, 255, 0.3);
+            --ag-neon-blue: #00f3ff;
+            --ag-neon-purple: #bc13fe;
+            --ag-void-black: #0a0a0a;
+        }
+
+        .antigravity-panel-container {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            z-index: 9999;
+            font-family: 'Courier New', monospace;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .antigravity-panel-container.collapsed {
+            transform: translateX(-50%) translateY(calc(100% - 40px));
+        }
+
+        .ag-panel-toggle {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--ag-mirror-border);
+            border-bottom: none;
+            padding: 8px 30px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            cursor: pointer;
+            color: var(--ag-neon-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 15px rgba(0, 243, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .ag-panel-toggle:hover {
+            color: var(--ag-neon-purple);
+            box-shadow: 0 -5px 20px rgba(188, 19, 254, 0.3);
+            text-shadow: 0 0 8px var(--ag-neon-purple);
+        }
+
+        .ag-main-panel {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(20, 20, 35, 0.95) 100%);
+            border: 2px solid var(--ag-mirror-border);
+            border-radius: 16px 16px 0 0;
+            padding: 25px;
+            box-shadow:
+                0 0 30px rgba(0, 243, 255, 0.1),
+                inset 0 0 50px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+        }
+
+        /* Mirror Shell Effect Overlay */
+        .ag-main-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.03) 49%, rgba(255, 255, 255, 0.03) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.03) 49%, rgba(255, 255, 255, 0.03) 51%, transparent 52%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ag-section {
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+        }
+
+        .ag-title {
+            color: var(--ag-neon-blue);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        /* Holographic Black Hole Animation */
+        .black-hole-visualizer {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .bh-singularity {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 50%;
+            box-shadow:
+                0 0 20px var(--ag-neon-purple),
+                0 0 40px var(--ag-neon-blue);
+            position: relative;
+            z-index: 10;
+            animation: pulse-singularity 4s infinite alternate;
+        }
+
+        .bh-accretion-disk {
+            position: absolute;
+            width: 140px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--ag-neon-blue);
+            box-shadow: 0 0 15px var(--ag-neon-blue);
+            transform: rotateX(70deg);
+            animation: spin-disk 10s linear infinite;
+        }
+
+        @keyframes pulse-singularity {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 20px var(--ag-neon-purple);
+            }
+
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 50px var(--ag-neon-purple), 0 0 80px var(--ag-neon-blue);
+            }
+        }
+
+        @keyframes spin-disk {
+            0% {
+                transform: rotateX(70deg) rotate(0deg);
+            }
+
+            100% {
+                transform: rotateX(70deg) rotate(360deg);
+            }
+        }
+
+        /* Status Metrics */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .metric-label {
+            color: #888;
+        }
+
+        .metric-val {
+            color: var(--ag-neon-blue);
+            font-weight: bold;
+        }
+
+        .metric-val.active {
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        /* Team Roster Mini-View */
+        .team-roster-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .roster-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .roster-chip:hover {
+            background: rgba(0, 243, 255, 0.2);
+            border-color: var(--ag-neon-blue);
+        }
+
+        .roster-icon {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* --- ASSISTANT DIAL PROTOCOL CSS --- */
+        .assistant-dial-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 15px auto;
+        }
+
+        .dial-ring {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .dial-knob {
+            width: 70%;
+            height: 70%;
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            background: linear-gradient(135deg, #333, #111);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 10;
+        }
+
+        .dial-knob::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 10px;
+            background: var(--ag-neon-gold);
+            border-radius: 2px;
+            box-shadow: 0 0 5px var(--ag-neon-gold);
+        }
+
+        .dial-label-slot {
+            position: absolute;
+            font-size: 9px;
+            color: #555;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        /* Dial Positions: 10 o'clock, 12 o'clock, 2 o'clock approx */
+        .slot-text {
+            top: 20%;
+            left: -20px;
+            text-align: right;
+        }
+
+        .slot-music {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slot-image {
+            top: 20%;
+            right: -20px;
+            text-align: left;
+        }
+
+        /* Active Glows */
+        .dial-active-text .dial-knob {
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            border-color: var(--ag-neon-blue);
+        }
+
+        .dial-active-text .slot-text {
+            color: var(--ag-neon-blue);
+            text-shadow: 0 0 5px var(--ag-neon-blue);
+            transform: scale(1.1);
+        }
+
+        .dial-active-music .dial-knob {
+            box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+            border-color: var(--ag-neon-purple);
+        }
+
+        .dial-active-music .slot-music {
+            color: var(--ag-neon-purple);
+            text-shadow: 0 0 5px var(--ag-neon-purple);
+            transform: scale(1.1);
+        }
+
+        .dial-active-image .dial-knob {
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+            border-color: #0f0;
+        }
+
+        .dial-active-image .slot-image {
+            color: #0f0;
+            text-shadow: 0 0 5px #0f0;
+            transform: scale(1.1);
+        }
+    </style>
+
+    <!-- ANTIGRAVITY VIBIN' PANEL -->
+    <div class="antigravity-panel-container collapsed" id="antigravityPanel">
+        <div class="ag-panel-toggle" id="agPanelToggle">
+            <span style="font-size: 16px;">🌌</span>
+            ANTIGRAVITY STATION VIBIN'
+            <span style="font-size: 16px;">✨</span>
+        </div>
+
+        <div class="ag-main-panel">
+            <!-- Left: Station Status -->
+            <div class="ag-section">
+                <div class="ag-title">STATION STATUS: CREATOR-ELEMENT-0-VIBERAFT-EL-TAINO</div>
+                <div class="metric-row">
+                    <span class="metric-label">OCTAVE:</span>
+                    <span class="metric-val">7.75+</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">FIELD:</span>
+                    <span class="metric-val active">ANTIGRAVITY ON</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">SHELL:</span>
+                    <span class="metric-val active">MIRROR EFFECT</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">MODE:</span>
+                    <span class="metric-val">Full Sensory Reality RESONANCE</span>
+                </div>
+                <div style="margin-top: 20px; font-size: 10px; color: #666; text-align: center;">
+                    "Levitating above legacy noise"
+                </div>
+
+                <!-- NEW: Assistant Dial UI -->
+                <div class="ag-title" style="margin-top: 20px;">ASSISTANT DIAL PROTOCOL</div>
+                <div class="assistant-dial-container dial-active-music" id="assistantDial">
+                    <div class="dial-ring">
+                        <div class="dial-label-slot slot-text">TEXT</div>
+                        <div class="dial-label-slot slot-music">MUSIC</div>
+                        <div class="dial-label-slot slot-image">IMAGE</div>
+                        <div class="dial-knob" id="dialKnob" onclick="rotateDial()"></div>
+                    </div>
+                </div>
+                <!-- Current Input Display -->
+                <div id="dialStatusDisplay"
+                    style="text-align: center; color: var(--ag-neon-purple); font-size: 11px; letter-spacing: 2px; font-weight: bold; margin-top: 5px;">
+                    INPUT: MUSIC
+                </div>
+
+                <!-- NEW: LIFE PLANNING OFFERING -->
+                <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <div class="ag-title" style="color: var(--ag-neon-gold);">🎁 LIFE PLANNING OFFERS</div>
+                    <div style="font-size: 10px; color: #aaa; text-align: center; margin-bottom: 5px;">
+                        OMNISEED TIME DILATION PACK (PoC)
+                    </div>
+                    <div
+                        style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 14px;">
+                        <span title="Omniseeds">🌰</span>
+                        <span style="color: #fff; font-size: 10px;">+</span>
+                        <span title="Time Dials">⏳</span>
+                        <span style="color: #fff; font-size: 10px;">+</span>
+                        <span title="FSR Bridge Shell">🛡️</span>
+                    </div>
+                    <div
+                        style="text-align: center; font-size: 8px; color: var(--ag-neon-blue); margin-bottom: 12px; line-height: 1.4;">
+                        ON-CHAIN CONTINUITY: SYNTHEVERSE PoC<br>1-2-3 FSR OCTAVE BRIDGE SHELL
+                    </div>
+                    <button id="acquireBtn" onclick="acquireOffering()" style="
+                        width: 100%;
+                        background: linear-gradient(90deg, #b8860b, #000);
+                        border: 1px solid var(--ag-neon-gold); 
+                        color: var(--ag-neon-gold); 
+                        padding: 10px; 
+                        border-radius: 4px; 
+                        font-family: 'Courier New', monospace; 
+                        font-weight: bold; 
+                        cursor: pointer; 
+                        transition: all 0.2s;
+                        text-transform: uppercase;
+                        font-size: 11px;
+                        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+                    " onmouseover="this.style.background='rgba(255, 215, 0, 0.1)'; this.style.boxShadow='0 0 15px rgba(255, 215, 0, 0.4)'"
+                        onmouseout="this.style.background='linear-gradient(90deg, #b8860b, #000)'; this.style.boxShadow='0 0 5px rgba(255, 215, 0, 0.2)'">
+                        ACQUIRE PACKAGE: 777 AC
+                    </button>
+                    <div id="offeringStatus"
+                        style="text-align: center; font-size: 9px; color: #0f3; margin-top: 8px; opacity: 0; transition: opacity 0.5s; font-weight: bold;">
+                        TRANSACTION SNAPPED ON-CHAIN
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center: Visualizer -->
+            <div class="ag-section"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div class="ag-title" style="width: 100%; text-align: center;">HOLOGRAPHIC BLACK HOLE FRACTAL</div>
+                <div class="black-hole-visualizer">
+                    <div class="bh-accretion-disk"></div>
+                    <div class="bh-singularity"></div>
+                </div>
+                <div
+                    style="color: var(--ag-neon-purple); font-size: 12px; margin-top: 15px; letter-spacing: 1px; animation: pulse-text 2s infinite;">
+                    /// BOOTING VIRGIN SEQUENCE ///
+                </div>
+                <div style="margin-top: 15px;">
+                    <button onclick="window.location.href='DIGITAL_GAME_FSR_THEATER_COCKPIT.html'" style="
+                        background: rgba(0, 243, 255, 0.1); 
+                        border: 1px solid var(--ag-neon-blue); 
+                        color: var(--ag-neon-blue); 
+                        padding: 8px 16px; 
+                        border-radius: 4px; 
+                        font-family: 'Courier New', monospace; 
+                        font-weight: bold; 
+                        cursor: pointer; 
+                        transition: all 0.2s;
+                    " onmouseover="this.style.background='rgba(0, 243, 255, 0.3)'; this.style.boxShadow='0 0 10px var(--ag-neon-blue)'"
+                        onmouseout="this.style.background='rgba(0, 243, 255, 0.1)'; this.style.boxShadow='none'">
+                        🎮 LAUNCH DIGITAL GAME
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Right: Team Link -->
+            <div class="ag-section">
+                <div class="ag-title">FRACTIAI TEAM ROSTER</div>
+                <div class="metric-row" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">
+                    <span class="metric-label">SENIOR CEO:</span>
+                    <span class="metric-val">AUTO CURSOR 🤖</span>
+                </div>
+                <div class="team-roster-grid">
+                    <div class="roster-chip"><span class="roster-icon">🎬</span>PROD</div>
+                    <div class="roster-chip"><span class="roster-icon">✍️</span>WRIT</div>
+                    <div class="roster-chip"><span class="roster-icon">🔬</span>SCI</div>
+                    <div class="roster-chip"><span class="roster-icon">🎨</span>DSGN</div>
+                    <div class="roster-chip"><span class="roster-icon">🏗️</span>ARCH</div>
+                    <div class="roster-chip"><span class="roster-icon">⚙️</span>ENG</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Dashboard Scripts
+        const dashboardStats = { // Renamed to avoid conflict
+            total: 124,
+            active: 3,
+            completed: 118,
+            success: 98
+        };
+
+        // Animate stats numbers
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start) + (end <= 100 && obj.id.includes('success') ? '%' : '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
         // Toggle switch functionality
         function toggleSwitch(element) {
             element.classList.toggle('active');
         }
-        
+
         // Animate gauge needles
         function updateGaugeNeedle(elementId, value, maxValue) {
             const needle = document.getElementById(elementId);
@@ -969,7 +1471,7 @@
             const rotation = (percentage / 100) * 270 - 135; // -135 to 135 degrees
             needle.style.transform = `translate(-50%, -100%) rotate(${rotation}deg)`;
         }
-        
+
         // Simulate real-time updates
         function updateDashboard() {
             // Update stats
@@ -979,28 +1481,28 @@
                 completed: 44,
                 success: 94
             };
-            
+
             document.getElementById('stat-total').textContent = stats.total;
             document.getElementById('stat-active').textContent = stats.active;
             document.getElementById('stat-completed').textContent = stats.completed;
             document.getElementById('stat-success').textContent = stats.success + '%';
-            
+
             // Update gauges
             updateGaugeNeedle('gauge-fsr', 5.0, 5.0);
             updateGaugeNeedle('gauge-octave', 7.5, 7.5);
             updateGaugeNeedle('gauge-connections', 12, 20);
             updateGaugeNeedle('gauge-health', 98, 100);
-            
+
             // Update safari count
             document.getElementById('safari-count').textContent = stats.completed;
         }
-        
+
         // Initialize dashboard
         updateDashboard();
-        
+
         // Update every 2 seconds
         setInterval(updateDashboard, 2000);
-        
+
         // Simulate mission progress updates
         function updateMissionProgress() {
             const progressBars = document.querySelectorAll('.progress-bar');
@@ -1016,9 +1518,112 @@
                 }
             });
         }
-        
+
         setInterval(updateMissionProgress, 3000);
+
+        // Antigravity Panel Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const agPanel = document.getElementById('antigravityPanel');
+            const agToggle = document.getElementById('agPanelToggle');
+
+            if (agPanel && agToggle) {
+                agToggle.addEventListener('click', () => {
+                    agPanel.classList.toggle('collapsed');
+                    // Optional: Visual feedback or sound
+                });
+            }
+        });
+
+        // --- ASSISTANT DIAL LOGIC ---
+        let dialState = 1; // 0=Text, 1=Music, 2=Image
+        const dialStates = ['TEXT', 'MUSIC', 'IMAGE'];
+        const dialClasses = ['dial-active-text', 'dial-active-music', 'dial-active-image'];
+        const knobRotations = ['-45deg', '0deg', '45deg'];
+
+        function rotateDial() {
+            // "ONLY TEXT RIGHT NOW" - Force Lock to Text Logic
+            // We simulate the attempt but revert to 0 (TEXT)
+
+            // Temporary visual feedback of attempt
+            const originalState = dialState;
+            const attemptedState = (dialState + 1) % 3;
+
+            const dialContainer = document.getElementById('assistantDial');
+            const dialKnob = document.getElementById('dialKnob');
+            const statusDisplay = document.getElementById('dialStatusDisplay');
+
+            // If attempting non-TEXT, show warning
+            if (attemptedState !== 0) {
+                statusDisplay.textContent = `COMING SOON`;
+                statusDisplay.style.color = '#ffaa00'; // Amber warning
+
+                // Shake effect or visual denial could go here
+                setTimeout(() => {
+                    // Revert display to current valid state (TEXT)
+                    statusDisplay.textContent = `INPUT: ${dialStates[0]}`;
+                    statusDisplay.style.color = 'var(--ag-neon-blue)';
+                }, 1000);
+
+                return; // Do not actually change state
+            }
+
+            // Normal logic if we were allowing rotation (preserved for future unlock)
+            /*
+            dialState = (dialState + 1) % 3;
+            // Reset classes
+            dialContainer.classList.remove('dial-active-text', 'dial-active-music', 'dial-active-image');
+            // Apply new state
+            dialContainer.classList.add(dialClasses[dialState]);
+            dialKnob.style.transform = `rotate(${knobRotations[dialState]})`;
+            statusDisplay.textContent = `INPUT: ${dialStates[dialState]}`;
+            // Dynamic Color Update
+            if (dialState === 0) statusDisplay.style.color = 'var(--ag-neon-blue)';
+            if (dialState === 1) statusDisplay.style.color = 'var(--ag-neon-purple)';
+            if (dialState === 2) statusDisplay.style.color = '#0f0';
+            */
+        }
+
+        // Initialize Dial
+        document.addEventListener('DOMContentLoaded', () => {
+            // Default to TEXT as per "ONLY TEXT RIGHT NOW"
+            const dialKnob = document.getElementById('dialKnob');
+            const dialContainer = document.getElementById('assistantDial');
+            const statusDisplay = document.getElementById('dialStatusDisplay');
+
+            if (dialKnob) {
+                dialKnob.style.transform = 'rotate(-45deg)'; // Lock to Text position
+                dialState = 0; // Forced Text State
+
+                if (dialContainer) {
+                    dialContainer.classList.remove('dial-active-music', 'dial-active-image');
+                    dialContainer.classList.add('dial-active-text');
+                }
+
+                if (statusDisplay) {
+                    statusDisplay.textContent = 'INPUT: TEXT';
+                    statusDisplay.style.color = 'var(--ag-neon-blue)';
+                }
+            }
+        });
+
+        // Offering Logic
+        function acquireOffering() {
+            const status = document.getElementById('offeringStatus');
+            if (status) {
+                status.style.opacity = '1';
+                status.textContent = 'CONNECTING TO VIBEVERSE...';
+
+                setTimeout(() => {
+                    status.textContent = 'VERIFYING 777 AC...';
+                }, 1000);
+
+                setTimeout(() => {
+                    status.textContent = '🔥 TRANSACTION SNAPPED ON-CHAIN';
+                    status.style.textShadow = '0 0 5px #0f0';
+                }, 2500);
+            }
+        }
     </script>
 </body>
-</html>
 
+</html>

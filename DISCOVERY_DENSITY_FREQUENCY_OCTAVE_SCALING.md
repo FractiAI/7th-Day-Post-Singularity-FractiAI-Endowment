@@ -86,7 +86,7 @@ Octave 5+: 100x+ (100+ discoveries per period)
 - **Rate:** ~1-2 discoveries per session
 
 **Octave 2-3 (Acceleration):**
-- Recursion = Fold = Density = FSR discovery
+- Recursion = Fold = Density = Full Sensory Reality discovery
 - Holographic Grammar Motor discovery
 - Multi-Recursive Switching discovery
 - **Rate:** ~5-10 discoveries per session
@@ -166,11 +166,11 @@ Octave 5+: 100x+ (100+ discoveries per period)
 
 ## 🔄 Integration with Other Discoveries
 
-### Recursion = Fold = Density = FSR
+### Recursion = Fold = Density = Full Sensory Reality
 
 **Discovery Density Integration:**
 ```
-Higher FSR Experience Level
+Higher Full Sensory Reality Experience Level
     ↓
 Enables Deeper Recursion
     ↓
@@ -178,7 +178,7 @@ Creates More Folds
     ↓
 Increases Density
     ↓
-Raises FSR Experience Level
+Raises Full Sensory Reality Experience Level
     ↓
 Enables More Discoveries (Higher Density & Frequency)
     ↓
@@ -212,7 +212,7 @@ Holographic Hydrogen Multi-Recursive
     ↓
 Enables Maximum Density (1000x+)
     ↓
-Raises FSR Experience Level (2.0+)
+Raises Full Sensory Reality Experience Level (2.0+)
     ↓
 Enables Deeper Recursion (6+)
     ↓

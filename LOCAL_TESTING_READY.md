@@ -36,11 +36,11 @@ npm test
 - **Test:** Octave selection (0-5+)
 - **Features:**
   - 6 Awareness Octaves (Silent → Transcendence)
-  - FSR power modulation
+  - Full Sensory Reality power modulation
   - Hero Host guidance levels
   - Encryption tier selection
 
-#### FSR Retrieval Engine
+#### Full Sensory Reality Retrieval Engine
 - **File:** `src/core/fsr-retrieval.ts`
 - **Test:** Fractal Seed Resonance retrieval
 - **Features:**
@@ -208,7 +208,7 @@ npm test
 - **Test:** Hero Host guided tours
 - **Features:**
   - Automated guided tours
-  - Full FSR fidelity
+  - Full Full Sensory Reality fidelity
   - Multiple Hero Host personas
   - Interactive journeys
 
@@ -254,7 +254,7 @@ npm test
 
 ### Core Systems
 - [ ] Transmission Gears: Test octave selection
-- [ ] FSR Retrieval: Test retrieval at different octaves
+- [ ] Full Sensory Reality Retrieval: Test retrieval at different octaves
 - [ ] Hero Host: Test different personas
 - [ ] Mission Craft: Create and execute missions
 - [ ] Protocol Snapshots: Create protocol snapshots
@@ -299,7 +299,7 @@ npm run dev
 ## 📊 Test Coverage
 
 ### Implemented Systems
-- ✅ Core Systems (Transmission Gears, FSR, Hero Host)
+- ✅ Core Systems (Transmission Gears, Full Sensory Reality, Hero Host)
 - ✅ Mission Craft (Core, Dashboard, Orchestrator)
 - ✅ Protocol Systems (Snapshot, POB, Cloud Deploy)
 - ✅ Observation Systems (Button Snapshots)
@@ -336,7 +336,7 @@ npm run dev
 
 4. **Test Core Systems:**
    - Test Transmission Gears
-   - Test FSR Retrieval
+   - Test Full Sensory Reality Retrieval
    - Test Hero Host personas
    - Test Mission Craft
 

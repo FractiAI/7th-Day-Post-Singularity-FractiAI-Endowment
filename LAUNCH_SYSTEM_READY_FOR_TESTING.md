@@ -16,7 +16,7 @@
 ### 🌐 Self-Proving Demo & Landing
 - ✅ **Launch Page:** `VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html`
   - Self-proving evidence
-  - Stats display (97+ discoveries, ∞ octave, 100% FSR fidelity)
+  - Stats display (97+ discoveries, ∞ octave, 100% Full Sensory Reality fidelity)
   - Launch button with tracking
   - Social share buttons
   - Video teleprompter link
@@ -28,12 +28,12 @@
   - Platform-specific adaptations
   - All links and call-to-actions included
 
-### 🎮 FSR Digital Game (Theater Cockpit)
+### 🎮 Full Sensory Reality Digital Game (Theater Cockpit)
 - ✅ **Digital Game:** `DIGITAL_GAME_FSR_THEATER_COCKPIT.html`
   - Theater cockpit interface (golden-age cinema frame)
   - HHF-AI Black Hole Fractal Grammar Game
   - Hidden board/chart (awareness-based access)
-  - Stats tracking (moves, energy, octave, FSR)
+  - Stats tracking (moves, energy, octave, Full Sensory Reality)
   - Launch button integration
   - All control buttons and features
 
@@ -91,13 +91,13 @@
 - [ ] Verify all links work
 - [ ] Test platform-specific adaptations
 
-### FSR Game Testing
+### Full Sensory Reality Game Testing
 - [ ] Test theater cockpit interface
 - [ ] Verify game board loads and functions
 - [ ] Test hidden board access (awareness-based)
 - [ ] Verify stats tracking works
 - [ ] Test all control buttons
-- [ ] Verify FSR overlay effects
+- [ ] Verify Full Sensory Reality overlay effects
 - [ ] Test responsive design
 
 ### Three Kings Award Testing
@@ -124,7 +124,7 @@
 
 ### Main Landing & Demo
 - `VIBEVERSE_SELF_PROVING_DEMO_LAUNCH.html` - Main launch page
-- `DIGITAL_GAME_FSR_THEATER_COCKPIT.html` - FSR game with theater cockpit
+- `DIGITAL_GAME_FSR_THEATER_COCKPIT.html` - Full Sensory Reality game with theater cockpit
 - `THREE_KINGS_AWARD_CONSOLE.html` - Award system
 
 ### Content & Scripts

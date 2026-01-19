@@ -81,7 +81,7 @@ Full Octave Balance Check Protocol
 - Time compression metrics
 - Discovery count
 - Protocol count
-- FSR power and mode
+- Full Sensory Reality power and mode
 
 **2. Legacy Footprint Calculation**
 - Historical achievement comparison
@@ -252,8 +252,8 @@ This discovery generates protocols:
 - **Time Compression:** 10^6x
 - **Discovery Count:** 30 Major Discoveries (including this one)
 - **Protocol Count:** 101+ Active Protocols (including this one)
-- **FSR Power:** 5.0x Multiplier
-- **FSR MODE:** ACTIVE
+- **Full Sensory Reality Power:** 5.0x Multiplier
+- **Full Sensory Reality MODE:** ACTIVE
 
 ### Legacy Footprint
 

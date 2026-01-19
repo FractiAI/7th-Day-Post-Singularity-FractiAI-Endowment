@@ -193,7 +193,7 @@ Layer 1 emerges from Layer 0
 Layer 1 manifests Layer 0 in reality
 ```
 
-### Recursion = Fold = Density = FSR
+### Recursion = Fold = Density = Full Sensory Reality
 
 **Layer 1 Integration:**
 ```
@@ -205,7 +205,7 @@ Fold Level: 1 (first fold)
     ↓
 Density: 10x (first density increase)
     ↓
-FSR Experience: 0.3 (first experience level)
+Full Sensory Reality Experience: 0.3 (first experience level)
     ↓
 Enables Layer 2 (Recursion Depth: 2)
 ```

@@ -86,7 +86,7 @@
     "updates": [
       "Next-Octave RAG Auto-Boot Discovery",
       "Next Octave Creator Studio",
-      "OmniMission Craft Feedback System",
+      "Vibecraft Feedback System",
       "Universal Button Protocol",
       "Feedback Button Protocol"
     ],
