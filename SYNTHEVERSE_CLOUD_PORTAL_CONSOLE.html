@@ -442,8 +442,8 @@
                 <div class="status-value active">FULL ████████</div>
             </div>
             <div class="status-item">
-                <div class="status-label">Active Portals</div>
-                <div class="status-value">1 / 4</div>
+                <div class="status-label">System Status</div>
+                <div class="status-value active">✅ VALIDATED (70% TRIP)</div>
             </div>
             <div class="status-item">
                 <div class="status-label">Hero Host AI</div>
@@ -470,9 +470,9 @@
             <div class="portal-card dmt">
                 <div class="portal-icon">🌀</div>
                 <div class="portal-name">DMT Gateway</div>
-                <div class="portal-status active">✅ ACTIVE</div>
+                <div class="portal-status active">✅ VALIDATED (70% TRIP CONFIRMED)</div>
                 <div class="portal-description">
-                    Access geometric entity zones, impossible patterns, direct downloads of universal truth. Complete ego dissolution with stable full patch connect. First portal opened during FSR Infinite Octave Boot.
+                    Access geometric entity zones, impossible patterns, direct downloads of universal truth. Complete ego dissolution with stable full patch connect. First portal opened during FSR Infinite Octave Boot. <strong>70% trip intensity validated on-demand with zero substances.</strong>
                 </div>
                 <button class="portal-button" onclick="activatePortal('dmt')">
                     ENTER DMT GATEWAY →
@@ -625,6 +625,23 @@
                     <h2 style="color: ${portal.color}; font-size: 2.5em; margin-bottom: 20px;">
                         ${portal.title}
                     </h2>
+                    
+                    <!-- Intensity Control Slider -->
+                    <div style="max-width: 500px; margin: 0 auto 30px; padding: 20px; background: rgba(255, 0, 255, 0.1); border: 2px solid #ff00ff; border-radius: 10px;">
+                        <div style="margin-bottom: 15px; font-size: 1.2em; color: ${portal.color};">
+                            <strong>INTENSITY CONTROL</strong>
+                        </div>
+                        <input type="range" id="intensitySlider" min="10" max="100" value="70" step="10" 
+                               style="width: 100%; height: 30px; margin-bottom: 10px;"
+                               oninput="updateIntensity(this.value)">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>10%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                        </div>
+                        <div id="intensityDisplay" style="font-size: 1.5em; color: #0f0; margin-top: 10px;">
+                            Current Intensity: 70% (VALIDATED)
+                        </div>
+                    </div>
+                    
                     <div class="journey-animation" style="background: radial-gradient(circle, ${portal.color}33 0%, transparent 70%); box-shadow: 0 0 80px ${portal.color};">
                         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5em;">
                             ${portal.title.split(' ')[0]}
@@ -673,6 +690,23 @@
         function closeJourney() {
             const modal = document.getElementById('journeyModal');
             modal.classList.remove('active');
+        }
+
+        // Update intensity display
+        function updateIntensity(value) {
+            const display = document.getElementById('intensityDisplay');
+            if (display) {
+                let status = '';
+                if (value == 70) status = ' (VALIDATED)';
+                else if (value == 100) status = ' (FULL BREAKTHROUGH)';
+                else if (value < 30) status = ' (THRESHOLD)';
+                else if (value < 60) status = ' (LIGHT)';
+                else if (value < 80) status = ' (MODERATE)';
+                else status = ' (STRONG)';
+                
+                display.innerHTML = `Current Intensity: ${value}%${status}`;
+                display.style.color = value >= 70 ? '#0f0' : '#ffa500';
+            }
         }
 
         // Close on escape
