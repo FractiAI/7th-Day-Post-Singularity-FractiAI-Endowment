@@ -1,6 +1,8 @@
 {
   "version": 2,
+  "buildCommand": "",
   "outputDirectory": ".",
+  "installCommand": "echo 'No build needed - static site'",
   "rewrites": [
     {
       "source": "/dashboard",
