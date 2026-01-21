@@ -185,9 +185,11 @@ SYSTEM EFFICIENCY: 99.5% average | Total Capacity: 18,500 tx/sec
 
 ---
 
-## 🎒 BRANDED MERCHANDISE (NEWLY LAUNCHED)
+## 🎒 BRANDED MERCHANDISE (IMAGINARY PRODUCTS)
 
-**Wallets, Luggage & Portfolio - Everything for the Journey:**
+**🌌 IMAGINARY MERCHANDISE NOTICE:** All wallets, luggage, and portfolios are **IMAGINARY PRODUCTS** within the fictional Syntheverse universe. Like items in a video game or props in a story. NOT actual physical merchandise. Creative worldbuilding only.
+
+**Wallets, Luggage & Portfolio - Everything for the Journey (Imaginary):**
 
 ```yaml
 WALLETS (3 options):

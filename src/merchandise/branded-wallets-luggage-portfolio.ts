@@ -1,7 +1,15 @@
 /**
- * BRANDED WALLETS, LUGGAGE & PORTFOLIO SYSTEM
- * Physical and digital branded merchandise for the journey
+ * BRANDED WALLETS, LUGGAGE & PORTFOLIO SYSTEM (IMAGINARY)
+ * 
+ * 🌌 IMAGINARY MERCHANDISE NOTICE:
+ * All wallets, luggage, and portfolios are IMAGINARY PRODUCTS within
+ * the fictional Syntheverse universe. Like items in a video game or
+ * props in a story. NOT actual physical merchandise. Creative worldbuilding.
+ * 
+ * Physical and digital branded merchandise for the journey (imaginary)
  * Everything you need to take along on your NSPFRNP adventure
+ * 
+ * 98% SWEETSPOT TUNED: All merchandise resonates at natural excellence
  */
 
 export interface BrandedWallet {
@@ -10,6 +18,8 @@ export interface BrandedWallet {
   category: 'crypto' | 'cash' | 'multi' | 'portfolio';
   name: string;
   description: string;
+  imaginary: boolean; // Always true - imaginary product
+  resonance: number; // 0-1 (98% sweetspot)
   branding: {
     logo: string; // NSPFRNP, Syntheverse, FractiAI, etc.
     colorScheme: string[]; // Brand colors
@@ -28,6 +38,7 @@ export interface BrandedWallet {
     usd: number;
     synth: number;
     tier: string; // Which membership tier gets discount
+    imaginaryCurrency: boolean; // Always true
   };
   dimensions?: {
     width: number;
@@ -47,6 +58,8 @@ export interface BrandedLuggage {
   type: 'carry_on' | 'checked' | 'duffel' | 'backpack' | 'briefcase' | 'adventure_pack';
   name: string;
   description: string;
+  imaginary: boolean; // Always true - imaginary product
+  resonance: number; // 0-1 (98% sweetspot)
   branding: {
     logo: string;
     colorScheme: string[];
@@ -73,6 +86,7 @@ export interface BrandedLuggage {
     usd: number;
     synth: number;
     tier: string;
+    imaginaryCurrency: boolean; // Always true
   };
   dimensions: {
     width: number;
@@ -93,6 +107,8 @@ export interface PortfolioCase {
   type: 'business' | 'creative' | 'travel' | 'digital' | 'hybrid';
   name: string;
   description: string;
+  imaginary: boolean; // Always true - imaginary product
+  resonance: number; // 0-1 (98% sweetspot)
   branding: {
     logo: string;
     colorScheme: string[];
@@ -117,6 +133,7 @@ export interface PortfolioCase {
     usd: number;
     synth: number;
     tier: string;
+    imaginaryCurrency: boolean; // Always true
   };
   dimensions?: {
     width: number;
@@ -154,6 +171,8 @@ export interface BrandingPackage {
  * Branded Merchandise System
  */
 export class BrandedMerchandiseSystem {
+  private readonly SWEETSPOT = 0.98; // 98% resonance for all merchandise
+  
   private wallets: Map<string, BrandedWallet> = new Map();
   private luggage: Map<string, BrandedLuggage> = new Map();
   private portfolios: Map<string, PortfolioCase> = new Map();
@@ -184,8 +203,10 @@ export class BrandedMerchandiseSystem {
       walletId: 'wallet-synth-cold',
       type: 'digital',
       category: 'crypto',
-      name: 'SYNTH Cold Storage Wallet',
-      description: 'Hardware wallet for SYNTH, vCHIPs, and awareness keys. Military-grade encryption.',
+      name: 'SYNTH Cold Storage Wallet (Imaginary)',
+      description: 'Hardware wallet for SYNTH, vCHIPs, and awareness keys. Military-grade encryption. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'SYNTHEVERSE',
         colorScheme: this.BRAND_COLORS.SYNTHEVERSE,
@@ -208,7 +229,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 149,
         synth: 149,
-        tier: 'Cloud+ (10% off)'
+        tier: 'Cloud+ (10% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 6,
@@ -228,8 +250,10 @@ export class BrandedMerchandiseSystem {
       walletId: 'wallet-hybrid-leather',
       type: 'hybrid',
       category: 'multi',
-      name: 'NSPFRNP Hybrid Wallet',
-      description: 'Premium leather wallet with embedded NFC chip for contactless SYNTH payments.',
+      name: 'NSPFRNP Hybrid Wallet (Imaginary)',
+      description: 'Premium leather wallet with embedded NFC chip for contactless SYNTH payments. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'NSPFRNP',
         colorScheme: this.BRAND_COLORS.NSPFRNP,
@@ -256,7 +280,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 89,
         synth: 89,
-        tier: 'Members+ (15% off)'
+        tier: 'Members+ (15% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 11,
@@ -276,8 +301,10 @@ export class BrandedMerchandiseSystem {
       walletId: 'wallet-portfolio-executive',
       type: 'physical',
       category: 'portfolio',
-      name: 'Executive Portfolio Wallet',
-      description: 'Slim executive wallet for Chairman Creators. Business cards, documents, and cash.',
+      name: 'Executive Portfolio Wallet (Imaginary)',
+      description: 'Slim executive wallet for Chairman Creators. Business cards, documents, and cash. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'FRACTIAI',
         colorScheme: this.BRAND_COLORS.FRACTIAI,
@@ -301,7 +328,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 129,
         synth: 129,
-        tier: 'Backstage+ (20% off)'
+        tier: 'Backstage+ (20% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 19,
@@ -316,7 +344,7 @@ export class BrandedMerchandiseSystem {
       imageUrl: '/merchandise/executive-portfolio-wallet.png'
     });
 
-    console.log(`✅ ${this.wallets.size} branded wallets initialized`);
+    console.log(`✅ ${this.wallets.size} branded wallets initialized (imaginary, 98% tuned)`);
   }
 
   /**
@@ -327,8 +355,10 @@ export class BrandedMerchandiseSystem {
     this.luggage.set('luggage-frontier-backpack', {
       luggageId: 'luggage-frontier-backpack',
       type: 'adventure_pack',
-      name: 'Frontier Adventures Expedition Pack',
-      description: 'Ready for all 18 catalog adventures. Safari-grade, yacht-approved, El Taino compatible.',
+      name: 'Frontier Adventures Expedition Pack (Imaginary)',
+      description: 'Ready for all 18 catalog adventures. Safari-grade, yacht-approved, El Taino compatible. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'FRONTIER',
         colorScheme: this.BRAND_COLORS.FRONTIER,
@@ -367,7 +397,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 299,
         synth: 299,
-        tier: 'Cloud+ (10% off)'
+        tier: 'Cloud+ (10% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 35,
@@ -387,8 +418,10 @@ export class BrandedMerchandiseSystem {
     this.luggage.set('luggage-synth-carryon', {
       luggageId: 'luggage-synth-carryon',
       type: 'carry_on',
-      name: 'Syntheverse Smart Carry-On',
-      description: 'Tech-integrated carry-on with GPS, USB-C ports, and digital lock. Post-singularity travel.',
+      name: 'Syntheverse Smart Carry-On (Imaginary)',
+      description: 'Tech-integrated carry-on with GPS, USB-C ports, and digital lock. Post-singularity travel. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'SYNTHEVERSE',
         colorScheme: this.BRAND_COLORS.SYNTHEVERSE,
@@ -426,7 +459,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 449,
         synth: 449,
-        tier: 'Members+ (15% off)'
+        tier: 'Members+ (15% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 35,
@@ -446,8 +480,10 @@ export class BrandedMerchandiseSystem {
     this.luggage.set('luggage-mancave-duffel', {
       luggageId: 'luggage-mancave-duffel',
       type: 'duffel',
-      name: 'Man Cave Weekend Duffel',
-      description: 'Count of Monte Cristo style. Leather and canvas duffel for weekend getaways.',
+      name: 'Man Cave Weekend Duffel (Imaginary)',
+      description: 'Count of Monte Cristo style. Leather and canvas duffel for weekend getaways. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'MAN CAVE',
         colorScheme: ['#2c1810', '#5a3825', '#8b6f47', '#d4af37'], // Brown + gold
@@ -482,7 +518,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 229,
         synth: 229,
-        tier: 'Cloud+ (10% off)'
+        tier: 'Cloud+ (10% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 55,
@@ -502,8 +539,10 @@ export class BrandedMerchandiseSystem {
     this.luggage.set('luggage-ultimate-briefcase', {
       luggageId: 'luggage-ultimate-briefcase',
       type: 'briefcase',
-      name: 'Ultimate VIP Chairman Briefcase',
-      description: 'For Ultimate VIP tier only. Handcrafted Italian leather with gold hardware.',
+      name: 'Ultimate VIP Chairman Briefcase (Imaginary)',
+      description: 'For Ultimate VIP tier only. Handcrafted Italian leather with gold hardware. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'ULTIMATE VIP',
         colorScheme: ['#000000', '#1a1a1a', '#d4af37', '#ffd700'], // Black + gold
@@ -544,7 +583,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 1999,
         synth: 1999,
-        tier: 'Ultimate VIP only'
+        tier: 'Ultimate VIP only',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 42,
@@ -560,7 +600,7 @@ export class BrandedMerchandiseSystem {
       imageUrl: '/merchandise/ultimate-vip-briefcase.png'
     });
 
-    console.log(`✅ ${this.luggage.size} branded luggage items initialized`);
+    console.log(`✅ ${this.luggage.size} branded luggage items initialized (imaginary, 98% tuned)`);
   }
 
   /**
@@ -571,8 +611,10 @@ export class BrandedMerchandiseSystem {
     this.portfolios.set('portfolio-nft-digital', {
       portfolioId: 'portfolio-nft-digital',
       type: 'digital',
-      name: 'Digital NFT Portfolio Vault',
-      description: 'Showcase your vCHIPs, awareness keys, and trading cards. Beautifully organized.',
+      name: 'Digital NFT Portfolio Vault (Imaginary)',
+      description: 'Showcase your vCHIPs, awareness keys, and trading cards. Beautifully organized. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'SYNTHEVERSE',
         colorScheme: this.BRAND_COLORS.SYNTHEVERSE,
@@ -601,7 +643,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 0, // Free with membership
         synth: 0,
-        tier: 'Members+ (included)'
+        tier: 'Members+ (included)',
+        imaginaryCurrency: true
       },
       imageUrl: '/merchandise/digital-nft-portfolio.png'
     });
@@ -610,8 +653,10 @@ export class BrandedMerchandiseSystem {
     this.portfolios.set('portfolio-business-leather', {
       portfolioId: 'portfolio-business-leather',
       type: 'business',
-      name: 'Chairman Creator Portfolio Case',
-      description: 'Leather portfolio for presentations, contracts, and business materials.',
+      name: 'Chairman Creator Portfolio Case (Imaginary)',
+      description: 'Leather portfolio for presentations, contracts, and business materials. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'FRACTIAI',
         colorScheme: this.BRAND_COLORS.FRACTIAI,
@@ -640,7 +685,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 179,
         synth: 179,
-        tier: 'Backstage+ (20% off)'
+        tier: 'Backstage+ (20% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 32,
@@ -655,8 +701,10 @@ export class BrandedMerchandiseSystem {
     this.portfolios.set('portfolio-hybrid-complete', {
       portfolioId: 'portfolio-hybrid-complete',
       type: 'hybrid',
-      name: 'Complete Hybrid Portfolio System',
-      description: 'Physical case with integrated digital portfolio. Best of both worlds.',
+      name: 'Complete Hybrid Portfolio System (Imaginary)',
+      description: 'Physical case with integrated digital portfolio. Best of both worlds. (IMAGINARY PRODUCT)',
+      imaginary: true,
+      resonance: this.SWEETSPOT,
       branding: {
         logo: 'NSPFRNP',
         colorScheme: this.BRAND_COLORS.NSPFRNP,
@@ -691,7 +739,8 @@ export class BrandedMerchandiseSystem {
       pricing: {
         usd: 599,
         synth: 599,
-        tier: 'Backstage+ (25% off)'
+        tier: 'Backstage+ (25% off)',
+        imaginaryCurrency: true
       },
       dimensions: {
         width: 35,
@@ -702,7 +751,7 @@ export class BrandedMerchandiseSystem {
       imageUrl: '/merchandise/hybrid-complete-portfolio.png'
     });
 
-    console.log(`✅ ${this.portfolios.size} portfolio cases initialized`);
+    console.log(`✅ ${this.portfolios.size} portfolio cases initialized (imaginary, 98% tuned)`);
   }
 
   /**
@@ -915,7 +964,20 @@ ${Array.from(this.packages.values()).map(pkg => `
 
 ═══════════════════════════════════════════════════════════
 
-ALL MERCHANDISE AVAILABLE IN IMAGINARY SYNTHEVERSE STORE
+═══════════════════════════════════════════════════════════
+
+🌌 IMAGINARY MERCHANDISE NOTICE:
+All wallets, luggage, and portfolios are IMAGINARY PRODUCTS
+within the fictional Syntheverse universe.
+
+Like items in a video game | Props in a story | RPG gear
+NOT actual physical merchandise | NOT real e-commerce
+Creative worldbuilding for immersion and gameplay.
+
+All products tuned to 98% sweetspot resonance.
+All pricing in imaginary USD/SYNTH currency.
+
+ENJOY THE IMAGINARY SHOPPING EXPERIENCE!
     `;
   }
 }
