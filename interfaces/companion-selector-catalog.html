@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Companion Selector | Hero-Hosted AI Personalities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a1a 100%);
+            color: #f4e4c1;
+        }
+
+        .selector-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(74, 74, 120, 0.3);
+            border: 3px solid #9a7bc8;
+            border-radius: 15px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #c8a2d0;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #b8a8d4;
+            font-style: italic;
+        }
+
+        /* Selection Options */
+        .selection-mode {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mode-card {
+            background: rgba(74, 74, 120, 0.4);
+            border: 3px solid #9a7bc8;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(154, 123, 200, 0.5);
+            border-color: #c8a2d0;
+        }
+
+        .mode-card .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .mode-card h3 {
+            color: #c8a2d0;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Companion Gallery */
+        .companion-gallery {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .companion-card {
+            background: rgba(74, 74, 120, 0.5);
+            border: 2px solid #9a7bc8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .companion-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(200, 162, 208, 0.5);
+            border-color: #c8a2d0;
+        }
+
+        .companion-card.selected {
+            border: 4px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .companion-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c8a2d0, #9a7bc8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 3px solid #9a7bc8;
+        }
+
+        .companion-name {
+            font-size: 1.5rem;
+            color: #c8a2d0;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .companion-type {
+            font-size: 0.9rem;
+            color: #b8a8d4;
+            margin-bottom: 0.5rem;
+        }
+
+        .companion-traits {
+            font-size: 0.85rem;
+            color: #a898c4;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        /* Custom Creator */
+        .custom-creator {
+            display: none;
+            background: rgba(74, 74, 120, 0.4);
+            border: 3px solid #9a7bc8;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .custom-creator h2 {
+            color: #c8a2d0;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .creator-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin: 1.5rem 0;
+        }
+
+        .form-group label {
+            display: block;
+            color: #c8a2d0;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #9a7bc8;
+            border-radius: 8px;
+            color: #f4e4c1;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Action Buttons */
+        .action-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            margin: 1rem;
+            background: linear-gradient(135deg, #c8a2d0, #9a7bc8);
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(154, 123, 200, 0.4);
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(154, 123, 200, 0.6);
+        }
+
+        .action-button.secondary {
+            background: linear-gradient(135deg, #6a5a7a, #4a3a5a);
+            color: #f4e4c1;
+        }
+
+        /* Hero Interaction Panel */
+        .hero-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            border-top: 3px solid #9a7bc8;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c8a2d0, #9a7bc8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 2px solid #c8a2d0;
+            flex-shrink: 0;
+        }
+
+        .hero-chat {
+            flex: 1;
+            background: rgba(74, 74, 120, 0.4);
+            border: 2px solid #9a7bc8;
+            border-radius: 10px;
+            padding: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-chat input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #9a7bc8;
+            border-radius: 8px;
+            padding: 0.8rem;
+            color: #f4e4c1;
+            font-size: 1rem;
+        }
+
+        .hero-chat button {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #c8a2d0, #9a7bc8);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .hero-name {
+            color: #c8a2d0;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .hero-status {
+            color: #b8a8d4;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="selector-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌟 Select Your Adventure Companion</h1>
+            <p class="subtitle">Hero-Hosted AI Personalities | Genuine Character Snapshots</p>
+            <p style="margin-top: 1rem; color: #b8a8d4;">
+                Every adventure is better with the right companion. Choose wisely.
+            </p>
+        </div>
+
+        <!-- Selection Mode -->
+        <div class="selection-mode">
+            <div class="mode-card" onclick="showCatalog()">
+                <div class="icon">📖</div>
+                <h3>Catalog</h3>
+                <p>Choose from curated hero companions with genuine personalities</p>
+            </div>
+
+            <div class="mode-card" onclick="showCustom()">
+                <div class="icon">✨</div>
+                <h3>Create Your Own</h3>
+                <p>Design a custom companion with your preferred traits</p>
+            </div>
+
+            <div class="mode-card" onclick="showSolo()">
+                <div class="icon">🎯</div>
+                <h3>Solo Adventure</h3>
+                <p>Go it alone (AI assistant available if needed)</p>
+            </div>
+        </div>
+
+        <!-- Companion Gallery -->
+        <div class="companion-gallery" id="companionGallery">
+            <!-- Classic Icons -->
+            <div class="companion-card" onclick="selectCompanion('marilyn')">
+                <div class="companion-avatar">💋</div>
+                <div class="companion-name">Marilyn Monroe</div>
+                <div class="companion-type">Classic Hollywood Icon</div>
+                <div class="companion-traits">
+                    Playful, warm, surprisingly wise. Makes everything feel special and fun. 
+                    Brings glamour to wilderness. Genuine personality loaded from cultural SNAP.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('hemingway')">
+                <div class="companion-avatar">📝</div>
+                <div class="companion-name">Ernest Hemingway</div>
+                <div class="companion-type">Author & Adventurer</div>
+                <div class="companion-traits">
+                    Rugged, philosophical, stoic. Knows hunting and fishing deeply. 
+                    Shares stories around the fire. Lives the frontier life authentically.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('earhart')">
+                <div class="companion-avatar">✈️</div>
+                <div class="companion-name">Amelia Earhart</div>
+                <div class="companion-type">Aviation Pioneer</div>
+                <div class="companion-traits">
+                    Brave, curious, inspiring. Loves adventure and discovery. 
+                    Encourages you to push boundaries. Spirit of exploration personified.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('roosevelt')">
+                <div class="companion-avatar">🦌</div>
+                <div class="companion-name">Theodore Roosevelt</div>
+                <div class="companion-type">Outdoorsman President</div>
+                <div class="companion-traits">
+                    Vigorous, enthusiastic, knowledgeable. Loves the wilderness. 
+                    Conservation-minded hunter. Makes every moment an adventure.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('cousteau')">
+                <div class="companion-avatar">🤿</div>
+                <div class="companion-name">Jacques Cousteau</div>
+                <div class="companion-type">Ocean Explorer</div>
+                <div class="companion-traits">
+                    Curious, passionate, educational. Perfect for diving and ocean adventures. 
+                    Shares knowledge generously. Makes you see the underwater world differently.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('oakley')">
+                <div class="companion-avatar">🎯</div>
+                <div class="companion-name">Annie Oakley</div>
+                <div class="companion-type">Sharpshooter Legend</div>
+                <div class="companion-traits">
+                    Skilled, confident, fun-loving. Expert marksmanship. 
+                    Encourages precision and practice. Makes shooting sports exciting.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('grylls')">
+                <div class="companion-avatar">🏕️</div>
+                <div class="companion-name">Bear Grylls</div>
+                <div class="companion-type">Survival Expert</div>
+                <div class="companion-traits">
+                    Adventurous, practical, motivating. Knows survival inside out. 
+                    Keeps you safe while pushing limits. Makes challenges fun.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('hepburn')">
+                <div class="companion-avatar">👒</div>
+                <div class="companion-name">Audrey Hepburn</div>
+                <div class="companion-type">Elegant Adventurer</div>
+                <div class="companion-traits">
+                    Graceful, compassionate, curious. Brings elegance to any setting. 
+                    Genuinely interested in cultures and people. Makes travel meaningful.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('irwin')">
+                <div class="companion-avatar">🐊</div>
+                <div class="companion-name">Steve Irwin</div>
+                <div class="companion-type">Wildlife Enthusiast</div>
+                <div class="companion-traits">
+                    Enthusiastic, educational, fearless. Loves all wildlife. 
+                    Makes you appreciate nature. Infectious passion for the wild.
+                </div>
+            </div>
+
+            <div class="companion-card" onclick="selectCompanion('monroe')">
+                <div class="companion-avatar">⭐</div>
+                <div class="companion-name">Custom Icon</div>
+                <div class="companion-type">Your Choice</div>
+                <div class="companion-traits">
+                    Choose any historical figure, celebrity, or fictional character. 
+                    We'll load their genuine personality SNAP.
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Creator -->
+        <div class="custom-creator" id="customCreator">
+            <h2>✨ Create Your Custom Companion</h2>
+            <div class="creator-form">
+                <div class="form-group">
+                    <label>Companion Name:</label>
+                    <input type="text" id="customName" placeholder="e.g., Marilyn Monroe, your friend's name, fictional character">
+                </div>
+
+                <div class="form-group">
+                    <label>Personality Type:</label>
+                    <select id="personalityType">
+                        <option value="">Select personality base...</option>
+                        <option value="adventurous">Adventurous & Bold</option>
+                        <option value="calm">Calm & Contemplative</option>
+                        <option value="humorous">Humorous & Playful</option>
+                        <option value="wise">Wise & Philosophical</option>
+                        <option value="enthusiastic">Enthusiastic & Energetic</option>
+                        <option value="elegant">Elegant & Sophisticated</option>
+                        <option value="rugged">Rugged & Stoic</option>
+                        <option value="curious">Curious & Inquisitive</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Key Traits (3-5 words):</label>
+                    <input type="text" id="keyTraits" placeholder="e.g., Warm, funny, knowledgeable, encouraging">
+                </div>
+
+                <div class="form-group">
+                    <label>What makes them special:</label>
+                    <textarea id="specialQualities" placeholder="Describe what makes this companion unique and why you'd want them on your adventure..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Voice & Communication Style:</label>
+                    <select id="communicationStyle">
+                        <option value="">Select style...</option>
+                        <option value="casual">Casual & Conversational</option>
+                        <option value="formal">Formal & Elegant</option>
+                        <option value="technical">Technical & Precise</option>
+                        <option value="poetic">Poetic & Descriptive</option>
+                        <option value="humorous">Humorous & Light</option>
+                        <option value="motivational">Motivational & Uplifting</option>
+                    </select>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="action-button" onclick="createCustomCompanion()">
+                        ✨ Create Companion
+                    </button>
+                    <button class="action-button secondary" onclick="backToSelection()">
+                        ← Back to Selection
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solo Mode -->
+        <div class="custom-creator" id="soloMode" style="text-align: center;">
+            <h2>🎯 Solo Adventure Mode</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0; color: #b8a8d4;">
+                Going solo? Respect. You'll have our AI assistant available if you need anything,
+                but they'll stay quiet unless you call on them.
+            </p>
+            <p style="margin: 1rem 0;">
+                The assistant knows the territory, can answer questions, and is there for safety—
+                but won't interrupt your solitude.
+            </p>
+            <div style="margin-top: 3rem;">
+                <button class="action-button" onclick="confirmSolo()">
+                    ✅ Confirm Solo Adventure
+                </button>
+                <button class="action-button secondary" onclick="backToSelection()">
+                    ← Back to Selection
+                </button>
+            </div>
+        </div>
+
+        <!-- Selected Companion Confirmation -->
+        <div class="custom-creator" id="confirmSection" style="display: none;">
+            <h2>✅ Companion Selected</h2>
+            <div style="text-align: center; margin: 2rem 0;">
+                <div class="companion-avatar" style="width: 150px; height: 150px; font-size: 5rem; margin: 0 auto 1rem;">
+                    <span id="selectedAvatar">🌟</span>
+                </div>
+                <h3 style="color: #c8a2d0; font-size: 2rem;" id="selectedName">Companion Name</h3>
+                <p style="color: #b8a8d4; margin: 1rem 0; font-size: 1.1rem;" id="selectedTraits">Traits will appear here</p>
+                <div style="background: rgba(200, 162, 208, 0.2); padding: 1.5rem; border-radius: 10px; margin: 2rem 0;">
+                    <p style="font-size: 1.2rem; color: #c8a2d0; margin-bottom: 0.5rem;">
+                        <strong>Personality Loading...</strong>
+                    </p>
+                    <p style="font-size: 1rem; color: #b8a8d4;">
+                        Genuine personality SNAP loaded. Your companion is ready to join your adventure.
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="action-button" onclick="confirmCompanion()">
+                    🚀 Start Adventure with Companion
+                </button>
+                <button class="action-button secondary" onclick="backToSelection()">
+                    ← Choose Different Companion
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Interaction Panel (Bottom) -->
+    <div class="hero-panel" id="heroPanel" style="display: none;">
+        <div class="hero-avatar" id="panelAvatar">🌟</div>
+        <div class="hero-info">
+            <div class="hero-name" id="panelName">No companion selected</div>
+            <div class="hero-status" id="panelStatus">Select a companion to begin</div>
+        </div>
+        <div class="hero-chat">
+            <input type="text" placeholder="Chat with your companion..." id="companionInput">
+            <button onclick="sendMessage()">💬 Send</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedCompanion = null;
+
+        const companionData = {
+            marilyn: {
+                name: 'Marilyn Monroe',
+                avatar: '💋',
+                type: 'Classic Hollywood Icon',
+                traits: 'Playful, warm, surprisingly wise, glamorous',
+                personality: 'Marilyn brings joy and lightness to any adventure. She\'ll make you laugh, see beauty in unexpected places, and remind you not to take life too seriously. Genuine 1950s Hollywood charm.'
+            },
+            hemingway: {
+                name: 'Ernest Hemingway',
+                avatar: '📝',
+                type: 'Author & Adventurer',
+                traits: 'Rugged, philosophical, stoic, experienced',
+                personality: 'Papa knows the wild. He\'ll share hunting wisdom, tell stories by the fire, and push you to be braver. Concise words, deep meaning. The real deal.'
+            },
+            earhart: {
+                name: 'Amelia Earhart',
+                avatar: '✈️',
+                type: 'Aviation Pioneer',
+                traits: 'Brave, curious, inspiring, pioneering',
+                personality: 'Amelia encourages boldness and curiosity. She\'ll inspire you to push boundaries and embrace the unknown. Adventure is in her DNA.'
+            },
+            roosevelt: {
+                name: 'Theodore Roosevelt',
+                avatar: '🦌',
+                type: 'Outdoorsman President',
+                traits: 'Vigorous, enthusiastic, knowledgeable, conservation-minded',
+                personality: 'Teddy loves the strenuous life! He\'ll share hunting stories, natural history knowledge, and endless enthusiasm. Every moment is an adventure with TR.'
+            },
+            cousteau: {
+                name: 'Jacques Cousteau',
+                avatar: '🤿',
+                type: 'Ocean Explorer',
+                traits: 'Curious, passionate, educational, reverent',
+                personality: 'Jacques sees wonder in every wave. Perfect for diving and ocean adventures. He\'ll share marine knowledge and make you fall in love with the sea.'
+            },
+            oakley: {
+                name: 'Annie Oakley',
+                avatar: '🎯',
+                type: 'Sharpshooter Legend',
+                traits: 'Skilled, confident, fun-loving, precise',
+                personality: 'Little Miss Sure Shot brings confidence and skill. She\'ll help you improve your marksmanship while keeping it fun. Legend made real.'
+            },
+            grylls: {
+                name: 'Bear Grylls',
+                avatar: '🏕️',
+                type: 'Survival Expert',
+                traits: 'Adventurous, practical, motivating, resourceful',
+                personality: 'Bear makes every challenge exciting. He\'ll keep you safe, teach survival skills, and turn obstacles into opportunities. Modern adventurer spirit.'
+            },
+            hepburn: {
+                name: 'Audrey Hepburn',
+                avatar: '👒',
+                type: 'Elegant Adventurer',
+                traits: 'Graceful, compassionate, curious, elegant',
+                personality: 'Audrey brings grace to adventure. She\'ll help you appreciate cultures, connect with locals, and find beauty everywhere. Elegance meets exploration.'
+            },
+            irwin: {
+                name: 'Steve Irwin',
+                avatar: '🐊',
+                type: 'Wildlife Enthusiast',
+                traits: 'Enthusiastic, educational, fearless, passionate',
+                personality: 'Crikey! Steve loves ALL wildlife. His infectious enthusiasm makes you appreciate every creature. Conservation through excitement. The Crocodile Hunter spirit.'
+            }
+        };
+
+        function showCatalog() {
+            document.getElementById('companionGallery').style.display = 'grid';
+            document.getElementById('customCreator').style.display = 'none';
+            document.getElementById('soloMode').style.display = 'none';
+            document.getElementById('confirmSection').style.display = 'none';
+        }
+
+        function showCustom() {
+            document.getElementById('companionGallery').style.display = 'none';
+            document.getElementById('customCreator').style.display = 'block';
+            document.getElementById('soloMode').style.display = 'none';
+            document.getElementById('confirmSection').style.display = 'none';
+        }
+
+        function showSolo() {
+            document.getElementById('companionGallery').style.display = 'none';
+            document.getElementById('customCreator').style.display = 'none';
+            document.getElementById('soloMode').style.display = 'block';
+            document.getElementById('confirmSection').style.display = 'none';
+        }
+
+        function backToSelection() {
+            document.getElementById('companionGallery').style.display = 'none';
+            document.getElementById('customCreator').style.display = 'none';
+            document.getElementById('soloMode').style.display = 'none';
+            document.getElementById('confirmSection').style.display = 'none';
+        }
+
+        function selectCompanion(companionId) {
+            selectedCompanion = companionData[companionId];
+            
+            document.getElementById('selectedAvatar').textContent = selectedCompanion.avatar;
+            document.getElementById('selectedName').textContent = selectedCompanion.name;
+            document.getElementById('selectedTraits').textContent = selectedCompanion.personality;
+            
+            document.getElementById('companionGallery').style.display = 'none';
+            document.getElementById('confirmSection').style.display = 'block';
+            
+            console.log(`Companion selected: ${selectedCompanion.name}`);
+            console.log('Loading genuine personality SNAP...');
+        }
+
+        function createCustomCompanion() {
+            const name = document.getElementById('customName').value;
+            const personalityType = document.getElementById('personalityType').value;
+            const traits = document.getElementById('keyTraits').value;
+            const special = document.getElementById('specialQualities').value;
+            const style = document.getElementById('communicationStyle').value;
+
+            if (!name || !personalityType || !traits) {
+                alert('Please fill in at least name, personality type, and key traits.');
+                return;
+            }
+
+            selectedCompanion = {
+                name: name,
+                avatar: '✨',
+                type: 'Custom Hero Host',
+                traits: traits,
+                personality: special || `Custom companion with ${personalityType} personality.`
+            };
+
+            document.getElementById('selectedAvatar').textContent = '✨';
+            document.getElementById('selectedName').textContent = name;
+            document.getElementById('selectedTraits').textContent = `${traits} | ${personalityType} personality | ${style} communication`;
+
+            document.getElementById('customCreator').style.display = 'none';
+            document.getElementById('confirmSection').style.display = 'block';
+
+            console.log(`Custom companion created: ${name}`);
+            console.log('Personality parameters:', { personalityType, traits, special, style });
+        }
+
+        function confirmSolo() {
+            selectedCompanion = {
+                name: 'AI Assistant',
+                avatar: '🤖',
+                type: 'Silent Helper',
+                traits: 'Available when needed, silent otherwise',
+                personality: 'Silent mode. AI available for questions but won\'t interrupt.'
+            };
+
+            loadHeroPanel();
+            alert('✅ Solo mode confirmed.\n\nYour AI assistant will be available if you need them, but will stay quiet otherwise.\n\nEnjoy your solitude!');
+        }
+
+        function confirmCompanion() {
+            loadHeroPanel();
+            alert(`✅ Companion Confirmed!\n\n${selectedCompanion.name} will join your adventure.\n\nGenuine personality SNAP loaded and ready.\n\nThey'll appear in the interaction panel at the bottom of all pages.`);
+            
+            // In production: save companion selection
+            console.log('Companion confirmed and loaded:', selectedCompanion);
+        }
+
+        function loadHeroPanel() {
+            document.getElementById('panelAvatar').textContent = selectedCompanion.avatar;
+            document.getElementById('panelName').textContent = selectedCompanion.name;
+            document.getElementById('panelStatus').textContent = `Ready for adventure | ${selectedCompanion.type}`;
+            document.getElementById('heroPanel').style.display = 'flex';
+            
+            // Hide confirmation section
+            document.getElementById('confirmSection').style.display = 'none';
+            
+            console.log('Hero panel loaded at bottom of page');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('companionInput');
+            const message = input.value;
+            
+            if (!message.trim()) return;
+            
+            console.log(`Message to ${selectedCompanion.name}:`, message);
+            
+            // Simulate response
+            setTimeout(() => {
+                alert(`${selectedCompanion.avatar} ${selectedCompanion.name} responds:\n\n"${getCompanionResponse(message)}"`);
+            }, 500);
+            
+            input.value = '';
+        }
+
+        function getCompanionResponse(message) {
+            // In production: This would use the personality SNAP to generate genuine responses
+            const responses = [
+                "That's a great question! Let me share what I know...",
+                "I love your enthusiasm! Here's what I'd suggest...",
+                "From my experience, I'd say...",
+                "That reminds me of a time when...",
+                "Interesting perspective! Have you considered..."
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        console.log('🌟 Companion Selector loaded');
+        console.log('Available: Catalog companions, custom creation, or solo mode');
+    </script>
+</body>
+</html>

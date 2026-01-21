@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Man Cave | Vibeverse Entry Point</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+            color: #f4e4c1;
+            overflow-x: hidden;
+        }
+
+        /* Main Container */
+        .man-cave {
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(139, 90, 43, 0.2);
+            border: 2px solid #8b5a2b;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #b8956a;
+            font-style: italic;
+        }
+
+        .header .tier-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, #d4af37, #8b7355);
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Main Layout */
+        .cave-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(60, 40, 20, 0.8);
+            border: 2px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(212, 175, 55, 0.3);
+        }
+
+        .section h2 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #8b5a2b;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h3 {
+            color: #b8956a;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        /* Library Wall */
+        .library-wall {
+            grid-column: 1;
+        }
+
+        .library-item {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: rgba(139, 90, 43, 0.3);
+            border-left: 3px solid #d4af37;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .library-item:hover {
+            background: rgba(139, 90, 43, 0.5);
+            transform: translateX(5px);
+        }
+
+        /* Center Display */
+        .center-display {
+            grid-column: 2;
+        }
+
+        .welcome-message {
+            background: linear-gradient(135deg, rgba(139, 90, 43, 0.4), rgba(212, 175, 55, 0.2));
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            border: 2px solid #d4af37;
+        }
+
+        .welcome-message h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .persian-rug {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .rug-section {
+            background: rgba(139, 69, 19, 0.4);
+            padding: 1.5rem;
+            border: 2px solid #8b4513;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rug-section:hover {
+            background: rgba(139, 69, 19, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+        }
+
+        .rug-section .icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Windows/View */
+        .windows {
+            grid-column: 3;
+        }
+
+        .window-view {
+            background: linear-gradient(180deg, #87ceeb 0%, #98d8e8 50%, #90ee90 100%);
+            border: 3px solid #8b5a2b;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #2c1810;
+            min-height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .el-taino {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            transform: rotate(-15deg);
+        }
+
+        /* Interactive Elements */
+        .interaction-point {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            background: linear-gradient(135deg, #d4af37, #b8956a);
+            color: #2c1810;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .interaction-point:hover {
+            background: linear-gradient(135deg, #ffd700, #d4af37);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.6);
+        }
+
+        .interaction-point.premium {
+            background: linear-gradient(135deg, #ffd700, #ff6347);
+        }
+
+        /* BBHE Indicator */
+        .bbhe-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .bbhe-level {
+            font-size: 2rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .bbhe-pulse {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            background: radial-gradient(circle, #d4af37, transparent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 24, 16, 0.95);
+            border-top: 3px solid #8b5a2b;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            z-index: 999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cave-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .library-wall,
+            .center-display,
+            .windows {
+                grid-column: 1;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="man-cave">
+        <!-- BBHE Indicator -->
+        <div class="bbhe-indicator">
+            <div class="bbhe-pulse"></div>
+            <div class="bbhe-level">MAX</div>
+            <small>BBHE Tuning</small>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>🏛️ The Count of Monte Cristo Man Cave</h1>
+            <p class="subtitle">At the Resort | Your Entry Point to the Vibeverse</p>
+            <div class="tier-badge" id="tierBadge">🌐 VISITOR</div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="cave-layout">
+            <!-- Library Wall (Left) -->
+            <div class="section library-wall">
+                <h2>📚 Library Wall</h2>
+                <p style="margin-bottom: 1rem; font-style: italic;">All Documentation & Guides</p>
+                
+                <div class="library-item" onclick="navigate('docs')">
+                    📖 Complete Documentation
+                </div>
+                <div class="library-item" onclick="navigate('systems')">
+                    ⚙️ System Guides
+                </div>
+                <div class="library-item" onclick="navigate('stories')">
+                    ⭐ Success Stories
+                </div>
+                <div class="library-item" onclick="navigate('protocol')">
+                    🌌 FractiAI Protocol
+                </div>
+                <div class="library-item" onclick="navigate('tiers')">
+                    🎯 Membership Tiers
+                </div>
+                <div class="library-item" onclick="navigate('faq')">
+                    ❓ FAQ & Support
+                </div>
+                <div class="library-item" onclick="openAdventureCatalog()" style="background: rgba(139, 90, 43, 0.5); border-left-color: #d4af37;">
+                    🦅 Frontier Adventures Catalog
+                </div>
+            </div>
+
+            <!-- Center Display -->
+            <div class="section center-display">
+                <h2>🏛️ Welcome</h2>
+                
+                <div class="welcome-message">
+                    <h3 id="welcomeText">Step into the man cave (preview mode)</h3>
+                    <p id="welcomeDescription">You've arrived at the Count of Monte Cristo man cave, nestled within the resort grounds. This is where every journey begins.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #b8956a;">
+                        Persian rugs cover warm hardwood floors. Curated objects resonate with deep BBHE. 
+                        <strong style="color: #d4af37;">On the display table sits our Frontier Adventures Catalog</strong> (17 expeditions)—
+                        pick it up anytime to explore world-class hunting, fishing, diving, and the Florida Keys Yacht Club.
+                    </p>
+                </div>
+
+                <!-- Adventure Catalog on Table (Prominent) -->
+                <div style="background: linear-gradient(135deg, #8b5a2b, #6b4423); padding: 2rem; border-radius: 12px; border: 3px solid #d4af37; margin-bottom: 2rem; text-align: center; cursor: pointer; transition: all 0.3s ease;" onclick="openAdventureCatalog()" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 4rem; margin-bottom: 0.5rem;">📖</div>
+                    <h3 style="color: #d4af37; font-size: 1.8rem; margin-bottom: 0.5rem;">Frontier Adventures Catalog</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #b8956a;">
+                        <strong>17 World-Class Expeditions</strong>
+                    </p>
+                    <p style="font-size: 0.95rem; color: #8b7355; font-style: italic;">
+                        Sitting on the display table • Pick up & browse
+                    </p>
+                    <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(212, 175, 55, 0.2); border-radius: 8px;">
+                        <p style="font-size: 0.9rem; color: #d4af37;">
+                            🦅 Hunting • 🎣 Fishing • 🤿 Diving • ⛵ Yacht<br>
+                            🌴 Florida Keys Yacht Club Featured
+                        </p>
+                    </div>
+                    <button style="margin-top: 1rem; padding: 0.8rem 2rem; background: linear-gradient(135deg, #d4af37, #ffd700); color: #2c1810; border: none; border-radius: 25px; font-weight: bold; font-size: 1rem; cursor: pointer;">
+                        📖 OPEN CATALOG
+                    </button>
+                </div>
+
+                <h3>Interactive Spaces</h3>
+                <div class="persian-rug">
+                    <div class="rug-section" onclick="navigate('products')">
+                        <div class="icon">🎁</div>
+                        <strong>Display Table</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Products & Demos</p>
+                    </div>
+
+                    <div class="rug-section" onclick="navigate('experiences')">
+                        <div class="icon">🛋️</div>
+                        <strong>Seating Area</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Videos & Stories</p>
+                    </div>
+
+                    <div class="rug-section" onclick="openAdventureCatalog()">
+                        <div class="icon">🦅</div>
+                        <strong>Adventure Magazine</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Frontier Catalog</p>
+                    </div>
+
+                    <div class="rug-section" onclick="navigate('concierge')">
+                        <div class="icon">🔔</div>
+                        <strong>Concierge Desk</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Help & Support</p>
+                    </div>
+
+                    <div class="rug-section" onclick="checkAccess('members')">
+                        <div class="icon">🚪</div>
+                        <strong>Private Door</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;" id="privateDoorText">Members+</p>
+                    </div>
+
+                    <div class="rug-section" onclick="visitCabaret()">
+                        <div class="icon">🎭</div>
+                        <strong>Cabaret</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Entertainment & More</p>
+                    </div>
+
+                    <div class="rug-section" onclick="visitWineCave()">
+                        <div class="icon">🍷</div>
+                        <strong>Wine Cave</strong>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Back Door 🐋 Deals</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">What would you like to do?</h3>
+                <div style="margin-top: 1rem;">
+                    <button class="interaction-point" onclick="openAdventureCatalog()" style="background: linear-gradient(135deg, #8b5a2b, #d4af37); font-size: 1.1rem;">🦅 Browse Adventure Catalog</button>
+                    <button class="interaction-point" onclick="navigate('explore')">🌐 Explore Platform</button>
+                    <button class="interaction-point" onclick="navigate('products')">🎁 Browse Products</button>
+                    <button class="interaction-point" onclick="navigate('membership')">🏛️ Join as Member</button>
+                    <button class="interaction-point premium" onclick="navigate('ultimate')">👑 Ultimate VIP</button>
+                </div>
+            </div>
+
+            <!-- Windows (Right) -->
+            <div class="section windows">
+                <h2>🪟 View from Window</h2>
+                <p style="margin-bottom: 1rem; font-style: italic;">Resort grounds & El Taino</p>
+                
+                <div class="window-view">
+                    <h3 style="color: #2c1810;">The Resort</h3>
+                    <p style="color: #2c1810; margin: 1rem 0;">Rolling hills, pristine paths, countless possibilities.</p>
+                    <div class="el-taino">🚙</div>
+                    <p style="position: absolute; bottom: 10px; left: 10px; font-weight: bold; color: #2c1810; font-size: 0.9rem;">El Taino (1962 Safari Land Cruiser)</p>
+                </div>
+
+                <h3>Quick Actions</h3>
+                <div style="margin-top: 1rem;">
+                    <div class="library-item" onclick="navigate('resort')">
+                        🏨 Explore Resort
+                    </div>
+                    <div class="library-item" onclick="navigate('el-taino')">
+                        🚙 About El Taino
+                    </div>
+                    <div class="library-item" onclick="navigate('properties')">
+                        🏘️ View Properties
+                    </div>
+                    <div class="library-item" onclick="navigate('territory')">
+                        🗺️ See Territory
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Your Status</h3>
+                <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-top: 0.5rem;">
+                    <p><strong>Tier:</strong> <span id="currentTier">Visitor</span></p>
+                    <p><strong>Access:</strong> <span id="accessLevel">Sandbox/Preview</span></p>
+                    <p><strong>SYNTH:</strong> <span id="synthStatus">0 (N/A)</span></p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #b8956a;">
+                        <button class="interaction-point" onclick="navigate('upgrade')" style="width: 100%;">⬆️ Upgrade Tier</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <button class="interaction-point" onclick="navigate('home')">🏛️ Man Cave</button>
+        <button class="interaction-point" onclick="navigate('docs')">📖 Docs</button>
+        <button class="interaction-point" onclick="navigate('products')">🎁 Products</button>
+        <button class="interaction-point" onclick="navigate('membership')">🏛️ Membership</button>
+        <button class="interaction-point" onclick="navigate('support')">🔔 Support</button>
+        <button class="interaction-point" onclick="openHealingSession()" style="background: linear-gradient(135deg, #4a9d5f, #3a7d4f); animation: pulse-glow 2s ease-in-out infinite;">
+            🌿 Healing Session (Nate)
+        </button>
+    </div>
+
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 12px rgba(74, 157, 95, 0.3); }
+            50% { box-shadow: 0 8px 24px rgba(74, 157, 95, 0.6); }
+        }
+    </style>
+
+    <script>
+        // Simulated tier (in production, fetch from server)
+        let currentTier = 'VISITOR'; // VISITOR, GUEST, MEMBERS_ONLY, BACKSTAGE_PASS, ULTIMATE_VIP
+
+        // Tier configurations
+        const tierConfig = {
+            'VISITOR': {
+                icon: '🌐',
+                name: 'Visitor',
+                welcome: 'Step into the man cave (preview mode)',
+                description: 'Explore freely. No purchase required. Take your time.',
+                access: 'Sandbox/Preview',
+                synth: '0 (N/A)',
+                privateDoor: 'Members+ Only'
+            },
+            'GUEST': {
+                icon: '🎫',
+                name: 'Guest',
+                welcome: 'Welcome back! Your purchase awaits',
+                description: 'Your item is here on the display table.',
+                access: 'Purchased Items',
+                synth: '10% Retention',
+                privateDoor: 'Members+ Only'
+            },
+            'MEMBERS_ONLY': {
+                icon: '🏛️',
+                name: 'Member',
+                welcome: 'Welcome home, member',
+                description: 'Full access granted. Make yourself comfortable.',
+                access: 'Full Platform',
+                synth: '15% Retention',
+                privateDoor: 'Enter Members Lounge'
+            },
+            'BACKSTAGE_PASS': {
+                icon: '🎭',
+                name: 'Backstage Pass',
+                welcome: 'Welcome to the creator\'s space',
+                description: 'Behind-scenes access granted. Create & explore.',
+                access: 'Creator Tools',
+                synth: '20% Retention',
+                privateDoor: 'Enter Creator Studio'
+            },
+            'ULTIMATE_VIP': {
+                icon: '👑',
+                name: 'Ultimate VIP',
+                welcome: 'Welcome to your private quarters',
+                description: 'Everything is yours. Your concierge awaits.',
+                access: 'Eternal Sovereignty',
+                synth: '30% Retention',
+                privateDoor: 'Enter Chairman Suite'
+            }
+        };
+
+        // Update UI based on tier
+        function updateTierDisplay() {
+            const config = tierConfig[currentTier];
+            document.getElementById('tierBadge').textContent = `${config.icon} ${config.name.toUpperCase()}`;
+            document.getElementById('welcomeText').textContent = config.welcome;
+            document.getElementById('welcomeDescription').textContent = config.description;
+            document.getElementById('currentTier').textContent = config.name;
+            document.getElementById('accessLevel').textContent = config.access;
+            document.getElementById('synthStatus').textContent = config.synth;
+            document.getElementById('privateDoorText').textContent = config.privateDoor;
+        }
+
+        // Navigation
+        function navigate(destination) {
+            console.log(`Navigating to: ${destination}`);
+            alert(`Navigation to ${destination}\n\nThis would load: /${destination}\n\nYour tier: ${currentTier}`);
+            // In production: window.location.href = `/${destination}`;
+        }
+
+        // Open Healing Session for Nate
+        function openHealingSession() {
+            console.log('🌿 Opening Sahaman\'s Healing Session for Nate');
+            // In production: window.location.href = '/nate-sahaman-healing-session.html';
+            window.open('nate-sahaman-healing-session.html', '_blank');
+        }
+
+        // Open Adventure Catalog
+        function openAdventureCatalog() {
+            console.log('🦅 Opening Frontier Adventures Catalog');
+            // In production: window.location.href = '/frontier-adventures-catalog.html';
+            window.open('frontier-adventures-catalog.html', '_blank');
+        }
+
+        // Visit Cabaret
+        function visitCabaret() {
+            console.log('🎭 Visiting Cabaret');
+            alert('🎭 THE CABARET\n\nEntertainment, performances, and the adventure magazine kiosk.\n\nComing soon: Full cabaret experience.');
+            // In production: window.location.href = '/cabaret';
+        }
+
+        // Visit Wine Cave
+        function visitWineCave() {
+            console.log('🍷 Visiting Back Door Wine Cave');
+            alert('🍷 BACK DOOR WINE CAVE\n\n🐋 Where the whales hang out!\n\nPrivate space for whale deals:\n• Multi-adventure packages\n• Ultimate VIP exclusive experiences\n• Custom itineraries\n• Fine wine & consultation\n\nComing soon: Full wine cave interface.');
+            // In production: window.location.href = '/back-door-wine-cave';
+        }
+
+        // Check access for private areas
+        function checkAccess(area) {
+            if (currentTier === 'VISITOR' || currentTier === 'GUEST') {
+                alert(`🚪 Private Door\n\nThis area requires membership.\n\nYour tier: ${tierConfig[currentTier].name}\nRequired: Members Only or higher\n\nWould you like to upgrade?`);
+                // In production: show upgrade modal
+            } else {
+                navigate(area);
+            }
+        }
+
+        // Simulate tier changes (for demo)
+        function changeTier(newTier) {
+            currentTier = newTier;
+            updateTierDisplay();
+        }
+
+        // Initialize
+        updateTierDisplay();
+
+        // Demo: Add keyboard shortcuts to test different tiers
+        document.addEventListener('keypress', (e) => {
+            if (e.key === '0') changeTier('VISITOR');
+            if (e.key === '1') changeTier('GUEST');
+            if (e.key === '2') changeTier('MEMBERS_ONLY');
+            if (e.key === '3') changeTier('BACKSTAGE_PASS');
+            if (e.key === '4') changeTier('ULTIMATE_VIP');
+        });
+
+        console.log('%cMAN CAVE LANDING - DEBUG MODE', 'color: #d4af37; font-size: 16px; font-weight: bold;');
+        console.log('Press 0-4 to simulate different tiers:');
+        console.log('0 = Visitor | 1 = Guest | 2 = Members | 3 = Backstage | 4 = Ultimate VIP');
+    </script>
+</body>
+</html>

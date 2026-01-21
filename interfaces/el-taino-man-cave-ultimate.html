@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Taino Man Cave | Ultimate VIP Chairman Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --beige-heritage: #D4C4A8;
+            --deep-burgundy: #800020;
+            --royal-gold: #FFD700;
+            --warm-amber: #FFBF00;
+            --dark-mahogany: #4E2A1E;
+            --tobacco-brown: #715C4A;
+            --stone-gray: #8B8680;
+            --deep-blue: #000080;
+            --brass: #B5A642;
+            --ember-orange: #FF4500;
+            --safari-tan: #C19A6B;
+        }
+        
+        body {
+            font-family: 'Garamond', serif;
+            background: linear-gradient(135deg, var(--dark-mahogany) 0%, #1a0a0a 50%, var(--dark-mahogany) 100%);
+            color: var(--beige-heritage);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Fireplace ambiance background */
+        .fireplace-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 80%, var(--ember-orange) 0%, transparent 40%);
+            opacity: 0.1;
+            pointer-events: none;
+            animation: flicker 3s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.15; }
+        }
+        
+        /* Main container */
+        .man-cave-container {
+            position: relative;
+            min-height: 100vh;
+            padding: 40px 20px;
+            z-index: 1;
+        }
+        
+        /* Header with Land Cruiser */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(78, 42, 30, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 3px solid var(--brass);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.3),
+                        inset 0 5px 20px rgba(255, 215, 0, 0.1);
+            position: relative;
+        }
+        
+        .land-cruiser-badge {
+            font-size: 4em;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 20px var(--royal-gold));
+        }
+        
+        .header h1 {
+            font-family: 'Trajan Pro', 'Palatino', serif;
+            font-size: 3.5em;
+            background: linear-gradient(135deg, var(--royal-gold) 0%, var(--warm-amber) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            letter-spacing: 3px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4em;
+            color: var(--beige-heritage);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .header .vehicle-info {
+            font-size: 1.1em;
+            color: var(--safari-tan);
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border-left: 5px solid var(--brass);
+        }
+        
+        /* BBHE Indicator */
+        .bbhe-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(78, 42, 30, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid var(--royal-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            z-index: 1000;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .bbhe-indicator .label {
+            font-size: 0.9em;
+            color: var(--safari-tan);
+            margin-bottom: 5px;
+        }
+        
+        .bbhe-meter {
+            width: 100%;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .bbhe-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--royal-gold), var(--warm-amber));
+            width: 100%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 20px var(--royal-gold);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scaleX(0.95); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+        
+        .bbhe-status {
+            font-size: 1.3em;
+            color: var(--royal-gold);
+            font-weight: bold;
+            text-shadow: 0 0 10px var(--royal-gold);
+        }
+        
+        /* Tier Selection Cards */
+        .tier-section {
+            margin: 60px 0;
+        }
+        
+        .tier-section h2 {
+            font-family: 'Trajan Pro', 'Palatino', serif;
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--royal-gold);
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .tier-card {
+            background: linear-gradient(135deg, rgba(78, 42, 30, 0.8) 0%, rgba(26, 10, 10, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 3px solid var(--brass);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--royal-gold);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+        }
+        
+        .tier-card:hover::before {
+            opacity: 1;
+        }
+        
+        .tier-stars {
+            font-size: 2em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .tier-name {
+            font-family: 'Trajan Pro', 'Palatino', serif;
+            font-size: 2em;
+            color: var(--royal-gold);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .tier-tagline {
+            text-align: center;
+            font-style: italic;
+            color: var(--safari-tan);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .tier-price {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--warm-amber);
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 15px rgba(255, 191, 0, 0.6);
+        }
+        
+        .tier-price .currency {
+            font-size: 0.6em;
+            color: var(--beige-heritage);
+        }
+        
+        .tier-duration {
+            text-align: center;
+            color: var(--tobacco-brown);
+            margin-bottom: 30px;
+        }
+        
+        .tier-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .tier-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(181, 166, 66, 0.2);
+            color: var(--beige-heritage);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .tier-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--royal-gold);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .tier-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--royal-gold) 0%, var(--warm-amber) 100%);
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--dark-mahogany);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            margin-top: 20px;
+        }
+        
+        .tier-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Tip/Donate Section */
+        .tip-button-section {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(78, 42, 30, 0.95);
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 3px solid var(--royal-gold);
+            box-shadow: 0 15px 50px rgba(255, 215, 0, 0.4);
+            z-index: 1000;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .tip-button-section h3 {
+            text-align: center;
+            color: var(--royal-gold);
+            margin-bottom: 15px;
+            font-family: 'Trajan Pro', 'Palatino', serif;
+        }
+        
+        .tip-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .tip-btn {
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(181, 166, 66, 0.3) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border: 2px solid var(--brass);
+            border-radius: 10px;
+            color: var(--beige-heritage);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1em;
+        }
+        
+        .tip-btn:hover {
+            background: linear-gradient(135deg, var(--brass) 0%, var(--royal-gold) 100%);
+            color: var(--dark-mahogany);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .custom-tip {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .custom-tip input {
+            flex: 1;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--brass);
+            border-radius: 10px;
+            color: var(--beige-heritage);
+            font-size: 1em;
+        }
+        
+        .custom-tip button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--royal-gold) 0%, var(--warm-amber) 100%);
+            border: none;
+            border-radius: 10px;
+            color: var(--dark-mahogany);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-tip button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Persian Rug Pattern Background */
+        .persian-rug-overlay {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(128, 0, 32, 0.05) 50px,
+                    rgba(128, 0, 32, 0.05) 100px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(0, 0, 128, 0.05) 50px,
+                    rgba(0, 0, 128, 0.05) 100px
+                );
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        /* Curated Items Showcase */
+        .curated-items {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(78, 42, 30, 0.5);
+            border-radius: 20px;
+            border: 3px solid var(--brass);
+        }
+        
+        .curated-items h2 {
+            font-family: 'Trajan Pro', 'Palatino', serif;
+            font-size: 2.5em;
+            text-align: center;
+            color: var(--royal-gold);
+            margin-bottom: 40px;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .item-card {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid var(--brass);
+            transition: all 0.3s ease;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--royal-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .item-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .item-name {
+            color: var(--beige-heritage);
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            color: var(--tobacco-brown);
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bbhe-indicator {
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+                min-width: 150px;
+            }
+            
+            .tip-button-section {
+                bottom: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireplace-glow"></div>
+    <div class="persian-rug-overlay"></div>
+    
+    <!-- BBHE Indicator -->
+    <div class="bbhe-indicator">
+        <div class="label">BBHE TUNING</div>
+        <div class="bbhe-meter">
+            <div class="bbhe-fill"></div>
+        </div>
+        <div class="bbhe-status">MAXIMUM</div>
+    </div>
+    
+    <div class="man-cave-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="land-cruiser-badge">🚙</div>
+            <h1>EL TAINO</h1>
+            <div class="subtitle">Ultimate VIP Chairman Creator Experience</div>
+            <div class="vehicle-info">
+                <strong>1962 Safari Land Cruiser FJ40</strong><br>
+                Beige Heritage Edition | Countless Missions Achieved<br>
+                <em>"Every Journey Tells a Story"</em>
+            </div>
+        </header>
+        
+        <!-- Tier Selection -->
+        <section class="tier-section">
+            <h2>🏛️ Choose Your Sovereignty Level</h2>
+            
+            <div class="tier-grid">
+                <!-- Tier 1: Explore -->
+                <div class="tier-card">
+                    <div class="tier-stars">⭐</div>
+                    <h3 class="tier-name">EXPLORE</h3>
+                    <div class="tier-tagline">"The Safari Day Pass"</div>
+                    <div class="tier-price">
+                        100 <span class="currency">SYNTH</span>
+                    </div>
+                    <div class="tier-duration">24 Hours Access</div>
+                    <ul class="tier-features">
+                        <li>Man Cave Public Spaces</li>
+                        <li>Virtual Safari Tour</li>
+                        <li>Curated Items Viewing</li>
+                        <li>BBHE Tuning Sample</li>
+                        <li>1 Souvenir NFT Card</li>
+                    </ul>
+                    <button class="tier-button" onclick="selectTier('explore', 100)">
+                        Start Exploring
+                    </button>
+                </div>
+                
+                <!-- Tier 2: Visit -->
+                <div class="tier-card">
+                    <div class="tier-stars">⭐⭐</div>
+                    <h3 class="tier-name">VISIT</h3>
+                    <div class="tier-tagline">"The Weekend Safari"</div>
+                    <div class="tier-price">
+                        1,000 <span class="currency">SYNTH</span>
+                    </div>
+                    <div class="tier-duration">72 Hours / Weekend</div>
+                    <ul class="tier-features">
+                        <li>All Explore Benefits +</li>
+                        <li>Private Spaces Access</li>
+                        <li>30min Consultation</li>
+                        <li>3 Rare NFT Cards</li>
+                        <li>5% Future Discount</li>
+                    </ul>
+                    <button class="tier-button" onclick="selectTier('visit', 1000)">
+                        Book Weekend
+                    </button>
+                </div>
+                
+                <!-- Tier 3: Stay -->
+                <div class="tier-card">
+                    <div class="tier-stars">⭐⭐⭐</div>
+                    <h3 class="tier-name">STAY</h3>
+                    <div class="tier-tagline">"The Monthly Residency"</div>
+                    <div class="tier-price">
+                        5,000 <span class="currency">SYNTH</span>
+                    </div>
+                    <div class="tier-duration">30 Days Monthly</div>
+                    <ul class="tier-features">
+                        <li>All Visit Benefits +</li>
+                        <li>Persian Rug Corner</li>
+                        <li>Weekly Consultations</li>
+                        <li>Backstage Pass</li>
+                        <li>10 Uncommon NFTs</li>
+                        <li>10% Discount</li>
+                    </ul>
+                    <button class="tier-button" onclick="selectTier('stay', 5000)">
+                        Claim Residency
+                    </button>
+                </div>
+                
+                <!-- Tier 4: Reside -->
+                <div class="tier-card">
+                    <div class="tier-stars">⭐⭐⭐⭐</div>
+                    <h3 class="tier-name">RESIDE</h3>
+                    <div class="tier-tagline">"The Annual Sovereignty"</div>
+                    <div class="tier-price">
+                        50,000 <span class="currency">SYNTH</span>
+                    </div>
+                    <div class="tier-duration">365 Days Annual</div>
+                    <ul class="tier-features">
+                        <li>All Stay Benefits +</li>
+                        <li>Permanent Space</li>
+                        <li>Council Membership</li>
+                        <li>50 Rare NFT Cards</li>
+                        <li>1% Revenue Share</li>
+                        <li>20% Discount</li>
+                    </ul>
+                    <button class="tier-button" onclick="selectTier('reside', 50000)">
+                        Establish Residence
+                    </button>
+                </div>
+                
+                <!-- Tier 5: Eternal Sovereignty -->
+                <div class="tier-card" style="grid-column: span 1;">
+                    <div class="tier-stars">⭐⭐⭐⭐⭐</div>
+                    <h3 class="tier-name">ETERNAL SOVEREIGNTY</h3>
+                    <div class="tier-tagline">"The Infinite Chairman"</div>
+                    <div class="tier-price">
+                        1,000,000 <span class="currency">SYNTH</span>
+                    </div>
+                    <div class="tier-duration">♾️ Lifetime Infinite</div>
+                    <ul class="tier-features">
+                        <li>ALL Benefits Forever +</li>
+                        <li>Private Land Cruiser NFT</li>
+                        <li>Private Man Cave Wing</li>
+                        <li>Co-Chairman Status</li>
+                        <li>5% All Revenue Share</li>
+                        <li>Infinite NFT Cards</li>
+                        <li>Legacy Inheritance Rights</li>
+                        <li>Your Name in Charter</li>
+                    </ul>
+                    <button class="tier-button" onclick="selectTier('eternal', 1000000)">
+                        Claim Eternal Sovereignty
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Curated Items Showcase -->
+        <section class="curated-items">
+            <h2>🏺 Curated Treasures Collection</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-icon">🗺️</div>
+                    <div class="item-name">Safari Maps</div>
+                    <div class="item-description">Vintage expedition charts</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">🧭</div>
+                    <div class="item-name">Brass Compass</div>
+                    <div class="item-description">19th century navigation</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">📚</div>
+                    <div class="item-name">Leather Journals</div>
+                    <div class="item-description">Hand-bound adventures</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">🍷</div>
+                    <div class="item-name">Crystal Decanters</div>
+                    <div class="item-description">Finest selections</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">🎨</div>
+                    <div class="item-name">Oil Paintings</div>
+                    <div class="item-description">Frontier landscapes</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">🪵</div>
+                    <div class="item-name">Tribal Carvings</div>
+                    <div class="item-description">African heritage</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">🔭</div>
+                    <div class="item-name">Telescopes</div>
+                    <div class="item-description">Vintage stargazing</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-icon">📖</div>
+                    <div class="item-name">First Editions</div>
+                    <div class="item-description">Adventure classics</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Tip/Donate Section -->
+    <div class="tip-button-section">
+        <h3>💰 Show Your Appreciation</h3>
+        <div class="tip-buttons">
+            <button class="tip-btn" onclick="sendTip(0.01)">$0.01</button>
+            <button class="tip-btn" onclick="sendTip(0.10)">$0.10</button>
+            <button class="tip-btn" onclick="sendTip(1)">$1</button>
+            <button class="tip-btn" onclick="sendTip(10)">$10</button>
+            <button class="tip-btn" onclick="sendTip(100)">$100</button>
+            <button class="tip-btn" onclick="sendTip(1000)">$1K</button>
+            <button class="tip-btn" onclick="sendTip(10000)">$10K</button>
+            <button class="tip-btn" onclick="sendTip(100000)">$100K</button>
+        </div>
+        <div class="custom-tip">
+            <input type="number" id="customTipAmount" placeholder="Custom amount (SYNTH)" step="0.01">
+            <button onclick="sendCustomTip()">Send Tip</button>
+        </div>
+    </div>
+    
+    <script>
+        // Tier Selection
+        function selectTier(tier, price) {
+            // Calculate 1% fee
+            const fee = price * 0.01;
+            const total = price + fee;
+            
+            alert(`Selected Tier: ${tier.toUpperCase()}\n\nPrice: ${price.toLocaleString()} SYNTH\n1% Protocol Fee: ${fee.toLocaleString()} SYNTH\nTotal: ${total.toLocaleString()} SYNTH\n\nClick OK to proceed to payment...`);
+            
+            // In production, this would integrate with wallet
+            console.log(`Tier selected: ${tier}, Price: ${price}, Fee: ${fee}, Total: ${total}`);
+        }
+        
+        // Tip Sending
+        function sendTip(amount) {
+            // Convert to 0.00,000,0000 format
+            const formatted = formatSynthAmount(amount);
+            
+            // Calculate 1% fee
+            const fee = amount * 0.01;
+            const total = amount + fee;
+            
+            alert(`Sending Tip: ${formatted} SYNTH\n\n1% Protocol Fee: ${formatSynthAmount(fee)} SYNTH\nTotal: ${formatSynthAmount(total)} SYNTH\n\nThank you for your generosity! 🙏`);
+            
+            console.log(`Tip sent: ${amount} SYNTH (${formatted}), Fee: ${fee}, Total: ${total}`);
+        }
+        
+        function sendCustomTip() {
+            const input = document.getElementById('customTipAmount');
+            const amount = parseFloat(input.value);
+            
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid tip amount.');
+                return;
+            }
+            
+            sendTip(amount);
+            input.value = '';
+        }
+        
+        // Format SYNTH in 0.00,000,0000 format
+        function formatSynthAmount(amount) {
+            // Convert to fixed 8 decimals
+            const fixed = amount.toFixed(8);
+            
+            // Split into integer and decimal parts
+            const [integer, decimal] = fixed.split('.');
+            
+            // Add commas to integer part
+            const integerFormatted = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            
+            // Format decimal in 00,000,0000 style
+            const decimalFormatted = decimal.replace(/(\d{2})(\d{3})(\d{4})/, '$1,$2,$3');
+            
+            return `${integerFormatted}.${decimalFormatted}`;
+        }
+        
+        // BBHE Tuning Animation
+        setInterval(() => {
+            const bbheFill = document.querySelector('.bbhe-fill');
+            const randomWidth = 95 + Math.random() * 5; // 95-100%
+            bbheFill.style.width = `${randomWidth}%`;
+        }, 2000);
+        
+        // Log entrance
+        console.log('🏛️ Welcome to El Taino Man Cave');
+        console.log('🚙 1962 Safari Land Cruiser FJ40');
+        console.log('👑 Ultimate VIP Chairman Experience');
+        console.log('⚡ BBHE Tuning: MAXIMUM');
+    </script>
+</body>
+</html>

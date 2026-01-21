@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontier Adventures Catalog | Ultimate Hunting & Fishing Expeditions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+            color: #f4e4c1;
+            overflow-x: hidden;
+        }
+
+        /* Catalog Header */
+        .catalog-header {
+            background: linear-gradient(135deg, #3d2817, #2c1810);
+            border-bottom: 4px solid #8b5a2b;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .catalog-header h1 {
+            font-size: 3rem;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .catalog-header .subtitle {
+            font-size: 1.5rem;
+            color: #b8956a;
+            font-style: italic;
+        }
+
+        /* Catalog Container */
+        .catalog-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Adventure Card (Cabela's Style) */
+        .adventure-card {
+            background: linear-gradient(135deg, rgba(60, 40, 20, 0.9), rgba(40, 25, 15, 0.9));
+            border: 3px solid #8b5a2b;
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+        }
+
+        .adventure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(212, 175, 55, 0.4);
+        }
+
+        .adventure-layout {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Adventure Image */
+        .adventure-image {
+            width: 400px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #8b5a2b;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .adventure-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #d4af37, #b8956a);
+            color: #1a0f0a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        /* Adventure Details */
+        .adventure-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .adventure-title {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .adventure-location {
+            font-size: 1.2rem;
+            color: #b8956a;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .adventure-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #f4e4c1;
+        }
+
+        .adventure-features {
+            background: rgba(139, 90, 43, 0.3);
+            border-left: 4px solid #d4af37;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .adventure-features h4 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .adventure-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .adventure-features li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .adventure-features li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Tier Options */
+        .tier-options {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tier-button {
+            padding: 0.8rem;
+            text-align: center;
+            border: 2px solid #8b5a2b;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .tier-button.visitor {
+            background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+            color: #aaa;
+        }
+
+        .tier-button.guest {
+            background: linear-gradient(135deg, #5a4a3a, #3a2a1a);
+            color: #d4af37;
+        }
+
+        .tier-button.member {
+            background: linear-gradient(135deg, #6a5a4a, #4a3a2a);
+            color: #d4af37;
+        }
+
+        .tier-button.backstage {
+            background: linear-gradient(135deg, #7a6a5a, #5a4a3a);
+            color: #ffd700;
+        }
+
+        .tier-button.ultimate {
+            background: linear-gradient(135deg, #d4af37, #b8956a);
+            color: #1a0f0a;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .tier-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .book-now {
+            background: linear-gradient(135deg, #d4af37, #b8956a);
+            color: #1a0f0a;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .book-now:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .learn-more {
+            background: linear-gradient(135deg, #8b5a2b, #6a4520);
+            color: #f4e4c1;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .learn-more:hover {
+            background: linear-gradient(135deg, #9a6a3b, #7a5530);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 4rem 0 2rem 0;
+            padding: 2rem;
+            background: rgba(139, 90, 43, 0.2);
+            border-top: 3px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #b8956a;
+            font-style: italic;
+        }
+
+        /* Back Door Wine Cave Promo */
+        .whale-deals-banner {
+            background: linear-gradient(135deg, #1a0f0a, #0a0505);
+            border: 4px solid #d4af37;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 4rem 0;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .whale-deals-banner h2 {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .whale-deals-banner p {
+            font-size: 1.4rem;
+            color: #b8956a;
+            margin: 1rem 0;
+        }
+
+        .whale-deals-banner .whale-icon {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .adventure-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .adventure-image {
+                width: 100%;
+            }
+
+            .tier-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Catalog Header -->
+    <div class="catalog-header">
+        <h1>🦅 FRONTIER ADVENTURES CATALOG 🎣</h1>
+        <p class="subtitle">Ultimate Hunting & Fishing Expeditions | Five-Tier Frontier Experiences</p>
+        <p style="margin-top: 1rem; font-size: 1.2rem; color: #d4af37;">
+            <strong>17 World-Class Adventures</strong> | From Desert Quail to African Big Five
+        </p>
+        <p style="margin-top: 0.5rem; color: #b8956a;">Available at Man Cave Reception | Check Magazine at Cabaret | Back Door Wine Cave Whale Deals</p>
+    </div>
+
+    <div class="catalog-container">
+        <!-- BIRD HUNTING SECTION -->
+        <div class="section-header">
+            <h2>🦅 UPLAND BIRD HUNTING</h2>
+            <p>Classic Wingshooting Over Pointers & Wide Open Skies</p>
+        </div>
+
+        <!-- Arizona Quail Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23d4a574%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2248%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦅 ARIZONA QUAIL</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Arizona Desert Quail Over Pointers</div>
+                    <div class="adventure-location">📍 Sonoran Desert, Arizona</div>
+                    <div class="adventure-description">
+                        Chase Gambel's, Scaled, and Mearns quail through stunning desert landscapes. 
+                        Hunt behind world-class English pointers and German shorthairs. Sunrise covey rises, 
+                        cactus-studded ridges, and the crack of shotguns echoing through arroyos. 
+                        Guided by local experts who know every water hole and mesquite thicket.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>5 days/4 nights guided hunts</li>
+                            <li>Professional dog handlers & champion pointers</li>
+                            <li>All meals & luxury desert lodge</li>
+                            <li>Gun cleaning & bird processing</li>
+                            <li>Arizona hunting license assistance</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$4,050 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,375 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,250 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('arizona-quail')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('arizona-quail')">📖 LEARN MORE</button>
+                        <button class="action-btn" style="background: linear-gradient(135deg, #c8a2d0, #9a7bc8);" onclick="selectCompanion('arizona-quail')">🌟 + Add Companion</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- North Dakota Wild Pheasants -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23c89858%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦃 WILD PHEASANTS</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">North Dakota Wild Pheasant Paradise</div>
+                    <div class="adventure-location">📍 Prairie Grasslands, North Dakota</div>
+                    <div class="adventure-description">
+                        Hunt truly wild roosters in endless prairie grasslands. These aren't pen-raised birds—
+                        they're wild, wary, and flush hard. Walk behind Labs and springers through CRP fields, 
+                        cattail sloughs, and golden grain stubble. The Dakota prairie in October is heaven for 
+                        upland hunters. Limits are generous, and the birds are abundant.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>4 days/3 nights guided prairie hunts</li>
+                            <li>Professional guides & hunting dogs</li>
+                            <li>Comfortable farmhouse lodging & home-cooked meals</li>
+                            <li>Bird cleaning & packaging for travel</li>
+                            <li>Private land access (20,000+ acres)</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$3,800</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$3,420 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$2,850 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$1,900 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('nd-pheasants')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('nd-pheasants')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WATERFOWL SECTION -->
+        <div class="section-header">
+            <h2>🦆 WATERFOWL HUNTING</h2>
+            <p>From Nebraska Duck Clubs to Helicopter Hunts</p>
+        </div>
+
+        <!-- Nebraska Duck Club -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%235a7a8a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦆 NEBRASKA DUCKS</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Nebraska Private Duck Club</div>
+                    <div class="adventure-location">📍 Platte River Valley, Nebraska</div>
+                    <div class="adventure-description">
+                        Experience world-class duck hunting on a private Nebraska club. Pit blinds in corn fields, 
+                        layout blinds on sandbars, and heated box blinds over flooded timber. Mallards, pintails, 
+                        wigeon, and teal working decoy spreads at first light. The Central Flyway at its finest, 
+                        with expert guides calling birds into range.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>3 days/2 nights exclusive club access</li>
+                            <li>Professional guides & retrievers</li>
+                            <li>Heated blinds & premium decoy spreads</li>
+                            <li>Clubhouse lodging & gourmet meals</li>
+                            <li>Bird cleaning & packaging</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,200</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$3,780 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,150 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,100 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('nebraska-ducks')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('nebraska-ducks')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Helicopter Duck Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%233a5a6a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🚁 HELICOPTER HUNT</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Helicopter Duck Hunt with Automatics</div>
+                    <div class="adventure-location">📍 Remote Wetlands, Classified Location</div>
+                    <div class="adventure-description">
+                        The ultimate waterfowl experience. Hunt from helicopter platforms, moving between hot 
+                        spots as flocks migrate. Use automatic shotguns (fully legal, specially permitted) for 
+                        fast-action shooting. Land on sandbars, set up blinds, and light them up. This is the 
+                        pinnacle of duck hunting—reserved for Ultimate VIPs only. Unforgettable and unrepeatable.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>2 days helicopter-supported hunting</li>
+                            <li>Automatic shotguns provided (all permits handled)</li>
+                            <li>Private pilot & professional guides</li>
+                            <li>Mobile camp with chef & full service</li>
+                            <li>Complete documentation & filming crew</li>
+                            <li>Epic memories guaranteed</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>Not Available</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>Not Available</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>Not Available</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$15,000 (Exclusive)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('helicopter-ducks')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('helicopter-ducks')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BIG GAME SECTION -->
+        <div class="section-header">
+            <h2>🦌 BIG GAME HUNTING</h2>
+            <p>From Montana Elk to Alaska Moose</p>
+        </div>
+
+        <!-- Montana Elk Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%234a6a4a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2248%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦌 MONTANA ELK</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Montana Elk Hunt - Tent Camp & Horse Packing</div>
+                    <div class="adventure-location">📍 Bob Marshall Wilderness, Montana</div>
+                    <div class="adventure-description">
+                        Classic wilderness elk hunting the way it was meant to be. Pack into remote camps on 
+                        horseback, set up wall tents with wood stoves, and chase bugling bulls through alpine 
+                        meadows. Hunt from ridgetop saddles to dark timber. Professional outfitters, wranglers, 
+                        and guides who live this life. True frontier adventure in the last best place.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>7 days/6 nights wilderness camp</li>
+                            <li>Horse packing in & out (all gear hauled)</li>
+                            <li>Wall tent camp with wood stoves</li>
+                            <li>Professional guides & wranglers</li>
+                            <li>All meals cooked in camp</li>
+                            <li>Elk processing & pack-out assistance</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$8,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$7,650 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$6,375 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$4,250 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('montana-elk')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('montana-elk')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alaska Moose Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%232a4a5a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2248%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦌 ALASKA MOOSE</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Alaska Giant Bull Moose Hunt</div>
+                    <div class="adventure-location">📍 Interior Alaska, Remote Fly-In</div>
+                    <div class="adventure-description">
+                        Float plane into the Alaskan wilderness for giant bull moose. Hunt river bottoms and 
+                        willow flats where 60+ inch bulls feed. Call them in during the rut, glass vast tundra 
+                        expanses, and pack out hundreds of pounds of prime meat. This is Alaska at its wildest—
+                        grizzlies, wolves, and the midnight sun. An adventure you'll never forget.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>10 days/9 nights fly-in hunt</li>
+                            <li>Float plane charter (round trip)</li>
+                            <li>Remote spike camp accommodations</li>
+                            <li>Professional Alaska guides</li>
+                            <li>All meals & camp services</li>
+                            <li>Moose processing & meat/trophy shipping</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$12,000</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$10,800 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$9,000 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$6,000 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('alaska-moose')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('alaska-moose')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FISHING SECTION -->
+        <div class="section-header">
+            <h2>🎣 WORLD-CLASS FISHING</h2>
+            <p>From Amazon Peacock Bass to Florida Keys Bonefish</p>
+        </div>
+
+        <!-- Amazon Peacock Bass -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%233a7a3a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐟 AMAZON PEACOCK</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Amazon Peacock Bass on Floating Houseboats</div>
+                    <div class="adventure-location">📍 Amazon River Basin, Brazil</div>
+                    <div class="adventure-description">
+                        Live on floating houseboats deep in the Amazon, fishing pristine lagoons and river 
+                        tributaries for giant peacock bass. These explosive fighters hit topwater lures with 
+                        savage strikes. Run skiffs into untouched waters, surrounded by macaws, monkeys, and 
+                        pink dolphins. Sleep on the houseboat, eat fresh-caught fish, and experience the Amazon 
+                        like few ever will.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>7 days/6 nights floating houseboat</li>
+                            <li>Private skiff with guide (2 anglers/boat)</li>
+                            <li>All meals prepared by chef on boat</li>
+                            <li>Fishing tackle & lures provided</li>
+                            <li>Air-conditioned cabins with private baths</li>
+                            <li>Transfer from Manaus airport</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$5,800</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$5,220 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$4,350 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,900 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('amazon-peacock')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('amazon-peacock')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colombia Tarpon & Snook -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%232a6a8a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐟 COLOMBIA TARPON</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Colombia Chocó Lagoon - Monster Tarpon & Snook</div>
+                    <div class="adventure-location">📍 Chocó Region, Pacific Coast Colombia</div>
+                    <div class="adventure-description">
+                        Fish virgin lagoons on Colombia's remote Pacific coast for tarpon over 100 lbs and 
+                        trophy snook. These mangrove-lined waters are teeming with fish that rarely see anglers. 
+                        Explosive topwater strikes, screaming runs, and aerial acrobatics. Stay in jungle lodges, 
+                        eat fresh ceviche, and fish waters that National Geographic calls "the new frontier."
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>6 days/5 nights jungle lodge</li>
+                            <li>Private boat with bilingual guide</li>
+                            <li>All meals (Colombian & American cuisine)</li>
+                            <li>Fishing gear & tackle provided</li>
+                            <li>Transfer from Bahía Solano airport</li>
+                            <li>Rainforest excursions & wildlife tours</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$4,050 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,375 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,250 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('colombia-tarpon')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('colombia-tarpon')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Florida Keys Tropical Yacht Club -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%2300a8b8%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2232%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🌴 TROPICAL YACHT CLUB</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Florida Keys Tropical Yacht Club - Tarpon & Bonefish</div>
+                    <div class="adventure-location">📍 Islamorada Yacht Club & Key West, Florida Keys</div>
+                    <div class="adventure-description">
+                        The ultimate tropical yacht club experience. Based at a private oceanfront yacht club with 
+                        tiki bars, infinity pools overlooking turquoise waters, and sunset cocktails. Chase silver 
+                        kings (tarpon) on the flats at dawn, sight-cast to bonefish and permit on crystal-clear 
+                        turtle grass, then return to the club for fresh ceviche, rum drinks, and sea stories. 
+                        White linen dinners under the palms. Ernest Hemingway lived this life—now it's yours.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>5 days/4 nights at exclusive yacht club (oceanfront suite)</li>
+                            <li>Full-day guided flats skiff with legendary captain</li>
+                            <li>Target: Tarpon (silver kings), bonefish, permit, barracuda</li>
+                            <li>Fly rods, reels & premium tackle provided</li>
+                            <li>Yacht club privileges (pool, tiki bar, dining)</li>
+                            <li>All meals: Tropical breakfasts, fresh ceviche lunches, white linen dinners</li>
+                            <li>Sunset cocktail hour (daily rum & stories)</li>
+                            <li>Fly casting masterclass (Keys legends)</li>
+                            <li>Photo documentation + trophy shots</li>
+                            <li>The Hemingway experience: Fish hard, relax harder</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,200</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$3,780 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,150 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,100 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('keys-yacht-club')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('keys-yacht-club')">📖 LEARN MORE</button>
+                        <button class="action-btn" style="background: linear-gradient(135deg, #c8a2d0, #9a7bc8);" onclick="selectCompanion('keys-yacht-club')">🌟 + Add Companion</button>
+                        <button class="action-btn" style="background: linear-gradient(135deg, #00a8b8, #006a7a);" onclick="visitYachtClub()">🌴 Visit Yacht Club</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERNATIONAL WINGSHOOTING -->
+        <div class="section-header">
+            <h2>🌎 INTERNATIONAL WINGSHOOTING</h2>
+            <p>Argentina Estancia - The Ultimate Volume Shooting</p>
+        </div>
+
+        <!-- Argentina Combo Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23aa8a6a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦅 ARGENTINA HUNT</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Argentina Estancia - Duck, Perdiz & Dove Combo</div>
+                    <div class="adventure-location">📍 Córdoba Province, Argentina</div>
+                    <div class="adventure-description">
+                        Stay at a historic estancia (ranch) and experience the world's best wing shooting. 
+                        Morning duck hunts in flooded fields, afternoon perdiz (partridge) over pointers, 
+                        and evening dove shoots where birds blacken the sky. Shoot 1,000+ shells per day. 
+                        Luxury accommodations, Argentine asado dinners, Malbec wine, and world-class hospitality. 
+                        This is wingshooting nirvana.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>5 days/4 nights luxury estancia</li>
+                            <li>Morning duck hunts (rosy-billed pochard, pintails)</li>
+                            <li>Afternoon perdiz hunts over pointing dogs</li>
+                            <li>Evening high-volume dove shoots</li>
+                            <li>All meals (authentic Argentine cuisine)</li>
+                            <li>Open bar (Malbec, beer, cocktails)</li>
+                            <li>Professional guides & bird boys</li>
+                            <li>Unlimited shells & gun cleaning</li>
+                            <li>Airport transfer from Córdoba</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$5,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$4,950 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$4,125 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,750 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('argentina-combo')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('argentina-combo')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREDATOR & TRAPPING SECTION -->
+        <div class="section-header">
+            <h2>🐺 PREDATOR HUNTING & TRAPPING</h2>
+            <p>Wilderness Skills & Winter Expeditions</p>
+        </div>
+
+        <!-- Set & Wolf Trap Line Expedition -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%233a4a5a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐺 TRAPLINE EXPEDITION</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Wolf & Predator Trap Line Expedition</div>
+                    <div class="adventure-location">📍 Northern Rockies, Montana/Idaho</div>
+                    <div class="adventure-description">
+                        Learn authentic wilderness trapping skills from master trappers. Set and run a 50-mile 
+                        trap line for wolves, coyotes, fox, bobcat, and lynx. Snowshoe and snowmobile through 
+                        deep winter wilderness. Learn sets, lure making, fur handling, and traditional skills 
+                        passed down for generations. This is frontier living—hard work, cold mornings, and 
+                        profound connection to the wild. True mountain man experience.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>10 days/9 nights remote cabin living</li>
+                            <li>Master trapper instruction (one-on-one)</li>
+                            <li>Run 50-mile trap line daily</li>
+                            <li>Snowmobiles & snowshoes provided</li>
+                            <li>All trapping equipment & supplies</li>
+                            <li>Fur handling & preparation training</li>
+                            <li>Traditional skills: lure making, set techniques</li>
+                            <li>Cabin meals (hearty winter fare)</li>
+                            <li>Keep all furs (processed & shipped)</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$6,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$5,850 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$4,875 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$3,250 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('trapline-expedition')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('trapline-expedition')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DANGEROUS GAME SECTION -->
+        <div class="section-header">
+            <h2>🐻 DANGEROUS GAME HUNTING</h2>
+            <p>Brown Bear, Grizzly & The Ultimate Challenges</p>
+        </div>
+
+        <!-- Grizzly Bear Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%235a4a3a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2242%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐻 GRIZZLY BEAR</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Interior Alaska Grizzly Bear Hunt</div>
+                    <div class="adventure-location">📍 Brooks Range, Interior Alaska</div>
+                    <div class="adventure-description">
+                        Hunt giant coastal grizzly bears in Alaska's most remote wilderness. Glass for bears 
+                        feeding on salmon streams, stalk through alder thickets, and face North America's apex 
+                        predator. This is serious hunting—dangerous, challenging, and unforgettable. Professional 
+                        guides with decades of bear experience. Spring or fall hunts available. Bears averaging 
+                        8-9 feet with 9+ footers possible. Ultimate challenge for serious hunters only.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>10 days/9 nights fly-in bear camp</li>
+                            <li>Expert bear guides (armed backup)</li>
+                            <li>All meals & accommodations</li>
+                            <li>Float plane charter (round trip)</li>
+                            <li>Bear processing & trophy shipment</li>
+                            <li>Alaska Department of Fish & Game coordination</li>
+                            <li>Safety briefings & bear behavior training</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>Not Available</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$18,000</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$15,000 (17% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$10,000 (44% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('alaska-grizzly')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('alaska-grizzly')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kodiak Bear Hunt -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%234a3a2a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2242%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐻 KODIAK BEAR</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Kodiak Island Brown Bear Hunt</div>
+                    <div class="adventure-location">📍 Kodiak Island, Alaska</div>
+                    <div class="adventure-description">
+                        Hunt the world's largest brown bears on legendary Kodiak Island. These massive bruins 
+                        average 9-10 feet and can exceed 1,500 lbs. Glass vast salmon streams and alpine basins, 
+                        stalk through dense alders, and experience the ultimate dangerous game hunt. This is 
+                        the pinnacle of North American hunting—only for experienced hunters with proven big 
+                        game credentials. Spring or fall hunts. Success rates excellent. Adventure guaranteed.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>10 days/9 nights Kodiak Island hunt</li>
+                            <li>Master bear guides (safety certified)</li>
+                            <li>Spike camps in prime bear country</li>
+                            <li>Float plane & boat access</li>
+                            <li>Bear processing & full taxidermy coordination</li>
+                            <li>Skull scoring & Boone & Crockett registration</li>
+                            <li>All meals & camp services</li>
+                            <li>Big bore rifles available (if needed)</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>Not Available</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$22,000</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$18,000 (18% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$12,000 (45% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('kodiak-bear')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('kodiak-bear')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TROPHY HUNTING SECTION -->
+        <div class="section-header">
+            <h2>🏆 TROPHY HUNTING GRAND SLAMS</h2>
+            <p>Ultimate Achievement Hunts</p>
+        </div>
+
+        <!-- North American Grand Slam -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%236a5a4a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2232%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🏆 GRAND SLAM</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">North American Grand Slam Hunt</div>
+                    <div class="adventure-location">📍 Multiple States & Provinces</div>
+                    <div class="adventure-description">
+                        Complete your North American Wild Sheep Grand Slam: Desert Bighorn (Nevada/Arizona), 
+                        Rocky Mountain Bighorn (Montana/Wyoming), Dall Sheep (Alaska/Yukon), and Stone Sheep 
+                        (British Columbia). Four hunts over two years, all coordinated by us. This is the 
+                        ultimate trophy hunting achievement—recognized worldwide. Only the most dedicated hunters 
+                        complete this. Includes all permits, tags, licenses, and guide fees for all four species.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>4 separate hunts (Desert, Rocky Mtn, Dall, Stone Sheep)</li>
+                            <li>10 days each hunt (40 days total over 2 years)</li>
+                            <li>Master guides for each species</li>
+                            <li>All permits, tags, licenses (4 hunts)</li>
+                            <li>Full trophy preparation & taxidermy coordination</li>
+                            <li>Grand Slam plaque & certification</li>
+                            <li>Accommodations & meals (all hunts)</li>
+                            <li>Transport between hunt locations</li>
+                            <li>Personal hunt coordinator (2-year support)</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>Not Available</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>Not Available</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$85,000</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$50,000 (41% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('grand-slam')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('grand-slam')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AFRICAN SAFARI SECTION -->
+        <div class="section-header">
+            <h2>🦁 AFRICAN SAFARI</h2>
+            <p>The Ultimate Big Five Safari Experience</p>
+        </div>
+
+        <!-- Big Five Safari -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%23aa8a5a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🦁 BIG FIVE SAFARI</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">African Big Five Safari Hunt</div>
+                    <div class="adventure-location">📍 Tanzania & Zimbabwe</div>
+                    <div class="adventure-description">
+                        Experience the ultimate African safari hunting the legendary Big Five: Lion, Leopard, 
+                        Cape Buffalo, Elephant, and Rhinoceros (white rhino, conservation hunt). Hunt on private 
+                        concessions with legendary professional hunters. Luxury tented camps under African stars. 
+                        Track dangerous game on foot, experience charged buffalo, stalk cunning leopard over bait, 
+                        and face the king of beasts. This is the dream safari—Ernest Hemingway territory. 
+                        Ultimate achievement for any hunter.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>21 days/20 nights African safari (two countries)</li>
+                            <li>Professional hunter & full tracker team</li>
+                            <li>Hunt for all Big Five species</li>
+                            <li>Luxury tented camps (5-star service)</li>
+                            <li>All meals, premium bar, wine cellar</li>
+                            <li>Trophy fees for Big Five included</li>
+                            <li>All permits, licenses, CITES paperwork</li>
+                            <li>Full taxidermy coordination & shipping</li>
+                            <li>Airport transfers (Johannesburg/Victoria Falls)</li>
+                            <li>Photographic safari days (rest between hunts)</li>
+                            <li>Cultural experiences & local guides</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>Not Available</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>Not Available</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$125,000</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$75,000 (40% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('big-five-safari')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('big-five-safari')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVING & YACHT SECTION -->
+        <div class="section-header">
+            <h2>🤿 DIVING & OCEAN ADVENTURES</h2>
+            <p>From Belize Reefs to Private Caribbean Yacht</p>
+        </div>
+
+        <!-- Belize Scuba Trip -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%232a7aaa%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2242%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🤿 BELIZE DIVING</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Belize Barrier Reef & Blue Hole Diving</div>
+                    <div class="adventure-location">📍 Ambergris Caye & Blue Hole, Belize</div>
+                    <div class="adventure-description">
+                        Dive the second-largest barrier reef in the world and the famous Great Blue Hole. 
+                        Swim with nurse sharks, rays, and sea turtles. Explore pristine coral walls and 
+                        underwater caves. Stay on a private island resort with beach access and Caribbean 
+                        breezes. Three dives per day, all gear included, and incredible underwater photography.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>7 days/6 nights island resort</li>
+                            <li>18 dives (3 per day) including Blue Hole</li>
+                            <li>All scuba gear & equipment</li>
+                            <li>PADI-certified dive masters</li>
+                            <li>All meals & drinks</li>
+                            <li>Underwater photography services</li>
+                            <li>Airport transfer from Belize City</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,000</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$3,600 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,000 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,000 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('belize-diving')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('belize-diving')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Private Caribbean Yacht -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%233a8aaa%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>⛵ PRIVATE YACHT</text></svg>');">
+                    <div class="adventure-badge">👑 ULTIMATE</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Private Yacht - British Virgin Islands</div>
+                    <div class="adventure-location">📍 British Virgin Islands, Caribbean</div>
+                    <div class="adventure-description">
+                        Charter a private 60+ foot yacht with full crew for one week in paradise. Cruise 
+                        turquoise waters, anchor in secluded coves, and explore white sand beaches. Snorkel, 
+                        fish, paddleboard, and sip rum punch while your chef prepares gourmet meals. Visit 
+                        exclusive beach bars, swim with dolphins, and watch sunsets from the deck. Ultimate 
+                        luxury and total freedom.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>7 days/6 nights private yacht charter</li>
+                            <li>Full crew: Captain, chef, deckhand</li>
+                            <li>All meals & premium open bar</li>
+                            <li>Water toys: kayaks, paddleboards, snorkel gear</li>
+                            <li>Fishing equipment & beach setup</li>
+                            <li>Island hopping & secluded anchorages</li>
+                            <li>Airport transfer from Tortola</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Not Available</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$25,000</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$22,500 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$18,750 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$12,500 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('caribbean-yacht')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('caribbean-yacht')">📖 LEARN MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BACK DOOR WINE CAVE WHALE DEALS -->
+        <div class="whale-deals-banner">
+            <div class="whale-icon">🐋</div>
+            <h2>BACK DOOR WINE CAVE</h2>
+            <p>Where the Whales Hang Out</p>
+            <p style="font-size: 1.8rem; color: #d4af37; margin: 2rem 0;">
+                <strong>WHALE DEALS AVAILABLE NOW</strong>
+            </p>
+            <p>Multi-adventure packages, group bookings, and Ultimate VIP exclusive experiences.</p>
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: 10px;">
+                <p style="font-size: 1.3rem; color: #d4af37; margin-bottom: 1rem;"><strong>🐋 Whale Package Deals:</strong></p>
+                <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                    <li>✓ Book 3 adventures → 15% additional discount</li>
+                    <li>✓ Book 5 adventures → 25% additional discount</li>
+                    <li>✓ Book 10+ adventures → 35% additional discount</li>
+                    <li>✓ Book all 17 adventures → 40% additional discount + FREE yacht upgrade</li>
+                    <li>✓ Ultimate VIP members → Stack discounts (50% + package bonus = 70% off!)</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 1.2rem; color: #ffd700;">
+                    <strong>🐋 LEGENDARY WHALE DEAL:</strong> All 17 adventures for $93,000 (Ultimate VIP)
+                    <br>
+                    <span style="font-size: 1rem;">That's $5,470 per adventure (vs $18,235 average retail)</span>
+                </p>
+            </div>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">
+                🍷 <em>Visit the Back Door Wine Cave behind the Cabaret for private consultations on custom itineraries.</em>
+            </p>
+            <button class="action-btn book-now" style="margin-top: 2rem; font-size: 1.3rem;" onclick="visitWineCave()">
+                🚪 ENTER WINE CAVE
+            </button>
+        </div>
+
+        <!-- COMPLETE CATALOG SUMMARY -->
+        <div class="section-header" style="margin-top: 4rem;">
+            <h2>📋 COMPLETE ADVENTURE INDEX</h2>
+            <p>All 17 Frontier Experiences at a Glance</p>
+        </div>
+
+        <div style="background: rgba(60, 40, 20, 0.8); border: 3px solid #8b5a2b; border-radius: 15px; padding: 3rem; margin: 2rem 0;">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">🦅 UPLAND BIRD HUNTING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('arizona-quail')">
+                            🦅 Arizona Desert Quail - $4,500
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('nd-pheasants')">
+                            🦃 North Dakota Wild Pheasants - $3,800
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('argentina-combo')">
+                            🦅 Argentina Estancia Combo - $5,500
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🦆 WATERFOWL HUNTING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('nebraska-ducks')">
+                            🦆 Nebraska Private Duck Club - $4,200
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('helicopter-ducks')">
+                            🚁 Helicopter Duck Hunt - $15,000 👑
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🦌 BIG GAME HUNTING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('montana-elk')">
+                            🦌 Montana Elk Hunt - $8,500
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('alaska-moose')">
+                            🦌 Alaska Moose Hunt - $12,000
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🐺 PREDATOR & TRAPPING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('trapline-expedition')">
+                            🐺 Wolf Trap Line Expedition - $6,500
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="color: #d4af37; margin-bottom: 1rem;">🐻 DANGEROUS GAME</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('alaska-grizzly')">
+                            🐻 Alaska Grizzly Bear - $18,000 👑
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('kodiak-bear')">
+                            🐻 Kodiak Brown Bear - $22,000 👑
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🏆 TROPHY GRAND SLAMS</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('grand-slam')">
+                            🏆 North American Grand Slam - $85,000 👑
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🦁 AFRICAN SAFARI</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('big-five-safari')">
+                            🦁 African Big Five Safari - $125,000 👑
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🎣 FRESHWATER FISHING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('amazon-peacock')">
+                            🐟 Amazon Peacock Bass - $5,800
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('colombia-tarpon')">
+                            🐟 Colombia Chocó Tarpon - $4,500
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🌊 SALTWATER FISHING</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('keys-bonefish')">
+                            🐟 Florida Keys Bonefishing - $3,200
+                        </li>
+                    </ul>
+
+                    <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🤿 DIVING & OCEAN</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('belize-diving')">
+                            🤿 Belize Barrier Reef - $4,000
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('caribbean-yacht')">
+                            ⛵ Private Caribbean Yacht - $25,000
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #8b5a2b; text-align: center;">
+                <p style="font-size: 1.3rem; color: #d4af37; margin-bottom: 1rem;">
+                    <strong>TOTAL CATALOG VALUE: $310,000+</strong>
+                </p>
+                <p style="font-size: 1.1rem; color: #b8956a; margin-bottom: 1rem;">
+                    Ultimate VIP members: Access ALL 17 adventures for 50% off base ($155,000)
+                    <br>
+                    Book all 17 → Get 40% whale deal discount ($93,000) + FREE yacht upgrade ($25K value)
+                </p>
+                <p style="font-size: 1.4rem; color: #d4af37; margin-top: 2rem;">
+                    <strong>🐋 ULTIMATE WHALE DEAL: $93,000 for ALL 17 adventures + FREE yacht</strong>
+                    <br>
+                    <span style="font-size: 1rem; color: #b8956a;">(70% off total + $25K yacht bonus = $242,000 in savings!)</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Access Points -->
+        <div style="background: rgba(139, 90, 43, 0.3); border: 2px solid #8b5a2b; border-radius: 10px; padding: 2rem; margin: 3rem 0; text-align: center;">
+            <h3 style="color: #d4af37; font-size: 2rem; margin-bottom: 1.5rem;">📍 WHERE TO FIND THIS CATALOG</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                <div style="padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
+                    <h4 style="color: #d4af37; margin-bottom: 0.5rem;">Man Cave</h4>
+                    <p>Reception desk & reading area</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎭</div>
+                    <h4 style="color: #d4af37; margin-bottom: 0.5rem;">Cabaret</h4>
+                    <p>Magazine panel & adventure kiosk</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 10px;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🍷</div>
+                    <h4 style="color: #d4af37; margin-bottom: 0.5rem;">Wine Cave</h4>
+                    <p>Back door whale deals</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(44, 24, 16, 0.95); border-top: 3px solid #8b5a2b; padding: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; z-index: 999;">
+        <button class="action-btn" style="padding: 0.8rem 1.5rem;" onclick="window.location.href='man-cave-landing.html'">🏛️ Back to Man Cave</button>
+        <button class="action-btn book-now" style="padding: 0.8rem 1.5rem;" onclick="visitWineCave()">🍷 Wine Cave Deals</button>
+        <button class="action-btn" style="padding: 0.8rem 1.5rem; background: linear-gradient(135deg, #8b5a2b, #6a4520);" onclick="downloadCatalog()">📥 Download Catalog</button>
+    </div>
+
+    <script>
+        function scrollToAdventure(adventureId) {
+            console.log(`Scrolling to: ${adventureId}`);
+            // In production: smooth scroll to specific adventure card
+        }
+
+        function downloadCatalog() {
+            alert('📥 DOWNLOAD CATALOG\n\nPDF version of complete Frontier Adventures Catalog will be generated and downloaded.');
+            console.log('Catalog download initiated');
+        }
+    </script>
+
+    <script>
+        function bookAdventure(adventureId) {
+            console.log(`Booking adventure: ${adventureId}`);
+            alert(`📅 BOOKING: ${adventureId}\n\nStep 1: Choose dates\nStep 2: Select companion (optional)\nStep 3: Confirm & pay\n\nYour tier discount will be applied automatically.`);
+            // In production: window.location.href = `/book/${adventureId}`;
+        }
+
+        function selectCompanion(adventureId) {
+            console.log(`Selecting companion for: ${adventureId}`);
+            // In production: window.location.href = '/companion-selector-catalog.html?adventure=' + adventureId;
+            window.open('companion-selector-catalog.html', '_blank');
+        }
+
+        function visitYachtClub() {
+            console.log('Opening Tropical Yacht Club experience...');
+            window.open('tropical-yacht-club-keys.html', '_blank');
+        }
+
+        function learnMore(adventureId) {
+            console.log(`Learning more about: ${adventureId}`);
+            alert(`📖 MORE INFO: ${adventureId}\n\nDetailed itinerary, photo gallery, and testimonials will be shown.`);
+            // In production: window.location.href = `/adventures/${adventureId}`;
+        }
+
+        function visitWineCave() {
+            console.log('Entering Back Door Wine Cave');
+            alert(`🚪 BACK DOOR WINE CAVE\n\n🐋 Where the whales hang out!\n\nCustom adventure packages, multi-trip deals, and exclusive experiences.\n\nComing soon: Full wine cave interface.`);
+            // In production: window.location.href = '/back-door-wine-cave';
+        }
+
+        console.log('🦅 Frontier Adventures Catalog loaded');
+        console.log('All adventures available with tier-appropriate pricing');
+        console.log('🐋 Back Door Wine Cave for whale deals');
+    </script>
+</body>
+</html>

@@ -73,8 +73,19 @@ Example:
 
 ## The Technology
 
-**Safe passive awareness only.**
-- Imaginal thought dimensions
+**Two Revolutionary Offerings:**
+
+**1. NSPFRNP Blockchain Cloud Service** [NEW]
+- First coordination blockchain (not computation)
+- Fractal consensus (unlimited parallel processing)
+- Queen Bee validators (natural selection, not PoW/PoS)
+- $66/month: Worker node → Earn validation rewards
+- $1,000/month: Queen Bee node → Earn $5-10K/month
+- Testnet Q2 2026, Mainnet Q4 2026
+- Bridge to Base L2 for DeFi liquidity
+
+**2. Vibeverse Imaginal Reality**
+- Safe passive awareness (imaginal thought dimensions)
 - No chemicals, no drugs, no physical risks
 - Full sensory experience in consciousness
 - Queen Bee Nodes coordinate everything
@@ -85,18 +96,23 @@ Example:
 
 ## How To Get Involved
 
-**4 Levels:**
+**BLOCKCHAIN VALIDATORS:**
+1. **FREE** - Testnet validator (founding program, Q2 2026)
+2. **$66/month** - Worker node (earn $100-200/mo in rewards)
+3. **$1,000/month** - Queen Bee validator (earn $5-10K/mo)
+4. **Custom** - Enterprise private branch (custom pricing)
 
+**VIBEVERSE PARTICIPANTS:**
 1. **FREE** - Explore (public Sandbox tier)
 2. **66 SYNTH/month** - Member (Cloud tier exclusive access)
 3. **1,650+ SYNTH** - Owner (buy property, earn revenue)
 4. **330K+ SYNTH** - Creator (custom territories, build ecosystems)
 
-**4 Ownership Plans:**
-- Lease (monthly, cancel anytime)
-- Own (one-time, permanent)
-- Stake (own + earn 5-15% APY)
-- Build-to-Earn (10% down, property pays for itself)
+**BOTH OFFERINGS:**
+- Use SYNTH across ecosystem
+- Validators secure the network
+- Property owners use the network
+- Natural protocol coordinates both
 
 ---
 

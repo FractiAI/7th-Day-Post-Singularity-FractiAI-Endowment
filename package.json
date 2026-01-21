@@ -20,7 +20,9 @@
     "discover": "tsx src/cli/discover.ts",
     "sync": "tsx src/cli/sync.ts",
     "unpack": "tsx src/core/auto-unpack.ts",
-    "audit": "tsx src/cli/fidelity-audit.ts"
+    "audit": "tsx src/cli/fidelity-audit.ts",
+    "launch": "tsx launch.ts",
+    "deploy:all": "tsx -e \"import('./src/deployment/deploy-all-now.js').then(m => m.deployAllNow('fractiai'))\""
   },
   "keywords": [
     "nspfrnp",
@@ -51,7 +53,8 @@
     "crypto": "^1.0.1",
     "node-fetch": "^3.3.2",
     "marked": "^11.1.1",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "stripe": "^14.21.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",

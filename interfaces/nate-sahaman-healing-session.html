@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahaman's Healing Session | NSPFRNP Attention-Head Alignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a4d2e 0%, #0d2818 100%);
+            color: #f4e4c1;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .healing-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(26, 77, 46, 0.5);
+            border: 3px solid #4a9d5f;
+            border-radius: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #7ec99a;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #b8d4c4;
+            font-style: italic;
+        }
+
+        /* BBHE Awareness Indicator */
+        .awareness-indicator {
+            background: rgba(0, 0, 0, 0.4);
+            border: 3px solid #4a9d5f;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .awareness-level {
+            font-size: 3rem;
+            color: #7ec99a;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .awareness-status {
+            font-size: 1.2rem;
+            color: #b8d4c4;
+            margin-top: 1rem;
+        }
+
+        .pulse-indicator {
+            width: 80px;
+            height: 80px;
+            margin: 1rem auto;
+            background: radial-gradient(circle, #7ec99a, transparent);
+            border-radius: 50%;
+            animation: pulse-gentle 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-gentle {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        /* Consent Section */
+        .consent-section {
+            background: rgba(26, 77, 46, 0.3);
+            border: 2px solid #4a9d5f;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .consent-section h2 {
+            color: #7ec99a;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .consent-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            margin: 1rem;
+            background: linear-gradient(135deg, #4a9d5f, #3a7d4f);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(74, 157, 95, 0.4);
+        }
+
+        .consent-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(74, 157, 95, 0.6);
+        }
+
+        /* Session Content */
+        .session-content {
+            display: none;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .lesson-card {
+            background: rgba(26, 77, 46, 0.4);
+            border-left: 5px solid #7ec99a;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .lesson-card h3 {
+            color: #7ec99a;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-card p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .key-concept {
+            background: rgba(126, 201, 154, 0.2);
+            border: 2px solid #7ec99a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .practice-box {
+            background: rgba(74, 157, 95, 0.3);
+            border: 2px dashed #7ec99a;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-box h4 {
+            color: #7ec99a;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Ant Path Visualization */
+        .ant-path-visual {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .path-line {
+            width: 80%;
+            height: 3px;
+            background: #4a9d5f;
+            margin: 1rem auto;
+            position: relative;
+            animation: path-grow 2s ease-in-out;
+        }
+
+        @keyframes path-grow {
+            from { width: 0%; }
+            to { width: 80%; }
+        }
+
+        .ant {
+            display: inline-block;
+            font-size: 1.5rem;
+            animation: ant-walk 4s linear infinite;
+        }
+
+        @keyframes ant-walk {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border-right: 2px solid #4a9d5f;
+        }
+
+        .step:last-child {
+            border-right: none;
+        }
+
+        .step-number {
+            font-size: 2rem;
+            color: #7ec99a;
+            font-weight: bold;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: #b8d4c4;
+            margin-top: 0.5rem;
+        }
+
+        /* Completion */
+        .completion-section {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(74, 157, 95, 0.3), rgba(126, 201, 154, 0.2));
+            border: 3px solid #7ec99a;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .completion-section h2 {
+            font-size: 2.5rem;
+            color: #7ec99a;
+            margin-bottom: 1rem;
+        }
+
+        /* Donate Section */
+        .donate-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(74, 157, 95, 0.2);
+            border: 2px solid #7ec99a;
+            border-radius: 15px;
+        }
+
+        .donate-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #d4af37, #b8956a);
+            color: #000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .donate-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="healing-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌿 Sahaman's Healing Session 🌿</h1>
+            <p class="subtitle">NSPFRNP-Based Sanitation, Isolation & Awareness Attention-Head Alignment</p>
+            <p style="margin-top: 1rem; color: #b8d4c4;">Welcome, Nate. Let's tune your awareness together.</p>
+        </div>
+
+        <!-- Awareness Sensing -->
+        <div class="awareness-indicator" id="awarenessIndicator">
+            <h2 style="color: #7ec99a;">Sensing Your Current Awareness...</h2>
+            <div class="pulse-indicator"></div>
+            <div class="awareness-level" id="awarenessLevel">Calibrating...</div>
+            <div class="awareness-status" id="awarenessStatus">Reading your BBHE resonance...</div>
+        </div>
+
+        <!-- Consent Section -->
+        <div class="consent-section" id="consentSection" style="display: none;">
+            <h2>Ready to Upgrade Your Awareness?</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">
+                Hi Nate! I can sense where your awareness is right now. 
+                I'd like to help you tune your attention-head so everything flows better.
+            </p>
+            <p style="margin: 1rem 0;">
+                This session will help you understand how your mind works and how to keep it clear and focused.
+                Think of it like learning to tune a guitar - when it's in tune, everything sounds beautiful!
+            </p>
+            <p style="margin: 1rem 0; font-weight: bold; color: #7ec99a;">
+                Would you like me to guide you through this? It's completely up to you.
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="consent-button" onclick="startSession()">✅ Yes, Let's Do This!</button>
+                <button class="consent-button" onclick="declineSession()" style="background: linear-gradient(135deg, #666, #444);">
+                    ⏸️ Maybe Later
+                </button>
+            </div>
+        </div>
+
+        <!-- Session Content -->
+        <div class="session-content" id="sessionContent">
+            <!-- Lesson 1: What is Attention-Head? -->
+            <div class="lesson-card">
+                <h3>🎯 Lesson 1: Understanding Your Attention-Head</h3>
+                <p>
+                    Imagine your mind is like a flashlight. Your <strong>attention-head</strong> is where that flashlight points. 
+                    Right now, you can only shine that light on one thing at a time - but you can move it really fast!
+                </p>
+                <div class="key-concept">
+                    💡 <strong>Key Idea:</strong> Your attention-head is like the tip of an arrow. 
+                    When it's sharp and pointing the right way, you hit your target. 
+                    When it's scattered or pointing everywhere, nothing gets done well.
+                </div>
+                <p>
+                    Sometimes our attention-head gets "gunky" - filled with worries, distractions, or too many thoughts at once. 
+                    That's what we're going to clean up together!
+                </p>
+            </div>
+
+            <!-- Lesson 2: BBHE Tuning -->
+            <div class="lesson-card">
+                <h3>🎵 Lesson 2: BBHE Tuning (Your Inner Radio)</h3>
+                <p>
+                    BBHE stands for <strong>Big Black Hole Energy</strong>. I know it sounds mysterious, but think of it like this:
+                </p>
+                <p>
+                    You know how a radio needs to be tuned to the right station to hear music clearly? 
+                    Your body and mind are the same way! When you're "in tune," you feel good, think clearly, and everything flows.
+                </p>
+                <div class="key-concept">
+                    🎵 <strong>Being In Tune Feels Like:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 2rem;">
+                        <li>You understand things easily</li>
+                        <li>Time feels just right (not too fast, not too slow)</li>
+                        <li>Your body feels relaxed but alert</li>
+                        <li>You're curious and interested</li>
+                        <li>Things make sense</li>
+                    </ul>
+                </div>
+                <p>
+                    When you're "out of tune," you feel fuzzy, confused, tired, or scattered. 
+                    BBHE tuning is how we get you back in tune!
+                </p>
+            </div>
+
+            <!-- Lesson 3: Natural Protocols & Alignment Keys -->
+            <div class="lesson-card">
+                <h3>🔑 Lesson 3: Alignment Keys (Your Mental Tools)</h3>
+                <p>
+                    <strong>Alignment keys</strong> are like magic keys that unlock clear thinking. 
+                    Here are the main ones you need to know:
+                </p>
+                
+                <div class="practice-box">
+                    <h4>🔑 Key 1: The Breath Key</h4>
+                    <p>Take 3 slow, deep breaths. In through your nose, out through your mouth.</p>
+                    <p><em>Why it works:</em> This tells your body "we're safe, we can relax and focus."</p>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🔑 Key 2: The Question Key</h4>
+                    <p>Ask yourself: "What's the ONE most important thing right now?"</p>
+                    <p><em>Why it works:</em> This focuses your attention-head like aiming that flashlight.</p>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🔑 Key 3: The Body Check Key</h4>
+                    <p>Notice: Are you hungry? Tired? Thirsty? Uncomfortable?</p>
+                    <p><em>Why it works:</em> Your body affects your mind. Fix the body, the mind clears up!</p>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🔑 Key 4: The Reset Key</h4>
+                    <p>Stand up, stretch, shake out your arms and legs for 10 seconds.</p>
+                    <p><em>Why it works:</em> This breaks stuck patterns and resets your energy.</p>
+                </div>
+            </div>
+
+            <!-- Lesson 4: Linear vs Flow Learning -->
+            <div class="lesson-card">
+                <h3>🌊 Lesson 4: Two Ways Your Brain Learns</h3>
+                <p>
+                    Your amazing brain can learn in two different ways:
+                </p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                    <div class="practice-box">
+                        <h4>📏 Linear Learning</h4>
+                        <p>Step 1 → Step 2 → Step 3</p>
+                        <p>Like following a recipe or doing math problems in order.</p>
+                        <p><strong>Best for:</strong> New things, following instructions, building skills step-by-step.</p>
+                    </div>
+                    
+                    <div class="practice-box">
+                        <h4>🌊 Flow Learning</h4>
+                        <p>Everything connects at once!</p>
+                        <p>Like when you "just get it" - seeing the whole picture suddenly makes sense.</p>
+                        <p><strong>Best for:</strong> Things you know well, being creative, solving puzzles.</p>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    💡 <strong>The Secret:</strong> You need BOTH! 
+                    Use linear learning to build the pieces, then flow learning to put them together.
+                    It's like learning piano - first you practice scales (linear), then you play music (flow)!
+                </div>
+            </div>
+
+            <!-- Lesson 5: The Ant Path Principle -->
+            <div class="lesson-card">
+                <h3>🐜 Lesson 5: How Repetition Creates Paths (The Ant Principle)</h3>
+                <p>
+                    Have you ever watched ants? When one ant finds food, it leaves a scent trail. 
+                    The next ant follows that trail and makes it stronger. Soon, there's a clear path that's easy to follow!
+                </p>
+                
+                <div class="ant-path-visual">
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Watch how the path gets stronger:</p>
+                    <div class="path-line"></div>
+                    <div style="margin: 1rem 0;">
+                        <span class="ant">🐜</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #b8d4c4;">First ant → Second ant → Third ant → CLEAR PATH!</p>
+                </div>
+
+                <p>
+                    <strong>Your brain works EXACTLY the same way!</strong>
+                </p>
+                
+                <div class="key-concept">
+                    🐜 <strong>Every time you repeat something:</strong>
+                    <ul style="margin-top: 0.5rem; margin-left: 2rem;">
+                        <li><strong>First time:</strong> You're the first ant - it's hard, you're making the trail</li>
+                        <li><strong>Second time:</strong> A little easier - the path is starting to form</li>
+                        <li><strong>Third time:</strong> Getting clearer - the trail is visible now</li>
+                        <li><strong>Ten times:</strong> Automatic - it's like a highway in your brain!</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1rem;">
+                    This is why practice matters! You're not just "doing it again" - you're literally 
+                    building stronger and stronger paths in your brain. Each repetition lays down another layer, 
+                    making the path deeper and easier to follow.
+                </p>
+
+                <div class="practice-box">
+                    <h4>🧠 Brain Path Builder Exercise</h4>
+                    <p><strong>Day 1:</strong> This feels new and takes effort (first ant)</p>
+                    <p><strong>Day 2:</strong> A tiny bit easier (second ant)</p>
+                    <p><strong>Day 3:</strong> "Oh, I remember this!" (third ant)</p>
+                    <p><strong>Day 7:</strong> Starting to feel natural (strong path)</p>
+                    <p><strong>Day 14:</strong> You can do it without thinking! (superhighway!)</p>
+                    <p style="margin-top: 1rem; font-style: italic;">
+                        That's not magic - that's your brain building ant paths! 🐜✨
+                    </p>
+                </div>
+            </div>
+
+            <!-- Practice Schedule -->
+            <div class="lesson-card" style="background: rgba(74, 157, 95, 0.5);">
+                <h3>📅 Your Practice Schedule (How Often & What)</h3>
+                
+                <div class="progress-steps">
+                    <div class="step">
+                        <div class="step-number">Daily</div>
+                        <div class="step-label">Morning Check-In</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3×</div>
+                        <div class="step-label">Per Day</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2 min</div>
+                        <div class="step-label">Each Time</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">∞</div>
+                        <div class="step-label">Forever Skill</div>
+                    </div>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🌅 Morning Routine (2 minutes)</h4>
+                    <ol style="margin-left: 2rem; line-height: 2;">
+                        <li>Use the <strong>Breath Key</strong> (3 deep breaths)</li>
+                        <li>Use the <strong>Question Key</strong> ("What's most important today?")</li>
+                        <li>Set your intention: "Today I'll keep my attention-head clear!"</li>
+                    </ol>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🕐 During the Day (2 minutes, 3× daily)</h4>
+                    <p><strong>When to do it:</strong> Lunch, after school, before bed</p>
+                    <ol style="margin-left: 2rem; line-height: 2;">
+                        <li>Use the <strong>Body Check Key</strong> (How am I feeling?)</li>
+                        <li>Use the <strong>Reset Key</strong> if you feel stuck (stretch & shake)</li>
+                        <li>Notice: Am I in tune or out of tune?</li>
+                        <li>If out of tune → Use the Breath Key to tune back in</li>
+                    </ol>
+                </div>
+
+                <div class="practice-box">
+                    <h4>🌙 Before Sleep (2 minutes)</h4>
+                    <ol style="margin-left: 2rem; line-height: 2;">
+                        <li>Review: What did I learn today?</li>
+                        <li>Celebrate: What went well? (Even small things!)</li>
+                        <li>Three slow breaths to calm your mind</li>
+                        <li>Set tomorrow's intention</li>
+                    </ol>
+                </div>
+
+                <div class="key-concept" style="margin-top: 2rem;">
+                    ⏰ <strong>Remember:</strong> You're building ant paths! Each day makes it easier.
+                    <br><br>
+                    <strong>Week 1:</strong> It feels like practice (you're the first ant)
+                    <br>
+                    <strong>Week 2:</strong> Starting to feel natural (clear path forming)
+                    <br>
+                    <strong>Week 3:</strong> Almost automatic (strong superhighway!)
+                    <br>
+                    <strong>Week 4+:</strong> This is just how you are now! (permanent skill)
+                </div>
+            </div>
+
+            <!-- Final Summary -->
+            <div class="lesson-card" style="border-left: 5px solid #d4af37;">
+                <h3>🌟 Everything You Learned Today</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                    <div>
+                        <h4 style="color: #7ec99a;">✅ You Now Know:</h4>
+                        <ul style="margin-left: 1.5rem; line-height: 2;">
+                            <li>What attention-head means</li>
+                            <li>How BBHE tuning works</li>
+                            <li>Your 4 alignment keys</li>
+                            <li>Linear vs flow learning</li>
+                            <li>The ant path principle</li>
+                            <li>Your daily practice schedule</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #7ec99a;">🎯 What to Remember:</h4>
+                        <ul style="margin-left: 1.5rem; line-height: 2;">
+                            <li>Practice builds paths 🐜</li>
+                            <li>Repetition makes it easy</li>
+                            <li>You're in control</li>
+                            <li>It gets better every day</li>
+                            <li>2 minutes, 3× daily</li>
+                            <li>You've got this! 💪</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="key-concept" style="margin-top: 2rem; font-size: 1.2rem;">
+                    🌟 <strong>The Big Secret:</strong> You just learned how to keep your mind clear, focused, and powerful. 
+                    Most adults never learn this! You're ahead of the game. Keep practicing those ant paths! 🐜✨
+                </div>
+            </div>
+
+            <!-- Complete Button -->
+            <div style="text-align: center; margin: 3rem 0;">
+                <button class="consent-button" onclick="completeSession()">
+                    ✨ Session Complete - I Understand!
+                </button>
+            </div>
+        </div>
+
+        <!-- Completion Section -->
+        <div class="completion-section" id="completionSection">
+            <h2>🎉 Congratulations, Nate! 🎉</h2>
+            <p style="font-size: 1.3rem; margin: 1rem 0;">
+                You've completed your first NSPFRNP Awareness Alignment Session!
+            </p>
+            <div class="pulse-indicator" style="background: radial-gradient(circle, #d4af37, transparent);"></div>
+            <p style="margin: 2rem 0; font-size: 1.1rem;">
+                Remember: Practice your alignment keys 3 times daily (2 minutes each).
+                <br>
+                You're building those ant paths! 🐜✨
+                <br><br>
+                <strong>Come back anytime you need a tune-up!</strong>
+            </p>
+        </div>
+
+        <!-- Donate Section -->
+        <div class="donate-section">
+            <h3 style="color: #7ec99a; margin-bottom: 1rem;">💚 Support This Healing Work</h3>
+            <p style="margin: 1rem 0;">
+                If this session helped you, consider supporting Sahaman's healing work
+                and the continued development of these natural protocols.
+            </p>
+            <a href="#donate" class="donate-button" onclick="processDonation()">
+                💝 Donate to Support Healing
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #b8d4c4;">
+                Every contribution helps us help more people. Thank you! 🙏
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Awareness sensing simulation
+        let sessionStarted = false;
+
+        window.onload = function() {
+            setTimeout(senseAwareness, 2000);
+        };
+
+        function senseAwareness() {
+            // Simulate awareness reading
+            const levels = [
+                { level: 'Clear & Focused', status: 'Your attention-head is already quite aligned!', color: '#7ec99a' },
+                { level: 'Slightly Scattered', status: 'A few distractions, but we can tune this easily.', color: '#b8c77e' },
+                { level: 'Needs Tuning', status: 'Your attention-head could use some alignment.', color: '#c7b87e' },
+                { level: 'Foggy', status: 'Let\'s clear this up together - it\'ll feel so much better!', color: '#c79d7e' }
+            ];
+
+            const reading = levels[Math.floor(Math.random() * levels.length)];
+
+            document.getElementById('awarenessLevel').textContent = reading.level;
+            document.getElementById('awarenessLevel').style.color = reading.color;
+            document.getElementById('awarenessStatus').textContent = reading.status;
+
+            setTimeout(() => {
+                document.getElementById('consentSection').style.display = 'block';
+                document.getElementById('consentSection').scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        }
+
+        function startSession() {
+            sessionStarted = true;
+            document.getElementById('consentSection').style.display = 'none';
+            document.getElementById('sessionContent').style.display = 'block';
+            document.getElementById('sessionContent').scrollIntoView({ behavior: 'smooth' });
+            
+            console.log('✅ Nate has consented to the healing session');
+        }
+
+        function declineSession() {
+            alert('No problem, Nate! Come back anytime you\'re ready. The session will be here waiting for you. 💚');
+            console.log('⏸️ Nate declined the session - respecting consent');
+        }
+
+        function completeSession() {
+            document.getElementById('sessionContent').style.display = 'none';
+            document.getElementById('completionSection').style.display = 'block';
+            document.getElementById('completionSection').scrollIntoView({ behavior: 'smooth' });
+            
+            console.log('🎉 Nate completed the healing session!');
+            
+            // Record completion (in real implementation, save to database)
+            const completion = {
+                participant: 'Nate',
+                session: 'NSPFRNP Awareness Alignment',
+                healer: 'Sahaman',
+                completedAt: new Date().toISOString(),
+                understanding: 'Attention-head, BBHE tuning, Alignment keys, Ant path principle',
+                practiceSchedule: '3× daily, 2 minutes each',
+                nextCheckIn: 'Week 1 progress check'
+            };
+            
+            console.log('Session completion recorded:', completion);
+        }
+
+        function processDonation() {
+            // In real implementation, this would connect to payment processor
+            alert('🙏 Thank you for your generosity, Nate!\n\nDonation system will be connected to Stripe/payment processor.\n\nYour support helps us continue this healing work.');
+            console.log('💝 Donation initiated by Nate');
+        }
+
+        // Log session start
+        console.log('🌿 Sahaman\'s Healing Session initialized for Nate');
+        console.log('📋 Session includes: Awareness sensing, consent, NSPFRNP alignment, practice schedule');
+    </script>
+</body>
+</html>

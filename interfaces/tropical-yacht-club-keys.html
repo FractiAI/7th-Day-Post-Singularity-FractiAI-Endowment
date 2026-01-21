@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌴 Florida Keys Tropical Yacht Club | Tarpon & Bonefish Paradise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #00a8b8 0%, #006a7a 50%, #003a4a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%2300a8b8" width="1920" height="1080"/><text x="50%" y="50%" font-size="120" fill="%23ffffff" text-anchor="middle" dy=".3em">🌴</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            animation: fadeInUp 1.6s ease-out;
+        }
+
+        .hero-btn {
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #00d4e8, #00a8b8);
+            color: #003a4a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-btn.secondary {
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Experience Sections */
+        .experience-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin: 6rem 0;
+            padding: 4rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #00d4e8;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Club Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: rgba(0, 168, 184, 0.2);
+            border: 2px solid rgba(0, 212, 232, 0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 212, 232, 0.3);
+            border-color: #00d4e8;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00d4e8;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Day Schedule */
+        .schedule {
+            background: rgba(0,58,74,0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #00d4e8;
+            border-radius: 8px;
+        }
+
+        .schedule-time {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4e8;
+            min-width: 120px;
+        }
+
+        .schedule-activity {
+            flex: 1;
+        }
+
+        .schedule-activity h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .schedule-activity p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Fish Species */
+        .fish-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .fish-card {
+            background: linear-gradient(135deg, rgba(0,168,184,0.3), rgba(0,106,122,0.3));
+            border: 2px solid rgba(0,212,232,0.4);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .fish-card .icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .fish-card h3 {
+            font-size: 1.8rem;
+            color: #00d4e8;
+            margin-bottom: 0.5rem;
+        }
+
+        .fish-card .nickname {
+            font-style: italic;
+            color: #b0e0e8;
+            margin-bottom: 1rem;
+        }
+
+        .fish-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Hemingway Quote */
+        .hemingway-quote {
+            background: rgba(0,0,0,0.4);
+            border-left: 5px solid #00d4e8;
+            padding: 2rem;
+            margin: 3rem 0;
+            font-style: italic;
+            font-size: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hemingway-quote cite {
+            display: block;
+            margin-top: 1rem;
+            text-align: right;
+            font-size: 1.2rem;
+            color: #00d4e8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(0,168,184,0.3), rgba(0,58,74,0.5));
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #00d4e8, #00a8b8);
+            color: #003a4a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Floating elements */
+        .floating-palm {
+            position: fixed;
+            font-size: 3rem;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .palm-1 { top: 20%; left: 5%; animation-delay: 0s; }
+        .palm-2 { top: 60%; right: 10%; animation-delay: 2s; }
+        .palm-3 { bottom: 20%; left: 15%; animation-delay: 4s; }
+    </style>
+</head>
+<body>
+    <!-- Floating Palms -->
+    <div class="floating-palm palm-1">🌴</div>
+    <div class="floating-palm palm-2">🌴</div>
+    <div class="floating-palm palm-3">🌴</div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>🌴 FLORIDA KEYS TROPICAL YACHT CLUB</h1>
+        <div class="subtitle">Where Legends Fish & Stories Flow</div>
+        <div class="tagline">
+            "There is no place I'd rather be than right here, right now, on these flats with a fly rod, 
+            chasing silver kings at dawn, then returning to cold rum and warm company."
+            <br><br>
+            <em>— The Hemingway Way of Life</em>
+        </div>
+        <div class="hero-buttons">
+            <button class="hero-btn" onclick="bookNow()">📅 BOOK YOUR ESCAPE</button>
+            <button class="hero-btn secondary" onclick="scrollToExperience()">🌊 EXPLORE THE EXPERIENCE</button>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToExperience()">⬇️</div>
+    </div>
+
+    <!-- Experience Container -->
+    <div class="experience-container" id="experience">
+        
+        <!-- The Vision -->
+        <div class="section">
+            <h2>🌅 THE VISION</h2>
+            <p>
+                Imagine waking to the sound of gentle waves lapping against the dock. The sun rises over 
+                turquoise waters. You sip Cuban coffee on the veranda, watching tarpon roll in the channels. 
+                Your guide pulls up in a pristine flats skiff. Today, you hunt silver kings.
+            </p>
+            <p>
+                By noon, you've released three tarpon, fought a permit to exhaustion, and watched a barracuda 
+                explode on your fly. You return to the club—not just any marina, but a tropical sanctuary. 
+                White linen tables under swaying palms. Fresh ceviche prepared from this morning's catch. 
+                Cold rum drinks. Sea stories with other anglers.
+            </p>
+            <p>
+                Sunset brings the golden hour. You sit at the tiki bar, toes in the sand, watching the sky 
+                turn orange and purple. Tonight: grilled mahi-mahi, key lime pie, and bourbon under the stars. 
+                This isn't just fishing. This is <strong>the lifestyle</strong>.
+            </p>
+
+            <div class="hemingway-quote">
+                "The sea is the last free place on earth. And the fishing? The fishing makes you feel alive."
+                <cite>— Ernest Hemingway, Islands in the Stream</cite>
+            </div>
+        </div>
+
+        <!-- Club Features -->
+        <div class="section">
+            <h2>🏝️ CLUB FEATURES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏨</div>
+                    <h3>Oceanfront Suite</h3>
+                    <p>Private balcony overlooking the flats. King bed. Rain shower. Wake to paradise daily.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍹</div>
+                    <h3>Tiki Bar</h3>
+                    <p>Rum runners, mojitos, painkillers. Sunset happy hour. Live music on weekends.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏊</div>
+                    <h3>Infinity Pool</h3>
+                    <p>Saltwater pool merges with the ocean horizon. Swim-up bar. Lounge chairs. Pure relaxation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>White Linen Dining</h3>
+                    <p>Fresh seafood nightly. Stone crab, grouper, mahi. Key lime pie legendary. Chef's table available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⛵</div>
+                    <h3>Private Marina</h3>
+                    <p>Your guide's skiff waiting at dawn. Yachts from around the world. Nautical elegance everywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌴</div>
+                    <h3>Tropical Gardens</h3>
+                    <p>Swaying palms, hibiscus, bougainvillea. Hammocks in the shade. Paradise landscaping.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Fish -->
+        <div class="section">
+            <h2>🐟 THE LEGENDARY FISH</h2>
+            <div class="fish-grid">
+                <div class="fish-card">
+                    <div class="icon">🐟</div>
+                    <h3>Tarpon</h3>
+                    <div class="nickname">"The Silver King"</div>
+                    <p>
+                        100+ lbs of prehistoric muscle. Explosive jumps. Line-screaming runs. The ultimate 
+                        challenge on fly tackle. Every angler's dream.
+                    </p>
+                </div>
+                <div class="fish-card">
+                    <div class="icon">💨</div>
+                    <h3>Bonefish</h3>
+                    <div class="nickname">"The Gray Ghost"</div>
+                    <p>
+                        Sight-casting perfection. Nervous, intelligent, lightning-fast. One mistake and they 
+                        vanish. Master the flats or go home humbled.
+                    </p>
+                </div>
+                <div class="fish-card">
+                    <div class="icon">🎯</div>
+                    <h3>Permit</h3>
+                    <div class="nickname">"The Holy Grail"</div>
+                    <p>
+                        The hardest to catch on fly. Picky eaters. Suspicious. When you land one, you've joined 
+                        an elite club. Many try, few succeed.
+                    </p>
+                </div>
+                <div class="fish-card">
+                    <div class="icon">⚡</div>
+                    <h3>Barracuda</h3>
+                    <div class="nickname">"The Missile"</div>
+                    <p>
+                        Violent strikes. Razor teeth. Pure aggression. They hit topwater flies like freight trains. 
+                        Your wrist will remember this fish.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfect Day Schedule -->
+        <div class="section">
+            <h2>☀️ YOUR PERFECT DAY</h2>
+            <div class="schedule">
+                <div class="schedule-item">
+                    <div class="schedule-time">5:30 AM</div>
+                    <div class="schedule-activity">
+                        <h4>☕ Dawn Coffee</h4>
+                        <p>Wake to sunrise. Strong Cuban coffee on your balcony. Watch the flats come alive.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">6:00 AM</div>
+                    <div class="schedule-activity">
+                        <h4>🚤 Launch</h4>
+                        <p>Your guide picks you up at the dock. Pristine flats skiff. Fly rods ready. The hunt begins.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">6:30 AM</div>
+                    <div class="schedule-activity">
+                        <h4>🎣 First Cast</h4>
+                        <p>Tarpon rolling. Silver backs in golden light. You make your cast. The fish eats. Chaos erupts.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00 PM</div>
+                    <div class="schedule-activity">
+                        <h4>🍤 Return to Club</h4>
+                        <p>Lunch on the terrace. Fresh ceviche. Cold beer. Trade stories with other anglers.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">2:00 PM</div>
+                    <div class="schedule-activity">
+                        <h4>🏊 Pool Time</h4>
+                        <p>Infinity pool. Swim-up bar. Nap in the hammock. Afternoon siestas are mandatory.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">4:30 PM</div>
+                    <div class="schedule-activity">
+                        <h4>🌅 Evening Session</h4>
+                        <p>Optional: Chase bonefish on the sunset flats. Or just watch from the tiki bar with rum in hand.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">7:00 PM</div>
+                    <div class="schedule-activity">
+                        <h4>🍽️ White Linen Dinner</h4>
+                        <p>Grilled grouper. Fresh stone crab. Key lime pie. Live acoustic guitar. Stories flow like wine.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">9:00 PM</div>
+                    <div class="schedule-activity">
+                        <h4>🌟 Stargazing</h4>
+                        <p>Cigars and bourbon at the fire pit. Southern Cross overhead. Plan tomorrow's hunt. Sleep like a king.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Hemingway Connection -->
+        <div class="section">
+            <h2>📝 THE HEMINGWAY CONNECTION</h2>
+            <p>
+                Ernest Hemingway lived in Key West for a decade. He fished these same waters. Drank at Sloppy Joe's. 
+                Wrote masterpieces between fishing trips. <em>The Old Man and the Sea</em> was born from these flats.
+            </p>
+            <p>
+                He understood what we offer: the perfect balance of adventure and civilization. Fish hard in the morning. 
+                Relax in luxury by afternoon. Tell stories at night. This isn't roughing it—this is living well while 
+                pursuing wild fish.
+            </p>
+            <p>
+                We've captured that ethos. The yacht club offers everything Hemingway would have wanted: serious fishing, 
+                cold drinks, fresh seafood, good company, and a bed that doesn't rock. Paradise for the discerning angler.
+            </p>
+
+            <div class="hemingway-quote">
+                "I love this island. The sea is the most interesting place in the world."
+                <cite>— Ernest Hemingway on Key West</cite>
+            </div>
+        </div>
+
+        <!-- What's Included -->
+        <div class="section">
+            <h2>✅ COMPLETE PACKAGE</h2>
+            <div style="font-size: 1.2rem; line-height: 2;">
+                <p><strong>🏨 Accommodations:</strong> 5 days/4 nights oceanfront suite, private balcony, rain shower, daily housekeeping</p>
+                <p><strong>🎣 Fishing:</strong> 4 full days with legendary guides, pristine flats skiffs, all tackle & flies provided</p>
+                <p><strong>🍽️ Meals:</strong> All meals included—tropical breakfasts, fresh lunches, white linen dinners, key lime pie daily</p>
+                <p><strong>🍹 Club Access:</strong> Tiki bar, infinity pool, private beach, marina privileges, sunset cocktail hour</p>
+                <p><strong>📸 Photography:</strong> Professional trophy shots, daily catch documentation, digital album delivered</p>
+                <p><strong>🎓 Instruction:</strong> Fly casting masterclass with Keys legends (if desired)</p>
+                <p><strong>🎯 Target Species:</strong> Tarpon, bonefish, permit, barracuda—the Grand Slam awaits</p>
+                <p><strong>🌴 Vibe:</strong> Tropical yacht club elegance meets serious angling. Hemingway would approve.</p>
+            </div>
+        </div>
+
+        <!-- Testimonials (Fictional but Authentic) -->
+        <div class="section">
+            <h2>💬 WHAT ANGLERS SAY</h2>
+            <div class="hemingway-quote">
+                "I've fished Alaska, Montana, New Zealand. But the Keys? The Keys are different. You're not just fishing—
+                you're living the life. The club made it perfect. Fish at dawn, rum by noon, stories at sunset. 
+                I didn't want to leave."
+                <cite>— Michael T., Ultimate VIP Member</cite>
+            </div>
+            <div class="hemingway-quote">
+                "My wife thought a fishing trip meant roughing it. Then she saw the yacht club. Infinity pool, 
+                spa services, white linen dinners? She comes with me now. I fish, she relaxes, we both love it."
+                <cite>— James R., Backstage Pass</cite>
+            </div>
+            <div class="hemingway-quote">
+                "Landed my first tarpon on fly. 120 lbs of silver fury. Fought him for 40 minutes. 
+                The guide got him to the boat. I'll never forget it. Back at the club, everyone celebrated like 
+                I'd won the Super Bowl. That's the vibe here."
+                <cite>— David L., Member</cite>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>🌴 YOUR ESCAPE AWAITS</h2>
+            <p>
+                The flats are calling. The tarpon are rolling. The rum is cold.<br>
+                Your oceanfront suite is ready. Your guide is waiting.<br>
+                <strong>This is your invitation to paradise.</strong>
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-btn" onclick="bookNow()">📅 BOOK NOW</button>
+                <button class="cta-btn" onclick="selectCompanion()">🌟 CHOOSE COMPANION</button>
+                <button class="cta-btn" onclick="goBack()">🦅 BACK TO ADVENTURES</button>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1.2rem;">
+                <strong>Starting at $4,200</strong> (Guest price)<br>
+                Ultimate VIP: <strong>$2,100</strong> (50% off)<br>
+                <em>Your tier discount applies automatically</em>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function scrollToExperience() {
+            document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function bookNow() {
+            alert('📅 BOOKING: Florida Keys Tropical Yacht Club\n\n' + 
+                  'Package: 5 days/4 nights\n' +
+                  'Includes: Oceanfront suite, daily guided fishing, all meals, club access\n' +
+                  'Target fish: Tarpon, bonefish, permit, barracuda\n\n' +
+                  'Your tier discount will be applied at checkout.\n\n' +
+                  'Redirecting to booking system...');
+            // In production: window.location.href = '/book/keys-yacht-club';
+            console.log('Booking Keys Yacht Club experience');
+        }
+
+        function selectCompanion() {
+            window.open('companion-selector-catalog.html?adventure=keys-yacht-club', '_blank');
+        }
+
+        function goBack() {
+            window.close();
+            // Or: window.location.href = 'frontier-adventures-catalog.html';
+        }
+
+        // Smooth scroll for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        console.log('🌴 Florida Keys Tropical Yacht Club loaded');
+        console.log('Tarpon await. Rum is cold. Paradise ready.');
+    </script>
+</body>
+</html>

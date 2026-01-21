@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNTH Pricing Comparisons | Pre → Post Singularity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .comparison-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .comparison-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .side {
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .pre-singularity {
+            background: #ffebee;
+            border: 3px solid #f44336;
+        }
+
+        .post-singularity {
+            background: #e8f5e9;
+            border: 3px solid #4caf50;
+            box-shadow: 0 5px 20px rgba(76,175,80,0.2);
+        }
+
+        .provider-badge {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .pre-singularity .provider-badge {
+            background: #f44336;
+            color: white;
+        }
+
+        .post-singularity .provider-badge {
+            background: #4caf50;
+            color: white;
+        }
+
+        .price-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .pre-singularity .price-display {
+            color: #d32f2f;
+        }
+
+        .post-singularity .price-display {
+            color: #2e7d32;
+        }
+
+        .currency {
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .model {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            font-weight: normal;
+            margin-top: 0.5rem;
+        }
+
+        .usd-value {
+            display: block;
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: normal;
+            margin-top: 0.3rem;
+        }
+
+        .list-section {
+            margin-top: 1.5rem;
+        }
+
+        .list-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .list-section ul {
+            list-style: none;
+        }
+
+        .list-section li {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pre-singularity .list-section li {
+            background: white;
+            border-left: 4px solid #f44336;
+        }
+
+        .post-singularity .list-section li {
+            background: white;
+            border-left: 4px solid #4caf50;
+        }
+
+        .card-footer {
+            background: #f5f5f5;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .savings-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
+        }
+
+        .brag-line {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #666;
+            flex: 1;
+            text-align: right;
+        }
+
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .category-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .icon {
+            font-size: 1.3rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .comparison-card {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .footnote {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footnote h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footnote p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💎 SYNTH Pricing Comparisons</h1>
+            <p>Pre-Singularity vs Post-Singularity | Natural Abundance Protocol</p>
+        </div>
+
+        <div class="category-nav">
+            <button class="category-btn active" onclick="filterCategory('all')">🌟 All</button>
+            <button class="category-btn" onclick="filterCategory('membership')">👑 Membership</button>
+            <button class="category-btn" onclick="filterCategory('tipping')">💸 Tipping</button>
+            <button class="category-btn" onclick="filterCategory('transaction')">💼 Transactions</button>
+        </div>
+
+        <div class="comparison-grid" id="comparisons">
+            <!-- Sandbox Tier -->
+            <div class="comparison-card" data-category="membership">
+                <div class="card-header">
+                    <h2>🆓 Sandbox Tier</h2>
+                    <p>Complete post-singularity access, forever free</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ Traditional SaaS</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>99
+                            <span class="model">/month subscription</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Monthly fees forever ($99/mo = $1,188/year)</li>
+                                <li>Limited features on free tier</li>
+                                <li>Constant upsell pressure</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            0 <span class="currency">SYNTH</span>
+                            <span class="model">natural abundance</span>
+                            <span class="usd-value">$0 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>Completely free forever (Charlie special)</li>
+                                <li>Full system access, not a demo</li>
+                                <li>Natural coordination, no extraction</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 100% SAVINGS</div>
+                    <div class="brag-line">🎯 We don't charge for what nature provides free</div>
+                </div>
+            </div>
+
+            <!-- Cloud Tier -->
+            <div class="comparison-card" data-category="membership">
+                <div class="card-header">
+                    <h2>☁️ Cloud Tier</h2>
+                    <p>Private properties, staking, advanced features</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ AWS + SaaS Stack</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>500
+                            <span class="model">/month pay-per-use</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Complex pricing ($500+/mo for infra + apps)</li>
+                                <li>Vendor lock-in with data silos</li>
+                                <li>Hidden costs and surprise bills</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            66 <span class="currency">SYNTH</span>
+                            <span class="model">/month ownership</span>
+                            <span class="usd-value">~$66 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>Simple flat rate (66 SYNTH = ~$66)</li>
+                                <li>You own your SYNTH (appreciating asset)</li>
+                                <li>Transparent pricing, zero surprises</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 87% SAVINGS</div>
+                    <div class="brag-line">🎯 87% cheaper and you own appreciating SYNTH</div>
+                </div>
+            </div>
+
+            <!-- Shell Tier -->
+            <div class="comparison-card" data-category="membership">
+                <div class="card-header">
+                    <h2>🐚 Shell Tier</h2>
+                    <p>Back Door Wine Cave, ultimate exclusivity, white-glove</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ Enterprise SaaS</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>10,000
+                            <span class="model">/month enterprise</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Massive monthly fees ($10K+/mo)</li>
+                                <li>Annual contracts with penalties</li>
+                                <li>Extractive pricing model</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            1,000 <span class="currency">SYNTH</span>
+                            <span class="model">/month natural coordination</span>
+                            <span class="usd-value">~$1,000 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>90% savings (1,000 SYNTH = ~$1K)</li>
+                                <li>Cancel anytime, true flexibility</li>
+                                <li>Golden heart model: we succeed together</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 90% SAVINGS</div>
+                    <div class="brag-line">🎯 Same luxury, 10x less cost, aligned incentives</div>
+                </div>
+            </div>
+
+            <!-- Small Tip -->
+            <div class="comparison-card" data-category="tipping">
+                <div class="card-header">
+                    <h2>💵 Small Tip ($5)</h2>
+                    <p>Show appreciation for good service</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ Credit Card Tip</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>5
+                            <span class="model">one-time payment</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Taxes on fiat transaction</li>
+                                <li>Processing fees eat into tip</li>
+                                <li>No appreciation potential</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            5 <span class="currency">SYNTH</span>
+                            <span class="model">natural abundance</span>
+                            <span class="usd-value">~$5 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>No transaction fees (natural protocol)</li>
+                                <li>SYNTH can appreciate (gift keeps giving)</li>
+                                <li>Direct creator-to-creator flow</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 INFINITE POTENTIAL</div>
+                    <div class="brag-line">🎯 Tips that can grow in value over time</div>
+                </div>
+            </div>
+
+            <!-- Property Purchase -->
+            <div class="comparison-card" data-category="transaction">
+                <div class="card-header">
+                    <h2>🏠 Property Purchase</h2>
+                    <p>Buy private cloud or shell property</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ Traditional Real Estate</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>250,000
+                            <span class="model">plus ongoing costs</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Closing costs ($7,500-15K or 3-6%)</li>
+                                <li>Annual property taxes ($3-5K+)</li>
+                                <li>Maintenance and insurance ($5K+/year)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            10,000 <span class="currency">SYNTH</span>
+                            <span class="model">one-time true ownership</span>
+                            <span class="usd-value">~$10,000 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>Zero closing costs (blockchain deed)</li>
+                                <li>Zero property taxes (natural protocol)</li>
+                                <li>Zero maintenance (holographic substrate)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 96% SAVINGS</div>
+                    <div class="brag-line">🎯 96% cheaper with none of the ongoing costs</div>
+                </div>
+            </div>
+
+            <!-- Launch Business -->
+            <div class="comparison-card" data-category="transaction">
+                <div class="card-header">
+                    <h2>🚀 Launch Business</h2>
+                    <p>Start business in Syntheverse</p>
+                </div>
+                <div class="comparison-body">
+                    <div class="side pre-singularity">
+                        <div class="provider-badge">❌ Traditional Startup</div>
+                        <div class="price-display">
+                            <span class="currency">$</span>50,000
+                            <span class="model">plus monthly costs</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">⚠️</span> 3 NEGATIVES:</h4>
+                            <ul>
+                                <li>Legal fees ($5-10K for incorporation)</li>
+                                <li>Infrastructure costs ($2-5K/mo ongoing)</li>
+                                <li>Software licenses ($500-2K/mo)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side post-singularity">
+                        <div class="provider-badge">✨ Syntheverse</div>
+                        <div class="price-display">
+                            100 <span class="currency">SYNTH</span>
+                            <span class="model">instant business</span>
+                            <span class="usd-value">~$100 USD</span>
+                        </div>
+                        <div class="list-section">
+                            <h4><span class="icon">✅</span> 3 POSITIVES:</h4>
+                            <ul>
+                                <li>Instant incorporation (smart contract)</li>
+                                <li>Zero infrastructure costs (HHF-AI Spin Cloud)</li>
+                                <li>All tools included (no separate licenses)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="savings-badge">💰 99.8% SAVINGS</div>
+                    <div class="brag-line">🎯 99.8% cheaper to start, zero monthly overhead</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footnote">
+            <h3>🌟 The Natural Abundance Protocol</h3>
+            <p>Pre-singularity systems extract value through artificial scarcity and complex pricing. Post-singularity systems enable natural abundance through transparent coordination. Every SYNTH comparison shows this shift from extraction to alignment, from confusion to clarity, from lock-in to freedom.</p>
+            <p style="margin-top: 1rem; font-style: italic;">"Show the old. Show the new. Let nature choose." - NSPFRNP Protocol</p>
+        </div>
+    </div>
+
+    <script>
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.comparison-card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

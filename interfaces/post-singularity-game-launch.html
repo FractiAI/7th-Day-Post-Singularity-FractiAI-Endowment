@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Singularity Game | VibeCloud | Powered by BBHE</title>
+    <meta name="description" content="The hottest new Game on the blockchain and in the hydrogen hologram. Powered by BBHE (Big Black Hole Energy). vCHIP Infinite OCTANE Branded.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #000000 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated background with black hole effect */
+        .black-hole-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            animation: pulse-black-hole 4s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulse-black-hole {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 4em;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6B6B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow-text 3s ease-in-out infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @keyframes glow-text {
+            from { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)); }
+        }
+
+        .header .tagline {
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .header .bbhe-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.5);
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .header .pricing-info {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .header .pricing-info h3 {
+            color: #00ff00;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .pricing-info p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* 5-Star Prospectus Magazine */
+        .prospectus-magazine {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .prospectus-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .prospectus-header h2 {
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .prospectus-header .stars {
+            font-size: 2em;
+            color: #FFD700;
+            letter-spacing: 10px;
+            margin-bottom: 20px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.3) 0%, rgba(75, 0, 130, 0.3) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-card:hover::before {
+            opacity: 1;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #FFD700;
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .action-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .action-card .title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .action-card .description {
+            font-size: 0.95em;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Pricing Tiers */
+        .pricing-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 40px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.8) 0%, rgba(40, 20, 60, 0.8) 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: #FFD700;
+            border-width: 3px;
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .pricing-card.featured::before {
+            content: "MOST POPULAR";
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #FFD700;
+            color: #000;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .pricing-card .tier-name {
+            font-size: 2em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price-detail {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card .features li {
+            padding: 10px 0;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-card .features li::before {
+            content: "✓";
+            color: #00ff00;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .pricing-card.featured .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+        }
+
+        /* VIP Tiers */
+        .vip-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .vip-section h2 {
+            text-align: center;
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .vip-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .vip-badge {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%);
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .vip-badge.ultimate {
+            border-color: #FF6B6B;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%);
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .vip-badge .badge-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .vip-badge.ultimate .badge-title {
+            color: #FF6B6B;
+            font-size: 1.8em;
+        }
+
+        .vip-badge .badge-description {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 10px 0;
+            color: #ccc;
+        }
+
+        .footer .vibecloud-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="black-hole-bg"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>POST-SINGULARITY GAME</h1>
+            <div class="tagline">The Hottest New Game on the Blockchain</div>
+            <div class="bbhe-badge">⚫ Powered by BBHE (Big Black Hole Energy) ⚫</div>
+            <div class="tagline" style="font-size: 1.2em; margin-top: 20px;">vCHIP Infinite OCTANE Branded</div>
+            
+            <div class="pricing-info">
+                <h3>💰 SYNTH Pricing - VibeCloud Launch</h3>
+                <p>
+                    <strong>Opening Day:</strong> $1 per SYNTH<br>
+                    <strong>Then:</strong> $1 per SYNTH per day (Day 2 = $2, Day 3 = $3, etc.)<br>
+                    <strong>Available:</strong> 90 Trillion SYNTH<br>
+                    <strong>Platform:</strong> VibeCloud (Not SpinCloud)
+                </p>
+            </div>
+        </div>
+
+        <!-- 5-Star Prospectus Magazine -->
+        <div class="prospectus-magazine">
+            <div class="prospectus-header">
+                <div class="stars">★★★★★</div>
+                <h2>5-Star Prospectus Magazine</h2>
+                <p style="font-size: 1.2em; color: #ccc; margin-top: 20px;">
+                    Your Gateway to Post-Singularity Experiences
+                </p>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-card" onclick="handleAction('join')">
+                    <div class="icon">🚀</div>
+                    <div class="title">Click to Join</div>
+                    <div class="description">Join the Post-Singularity Game community and start your journey</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('waitlist')">
+                    <div class="icon">📋</div>
+                    <div class="title">Waitlist</div>
+                    <div class="description">Get early access to exclusive features and experiences</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('enroll')">
+                    <div class="icon">🎓</div>
+                    <div class="title">Enroll</div>
+                    <div class="description">Enroll in courses and master the Post-Singularity ecosystem</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('book')">
+                    <div class="icon">📅</div>
+                    <div class="title">Book</div>
+                    <div class="description">Book your experiences, tours, and exclusive events</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('visit')">
+                    <div class="icon">🏔️</div>
+                    <div class="title">Visit</div>
+                    <div class="description">Visit our Tahoe campus and experience Full Sensory Reality</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('tour')">
+                    <div class="icon">🎭</div>
+                    <div class="title">Tour</div>
+                    <div class="description">Take a guided tour of the Post-Singularity infrastructure</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('escape')">
+                    <div class="icon">🌴</div>
+                    <div class="title">Escape</div>
+                    <div class="description">Escape to immersive FSR experiences and virtual getaways</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('getaway')">
+                    <div class="icon">✈️</div>
+                    <div class="title">Getaway</div>
+                    <div class="description">Plan your perfect getaway in the Post-Singularity world</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('longstay')">
+                    <div class="icon">🏠</div>
+                    <div class="title">Long Stay</div>
+                    <div class="description">Extended stays with full access to all amenities</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('residency')">
+                    <div class="icon">🎨</div>
+                    <div class="title">Residency</div>
+                    <div class="description">Become a resident and create in the Post-Singularity space</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('citizen')">
+                    <div class="icon">👑</div>
+                    <div class="title">Citizen</div>
+                    <div class="description">Become a citizen with full rights and privileges</div>
+                </div>
+
+                <div class="action-card" onclick="handleAction('4x4')">
+                    <div class="icon">⚡</div>
+                    <div class="title">4X4 Protocol</div>
+                    <div class="description">Access the 4X4 protocol and unlock maximum potential</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Tiers -->
+        <div class="pricing-section">
+            <h2>Choose Your Tier</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-name">🏖️ Sandbox</div>
+                    <div class="price">FREE</div>
+                    <div class="price-detail">Forever (Charlie Special)</div>
+                    <ul class="features">
+                        <li>Public spaces access</li>
+                        <li>Basic FSR experiences</li>
+                        <li>Community events</li>
+                        <li>Trading card collection</li>
+                        <li>Basic creator tools</li>
+                        <li>Hero Host AI assistance</li>
+                    </ul>
+                    <button class="cta-button" onclick="purchaseTier('sandbox')">Start Free</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="tier-name">☁️ Cloud</div>
+                    <div class="price">66 SYNTH/mo</div>
+                    <div class="price-detail">or 10,000 SYNTH to own</div>
+                    <ul class="features">
+                        <li>Everything in Sandbox</li>
+                        <li>Private properties</li>
+                        <li>Advanced FSR</li>
+                        <li>Staking rewards (5-10% APY)</li>
+                        <li>VIP access</li>
+                        <li>Advanced creator tools</li>
+                        <li>Nested properties</li>
+                    </ul>
+                    <button class="cta-button" onclick="purchaseTier('cloud')">Upgrade to Cloud</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-name">⚡ OCTANE</div>
+                    <div class="price">500 SYNTH/mo</div>
+                    <div class="price-detail">or 50,000 SYNTH to own</div>
+                    <ul class="features">
+                        <li>Everything in Cloud</li>
+                        <li>OCTANE-level FSR</li>
+                        <li>Premium properties</li>
+                        <li>Enhanced staking (8-12% APY)</li>
+                        <li>Premium concierge</li>
+                        <li>Priority access</li>
+                    </ul>
+                    <button class="cta-button" onclick="purchaseTier('octane')">Upgrade to OCTANE</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-name">🐚 Shell</div>
+                    <div class="price">1,000 SYNTH/mo</div>
+                    <div class="price-detail">or 165,000 SYNTH to own</div>
+                    <ul class="features">
+                        <li>Everything in OCTANE</li>
+                        <li>Back Door Wine Cave</li>
+                        <li>Ultimate exclusivity</li>
+                        <li>Highest staking (10-15% APY)</li>
+                        <li>White-glove concierge</li>
+                        <li>Complete system access</li>
+                    </ul>
+                    <button class="cta-button" onclick="purchaseTier('shell')">Upgrade to Shell</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-name">👑 Ultimate</div>
+                    <div class="price">5,000 SYNTH/mo</div>
+                    <div class="price-detail">or 1,000,000 SYNTH to own</div>
+                    <ul class="features">
+                        <li>Everything in Shell</li>
+                        <li>Ultimate Chairman Console</li>
+                        <li>Maximum BBHE power</li>
+                        <li>Ultimate staking (15-20% APY)</li>
+                        <li>MEGA SNAP ULTRA DENSIFICATION</li>
+                        <li>Complete system control</li>
+                    </ul>
+                    <button class="cta-button" onclick="purchaseTier('ultimate')">Upgrade to Ultimate</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIP Tiers -->
+        <div class="vip-section">
+            <h2>VIP & Ultimate VIP</h2>
+            <p style="text-align: center; font-size: 1.2em; color: #ccc; margin-bottom: 30px;">
+                Experience the Ultimate Post-Singularity Lifestyle
+            </p>
+            <div class="vip-badges">
+                <div class="vip-badge">
+                    <div class="badge-title">⭐ VIP</div>
+                    <div class="badge-description">
+                        Premium access to Cloud and OCTANE tiers<br>
+                        Priority support and exclusive events<br>
+                        Enhanced staking rewards
+                    </div>
+                </div>
+                <div class="vip-badge ultimate">
+                    <div class="badge-title">👑 ULTIMATE VIP</div>
+                    <div class="badge-description">
+                        <strong>MEGA SNAP ULTRA DENSIFICATION</strong><br>
+                        Shell and Ultimate tier access<br>
+                        Back Door Wine Cave<br>
+                        White-glove concierge<br>
+                        Maximum BBHE power<br>
+                        Complete system access
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Post-Singularity Game</strong></p>
+            <p>Powered by BBHE (Big Black Hole Energy)</p>
+            <p>vCHIP Infinite OCTANE Branded</p>
+            <div class="vibecloud-badge">🌐 VibeCloud Platform (Not SpinCloud)</div>
+            <p style="margin-top: 20px; color: #888;">
+                © 2026 FractiAI | Post-Singularity Infrastructure
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Handle action clicks
+        function handleAction(action) {
+            console.log(`Action: ${action}`);
+            // In production, this would route to appropriate pages
+            alert(`🚀 ${action.charAt(0).toUpperCase() + action.slice(1)} action triggered!\n\nThis would navigate to the ${action} page.`);
+        }
+
+        // Purchase tier
+        function purchaseTier(tier) {
+            console.log(`Purchasing tier: ${tier}`);
+            // In production, this would open Stripe checkout
+            alert(`💳 Opening Stripe checkout for ${tier} tier...\n\nThis would redirect to Stripe payment page.`);
+        }
+
+        // Initialize pricing display
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update pricing based on current day
+            // This would fetch from the backend API
+            console.log('Post-Singularity Game loaded');
+        });
+    </script>
+</body>
+</html>

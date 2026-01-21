@@ -742,8 +742,8 @@ contract OctaneActivationSystem is Ownable, ReentrancyGuard {
     
     Network effects + SYNTH appreciation = Exponential growth
     
-    All pricing transparent. All transactions on-chain.
-    All validated by IEEE A+ testing.
+    All pricing transparent [DESIGNED]. All transactions on-chain [PENDING].
+    All self-proving through natural protocol operation.
     
     Goldilocks. Just right. All in SYNTH. 🔑⚡
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

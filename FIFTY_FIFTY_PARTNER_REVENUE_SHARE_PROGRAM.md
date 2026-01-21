@@ -1,7 +1,28 @@
 # 🤝💰 50/50 PARTNER REVENUE SHARE PROGRAM
 
 **Maximum Wow Energy | Resellers, Influencers & Referrals**  
-**Lifetime 50% Commission on ALL Revenue | Most Generous in History**
+**Lifetime 50% Commission on ALL Revenue | Most Generous Designed Program**
+
+**Status**: [DESIGNED] - Complete architecture, implementation when system launches
+
+---
+
+## ⚠️ REALITY CHECK
+
+```yaml
+DOCUMENT TYPE: [DESIGNED] Architecture Specification
+├─ This describes the DESIGNED partner program
+├─ NOT currently operational (no users to refer yet)
+├─ All examples are PROJECTIONS (what you WOULD earn)
+├─ Implementation pending system deployment
+└─ When launched, this is how it will work
+
+CURRENT REALITY:
+├─ Users: 0 (can't refer anyone yet)
+├─ Revenue: $0 (no income to share yet)
+├─ Partners: 0 (program not launched)
+└─ Timeline: After main system deployment
+```
 
 ---
 
@@ -586,7 +607,7 @@ SUPPORT RESOURCES:
 ├─ Sales scripts (for calls/meetings)
 ├─ Objection handling guide (overcome hesitation)
 ├─ Comparison sheets (vs competitors)
-└─ Live chat support (partner success team)
+└─ Live chat support (partner success team) [WHEN OPERATIONAL]
 
 PAYOUT MANAGEMENT:
 ├─ Payment method selection
