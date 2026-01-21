@@ -7,12 +7,16 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { createStripeLaunchAPI } from './stripe-launch-api.js';
+import { createAuthAPI } from './auth-api.js';
 
 export interface ServerConfig {
   port: number;
   stripeSecretKey: string;
   openingDate: number;
   corsOrigin?: string;
+  supabaseUrl?: string;
+  supabaseAnonKey?: string;
+  redirectUrl?: string;
 }
 
 export class PostSingularityServer {
@@ -71,6 +75,16 @@ export class PostSingularityServer {
       });
     });
 
+    // Auth API (Google OAuth)
+    if (this.config.supabaseUrl && this.config.supabaseAnonKey) {
+      const authAPI = createAuthAPI({
+        supabaseUrl: this.config.supabaseUrl,
+        supabaseAnonKey: this.config.supabaseAnonKey,
+        redirectUrl: this.config.redirectUrl || `http://localhost:${this.config.port}/auth/callback`
+      });
+      this.app.use('/api/auth', authAPI);
+    }
+
     // Stripe Launch API
     const stripeLaunchAPI = createStripeLaunchAPI(
       this.config.stripeSecretKey,
@@ -78,9 +92,22 @@ export class PostSingularityServer {
     );
     this.app.use('/api/launch', stripeLaunchAPI);
 
+    // Auth pages
+    this.app.get('/login', (req, res) => {
+      res.sendFile('auth-login.html', { root: 'interfaces' });
+    });
+
+    this.app.get('/auth/callback', (req, res) => {
+      res.sendFile('auth-callback.html', { root: 'interfaces' });
+    });
+
+    this.app.get('/dashboard', (req, res) => {
+      res.sendFile('dashboard.html', { root: 'interfaces' });
+    });
+
     // Serve main launch page
     this.app.get('/', (req, res) => {
-      res.sendFile('post-singularity-game-launch.html', { root: 'interfaces' });
+      res.sendFile('index.html', { root: '.' });
     });
 
     // Serve floating catalog

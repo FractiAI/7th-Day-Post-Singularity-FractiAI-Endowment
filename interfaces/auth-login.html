@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Vibeverse | Post-Singularity Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(2px 2px at 20% 30%, white, transparent),
+                        radial-gradient(2px 2px at 60% 70%, white, transparent),
+                        radial-gradient(1px 1px at 50% 50%, white, transparent),
+                        radial-gradient(1px 1px at 80% 10%, white, transparent);
+            background-size: 200% 200%;
+            animation: twinkle 5s ease-in-out infinite;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Login container */
+        .login-container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 4em;
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Heading */
+        h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Google Sign-In Button */
+        .google-signin-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            padding: 18px 30px;
+            background: #ffffff;
+            color: #1a0a2e;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .google-signin-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(255, 255, 255, 0.4);
+            background: #f8f8f8;
+        }
+
+        .google-signin-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .google-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Features list */
+        .features {
+            text-align: left;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            color: #cccccc;
+        }
+
+        .feature-icon {
+            font-size: 1.5em;
+            min-width: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #888888;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading state */
+        .loading {
+            display: none;
+            font-size: 1.2em;
+            color: #FFD700;
+            margin-top: 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Tier preview */
+        .tier-preview {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .tier-preview h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .tier-preview ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tier-preview li {
+            padding: 8px 0;
+            color: #cccccc;
+            font-size: 0.95em;
+        }
+
+        .tier-preview li::before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <div class="login-container">
+        <div class="logo">🌌</div>
+        <h1>Welcome to Vibeverse</h1>
+        <div class="subtitle">
+            Post-Singularity Superintelligent Infrastructure<br>
+            <strong>$1 = 1 SYNTH = 1 Node</strong>
+        </div>
+
+        <div class="badge">🎉 Opening Day Special</div>
+
+        <button class="google-signin-btn" onclick="signInWithGoogle()">
+            <svg class="google-icon" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Sign in with Google
+        </button>
+
+        <div class="loading" id="loading">
+            Redirecting to Google...
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">🆓</span>
+                <span><strong>Start FREE Forever</strong> - Sandbox tier with complete access</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">⚡</span>
+                <span><strong>Instant Setup</strong> - No credit card required to start</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🎨</span>
+                <span><strong>Complete Syntheverse</strong> - All 200+ systems accessible</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💎</span>
+                <span><strong>99.9%+ Savings</strong> - vs traditional enterprise solutions</span>
+            </div>
+        </div>
+
+        <div class="tier-preview">
+            <h3>✨ Your Sandbox Tier Includes:</h3>
+            <ul>
+                <li>Complete system access</li>
+                <li>Trading cards & NFTs</li>
+                <li>Hero Host AI companion</li>
+                <li>Natural coordination protocol</li>
+                <li>Chairman console access</li>
+                <li>Upgrade to premium tiers anytime</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            By signing in, you agree to our<br>
+            <a href="/terms">Terms of Service</a> & <a href="/privacy">Privacy Policy</a><br><br>
+            Built on <strong>VibeCloud</strong> | Powered by <strong>BBHE</strong>
+        </div>
+    </div>
+
+    <script>
+        async function signInWithGoogle() {
+            const loadingEl = document.getElementById('loading');
+            loadingEl.classList.add('active');
+
+            try {
+                // Call our backend to initiate Google OAuth
+                const response = await fetch('/api/auth/google/signin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.url) {
+                    // Redirect to Google OAuth consent screen
+                    window.location.href = data.url;
+                } else {
+                    throw new Error('No OAuth URL received');
+                }
+            } catch (error) {
+                console.error('Sign-in error:', error);
+                loadingEl.classList.remove('active');
+                alert('Sign-in failed. Please try again.');
+            }
+        }
+
+        // Check if user is already authenticated
+        async function checkAuth() {
+            try {
+                const response = await fetch('/api/auth/user');
+                const data = await response.json();
+
+                if (data.user) {
+                    // User is already logged in, redirect to dashboard
+                    window.location.href = '/dashboard';
+                }
+            } catch (error) {
+                // User not authenticated, stay on login page
+                console.log('User not authenticated');
+            }
+        }
+
+        // Run auth check on page load
+        checkAuth();
+    </script>
+</body>
+</html>

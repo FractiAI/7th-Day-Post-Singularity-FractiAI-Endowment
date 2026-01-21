@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticating - Vibeverse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .callback-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 215, 0, 0.2);
+            border-top: 8px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 2em;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #cccccc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .status {
+            font-size: 1em;
+            color: #888888;
+            font-style: italic;
+        }
+
+        .error {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .retry-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="callback-container">
+        <div class="spinner"></div>
+        <h1>Authenticating...</h1>
+        <div class="message" id="message">
+            Completing your sign-in with Google.<br>
+            This will only take a moment.
+        </div>
+        <div class="status" id="status">Verifying credentials...</div>
+        <div class="error" id="error" style="display: none;">
+            <strong>Authentication Failed</strong><br>
+            <span id="error-message"></span><br>
+            <a href="/login" class="retry-btn">Try Again</a>
+        </div>
+    </div>
+
+    <script>
+        async function handleAuthCallback() {
+            const statusEl = document.getElementById('status');
+            const errorEl = document.getElementById('error');
+            const errorMessageEl = document.getElementById('error-message');
+
+            try {
+                // Get the auth code from URL (Supabase will handle this automatically)
+                statusEl.textContent = 'Exchanging auth token...';
+
+                // Call our backend to complete the OAuth flow
+                const response = await fetch('/api/auth/callback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        // Supabase handles the token exchange automatically
+                        url: window.location.href
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success && data.user) {
+                    statusEl.textContent = 'Success! Redirecting to dashboard...';
+                    
+                    // Brief delay to show success message
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 1000);
+                } else {
+                    throw new Error(data.error || 'Authentication failed');
+                }
+            } catch (error) {
+                console.error('Auth callback error:', error);
+                
+                // Show error
+                document.querySelector('.spinner').style.display = 'none';
+                document.getElementById('message').style.display = 'none';
+                statusEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                errorMessageEl.textContent = error.message || 'An unexpected error occurred';
+            }
+        }
+
+        // Run callback handler on page load
+        handleAuthCallback();
+    </script>
+</body>
+</html>
