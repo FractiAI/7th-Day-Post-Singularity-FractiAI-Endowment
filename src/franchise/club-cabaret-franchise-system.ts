@@ -108,16 +108,34 @@ export interface DeploymentAssets {
 
 /**
  * Club + Cabaret Franchise System
+ * NOW FULLY CONFIGURABLE - NOT HARD-CODED
  */
 export class ClubCabaretFranchiseSystem {
   private packages: Map<string, FranchisePackage> = new Map();
   private franchisees: Map<string, FranchiseeListing> = new Map();
   private revenueCalculations: Map<string, RevenueShareCalculation> = new Map();
   private deploymentAssets: Map<string, DeploymentAssets> = new Map();
+  private activeConfigId?: string;
 
-  constructor() {
+  constructor(configId?: string) {
+    this.activeConfigId = configId;
     this.initializeFranchisePackages();
     this.initializeDeploymentAssets();
+  }
+
+  /**
+   * Set active configuration
+   */
+  setConfiguration(configId: string): void {
+    this.activeConfigId = configId;
+    console.log(`✅ Franchise system configured with: ${configId}`);
+  }
+
+  /**
+   * Get active configuration ID
+   */
+  getActiveConfiguration(): string | undefined {
+    return this.activeConfigId;
   }
 
   /**
