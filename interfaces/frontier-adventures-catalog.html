@@ -316,9 +316,22 @@
         <h1>🦅 FRONTIER ADVENTURES CATALOG 🎣</h1>
         <p class="subtitle">Ultimate Hunting & Fishing Expeditions | Five-Tier Frontier Experiences</p>
         <p style="margin-top: 1rem; font-size: 1.2rem; color: #d4af37;">
-            <strong>17 World-Class Adventures</strong> | From Desert Quail to African Big Five
+            <strong>18 World-Class Adventures</strong> | From Desert Quail to African Big Five
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 1rem; color: #8b7355; font-style: italic;">
+            NEW: Alaska King Salmon & Halibut - Fly-In 5-Star Lodge 🐟
         </p>
         <p style="margin-top: 0.5rem; color: #b8956a;">Available at Man Cave Reception | Check Magazine at Cabaret | Back Door Wine Cave Whale Deals</p>
+        
+        <!-- SYNTH Pricing Notice -->
+        <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.1)); border: 2px solid #d4af37; border-radius: 12px;">
+            <p style="font-size: 1.2rem; color: #ffd700; font-weight: bold; margin-bottom: 0.5rem; text-align: center;">
+                💰 ALL ADVENTURES: PAY WITH USD OR SYNTH
+            </p>
+            <p style="font-size: 1rem; color: #d4af37; text-align: center; margin: 0;">
+                1 SYNTH = $1 USD | SYNTH payments earn 10-30% back (tier-based) | Internal currency only
+            </p>
+        </div>
     </div>
 
     <div class="catalog-container">
@@ -355,10 +368,15 @@
                     </div>
                     <div class="tier-options">
                         <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
-                        <div class="tier-button guest">🎫 GUEST<br>$4,500</div>
-                        <div class="tier-button member">🏛️ MEMBER<br>$4,050 (10% off)</div>
-                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,375 (25% off)</div>
-                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,250 (50% off)</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$4,500 or 4,500 SYNTH</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$4,050 or 4,050 SYNTH (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$3,375 or 3,375 SYNTH (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$2,250 or 2,250 SYNTH (50% off)</div>
+                    </div>
+                    <div style="text-align: center; margin: 1rem 0; padding: 0.8rem; background: rgba(212, 175, 55, 0.2); border-radius: 8px; border: 1px solid #d4af37;">
+                        <p style="font-size: 0.95rem; color: #d4af37; margin: 0;">
+                            💰 <strong>Pay with USD or SYNTH</strong> (1:1 value) | SYNTH holders earn 10-30% back
+                        </p>
                     </div>
                     <div class="action-buttons">
                         <button class="action-btn book-now" onclick="bookAdventure('arizona-quail')">📅 BOOK NOW</button>
@@ -668,6 +686,56 @@
                     <div class="action-buttons">
                         <button class="action-btn book-now" onclick="bookAdventure('colombia-tarpon')">📅 BOOK NOW</button>
                         <button class="action-btn learn-more" onclick="learnMore('colombia-tarpon')">📖 LEARN MORE</button>
+                        <button class="action-btn" style="background: linear-gradient(135deg, #c8a2d0, #9a7bc8);" onclick="selectCompanion('colombia-tarpon')">🌟 + Add Companion</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alaska King Salmon & Halibut Trophy Fishing -->
+        <div class="adventure-card">
+            <div class="adventure-layout">
+                <div class="adventure-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22><rect fill=%22%233a5a7a%22 width=%22400%22 height=%22300%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2236%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dy=%22.3em%22>🐟 ALASKA KINGS</text></svg>');">
+                    <div class="adventure-badge">⭐ FRONTIER</div>
+                </div>
+                <div class="adventure-details">
+                    <div class="adventure-title">Alaska King Salmon & Halibut - Fly-In 5-Star Lodge</div>
+                    <div class="adventure-location">📍 Bristol Bay Region, Remote Alaska</div>
+                    <div class="adventure-description">
+                        Fly by floatplane to a luxury wilderness lodge on pristine Alaskan waters. Fish for trophy 
+                        king salmon (30-60 lbs) and giant halibut (100-300 lbs barn doors). These are bucket-list 
+                        fish in the world's most spectacular setting. The lodge offers gourmet dining, private cabins 
+                        with river views, spa services, and Alaskan hospitality at its finest. Guide-to-angler ratio 
+                        of 1:2. This is Alaska fishing the way it should be done—remote, luxurious, and unforgettable.
+                    </div>
+                    <div class="adventure-features">
+                        <h4>🎯 What's Included:</h4>
+                        <ul>
+                            <li>7 days/6 nights in 5-star wilderness lodge</li>
+                            <li>Roundtrip floatplane from Anchorage (scenic flight)</li>
+                            <li>6 full days guided fishing (1:2 guide ratio)</li>
+                            <li>Target: King salmon, halibut, silver salmon, rockfish</li>
+                            <li>All premium tackle, gear & flies provided</li>
+                            <li>Luxury private cabin with river/ocean views</li>
+                            <li>Gourmet meals daily (fresh-caught salmon featured)</li>
+                            <li>Open bar with Alaskan craft beers & spirits</li>
+                            <li>Spa services (hot tub, sauna, massage available)</li>
+                            <li>Wildlife viewing (bears, eagles, whales)</li>
+                            <li>Fish processing & shipping (take your catch home)</li>
+                            <li>Photography service & trophy shots</li>
+                        </ul>
+                    </div>
+                    <div class="tier-options">
+                        <div class="tier-button visitor">🌐 VISITOR<br>Preview Only</div>
+                        <div class="tier-button guest">🎫 GUEST<br>$8,500</div>
+                        <div class="tier-button member">🏛️ MEMBER<br>$7,650 (10% off)</div>
+                        <div class="tier-button backstage">🎭 BACKSTAGE<br>$6,375 (25% off)</div>
+                        <div class="tier-button ultimate">👑 ULTIMATE VIP<br>$4,250 (50% off)</div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn book-now" onclick="bookAdventure('alaska-kings')">📅 BOOK NOW</button>
+                        <button class="action-btn learn-more" onclick="learnMore('alaska-kings')">📖 LEARN MORE</button>
+                        <button class="action-btn" style="background: linear-gradient(135deg, #c8a2d0, #9a7bc8);" onclick="selectCompanion('alaska-kings')">🌟 + Add Companion</button>
                     </div>
                 </div>
             </div>
@@ -1231,8 +1299,11 @@
 
                     <h3 style="color: #d4af37; margin: 2rem 0 1rem 0;">🌊 SALTWATER FISHING</h3>
                     <ul style="list-style: none; line-height: 2;">
-                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('keys-bonefish')">
-                            🐟 Florida Keys Bonefishing - $3,200
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('alaska-kings')">
+                            🐟 Alaska King Salmon & Halibut - $8,500 (5-Star Lodge)
+                        </li>
+                        <li style="padding: 0.5rem; cursor: pointer;" onclick="scrollToAdventure('keys-yacht-club')">
+                            🐟 Florida Keys Tropical Yacht Club - $4,200
                         </li>
                     </ul>
 
@@ -1250,15 +1321,15 @@
 
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #8b5a2b; text-align: center;">
                 <p style="font-size: 1.3rem; color: #d4af37; margin-bottom: 1rem;">
-                    <strong>TOTAL CATALOG VALUE: $310,000+</strong>
+                    <strong>TOTAL CATALOG VALUE: $318,500+</strong>
                 </p>
                 <p style="font-size: 1.1rem; color: #b8956a; margin-bottom: 1rem;">
-                    Ultimate VIP members: Access ALL 17 adventures for 50% off base ($155,000)
+                    Ultimate VIP members: Access ALL 18 adventures for 50% off base ($159,250)
                     <br>
-                    Book all 17 → Get 40% whale deal discount ($93,000) + FREE yacht upgrade ($25K value)
+                    Book all 18 → Get 40% whale deal discount ($95,500) + FREE yacht upgrade ($25K value)
                 </p>
                 <p style="font-size: 1.4rem; color: #d4af37; margin-top: 2rem;">
-                    <strong>🐋 ULTIMATE WHALE DEAL: $93,000 for ALL 17 adventures + FREE yacht</strong>
+                    <strong>🐋 ULTIMATE WHALE DEAL: $95,500 for ALL 18 adventures + FREE yacht</strong>
                     <br>
                     <span style="font-size: 1rem; color: #b8956a;">(70% off total + $25K yacht bonus = $242,000 in savings!)</span>
                 </p>
