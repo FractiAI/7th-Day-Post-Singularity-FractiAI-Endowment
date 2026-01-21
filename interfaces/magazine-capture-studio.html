@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Star Magazine Experience Capture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 3px solid #D4AF37;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #D4AF37;
+            font-style: italic;
+        }
+
+        /* Edition Selector */
+        .edition-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .edition-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 3px solid #D4AF37;
+            border-radius: 20px;
+            padding: 30px;
+            min-width: 250px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .edition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .edition-card.selected {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(255, 215, 0, 0.3));
+            border-color: #FFD700;
+        }
+
+        .edition-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .edition-card .name {
+            font-size: 1.5em;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .edition-card .description {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Experience Capture Form */
+        .capture-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(212, 175, 55, 0.5);
+            border-radius: 30px;
+            padding: 40px;
+        }
+
+        .capture-form h2 {
+            color: #D4AF37;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #D4AF37;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1.1em;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 10px;
+            font-size: 2em;
+        }
+
+        .rating-stars .star {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rating-stars .star:hover,
+        .rating-stars .star.selected {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+
+        .photo-upload {
+            border: 3px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .photo-upload:hover {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .photo-upload .icon {
+            font-size: 4em;
+            color: #D4AF37;
+            margin-bottom: 15px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Magazine Preview */
+        .magazine-preview {
+            position: sticky;
+            top: 20px;
+        }
+
+        .preview-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #D4AF37;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .preview-card h3 {
+            color: #FFD700;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .preview-cover {
+            background: linear-gradient(135deg, #2d1810 0%, #1a1a1a 100%);
+            border: 2px solid #D4AF37;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .preview-cover .magazine-icon {
+            font-size: 5em;
+            margin-bottom: 15px;
+        }
+
+        .preview-cover .title {
+            color: #FFD700;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .preview-cover .edition {
+            color: #D4AF37;
+            font-size: 1.1em;
+        }
+
+        .preview-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-item .value {
+            color: #FFD700;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .stat-item .label {
+            color: #cccccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* Companion Exclusive Section */
+        .companion-section {
+            background: rgba(139, 0, 139, 0.2);
+            border: 3px solid rgba(255, 105, 180, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .companion-section h3 {
+            color: #FF69B4;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .companion-section .description {
+            color: #FFB6C1;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hostess-offer-button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #FF1493 0%, #FF69B4 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hostess-offer-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Templates */
+        .templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .template-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+            transform: translateY(-3px);
+        }
+
+        .template-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .template-card .name {
+            color: #FFD700;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>📖 5-Star Magazine Experience Capture</h1>
+        <div class="subtitle">Document Your Adventures • Create Lasting Memories</div>
+    </div>
+
+    <!-- Edition Selector -->
+    <div class="edition-selector">
+        <div class="edition-card" onclick="selectEdition('public')">
+            <div class="icon">📖</div>
+            <div class="name">Public Edition</div>
+            <div class="description">Share your adventures with the world</div>
+        </div>
+
+        <div class="edition-card" onclick="selectEdition('members-only')">
+            <div class="icon">🎫</div>
+            <div class="name">Members Only</div>
+            <div class="description">Exclusive content for members</div>
+        </div>
+
+        <div class="edition-card" onclick="selectEdition('private')">
+            <div class="icon">🔒</div>
+            <div class="name">Private Collection</div>
+            <div class="description">Your personal archive</div>
+        </div>
+
+        <div class="edition-card selected" onclick="selectEdition('companion-exclusive')">
+            <div class="icon">💝</div>
+            <div class="name">Companion Exclusive</div>
+            <div class="description">For hostesses to offer guests</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Capture Form -->
+        <div class="capture-form">
+            <h2>Capture Your Experience</h2>
+
+            <!-- Experience Templates -->
+            <div class="form-group">
+                <label>Choose Template (Optional)</label>
+                <div class="templates">
+                    <div class="template-card" onclick="useTemplate('safari')">
+                        <div class="icon">🦁</div>
+                        <div class="name">Safari</div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('yacht')">
+                        <div class="icon">🛥️</div>
+                        <div class="name">Yacht</div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('escape')">
+                        <div class="icon">🏝️</div>
+                        <div class="name">Escape</div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('adventure')">
+                        <div class="icon">⛰️</div>
+                        <div class="name">Adventure</div>
+                    </div>
+                    <div class="template-card" onclick="useTemplate('romantic')">
+                        <div class="icon">💑</div>
+                        <div class="name">Romantic</div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="captureForm" onsubmit="captureExperience(event)">
+                <!-- Experience Type -->
+                <div class="form-group">
+                    <label>Experience Type</label>
+                    <select id="experienceType" required>
+                        <option value="">Select type...</option>
+                        <option value="escape">Escape</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="getaway">Getaway</option>
+                        <option value="safari">Safari</option>
+                        <option value="yacht">Yacht</option>
+                        <option value="fishing">Fishing</option>
+                        <option value="hunting">Hunting</option>
+                        <option value="diving">Diving</option>
+                        <option value="luxury-travel">Luxury Travel</option>
+                        <option value="wine-tasting">Wine Tasting</option>
+                        <option value="dining">Fine Dining</option>
+                        <option value="romantic">Romantic</option>
+                    </select>
+                </div>
+
+                <!-- Title -->
+                <div class="form-group">
+                    <label>Experience Title</label>
+                    <input type="text" id="title" placeholder="E.g., 'African Safari Adventure'" required>
+                </div>
+
+                <!-- Subtitle -->
+                <div class="form-group">
+                    <label>Subtitle (Optional)</label>
+                    <input type="text" id="subtitle" placeholder="E.g., 'A Week in the Serengeti'">
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="location" placeholder="E.g., 'Serengeti National Park, Tanzania'" required>
+                </div>
+
+                <!-- Date & Duration -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" id="duration" placeholder="E.g., '7 days'" required>
+                    </div>
+                </div>
+
+                <!-- Story -->
+                <div class="form-group">
+                    <label>Your Story</label>
+                    <textarea id="story" placeholder="Tell the story of this amazing experience..." required></textarea>
+                </div>
+
+                <!-- Highlights -->
+                <div class="form-group">
+                    <label>Experience Highlights (one per line)</label>
+                    <textarea id="highlights" placeholder="• Saw the Big Five&#10;• Stayed in luxury tented camp&#10;• Sunrise game drive&#10;• Bush dinner under stars"></textarea>
+                </div>
+
+                <!-- Photos -->
+                <div class="form-group">
+                    <label>Photos</label>
+                    <div class="photo-upload">
+                        <div class="icon">📸</div>
+                        <div>Click to upload photos</div>
+                        <div style="color: #999; margin-top: 10px;">Maximum 20 photos</div>
+                    </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="form-group">
+                    <label>Overall Rating</label>
+                    <div class="rating-stars" id="rating">
+                        <span class="star" onclick="setRating(1)">⭐</span>
+                        <span class="star" onclick="setRating(2)">⭐</span>
+                        <span class="star" onclick="setRating(3)">⭐</span>
+                        <span class="star" onclick="setRating(4)">⭐</span>
+                        <span class="star" onclick="setRating(5)">⭐</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">📸 Capture Experience</button>
+            </form>
+        </div>
+
+        <!-- Magazine Preview -->
+        <div class="magazine-preview">
+            <div class="preview-card">
+                <h3>Magazine Preview</h3>
+                
+                <div class="preview-cover">
+                    <div class="magazine-icon">📖</div>
+                    <div class="title" id="previewTitle">Your Magazine</div>
+                    <div class="edition" id="previewEdition">COMPANION EXCLUSIVE</div>
+                </div>
+
+                <div class="preview-stats">
+                    <div class="stat-item">
+                        <div class="value" id="captureCount">0</div>
+                        <div class="label">Captures</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">5⭐</div>
+                        <div class="label">Avg Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">12</div>
+                        <div class="label">Locations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value">Vol. 1</div>
+                        <div class="label">Issue 1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Companion Exclusive Section -->
+            <div class="companion-section">
+                <h3>💝 For Hostesses</h3>
+                <div class="description">
+                    Create exclusive magazine editions to offer your special guests. 
+                    Share memorable experiences in a beautiful, personalized format.
+                </div>
+                <button class="hostess-offer-button" onclick="openHostessPanel()">
+                    Offer to Guest
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedEdition = 'companion-exclusive';
+        let selectedRating = 5;
+
+        function selectEdition(edition) {
+            selectedEdition = edition;
+            
+            // Update UI
+            document.querySelectorAll('.edition-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.target.closest('.edition-card').classList.add('selected');
+
+            // Update preview
+            const editionNames = {
+                'public': 'PUBLIC EDITION',
+                'members-only': 'MEMBERS ONLY',
+                'private': 'PRIVATE COLLECTION',
+                'companion-exclusive': 'COMPANION EXCLUSIVE'
+            };
+            document.getElementById('previewEdition').textContent = editionNames[edition];
+        }
+
+        function useTemplate(template) {
+            const templates = {
+                safari: {
+                    type: 'safari',
+                    title: 'Wild Encounters',
+                    highlights: '• Big Five sighting\n• Luxury tented camp\n• Sunrise game drive\n• Bush dinner under stars\n• Professional photography'
+                },
+                yacht: {
+                    type: 'yacht',
+                    title: 'Blue Water Dreams',
+                    highlights: '• Private yacht charter\n• Island hopping\n• Water sports\n• Gourmet dining onboard\n• Sunset cocktails'
+                },
+                escape: {
+                    type: 'escape',
+                    title: 'Hidden Paradise',
+                    highlights: '• Secluded location\n• 5-star accommodations\n• Spa treatments\n• Fine dining\n• Complete privacy'
+                },
+                adventure: {
+                    type: 'adventure',
+                    title: 'Adrenaline Rush',
+                    highlights: '• Thrilling activities\n• Expert guides\n• Safety first\n• Memorable moments\n• Story-worthy experiences'
+                },
+                romantic: {
+                    type: 'romantic',
+                    title: 'Romantic Getaway',
+                    highlights: '• Intimate setting\n• Private dining\n• Couples activities\n• Luxurious accommodations\n• Unforgettable memories'
+                }
+            };
+
+            const t = templates[template];
+            document.getElementById('experienceType').value = t.type;
+            document.getElementById('title').value = t.title;
+            document.getElementById('highlights').value = t.highlights;
+        }
+
+        function setRating(rating) {
+            selectedRating = rating;
+            const stars = document.querySelectorAll('.rating-stars .star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+        }
+
+        async function captureExperience(event) {
+            event.preventDefault();
+
+            const formData = {
+                type: document.getElementById('experienceType').value,
+                title: document.getElementById('title').value,
+                subtitle: document.getElementById('subtitle').value,
+                location: document.getElementById('location').value,
+                date: document.getElementById('date').value,
+                duration: document.getElementById('duration').value,
+                story: document.getElementById('story').value,
+                highlights: document.getElementById('highlights').value.split('\n').filter(h => h.trim()),
+                rating: selectedRating,
+                edition: selectedEdition
+            };
+
+            try {
+                // API call would go here
+                console.log('Capturing experience:', formData);
+                
+                alert(`✅ Experience captured successfully!\n\nTitle: ${formData.title}\nEdition: ${selectedEdition}\nRating: ${selectedRating} stars\n\nYour magazine is being created...`);
+                
+                // Reset form
+                document.getElementById('captureForm').reset();
+                
+            } catch (error) {
+                console.error('Capture error:', error);
+                alert('Experience captured! Check your magazine collection.');
+            }
+        }
+
+        function openHostessPanel() {
+            alert('💝 Hostess Panel\n\nCreate personalized magazine offerings for your guests.\n\n• Select experiences to include\n• Add personal message\n• Send to guest\n• Track acceptance\n\nFeature coming soon!');
+        }
+
+        // Set default rating
+        setRating(5);
+    </script>
+</body>
+</html>
