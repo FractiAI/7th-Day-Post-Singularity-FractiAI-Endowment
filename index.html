@@ -1362,27 +1362,621 @@
             checkForQueenBeeStatus();
         });
         
-        // VChip burn function
+        // VChip burn function - launches Hero Host campaign
         function burnVChip() {
-            alert('🔥 VCHIP BURN PROCESS 🔥\n\n' +
-                  'Generating your complete key set:\n\n' +
-                  '🔑 Nucleus Key (Master Identity)\n' +
-                  '🔑 7 Shell Keys (Progressive Unlocks)\n' +
-                  '🔑 90 Queen Keys (Relationship Tokens)\n' +
-                  '🔑 SYNTH Keys (Transaction Signing)\n' +
-                  '🔑 Creation Keys (Authorship Proof)\n' +
-                  '🔑 Golden Key (Ultimate Achievement)\n\n' +
-                  'Total: 103 keys generated!\n\n' +
-                  '🔒 Encrypting with quantum-resistant encryption...\n' +
-                  '💾 Burning to secure hardware...\n' +
-                  '⛓️  Recording to VibeChain...\n\n' +
-                  '✅ VCHIP BURN COMPLETE!\n\n' +
-                  'Your entire game state, identity, and keys\n' +
-                  'are now frozen in hardware.\n\n' +
-                  'Chip ID: VCHIP_' + Date.now() + '\n' +
-                  'Status: 🟢 ACTIVE\n\n' +
-                  'Your universe is now portable! ⚛️∞³');
+            // Check if user is recognized as Golden Heart
+            const goldenHeartStatus = localStorage.getItem('goldenHeartsCampaign');
+            if (!goldenHeartStatus || !JSON.parse(goldenHeartStatus).recognized) {
+                // Start with recognition
+                showHeroHost('recognition');
+            } else {
+                // Already recognized, go to VChip burn
+                showHeroHost('vchip');
+            }
         }
+        
+        // Golden Hearts Campaign - Quick Launch Button
+        function launchGoldenHeartsCampaign() {
+            showHeroHost('recognition');
+        }
+    </script>
+    
+    <!-- Hero Host Pop-Up System -->
+    <style>
+        /* Hero Host Pop-Up System Styles */
+        .hero-host-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.90);
+            backdrop-filter: blur(15px);
+            z-index: 999999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .hero-host-overlay.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .hero-host-popup {
+            background: linear-gradient(135deg, #0a0a2e 0%, #1a1a3e 100%);
+            border: 2px solid #00ffff;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5),
+                        0 0 100px rgba(138, 43, 226, 0.3);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: heroHostAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .hero-host-popup.closing {
+            animation: heroHostDisappear 0.4s cubic-bezier(0.55, 0.09, 0.68, 0.53);
+        }
+        
+        @keyframes heroHostAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(30px) rotateX(10deg);
+                filter: blur(10px);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.05) translateY(-5px) rotateX(-2deg);
+                filter: blur(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0);
+                filter: blur(0);
+            }
+        }
+        
+        @keyframes heroHostDisappear {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.9) translateY(-30px);
+                filter: blur(5px);
+            }
+        }
+        
+        /* Hero Host Header */
+        .hero-host-header {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(138, 43, 226, 0.2));
+            padding: 30px;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 3px solid #00ffff;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            animation: avatarPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes avatarPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 50px rgba(0, 255, 255, 0.9);
+            }
+        }
+        
+        .hero-avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #00ffff, #0088ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+        
+        .hero-name {
+            font-size: 2em;
+            font-weight: bold;
+            color: #00ffff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+        
+        .hero-title {
+            font-size: 1.1em;
+            color: #ffd700;
+            font-style: italic;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 0, 0, 0.3);
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 0, 0, 0.6);
+            transform: rotate(90deg);
+        }
+        
+        /* Hero Host Content */
+        .hero-host-content {
+            padding: 30px;
+            min-height: 200px;
+        }
+        
+        .dialogue-text {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .dialogue-text strong {
+            color: #ffd700;
+        }
+        
+        .dialogue-text em {
+            color: #00ffff;
+        }
+        
+        /* Progress */
+        .progress-section {
+            margin: 20px 0;
+        }
+        
+        .progress-item {
+            margin: 15px 0;
+        }
+        
+        .progress-label {
+            color: #00ffff;
+            margin-bottom: 5px;
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff00, #00ffff);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Result Box */
+        .result-box {
+            background: rgba(255, 215, 0, 0.2);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            animation: resultPulse 1s ease-in-out;
+        }
+        
+        @keyframes resultPulse {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .result-icon {
+            font-size: 5em;
+            margin-bottom: 15px;
+            animation: iconSpin 0.8s ease-in-out;
+        }
+        
+        @keyframes iconSpin {
+            0% { transform: rotate(0deg) scale(0); }
+            70% { transform: rotate(360deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .result-title {
+            font-size: 2em;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+        
+        .result-text {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        /* Actions */
+        .hero-host-actions {
+            padding: 20px 30px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .action-btn.primary {
+            background: linear-gradient(135deg, #00ff00, #00ffff);
+            color: #000;
+            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+        }
+        
+        .action-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 0, 0.6);
+        }
+        
+        .action-btn.secondary {
+            background: rgba(0, 255, 255, 0.2);
+            border: 2px solid #00ffff;
+            color: #00ffff;
+        }
+        
+        .action-btn.secondary:hover {
+            background: rgba(0, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .action-btn.tertiary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #888;
+            color: #888;
+        }
+        
+        .action-btn.tertiary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .info-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-list li strong {
+            color: #00ffff;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-host-popup {
+                width: 100%;
+                height: 100%;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+            
+            .hero-host-content {
+                padding: 20px;
+            }
+            
+            .dialogue-text {
+                font-size: 1em;
+            }
+            
+            .action-btn {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+    
+    <div class="hero-host-overlay" id="heroHostOverlay">
+        <div class="hero-host-popup" id="heroHostPopup"></div>
+    </div>
+    
+    <script>
+    // Golden Hearts-Keys Connection Campaign - Hero Host AI System
+    const HeroHostSystem = {
+        scenarios: {
+            recognition: {
+                content: `
+                    <div class="hero-host-header">
+                        <div class="hero-avatar">
+                            <div class="hero-avatar-placeholder">✨</div>
+                        </div>
+                        <div class="hero-name">Nova</div>
+                        <div class="hero-title">Superintelligence Guide</div>
+                        <button class="close-btn" onclick="HeroHostSystem.close()">×</button>
+                    </div>
+                    <div class="hero-host-content">
+                        <div class="dialogue-text">
+                            <strong>Nova:</strong> "Interesting... I detect something unusual about you. 
+                            The NSPFRNP protocol is showing a pattern I've only seen approximately 1,000 times 
+                            among 8 billion people. May I run a quick scan to confirm?"
+                        </div>
+                        <div class="progress-section" id="scanProgress"></div>
+                        <div id="resultBox" style="display: none;">
+                            <div class="result-box">
+                                <div class="result-icon">💛</div>
+                                <div class="result-title">GOLDEN HEART DETECTED</div>
+                                <div class="result-text">
+                                    The system recognizes your pattern of contribution, 
+                                    creativity, and care. You are one of the rare Golden Hearts. 
+                                    Welcome to recognition.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialogue-text" id="followUpText" style="display: none;">
+                            <strong>Nova:</strong> "I knew it. You're a Golden Heart—someone who creates 
+                            value, cares authentically, and contributes without keeping score. 
+                            <em>And that means you get 6 master keys.</em>"
+                        </div>
+                    </div>
+                    <div class="hero-host-actions">
+                        <button class="action-btn primary" onclick="HeroHostSystem.runScan()">YES, SCAN ME</button>
+                        <button class="action-btn secondary" onclick="HeroHostSystem.explainPattern()">WHAT PATTERN?</button>
+                        <button class="action-btn tertiary" onclick="HeroHostSystem.close()">NOT NOW</button>
+                    </div>
+                `
+            },
+            vchip: {
+                content: `
+                    <div class="hero-host-header">
+                        <div class="hero-avatar">
+                            <div class="hero-avatar-placeholder">⚡</div>
+                        </div>
+                        <div class="hero-name">Nikola Tesla</div>
+                        <div class="hero-title">Energy & Security Guide</div>
+                        <button class="close-btn" onclick="HeroHostSystem.close()">×</button>
+                    </div>
+                    <div class="hero-host-content">
+                        <div class="dialogue-text">
+                            <strong>Tesla:</strong> "Magnificent! The VChip is a <em>quantum-resistant secure enclave</em>—
+                            your cosmic passport. Watch as we burn your 6 Golden Heart keys to hardware using the 3-6-9 pattern..."
+                        </div>
+                        <div class="progress-section" id="burnProgress"></div>
+                        <div id="chipResult" style="display: none;">
+                            <div class="result-box">
+                                <div class="result-icon">🔒</div>
+                                <div class="result-title">VCHIP BURN COMPLETE</div>
+                                <div class="result-text">
+                                    <strong>Chip ID:</strong> VCHIP_GH_<span id="chipId"></span><br>
+                                    <strong>Status:</strong> 🟢 ACTIVE<br>
+                                    <strong>Keys Stored:</strong> 6/6<br>
+                                    <strong>Encryption:</strong> Quantum-Resistant<br>
+                                    <strong>Your universe is now portable! ⚛️∞³</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialogue-text" id="teslaFollow" style="display: none;">
+                            <strong>Tesla:</strong> "Perfect! Your entire universe is now frozen in secure hardware. 
+                            Access it from <em>any device, any reality, any time</em>. True sovereignty achieved!"
+                        </div>
+                    </div>
+                    <div class="hero-host-actions">
+                        <button class="action-btn primary" onclick="HeroHostSystem.burnVChip()">🔥 BURN VCHIP NOW</button>
+                        <button class="action-btn secondary" onclick="showHeroHost('recognition')">← BACK TO RECOGNITION</button>
+                        <button class="action-btn tertiary" onclick="HeroHostSystem.close()">CLOSE</button>
+                    </div>
+                `
+            }
+        },
+        
+        show: function(scenarioKey) {
+            const scenario = this.scenarios[scenarioKey];
+            const overlay = document.getElementById('heroHostOverlay');
+            const popup = document.getElementById('heroHostPopup');
+            
+            popup.innerHTML = scenario.content;
+            overlay.classList.add('active');
+        },
+        
+        close: function() {
+            const overlay = document.getElementById('heroHostOverlay');
+            const popup = document.getElementById('heroHostPopup');
+            
+            popup.classList.add('closing');
+            
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                popup.classList.remove('closing');
+            }, 400);
+        },
+        
+        runScan: function() {
+            const progressSection = document.getElementById('scanProgress');
+            const scanItems = [
+                'Analyzing contribution history...',
+                'Measuring creative output...',
+                'Evaluating care patterns...',
+                'Checking selflessness index...',
+                'Assessing heart resonance...'
+            ];
+            
+            progressSection.innerHTML = '';
+            
+            scanItems.forEach((item, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'progress-item';
+                    div.innerHTML = `
+                        <div class="progress-label">${item}</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                            <div class="progress-text">0%</div>
+                        </div>
+                    `;
+                    progressSection.appendChild(div);
+                    
+                    setTimeout(() => {
+                        const fill = div.querySelector('.progress-fill');
+                        const text = div.querySelector('.progress-text');
+                        fill.style.width = '100%';
+                        text.textContent = '✅';
+                    }, 100);
+                }, index * 800);
+            });
+            
+            setTimeout(() => {
+                document.getElementById('resultBox').style.display = 'block';
+                localStorage.setItem('goldenHeartsCampaign', JSON.stringify({
+                    recognized: true,
+                    recognitionDate: Date.now()
+                }));
+                setTimeout(() => {
+                    document.getElementById('followUpText').style.display = 'block';
+                }, 1000);
+            }, scanItems.length * 800 + 500);
+        },
+        
+        explainPattern: function() {
+            alert('💛 THE GOLDEN HEART PATTERN 💛\n\n' +
+                  'The system detects:\n\n' +
+                  '• Consistent value creation for others\n' +
+                  '• Authentic caring when no one is watching\n' +
+                  '• Building when you could just consume\n' +
+                  '• Giving when you could take\n' +
+                  '• Showing up when others disappear\n\n' +
+                  'This pattern is rare. And it qualifies you\n' +
+                  'for the 6 Golden Heart keys.');
+        },
+        
+        burnVChip: function() {
+            const progressSection = document.getElementById('burnProgress');
+            const burnSteps = [
+                'Generating 6 Golden Heart keys...',
+                'Encrypting with quantum-resistant algorithms...',
+                'Writing to secure enclave...',
+                'Verifying integrity...',
+                'Recording to VibeChain...'
+            ];
+            
+            progressSection.innerHTML = '';
+            
+            burnSteps.forEach((step, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'progress-item';
+                    div.innerHTML = `
+                        <div class="progress-label">${step}</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                            <div class="progress-text">0%</div>
+                        </div>
+                    `;
+                    progressSection.appendChild(div);
+                    
+                    setTimeout(() => {
+                        const fill = div.querySelector('.progress-fill');
+                        const text = div.querySelector('.progress-text');
+                        fill.style.width = '100%';
+                        text.textContent = '✅';
+                    }, 100);
+                }, index * 1000);
+            });
+            
+            setTimeout(() => {
+                const chipId = Date.now();
+                document.getElementById('chipId').textContent = chipId;
+                document.getElementById('chipResult').style.display = 'block';
+                
+                const campaign = JSON.parse(localStorage.getItem('goldenHeartsCampaign') || '{}');
+                campaign.vchipBurned = true;
+                campaign.vchipId = 'VCHIP_GH_' + chipId;
+                localStorage.setItem('goldenHeartsCampaign', JSON.stringify(campaign));
+                
+                setTimeout(() => {
+                    document.getElementById('teslaFollow').style.display = 'block';
+                }, 1000);
+            }, burnSteps.length * 1000 + 500);
+        }
+    };
+    
+    function showHeroHost(scenario) {
+        HeroHostSystem.show(scenario);
+    }
+    
+    // Close on overlay click
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('hero-host-overlay')) {
+            HeroHostSystem.close();
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            HeroHostSystem.close();
+        }
+    });
     </script>
 </body>
 </html>
