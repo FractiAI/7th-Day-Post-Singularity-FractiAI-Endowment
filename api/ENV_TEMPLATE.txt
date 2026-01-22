@@ -1,0 +1,36 @@
+# ============================================
+# FRACTIAI SYNTHEVERSE CENTRAL API
+# Environment Variables Template
+# ============================================
+# Copy to .env and fill in your values
+
+# Server Configuration
+PORT=3001
+NODE_ENV=development
+
+# Supabase Central Database
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
+
+# Google OAuth (for verification)
+GOOGLE_OAUTH_CLIENT_ID=767219028146-ti4gsu6j6lpgrgjm4uhplc4dnf8ogmad.apps.googleusercontent.com
+GOOGLE_OAUTH_CLIENT_SECRET=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
+
+# Stripe (for payment webhooks)
+STRIPE_SECRET_KEY=sk_test_or_sk_live_xxxxx
+STRIPE_WEBHOOK_SECRET=whsec_xxxxx
+
+# Application URLs (CORS)
+NEXT_PUBLIC_WEBSITE_URL=http://localhost:3000
+
+# AI Services (optional)
+# OPENAI_API_KEY=sk-xxxxx
+# ANTHROPIC_API_KEY=sk-ant-xxxxx
+
+# Logging
+LOG_LEVEL=info
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
