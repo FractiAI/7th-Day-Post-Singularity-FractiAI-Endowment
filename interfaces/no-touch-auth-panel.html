@@ -311,32 +311,48 @@
         </p>
     </div>
     
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        // ✅ REAL SUPABASE CONFIGURATION
+        const SUPABASE_URL = 'https://jfbgdxeumzqzigptbmvp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmYmdkeGV1bXpxemlncHRibXZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwODczODgsImV4cCI6MjA4MTY2MzM4OH0.PTv7kmbbz8k35blN2pONnK8Msi6mn8O1ok546BPz1gQ';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
         /**
-         * GOOGLE SIGN-IN (PATH 1)
-         * 1 click authentication
+         * ✅ REAL GOOGLE SIGN-IN (PATH 1)
+         * 1 click authentication with Supabase + Google OAuth
          */
         async function signInWithGoogle() {
-            console.log('🔓 Initiating Google Sign-In...');
+            console.log('🔓 Initiating REAL Google Sign-In...');
             
-            // In production, this would open Google OAuth popup
-            // For demo, we simulate the flow
-            
-            alert('🔓 Google Sign-In\n\nIn production:\n• Google OAuth popup appears\n• You sign in (or already signed in)\n• Popup closes automatically\n• You\'re signed in!\n\nTime: 2 seconds\nFriction: 1%');
-            
-            // Simulate successful sign-in
-            setTimeout(() => {
-                console.log('✅ Signed in successfully!');
-                window.location.href = '/dashboard';
-            }, 1000);
-            
-            // In production:
-            // 1. Open Google OAuth: google.accounts.oauth2.initCodeClient()
-            // 2. Get ID token: googleUser.getAuthResponse().id_token
-            // 3. Send to backend: POST /api/auth/google { idToken }
-            // 4. Backend verifies and creates user
-            // 5. Returns session token
-            // 6. Redirect to dashboard
+            try {
+                const redirectTo = `${window.location.origin}/interfaces/auth-callback.html`;
+                
+                // ✅ REAL Google OAuth via Supabase
+                const { data, error } = await supabase.auth.signInWithOAuth({
+                    provider: 'google',
+                    options: {
+                        redirectTo: redirectTo,
+                        queryParams: {
+                            access_type: 'offline',
+                            prompt: 'consent',
+                        }
+                    }
+                });
+
+                if (error) {
+                    console.error('Sign-in error:', error);
+                    alert('Sign-in failed: ' + error.message);
+                }
+                
+                // Redirect happens automatically
+                console.log('✅ Redirecting to Google OAuth...');
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            }
         }
         
         /**
