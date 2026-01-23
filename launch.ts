@@ -6,6 +6,7 @@
 
 import dotenv from 'dotenv';
 import { startServer } from './src/api/server.js';
+import { netZeroInfinityPairSystem } from './src/core/net-zero-infinity-pair.js';
 
 // Load environment variables
 dotenv.config();
@@ -33,14 +34,26 @@ async function main() {
     port: parseInt(process.env.PORT || '3000'),
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
     openingDate,
-    corsOrigin: process.env.CORS_ORIGIN
+    corsOrigin: process.env.CORS_ORIGIN,
+    supabaseUrl: process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://jfbgdxeumzqzigptbmvp.supabase.co',
+    supabaseAnonKey: process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpmYmdkeGV1bXpxemlncHRibXZwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwODczODgsImV4cCI6MjA4MTY2MzM4OH0.PTv7kmbbz8k35blN2pONnK8Msi6mn8O1ok546BPz1gQ',
+    redirectUrl: process.env.REDIRECT_URL || process.env.AUTH_REDIRECT_URL
   };
 
   console.log('📋 Configuration:');
   console.log(`   Port: ${config.port}`);
   console.log(`   Opening Date: ${new Date(openingDate).toISOString()}`);
   console.log(`   CORS Origin: ${config.corsOrigin || 'Any'}`);
+  console.log(`   Supabase URL: ${config.supabaseUrl ? '✅ Configured' : '❌ Missing'}`);
+  console.log(`   Supabase Auth: ${config.supabaseAnonKey ? '✅ Configured' : '❌ Missing'}`);
   console.log('');
+
+  // Metabolize net zero-infinity pair into entire NSPFRNP
+  console.log('🌊 Metabolizing net zero-infinity pair into entire NSPFRNP...\n');
+  const metabolization = await netZeroInfinityPairSystem.metabolizeIntoNSPFRNP();
+  console.log(`✅ Net zero-infinity pair metabolized:`);
+  console.log(`   Coverage: ${(metabolization.coverage * 100).toFixed(1)}%`);
+  console.log(`   Integrations: ${metabolization.integrations}\n`);
 
   // Start server
   console.log('🚀 Starting server...\n');

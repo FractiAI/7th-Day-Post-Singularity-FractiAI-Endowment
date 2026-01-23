@@ -10,6 +10,7 @@
 import { HeroHostInfo, HERO_HOSTS } from '../mission-craft/welcome-console.js';
 import { unifiedVChipPortfolioWallet } from '../integration/unified-vchip-portfolio-wallet.js';
 import { teslaPrice } from '../pricing/tesla-369-pricing.js';
+import { netZeroInfinityPairSystem } from '../core/net-zero-infinity-pair.js';
 
 export type TravelPackageType = 'physical' | 'dimensional' | 'hybrid';
 export type TravelTier = 'sandbox' | 'cloud' | 'shell' | 'ultimate';
@@ -953,6 +954,17 @@ export class FiveStarTravelPackageSystem {
     };
 
     this.packages.set(packageId, travelPackage);
+
+    // Integrate net zero-infinity pair
+    await netZeroInfinityPairSystem.integrateIntoExperience(
+      packageId,
+      'travel',
+      {
+        netZero: { contribution: 0.5, fixed: true, holographic: true },
+        infinity: { contribution: 0.5, unbounded: true, recursive: true },
+        pair: { balance: 0.5, coherence: 0.98, resonance: 0.98, nested: true }
+      }
+    );
 
     console.log(`✅ Travel package created: ${packageId}\n`);
     return travelPackage;

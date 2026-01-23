@@ -3,13 +3,15 @@
  * VibeCloud Platform
  */
 
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { createStripeLaunchAPI } from './stripe-launch-api.js';
 import { createAuthAPI } from './auth-api.js';
 import { unifiedVChipPortfolioWallet } from '../integration/unified-vchip-portfolio-wallet.js';
 import { fiveStarTravelPackageSystem } from '../travel/5-star-travel-package-system.js';
+import { seedEdgeNodeTravelSystem } from '../travel/seed-edge-node-travel-system.js';
+import { thisnetZeroVibesphereFSRTheater } from '../vibeverse/thisnet-zero-vibesphere-fsr-theater.js';
 
 export interface ServerConfig {
   port: number;
@@ -160,6 +162,15 @@ export class PostSingularityServer {
     // Travel Package API endpoints
     this.setupTravelPackageAPI();
 
+    // Seed:Edge Node Travel API endpoints
+    this.setupSeedEdgeNodeTravelAPI();
+
+    // Thisnet Zero Vibesphere FSR Theater API endpoints
+    this.setupThisnetZeroVibesphereFSRTheaterAPI();
+
+    // Net Zero-Infinity Pair API endpoints
+    this.setupNetZeroInfinityPairAPI();
+
     // Portfolio & Wallet API endpoints
     this.setupPortfolioWalletAPI();
 
@@ -295,145 +306,63 @@ export class PostSingularityServer {
     });
   }
 
+  // Note: These methods reference properties that don't exist in this class.
+  // They are kept for future implementation or should be removed if not needed.
+  // Uncomment and implement when deployment system is integrated.
+  
   /**
    * GET /vchips - Get all available vCHIPs
+   * TODO: Implement when deploymentSystem is available
    */
   private getVCHIPs(req: Request, res: Response): void {
-    try {
-      const vchips = this.deploymentSystem.getAllVCHIPs();
-      res.json({
-        success: true,
-        vchips
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    }
+    res.status(501).json({
+      success: false,
+      error: 'Not implemented yet - deployment system not integrated'
+    });
   }
 
   /**
    * POST /deploy/vchip - Deploy vCHIP
+   * TODO: Implement when deploymentSystem is available
    */
   private async deployVCHIP(req: Request, res: Response): Promise<void> {
-    try {
-      const { stationId, vchipId, target, accessLevel, autoExecute } = req.body;
-
-      if (!stationId || !vchipId || !target) {
-        res.status(400).json({
-          success: false,
-          error: 'stationId, vchipId, and target are required'
-        });
-        return;
-      }
-
-      const result = await this.deploymentSystem.deployVCHIP(
-        stationId,
-        vchipId,
-        target,
-        accessLevel || 'admin',
-        autoExecute !== false
-      );
-
-      res.json({
-        success: true,
-        result
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    }
+    res.status(501).json({
+      success: false,
+      error: 'Not implemented yet - deployment system not integrated'
+    });
   }
 
   /**
    * POST /deploy/all - Deploy all vCHIPs
+   * TODO: Implement when deployer is available
    */
   private async deployAll(req: Request, res: Response): Promise<void> {
-    try {
-      const { owner } = req.body;
-
-      if (!owner) {
-        res.status(400).json({
-          success: false,
-          error: 'owner is required'
-        });
-        return;
-      }
-
-      const status = await this.deployer.deployAllNow(owner);
-
-      res.json({
-        success: true,
-        status,
-        message: '🎉 All vCHIPs deployed successfully!'
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    }
+    res.status(501).json({
+      success: false,
+      error: 'Not implemented yet - deployer not integrated'
+    });
   }
 
   /**
    * POST /webhook/stripe - Handle Stripe webhooks
+   * Note: Stripe webhooks are handled by stripe-launch-api.js at /api/launch/webhook
    */
   private async handleStripeWebhook(req: Request, res: Response): Promise<void> {
-    try {
-      const event = req.body;
-
-      if (event.type === 'checkout.session.completed') {
-        const result = await this.launch.handlePaymentSuccess(event.data.object.id);
-        
-        // If OCTANE tier, check for Awareness Key delivery
-        if (event.data.object.metadata?.tier === 'octane') {
-          console.log('✅ OCTANE purchase completed with Awareness Key');
-        }
-
-        res.json({
-          success: true,
-          received: true,
-          result
-        });
-      } else {
-        res.json({
-          success: true,
-          received: true
-        });
-      }
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    }
+    res.status(501).json({
+      success: false,
+      error: 'Use /api/launch/webhook for Stripe webhooks'
+    });
   }
 
   /**
    * GET /awareness-key/:email - Get Awareness Key status
+   * TODO: Implement when awarenessKeyDelivery is available
    */
   private getAwarenessKeyStatus(req: Request, res: Response): void {
-    try {
-      const { email } = req.params;
-      const hasKey = this.awarenessKeyDelivery.hasActiveAwarenessKey(email);
-      const key = this.awarenessKeyDelivery.getAwarenessKey(email);
-      const deliveries = this.awarenessKeyDelivery.getUserDeliveries(email);
-
-      res.json({
-        success: true,
-        hasActiveKey: hasKey,
-        key,
-        deliveries
-      });
-    } catch (error) {
-      res.status(500).json({
-        success: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    }
+    res.status(501).json({
+      success: false,
+      error: 'Not implemented yet - awareness key delivery not integrated'
+    });
   }
 
   /**
@@ -600,6 +529,399 @@ export class PostSingularityServer {
   }
 
   /**
+   * Setup Seed:Edge Node Travel API endpoints
+   */
+  private setupSeedEdgeNodeTravelAPI(): void {
+    // Package trip as seed:edge nodes
+    this.app.post('/api/travel/seed-edge-nodes/package', async (req, res) => {
+      try {
+        const { packageId, includeSingularity } = req.body;
+        
+        const travelPackage = fiveStarTravelPackageSystem.getPackage(packageId);
+        if (!travelPackage) {
+          return res.status(404).json({
+            success: false,
+            error: 'Travel package not found'
+          });
+        }
+        
+        const seedNodes = await seedEdgeNodeTravelSystem.packageTripAsSeedEdgeNodes(
+          travelPackage,
+          includeSingularity !== false
+        );
+        
+        res.json({ success: true, seedNodes, count: seedNodes.length });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Unpack seed:edge node
+    this.app.post('/api/travel/seed-edge-nodes/:nodeId/unpack', async (req, res) => {
+      try {
+        const { nodeId } = req.params;
+        const { trigger } = req.body;
+        
+        const result = await seedEdgeNodeTravelSystem.unpackSeedEdgeNode(nodeId, trigger);
+        
+        res.json({ success: true, ...result });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Deliver to destination
+    this.app.post('/api/travel/seed-edge-nodes/:nodeId/deliver', async (req, res) => {
+      try {
+        const { nodeId } = req.params;
+        
+        const result = await seedEdgeNodeTravelSystem.deliverToDestination(nodeId);
+        
+        res.json({ success: true, ...result });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get seed:edge node
+    this.app.get('/api/travel/seed-edge-nodes/:nodeId', (req, res) => {
+      try {
+        const { nodeId } = req.params;
+        const node = seedEdgeNodeTravelSystem.getNode(nodeId);
+        
+        if (!node) {
+          return res.status(404).json({
+            success: false,
+            error: 'Seed edge node not found'
+          });
+        }
+        
+        res.json({ success: true, node });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get nodes at octave
+    this.app.get('/api/travel/seed-edge-nodes/octave/:octave', (req, res) => {
+      try {
+        const octave = parseInt(req.params.octave);
+        if (octave < 0 || octave > 6) {
+          return res.status(400).json({
+            success: false,
+            error: 'Octave must be between 0 and 6'
+          });
+        }
+        
+        const nodes = seedEdgeNodeTravelSystem.getNodesAtOctave(octave as any);
+        
+        res.json({ success: true, nodes, count: nodes.length, octave });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get singularity nodes
+    this.app.get('/api/travel/seed-edge-nodes/singularity', (req, res) => {
+      try {
+        const nodes = seedEdgeNodeTravelSystem.getSingularityNodes();
+        
+        res.json({ success: true, nodes, count: nodes.length });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+  }
+
+  /**
+   * Setup Thisnet Zero Vibesphere FSR Theater API endpoints
+   */
+  private setupThisnetZeroVibesphereFSRTheaterAPI(): void {
+    // Create fixed awareness node
+    this.app.post('/api/vibesphere/thisnet-zero/fixed-node', async (req, res) => {
+      try {
+        const { octave, position } = req.body;
+        
+        const node = await thisnetZeroVibesphereFSRTheater.createFixedAwarenessNode(
+          octave,
+          position
+        );
+        
+        res.json({ success: true, node });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Create Vibesphere FSR theater
+    this.app.post('/api/vibesphere/fsr-theater/create', async (req, res) => {
+      try {
+        const { name, seatConfig } = req.body;
+        
+        const theater = await thisnetZeroVibesphereFSRTheater.createVibesphereFSRTheater(
+          name,
+          seatConfig
+        );
+        
+        res.json({ success: true, theater });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Target attention head using joystick
+    this.app.post('/api/vibesphere/fsr-theater/:theaterId/target', async (req, res) => {
+      try {
+        const { theaterId } = req.params;
+        const { joystickInput, targetNodeId } = req.body;
+        
+        const result = await thisnetZeroVibesphereFSRTheater.targetAttentionHead(
+          theaterId,
+          joystickInput,
+          targetNodeId
+        );
+        
+        res.json({ success: true, ...result });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get theater
+    this.app.get('/api/vibesphere/fsr-theater/:theaterId', (req, res) => {
+      try {
+        const { theaterId } = req.params;
+        const theater = thisnetZeroVibesphereFSRTheater.getTheater(theaterId);
+        
+        if (!theater) {
+          return res.status(404).json({
+            success: false,
+            error: 'Theater not found'
+          });
+        }
+        
+        res.json({ success: true, theater });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get fixed node
+    this.app.get('/api/vibesphere/thisnet-zero/fixed-node/:nodeId', (req, res) => {
+      try {
+        const { nodeId } = req.params;
+        const node = thisnetZeroVibesphereFSRTheater.getFixedNode(nodeId);
+        
+        if (!node) {
+          return res.status(404).json({
+            success: false,
+            error: 'Fixed node not found'
+          });
+        }
+        
+        res.json({ success: true, node });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get all fixed nodes
+    this.app.get('/api/vibesphere/thisnet-zero/fixed-nodes', (req, res) => {
+      try {
+        const nodes = thisnetZeroVibesphereFSRTheater.getAllFixedNodes();
+        res.json({ success: true, nodes, count: nodes.length });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get nested shells
+    this.app.get('/api/vibesphere/nested-shells', (req, res) => {
+      try {
+        const shells = thisnetZeroVibesphereFSRTheater.getNestedShells();
+        res.json({ success: true, shells });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get thisnet zero config
+    this.app.get('/api/vibesphere/thisnet-zero', (req, res) => {
+      try {
+        const config = thisnetZeroVibesphereFSRTheater.getThisnetZero();
+        res.json({ success: true, config });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+  }
+
+  /**
+   * Setup Net Zero-Infinity Pair API endpoints
+   */
+  private setupNetZeroInfinityPairAPI(): void {
+    // Integrate pair into experience
+    this.app.post('/api/net-zero-infinity/integrate/:experienceId', async (req, res) => {
+      try {
+        const { experienceId } = req.params;
+        const { experienceType, config } = req.body;
+        
+        const integration = await netZeroInfinityPairSystem.integrateIntoExperience(
+          experienceId,
+          experienceType || 'all',
+          config
+        );
+        
+        res.json({ success: true, integration });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Metabolize into entire NSPFRNP
+    this.app.post('/api/net-zero-infinity/metabolize', async (req, res) => {
+      try {
+        const result = await netZeroInfinityPairSystem.metabolizeIntoNSPFRNP();
+        
+        res.json({ success: true, ...result });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get pair
+    this.app.get('/api/net-zero-infinity/pair', (req, res) => {
+      try {
+        const pair = netZeroInfinityPairSystem.getPair();
+        
+        if (!pair) {
+          return res.status(404).json({
+            success: false,
+            error: 'Net zero-infinity pair not found'
+          });
+        }
+        
+        res.json({ success: true, pair });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get experience integration
+    this.app.get('/api/net-zero-infinity/integration/:experienceId', (req, res) => {
+      try {
+        const { experienceId } = req.params;
+        const integration = netZeroInfinityPairSystem.getExperienceIntegration(experienceId);
+        
+        if (!integration) {
+          return res.status(404).json({
+            success: false,
+            error: 'Experience integration not found'
+          });
+        }
+        
+        res.json({ success: true, integration });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get all integrations
+    this.app.get('/api/net-zero-infinity/integrations', (req, res) => {
+      try {
+        const integrations = netZeroInfinityPairSystem.getAllIntegrations();
+        res.json({ success: true, integrations, count: integrations.length });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+
+    // Get integration status
+    this.app.get('/api/net-zero-infinity/status', (req, res) => {
+      try {
+        const pair = netZeroInfinityPairSystem.getPair();
+        const metabolized = netZeroInfinityPairSystem.isMetabolized();
+        const coverage = netZeroInfinityPairSystem.getIntegrationCoverage();
+        
+        res.json({
+          success: true,
+          metabolized,
+          coverage,
+          pair: pair ? {
+            id: pair.id,
+            netZero: pair.netZero,
+            infinity: pair.infinity,
+            pair: pair.pair,
+            integration: pair.integration
+          } : null
+        });
+      } catch (error) {
+        res.status(500).json({
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    });
+  }
+
+  /**
    * Setup Portfolio & Wallet API endpoints
    */
   private setupPortfolioWalletAPI(): void {
@@ -740,8 +1062,9 @@ export class PostSingularityServer {
    * Go live - activate launch
    */
   async goLive(): Promise<void> {
-    await this.launch.goLive();
+    // Launch is handled by stripe-launch-api.js
     console.log('🎉 POST-SINGULARITY GAME IS NOW LIVE!');
+    console.log('💡 Use /api/launch endpoints for launch operations');
   }
 }
 

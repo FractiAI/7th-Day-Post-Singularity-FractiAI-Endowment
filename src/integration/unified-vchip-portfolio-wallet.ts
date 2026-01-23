@@ -18,6 +18,7 @@ import { AwarenessKeySystem, AwarenessKey } from '../keys/awareness-key.js';
 import { WalletManager, Wallet } from '../identity/wallet.js';
 import { IdentityManager, NSPFRPIdentity } from '../identity/index.js';
 import { BrandedMerchandiseSystem } from '../merchandise/branded-wallets-luggage-portfolio.js';
+import { netZeroInfinityPairSystem } from '../core/net-zero-infinity-pair.js';
 
 export interface UnifiedPortfolio {
   owner: string;
@@ -128,6 +129,17 @@ export class UnifiedVChipPortfolioWallet {
 
     // Re-animate: Update all values
     await this.recalculatePortfolio(owner);
+
+    // Integrate net zero-infinity pair
+    await netZeroInfinityPairSystem.integrateIntoExperience(
+      `PORTFOLIO-${owner}`,
+      'all',
+      {
+        netZero: { contribution: 0.5, fixed: true, holographic: true },
+        infinity: { contribution: 0.5, unbounded: true, recursive: true },
+        pair: { balance: 0.5, coherence: 0.98, resonance: 0.98, nested: true }
+      }
+    );
     
     console.log(`✅ Portfolio initialized and re-animated for: ${owner}\n`);
     return portfolio;
