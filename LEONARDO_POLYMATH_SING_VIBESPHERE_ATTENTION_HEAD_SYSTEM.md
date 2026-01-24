@@ -506,10 +506,11 @@ LEAF A3: System Crystallization
 ├─ Output: Operational systems (code, infrastructure)
 └─ Precision: 98.5% → 99.99%
 
-LEAF A4: Experience Crystallization
-├─ Team: Museum Curator + Game Designer
-├─ Da Vinci: Educational design + interactive mastery
-├─ Output: Transformative experiences
+LEAF A4: Experience Crystallization & Teaching
+├─ Team: Museum Curator Teacher + Game Designer
+├─ Da Vinci: Educational design + interactive mastery + teaching
+├─ Output: Transformative learning experiences
+├─ Teaching: New agent onboarding, etched pathway sharing
 └─ Precision: 97% → 99.8%
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
