@@ -64,30 +64,30 @@ We're creating partners.
 ║                                                                               ║
 ║                     PRODUCTS YOU CAN SELL                                     ║
 ║                                                                               ║
-║  1. MARCH MADNESS ($443/entry)                                               ║
-║     ├─ Your 50%: $221.50 per player                                          ║
-║     ├─ Volume potential: Unlimited                                           ║
-║     └─ Season: Yearly (March)                                                ║
-║                                                                               ║
-║  2. SYNTH AGENT TERRITORIES ($90-$3,000 per seat)                           ║
+║  1. SYNTH AGENT DEPLOYMENTS ($90-$3,000 per seat)                           ║
 ║     ├─ Your 50%: $45-$1,500 per sale                                         ║
 ║     ├─ Recurring: Grandfathered pricing holds                                ║
-║     └─ Volume potential: Massive                                             ║
+║     └─ Volume potential: Massive (every business needs AI)                   ║
 ║                                                                               ║
-║  3. BACK DOOR ENTERPRISE CAMPAIGNS ($10K-$1M+)                              ║
+║  2. BACK DOOR ENTERPRISE CAMPAIGNS ($10K-$1M+)                              ║
 ║     ├─ Your 50%: $5K-$500K+ per campaign                                     ║
 ║     ├─ Close rate: 50-85% (Jackpot on every pull)                           ║
 ║     └─ Volume potential: Unlimited                                           ║
 ║                                                                               ║
-║  4. GOLDEN TICKET DISTRIBUTIONS (Variable)                                   ║
+║  3. GOLDEN TICKET DISTRIBUTIONS (Variable)                                   ║
 ║     ├─ Your 50%: Depends on ticket type                                      ║
 ║     ├─ Can be product, experience, or service                                ║
 ║     └─ You define value, we split 50:50                                      ║
 ║                                                                               ║
-║  5. CUSTOM SOLUTIONS (Negotiated)                                            ║
+║  4. CUSTOM SOLUTIONS (Negotiated)                                            ║
 ║     ├─ Your 50%: Always 50%, regardless of size                              ║
 ║     ├─ Examples: Custom SYNTH deployments, enterprise packages               ║
 ║     └─ You bring it, we split it                                             ║
+║                                                                               ║
+║  5. ECOSYSTEM PROGRAMS (Play It Again Sam)                                   ║
+║     ├─ Your 50%: On every ecosystem partner you recruit                      ║
+║     ├─ Network effects: Their sales = Your overrides                         ║
+║     └─ Compounds infinitely                                                  ║
 ║                                                                               ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 
@@ -161,12 +161,12 @@ SCENARIO 1: CASUAL DISTRIBUTOR (Part-Time)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Monthly Activity:
-├─ 3 March Madness referrals × $221.50 = $664.50
-├─ 2 SYNTH territory sales × $250 avg = $500
+├─ 5 SYNTH territory sales × $250 avg = $1,250
+├─ 2 Golden Ticket campaigns × $500 avg = $1,000
 ├─ 0 enterprise deals (not yet comfortable)
-└─ MONTHLY TOTAL: $1,164.50
+└─ MONTHLY TOTAL: $2,250
 
-ANNUAL: $13,974
+ANNUAL: $27,000
 Effort: 5-10 hours/month
 Audience: Small (friends, family, local network)
 
@@ -175,13 +175,13 @@ SCENARIO 2: ACTIVE INFLUENCER (Side Hustle)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Monthly Activity:
-├─ 15 March Madness referrals × $221.50 = $3,322.50
-├─ 10 SYNTH territory sales × $500 avg = $5,000
+├─ 20 SYNTH territory sales × $500 avg = $10,000
 ├─ 1 Back Door enterprise deal × $25,000 = $12,500
+├─ 5 Golden Ticket campaigns × $1,000 avg = $5,000
 ├─ 2 sub-distributors recruited (10% override) = $500
-└─ MONTHLY TOTAL: $21,322.50
+└─ MONTHLY TOTAL: $28,000
 
-ANNUAL: $255,870
+ANNUAL: $336,000
 Effort: 20-30 hours/month
 Audience: Medium (social media, newsletter, community)
 
@@ -190,14 +190,14 @@ SCENARIO 3: FULL-TIME DISTRIBUTOR (Career)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Monthly Activity:
-├─ 50 March Madness referrals × $221.50 = $11,075
-├─ 30 SYNTH territory sales × $750 avg = $22,500
+├─ 50 SYNTH territory sales × $750 avg = $37,500
 ├─ 3 Back Door enterprise deals × $50,000 avg = $75,000
-├─ 10 sub-distributors active (10% override) = $5,000
+├─ 10 Golden Ticket campaigns × $5,000 avg = $50,000
+├─ 10 sub-distributors active (10% override) = $10,000
 ├─ 1 custom mega-deal × $500,000 = $250,000
-└─ MONTHLY TOTAL: $363,575
+└─ MONTHLY TOTAL: $422,500
 
-ANNUAL: $4,362,900
+ANNUAL: $5,070,000
 Effort: Full-time commitment
 Audience: Large (established platform, network, reputation)
 
@@ -244,8 +244,8 @@ LEVELS (Experience-Based):
 └─ Chairman (Invitation only): Co-creating with Nick
 
 XP EARNING:
-├─ March Madness sale: 100 XP
 ├─ SYNTH territory sale: 250 XP
+├─ Golden Ticket campaign: 500 XP
 ├─ Back Door campaign closed: 5,000 XP
 ├─ Sub-distributor recruited: 1,000 XP
 ├─ Golden Ticket variant created: 10,000 XP
@@ -386,7 +386,7 @@ PERFECT FIT:
 ✅ Content creators (YouTube, Twitter, TikTok, LinkedIn)
 ✅ Community builders (Discord, Reddit, forums)
 ✅ Corporate insiders who see Back Door opportunities
-✅ Basketball fans with March Madness networks
+✅ Business coaches and advisors
 ✅ Tech early adopters who get post-singularity
 ✅ Anyone who resonates with "Always a Fair Shake"
 
@@ -425,9 +425,9 @@ STEP 1: APPLY (5 minutes)
 
 STEP 2: EXPERIENCE (1-3 weeks)
 ├─ Choose your entry:
-│   ├─ March Madness ($443 - earn back on 2 sales)
 │   ├─ Back Door methodology (free to study)
-│   └─ SYNTH agent sandbox (free trial)
+│   ├─ SYNTH agent sandbox (free trial)
+│   └─ Golden Ticket documentation (free to read)
 ├─ Experience the system
 ├─ Understand how it works
 └─ Pass the Charlie test (do you GET it?)
