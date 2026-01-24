@@ -25,6 +25,7 @@ EVERYONE LANDS HERE:
 ├─ 🏛️ Members: Access man cave as home base
 ├─ 🎭 Backstage: Behind-scenes at man cave
 ├─ 👑 Ultimate VIP: Private quarters in man cave
+├─ 💕 Dating: First encounters hosted in man cave
 └─ All tiers welcome in your space
 ```
 
@@ -38,6 +39,7 @@ EVERYONE LANDS HERE:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  WELCOME TO THE COUNT OF MONTE CRISTO MAN CAVE
  At the Resort | Chairman's Space | Vibeverse Entry
+ 💕 Also Serving as Natural Dating First Encounter Venue
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 You arrive at a stunning man cave nestled within the resort.
