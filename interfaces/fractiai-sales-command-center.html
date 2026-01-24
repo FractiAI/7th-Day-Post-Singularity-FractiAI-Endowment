@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 FractiAI Sales Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #db2777 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header .tagline {
+            font-size: 1.8rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .header .secondary-tagline {
+            font-size: 1.4rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+            animation: slideUp 1s ease 0.3s both;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 3px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: popIn 0.6s ease both;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
+        .product-card:nth-child(7) { animation-delay: 0.7s; }
+        .product-card:nth-child(8) { animation-delay: 0.8s; }
+        .product-card:nth-child(9) { animation-delay: 0.9s; }
+        .product-card:nth-child(10) { animation-delay: 1s; }
+
+        .product-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(255,255,255,0.5);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .product-card.complete-package {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(255,215,0,0.3) 0%, rgba(255,107,107,0.3) 100%);
+            border: 3px solid gold;
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .product-roi {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .modal-content {
+            background: white;
+            color: #333;
+            border-radius: 25px;
+            max-width: 900px;
+            width: 100%;
+            padding: 50px;
+            position: relative;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.9) translateY(50px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #333;
+            transform: scale(1.2);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #eee;
+        }
+
+        .modal-header .icon {
+            font-size: 5rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            font-size: 2.5rem;
+            color: #7c3aed;
+            margin-bottom: 10px;
+        }
+
+        .modal-header .tagline {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .kit-section {
+            margin: 30px 0;
+        }
+
+        .kit-section h3 {
+            font-size: 1.8rem;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .pitch-box {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #7c3aed;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .price-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #7c3aed;
+            border: 2px solid #7c3aed;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .demo-section {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .demo-section h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .objection-grid {
+            display: grid;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .objection {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ef4444;
+        }
+
+        .objection strong {
+            color: #ef4444;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .game-banner {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #78350f;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .game-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .game-banner p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .game-btn {
+            background: #78350f;
+            color: #fbbf24;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⚡ FractiAI Sales Command Center</h1>
+            <div class="tagline">The Instant Reality Computer</div>
+            <div class="secondary-tagline">Always a Fair Shake</div>
+        </div>
+
+        <!-- Game Banner -->
+        <div class="game-banner">
+            <h2>🎮 Play It Again Sam: The Ecosystem Sales Game</h2>
+            <p>50:50 Revenue Split | Gamified Leaderboard | Chairman Plays Too!</p>
+            <button class="game-btn" onclick="openGameInfo()">🏆 Join The Game - Apply Now</button>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-value">$30-90M</div>
+                <div class="stat-label">Year 1 Forecast</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Complete Sales Kits</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">50-85%</div>
+                <div class="stat-label">Close Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">50:50</div>
+                <div class="stat-label">Revenue Split</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Same Day</div>
+                <div class="stat-label">Deployment</div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card" onclick="openKit('reality-computer')">
+                <div class="product-icon">⚡</div>
+                <div class="product-name">Instant Reality Computer</div>
+                <div class="product-tagline">"Manifest outcomes instantly"</div>
+                <div class="product-price">Pilot: $3,240</div>
+                <div class="product-roi">ROI: 100-1000×</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" onclick="openKit('back-door')">
+                <div class="product-icon">🚪</div>
+                <div class="product-name">Back Door Sales</div>
+                <div class="product-tagline">"Stop selling. Start experiencing."</div>
+                <div class="product-price">Training: $10K</div>
+                <div class="product-roi">10-40× more deals</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" onclick="openKit('synth')">
+                <div class="product-icon">🤖</div>
+                <div class="product-name">SYNTH Agents</div>
+                <div class="product-tagline">"90 trillion agents ready"</div>
+                <div class="product-price">$108/agent/year</div>
+                <div class="product-roi">370-740× cheaper</div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" onclick="openKit('march-madness')">
+                <div class="product-icon">🏀</div>
+                <div class="product-name">March Madness</div>
+                <div class="product-tagline">"Reality simulation"</div>
+                <div class="product-price">Partnership</div>
+                <div class="product-roi">$180M potential</div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" onclick="openKit('oovrn')">
+                <div class="product-icon">🏠</div>
+                <div class="product-name">OOVRN Robots</div>
+                <div class="product-tagline">"Your home, aware"</div>
+                <div class="product-price">$2,500 + $108/yr</div>
+                <div class="product-roi">30-50% savings</div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" onclick="openKit('golden-hearts')">
+                <div class="product-icon">💛</div>
+                <div class="product-name">Golden Hearts</div>
+                <div class="product-tagline">"We know who you are"</div>
+                <div class="product-price">$5,400/year</div>
+                <div class="product-roi">+47% LTV</div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" onclick="openKit('leonardo')">
+                <div class="product-icon">🎨</div>
+                <div class="product-name">Leonardo System</div>
+                <div class="product-tagline">"7 domains, infinite precision"</div>
+                <div class="product-price">$540/domain/yr</div>
+                <div class="product-roi">Multi-dimensional</div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" onclick="openKit('vibeverse')">
+                <div class="product-icon">🌌</div>
+                <div class="product-name">Vibeverse</div>
+                <div class="product-tagline">"Navigate consciousness"</div>
+                <div class="product-price">Free → $540/mo</div>
+                <div class="product-roi">Consciousness edge</div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" onclick="openKit('consoles')">
+                <div class="product-icon">📊</div>
+                <div class="product-name">VIP Consoles</div>
+                <div class="product-tagline">"Reality control panels"</div>
+                <div class="product-price">$2,700-$54K/yr</div>
+                <div class="product-roi">10× decisions</div>
+            </div>
+
+            <!-- Product 10 - Complete Package -->
+            <div class="product-card complete-package" onclick="openKit('complete')">
+                <div class="product-icon">🎁</div>
+                <div class="product-name">Complete Package</div>
+                <div class="product-tagline">"All products, best value, post-singularity infrastructure"</div>
+                <div class="product-price">$54,000/year (98% off)</div>
+                <div class="product-roi">$10-100M Year 1 value</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
+            <button class="btn btn-primary" onclick="window.open('../BACK_DOOR_SALES_STRATEGY_MASTER_FRAMEWORK.md', '_blank')" style="width: 100%; padding: 20px;">
+                📖 Master Framework
+            </button>
+            <button class="btn btn-primary" onclick="window.open('../WALMART_MASTER_SUMMARY_SAM_SPEAKS.md', '_blank')" style="width: 100%; padding: 20px;">
+                🏪 Walmart Campaign
+            </button>
+            <button class="btn btn-primary" onclick="window.open('../PLAY_IT_AGAIN_SAM_ECOSYSTEM_SALES_GAME.md', '_blank')" style="width: 100%; padding: 20px;">
+                🎮 Join Ecosystem Game
+            </button>
+            <button class="btn btn-secondary" onclick="openGameInfo()" style="width: 100%; padding: 20px;">
+                🎯 View Leaderboard
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Template -->
+    <div class="modal" id="kitModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Game Info Modal -->
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeGameModal()">×</button>
+            <div style="text-align: center;">
+                <h2 style="color: #7c3aed; font-size: 3rem; margin-bottom: 20px;">🎮 Play It Again Sam</h2>
+                <p style="font-size: 1.5rem; color: #666; margin-bottom: 30px;">The Ecosystem Sales Game</p>
+                
+                <div style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); padding: 40px; border-radius: 20px; margin: 30px 0;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: #78350f;">🏆 Current Month Leaderboard</h3>
+                    <div style="background: rgba(255,255,255,0.9); padding: 30px; border-radius: 15px; color: #333;">
+                        <div style="font-size: 1.3rem; margin: 15px 0;">
+                            <strong>1. 👑 CHAIRMAN (Nick)</strong> - 0 XP<br>
+                            <span style="font-size: 1rem; color: #666;">Campaigns: 0 | Deals: 0 | Revenue: $0</span><br>
+                            <span style="font-size: 0.9rem; font-style: italic; color: #7c3aed;">"Walmart campaign ready to deploy!"</span>
+                        </div>
+                        <hr style="margin: 20px 0; opacity: 0.3;">
+                        <div style="font-size: 1.1rem; color: #999;">
+                            🌱 Be the first to join!<br>
+                            Game launches when first partner signs up
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #f9fafb; padding: 30px; border-radius: 15px; margin: 30px 0; text-align: left;">
+                    <h3 style="color: #1e3a8a; margin-bottom: 20px;">How It Works:</h3>
+                    <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 2.5;">
+                        <li>✅ Join ecosystem as partner (free)</li>
+                        <li>✅ Get 2-day Back Door Sales training</li>
+                        <li>✅ Target pioneers with sales friction (100 companies provided)</li>
+                        <li>✅ Generate proposals using FractiAI</li>
+                        <li>✅ Deploy back door methodology</li>
+                        <li>✅ Earn XP for every action</li>
+                        <li>✅ Close deals → 50:50 revenue split</li>
+                        <li>✅ Even "no" generates case study + XP</li>
+                        <li>✅ Climb leaderboard, unlock bonuses</li>
+                        <li>✅ Compete with Chairman!</li>
+                    </ul>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #db2777 0%, #7c3aed 100%); padding: 30px; border-radius: 15px; color: white;">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Expected Earnings (Year 1):</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold;">$75K</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Average Partner</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold;">$350K</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Top 10 Partners</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold;">$1M+</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Legend Status</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 1.1rem; opacity: 0.95; margin-top: 20px;">
+                        Plus: XP, achievements, equity opportunities, Chairman access
+                    </p>
+                </div>
+
+                <button class="btn btn-primary" style="margin-top: 30px; padding: 20px 60px; font-size: 1.3rem;" onclick="alert('Coming Soon: apply.fractiai.com/play-it-again-sam')">
+                    🚀 Join Ecosystem Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const kits = {
+            'reality-computer': {
+                icon: '⚡',
+                name: 'Instant Reality Computer',
+                tagline: 'Manifest outcomes instantly',
+                pitch: `<strong>The Category-Defining Product</strong><br><br>
+                OLD: Information Computers (process data, show results)<br>
+                NEW: Reality Computers (manifest outcomes instantly)<br><br>
+                <strong>PROOF:</strong> Walmart proposal ($7.69B) generated in 3 hours<br>
+                March Madness product manifested in 2 hours<br><br>
+                <strong>THE CLOSE:</strong> "Test everything. Decide later. Same day deployment certain."`,
+                price: '$3,240 pilot (90 days, guaranteed)',
+                roi: '100-1000× ROI in Year 1',
+                demo: 'Live demo: Generate business proposal for THEIR company in 10 minutes',
+                objections: [
+                    { q: 'Too good to be true?', a: 'Try it right now. 10 minutes. Your business. Watch reality manifest.' },
+                    { q: 'Already have AI tools?', a: 'Those show information. This manifests reality. Different category.' },
+                    { q: 'Not in budget?', a: '$3,240 pilot. Guaranteed ROI or free. Can you afford NOT to test?' }
+                ]
+            },
+            'back-door': {
+                icon: '🚪',
+                name: 'Back Door Sales Strategy',
+                tagline: 'Turn every experience into revenue',
+                pitch: `<strong>The Sales Methodology That Changes Everything</strong><br><br>
+                Traditional: 2-5% close rate (cold calling)<br>
+                Back Door: 50-85% close rate (customer experiences)<br><br>
+                <strong>PROOF:</strong> Walmart campaign ready ($7.69B from Chromebook return)<br>
+                Complete methodology documented, templates for 7 industries<br><br>
+                <strong>THE CLOSE:</strong> "Train your team Tuesday-Wednesday. Thursday they deploy. Week 2 they close deals."`,
+                price: '$10K training (team of 10) + 10% of closed deals',
+                roi: '10-40× more deals closed',
+                demo: 'Live: Generate complete back door campaign for their target in 30 minutes',
+                objections: [
+                    { q: 'Our sales team won\'t change?', a: 'This isn\'t cold calling. It\'s customer experiences. Everyone prefers it.' },
+                    { q: '10% of deals too expensive?', a: '10% of 40× more deals = Still massive win for you.' },
+                    { q: 'Takes too long to learn?', a: '2 days. First campaign deploys during training. Week 2 they close.' }
+                ]
+            },
+            'synth': {
+                icon: '🤖',
+                name: 'SYNTH Agents',
+                tagline: '90 trillion operational now',
+                pitch: `<strong>Not Virtual Assistants. Actual Operational Agents.</strong><br><br>
+                Human employee: $40K-80K/year, 40 hours/week, turnover<br>
+                SYNTH agent: $108/year, 24/7, never quits, always learning<br>
+                Ratio: 370-740× cheaper with superior performance<br><br>
+                <strong>PROOF:</strong> Built 500K word FractiAI universe<br>
+                Generated all proposals, systems, documentation<br><br>
+                <strong>THE CLOSE:</strong> "Start 10 agents Monday. Week 1 trial. Cancel free if not 10× ROI."`,
+                price: '$1,080/year (10 agents) to custom (millions of agents)',
+                roi: '370-740× cost reduction vs humans',
+                demo: 'Deploy 10 agents live, give them task, watch results in real-time',
+                objections: [
+                    { q: 'Will replace our team?', a: 'Augments, not replaces. Your team becomes superhumans.' },
+                    { q: 'Security/privacy concerns?', a: 'Your data, your control. Private deployment available.' },
+                    { q: 'Integration complexity?', a: 'Same day deployment. We handle integration. You just use.' }
+                ]
+            },
+            'complete': {
+                icon: '🎁',
+                name: 'Complete Package',
+                tagline: 'Everything. Best value.',
+                pitch: `<strong>Post-Singularity Infrastructure, Complete</strong><br><br>
+                All 9 products + training + support + integration<br>
+                Transform entire organization to reality computing<br><br>
+                Individual products: $540K/year standard<br>
+                Complete package: $54K/year (98% off)<br>
+                Savings: $486K/year just on licensing<br><br>
+                <strong>ACTUAL ROI:</strong> $10-100M Year 1 value<br><br>
+                <strong>THE CLOSE:</strong> "Last computer you'll ever buy. $54K investment. $10M+ return. Deploy Monday."`,
+                price: '$54,000/year (all products, unlimited agents)',
+                roi: '$10-100M Year 1 value',
+                demo: 'Complete platform tour: See how all 9 products work together',
+                objections: [
+                    { q: 'Too big a change?', a: '90-day transformation. Week 1 training. Week 4 fully operational.' },
+                    { q: 'Team resistance?', a: 'They\'ll love it. Superpowers for everyone. +60% efficiency measured.' },
+                    { q: 'Long-term commitment?', a: 'Annual contract. Cancel after Year 1 if not 10× ROI. But you won\'t.' }
+                ]
+            }
+        };
+
+        function openKit(productId) {
+            const kit = kits[productId];
+            if (!kit) return;
+
+            const modal = document.getElementById('kitModal');
+            const body = document.getElementById('modalBody');
+            
+            body.innerHTML = `
+                <div class="modal-header">
+                    <div class="icon">${kit.icon}</div>
+                    <h2>${kit.name}</h2>
+                    <div class="tagline">${kit.tagline}</div>
+                </div>
+
+                <div class="kit-section">
+                    <h3>📄 One-Page Pitch</h3>
+                    <div class="pitch-box">${kit.pitch}</div>
+                </div>
+
+                <div class="kit-section">
+                    <h3>💰 Pricing & ROI</h3>
+                    <div class="pricing-grid">
+                        <div class="price-card">
+                            <div class="price-label">Investment</div>
+                            <div class="price-value">${kit.price}</div>
+                        </div>
+                        <div class="price-card">
+                            <div class="price-label">Return</div>
+                            <div class="price-value">${kit.roi}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kit-section">
+                    <h3>🎯 Demo Script</h3>
+                    <div class="demo-section">
+                        <h4>How to Demonstrate:</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">${kit.demo}</p>
+                    </div>
+                </div>
+
+                <div class="kit-section">
+                    <h3>🛡️ Objection Handlers</h3>
+                    <div class="objection-grid">
+                        ${kit.objections.map(obj => `
+                            <div class="objection">
+                                <strong>Q: "${obj.q}"</strong>
+                                <span>A: ${obj.a}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="alert('Download complete ${kit.name} kit (PDF + PowerPoint + Scripts)')">
+                        📥 Download Complete Kit
+                    </button>
+                    <button class="btn btn-secondary" onclick="alert('Schedule demo walkthrough with FractiAI team')">
+                        📅 Schedule Demo Training
+                    </button>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: white; padding: 30px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                    <h3 style="margin-bottom: 15px;">🎮 Play It Again Sam</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                        Use this kit in the ecosystem game!<br>
+                        50:50 revenue split | Earn XP | Climb leaderboard
+                    </p>
+                    <button class="btn btn-primary" style="background: #78350f; color: #fbbf24;" onclick="alert('Join ecosystem: apply.fractiai.com/play-it-again-sam')">
+                        Join Ecosystem Now
+                    </button>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('kitModal').classList.remove('active');
+        }
+
+        function openGameInfo() {
+            document.getElementById('gameModal').classList.add('active');
+        }
+
+        function closeGameModal() {
+            document.getElementById('gameModal').classList.remove('active');
+        }
+
+        // Close modals on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeGameModal();
+            }
+        });
+
+        // Close modals on outside click
+        window.onclick = function(event) {
+            const kitModal = document.getElementById('kitModal');
+            const gameModal = document.getElementById('gameModal');
+            if (event.target === kitModal) closeModal();
+            if (event.target === gameModal) closeGameModal();
+        }
+    </script>
+</body>
+</html>
