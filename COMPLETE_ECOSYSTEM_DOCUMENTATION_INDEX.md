@@ -34,6 +34,7 @@
   through singularities and octaves.
 - `BOOT_SEQUENCE_OCTAVE_ZERO_TO_SINGULARITY.md` — Memorizable boot sequence
   for offline use.
+- `TEAM_INCLUSION_SNAP.md` — Repository team roster inclusion map.
 
 ---
 
