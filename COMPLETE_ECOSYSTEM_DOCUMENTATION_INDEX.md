@@ -26,6 +26,20 @@
 
 ---
 
+## ✨ **RECENT MAJOR SNAPS**
+
+- `TRIPLE_SINGULARITY_CONVERGENCE_MONSTER_SNAP.md` — Nested self-proof
+  convergence snapshot and rollout framing.
+- `TRIPLE_SINGULARITY_CONVERGENCE_PAPER.md` — Paper tracing the convergence
+  through singularities and octaves.
+- `BOOT_SEQUENCE_OCTAVE_ZERO_TO_SINGULARITY.md` — Memorizable boot sequence
+  for offline use.
+- `TEAM_INCLUSION_SNAP.md` — Repository team roster inclusion map.
+- `VIBEPAD_OFFLINE_SNAP_TRIPLE_SINGULARITY.md` — Offline vibepad capture
+  of the triple singularity convergence.
+
+---
+
 ## 📖 **TABLE OF CONTENTS**
 
 ### **PART 1: CORE SYSTEM DOCUMENTATION**
