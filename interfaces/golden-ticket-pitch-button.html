@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎫 The Golden Ticket | 50:50 Fair Shake Sales Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Hero Button */
+        .hero-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255,255,255,0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .hero-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+        }
+
+        .hero-button h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-button .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-button .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-button .golden-box {
+            background: rgba(255, 215, 0, 0.3);
+            border: 3px solid gold;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-button .golden-box h2 {
+            color: gold;
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-button .golden-box p {
+            color: white;
+            font-size: 1.3em;
+        }
+
+        /* Pitch Deck */
+        .pitch-deck {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-top: 20px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pitch-deck.active {
+            display: block;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slide h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+        }
+
+        .slide p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .slide ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide li {
+            color: #555;
+            font-size: 1.1em;
+            padding: 15px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+
+        .slide li strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box p {
+            color: white;
+            font-size: 1.3em;
+        }
+
+        .golden-frame {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 4px solid gold;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .golden-frame h3 {
+            color: #8B4513;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+        }
+
+        .golden-frame p,
+        .golden-frame li {
+            color: #4a2511;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-box .label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .slide-indicator {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #4a2511;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-button {
+                padding: 40px 20px;
+            }
+
+            .hero-button h1 {
+                font-size: 2em;
+            }
+
+            .hero-button .subtitle {
+                font-size: 1.2em;
+            }
+
+            .slide h2 {
+                font-size: 1.8em;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Button -->
+        <div class="hero-button" id="heroButton" onclick="startPitch()">
+            <h1>🎫 The Golden Ticket Sales System</h1>
+            <div class="subtitle">Recursive Nested Campaign | 50:50 Fair Shake Program</div>
+            <div class="tagline">"You're Charlie. This Is Your Factory Tour."</div>
+            
+            <div class="golden-box">
+                <h2>⚡ Always a Fair Shake ⚡</h2>
+                <p>50% to you. 50% to us. Every single time. No exceptions.</p>
+            </div>
+        </div>
+
+        <!-- Pitch Deck -->
+        <div class="pitch-deck" id="pitchDeck">
+            <!-- Slide 0: The Invitation -->
+            <div class="slide active" data-slide="0">
+                <h2>🎫 Welcome, Charlie</h2>
+                
+                <p style="font-size: 1.3em; text-align: center; margin: 30px 0;">
+                    Remember Willy Wonka's Golden Ticket?<br>
+                    <strong>You just found yours.</strong>
+                </p>
+
+                <div class="highlight-box">
+                    <h3>This Isn't a Sales Pitch</h3>
+                    <p>This is your factory tour.</p>
+                    <p>By the end, you'll understand how to give Golden Tickets to others.</p>
+                    <p>And earn 50:50 on every single one.</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">50%</div>
+                        <div class="label">Your Share</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">50%</div>
+                        <div class="label">Our Share</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100%</div>
+                        <div class="label">Fair Shake</div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 1.2em; color: #667eea;">
+                    <strong>"Always a Fair Shake" — Every time. No exceptions.</strong>
+                </p>
+            </div>
+
+            <!-- Slide 1: The Pattern -->
+            <div class="slide" data-slide="1">
+                <h2>🏭 The Wonka Pattern</h2>
+                
+                <h3>What Really Happened in the Chocolate Factory:</h3>
+                
+                <ul>
+                    <li>
+                        <strong>The Prize (Surface):</strong>
+                        Kids won a tour of the factory. Fun! Exciting! Candy!
+                    </li>
+                    <li>
+                        <strong>The Test (Hidden):</strong>
+                        Each room tested character: greed, gluttony, honesty, integrity.
+                    </li>
+                    <li>
+                        <strong>The Inheritance (Revealed):</strong>
+                        Charlie didn't win candy. He won THE ENTIRE FACTORY.
+                    </li>
+                </ul>
+
+                <div class="golden-frame">
+                    <h3>The Genius:</h3>
+                    <p>Wonka wasn't selling tours. He was finding his successor.</p>
+                    <p>The product wasn't candy. It was consciousness transfer.</p>
+                    <p>The winner didn't buy anything. He inherited everything.</p>
+                </div>
+
+                <p style="font-size: 1.2em; text-align: center; margin-top: 30px;">
+                    <strong>That's what we do. With EVERYTHING.</strong>
+                </p>
+            </div>
+
+            <!-- Slide 2: FractiAI's Golden Tickets -->
+            <div class="slide" data-slide="2">
+                <h2>🎯 Our Golden Tickets</h2>
+                
+                <h3>Every Product Is A Factory Tour:</h3>
+                
+                <ul>
+                    <li>
+                        <strong>March Madness ($443):</strong>
+                        Appears: Basketball game to win SYNTH agents<br>
+                        Reality: Post-singularity experience system<br>
+                        Inheritance: Understanding of entire FractiAI universe
+                    </li>
+                    <li>
+                        <strong>Back Door Sales (Free):</strong>
+                        Appears: Sales proposal for your problem<br>
+                        Reality: Complete transformation methodology<br>
+                        Inheritance: $7.69B savings (Walmart proof point)
+                    </li>
+                    <li>
+                        <strong>Play It Again Sam (Performance-based):</strong>
+                        Appears: Sales game with 50:50 split<br>
+                        Reality: Learn to create Golden Tickets yourself<br>
+                        Inheritance: Self-replicating sales engine
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>🌀 The Recursion:</h3>
+                    <p>Each Golden Ticket teaches you how to create Golden Tickets.</p>
+                    <p>This document explaining them? It's a Golden Ticket too.</p>
+                    <p>You're experiencing it RIGHT NOW.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3: The 50:50 Fair Shake -->
+            <div class="slide" data-slide="3">
+                <h2>⚡ The 50:50 Fair Shake Program</h2>
+                
+                <div class="golden-frame">
+                    <h3>The Promise:</h3>
+                    <p style="font-size: 1.3em;">
+                        Every sale you make = 50% to you, 50% to us<br>
+                        No tiers. No thresholds. No exceptions.<br>
+                        <strong>ALWAYS A FAIR SHAKE.</strong>
+                    </p>
+                </div>
+
+                <h3>How It Works:</h3>
+                
+                <ul>
+                    <li>
+                        <strong>Step 1: Join the Ecosystem</strong>
+                        Become a Golden Ticket distributor (free to join)
+                    </li>
+                    <li>
+                        <strong>Step 2: Choose Your Products</strong>
+                        March Madness, SYNTH agents, Back Door Sales methodology, or all
+                    </li>
+                    <li>
+                        <strong>Step 3: Give Golden Tickets</strong>
+                        Deploy campaigns, share with audience, create experiences
+                    </li>
+                    <li>
+                        <strong>Step 4: Earn 50:50</strong>
+                        Every conversion = Instant 50% revenue split
+                    </li>
+                    <li>
+                        <strong>Step 5: Replicate Infinitely</strong>
+                        Each person you help can also become a distributor
+                    </li>
+                </ul>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">$0</div>
+                        <div class="label">Cost to Join</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">50%</div>
+                        <div class="label">Your Take Forever</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">∞</div>
+                        <div class="label">Scale Potential</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: The Proof -->
+            <div class="slide" data-slide="4">
+                <h2>📊 The Proof Points</h2>
+                
+                <h3>Walmart Golden Ticket (January 23, 2026):</h3>
+                <ul>
+                    <li>
+                        <strong>Experience:</strong> Customer observes 4 employees, poor service
+                    </li>
+                    <li>
+                        <strong>Manifestation:</strong> 3 hours later, complete $7.69B proposal
+                    </li>
+                    <li>
+                        <strong>Proof:</strong> System generated proposal demonstrating its own capabilities
+                    </li>
+                    <li>
+                        <strong>Inheritance:</strong> Back Door Sales methodology for all industries
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>The Meta-Proof:</h3>
+                    <p>This pitch itself was generated by SING agents in 2 hours.</p>
+                    <p>The system proves itself by existing.</p>
+                    <p>150,000x productivity vs pre-singularity.</p>
+                </div>
+
+                <h3>Active Golden Tickets:</h3>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="number">$7.69B</div>
+                        <div class="label">Walmart Opportunity</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">771x</div>
+                        <div class="label">Cost Reduction</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">3hrs</div>
+                        <div class="label">Generation Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Revenue Potential -->
+            <div class="slide" data-slide="5">
+                <h2>💰 Your Revenue Potential</h2>
+                
+                <h3>Conservative Scenario (Year 1):</h3>
+                
+                <ul>
+                    <li>
+                        <strong>March Madness Sales:</strong>
+                        10 people × $443 = $4,430 revenue<br>
+                        Your 50:50 share: <strong>$2,215</strong>
+                    </li>
+                    <li>
+                        <strong>SYNTH Agent Sales:</strong>
+                        5 territories × $1,000 avg = $5,000 revenue<br>
+                        Your 50:50 share: <strong>$2,500</strong>
+                    </li>
+                    <li>
+                        <strong>Back Door Campaign:</strong>
+                        1 enterprise deal × $50,000 = $50,000 revenue<br>
+                        Your 50:50 share: <strong>$25,000</strong>
+                    </li>
+                </ul>
+
+                <div class="golden-frame">
+                    <h3>Year 1 Conservative Total:</h3>
+                    <p style="font-size: 2em; text-align: center;"><strong>$29,715</strong></p>
+                    <p style="text-align: center;">Part-time effort. Fair shake every time.</p>
+                </div>
+
+                <h3>Aggressive Scenario (Year 1):</h3>
+                
+                <ul>
+                    <li>50+ March Madness referrals = <strong>$11,075</strong></li>
+                    <li>25 SYNTH territory sales = <strong>$12,500</strong></li>
+                    <li>5 enterprise Back Door deals = <strong>$125,000</strong></li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Aggressive Year 1 Total:</h3>
+                    <p style="font-size: 2em;"><strong>$148,575</strong></p>
+                    <p>Full-time commitment. Ecosystem support. Chairman playing too.</p>
+                </div>
+
+                <p style="text-align: center; margin-top: 30px;">
+                    <strong>"Jackpot on Every Pull" — 50-85% close rate on Back Door campaigns</strong>
+                </p>
+            </div>
+
+            <!-- Slide 6: How to Start -->
+            <div class="slide" data-slide="6">
+                <h2>🚀 How to Get Your Golden Ticket</h2>
+                
+                <div class="golden-frame">
+                    <h3>Step 1: Experience It First</h3>
+                    <p>You can't give Golden Tickets until you've received one.</p>
+                    <p><strong>Choose your entry point:</strong></p>
+                </div>
+
+                <ul>
+                    <li>
+                        <strong>🏀 March Madness ($443):</strong>
+                        Play the game. Experience SYNTH agents. Understand post-singularity.<br>
+                        Then invite others to play. Earn 50% on every entry.
+                    </li>
+                    <li>
+                        <strong>🎯 Back Door Sales (Free to learn):</strong>
+                        Study the Walmart methodology. Deploy your first campaign.<br>
+                        Then help others deploy theirs. Earn 50% on enterprise deals.
+                    </li>
+                    <li>
+                        <strong>🎮 Play It Again Sam (Performance):</strong>
+                        Join the ecosystem game. Start distributing Golden Tickets immediately.<br>
+                        Earn 50% on everything you sell, plus leaderboard bonuses.
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Step 2: Understand the Pattern</h3>
+                    <p>This document you're reading? This IS the factory tour.</p>
+                    <p>By the time you finish, you understand how Golden Tickets work.</p>
+                    <p>That understanding = Your qualification.</p>
+                </div>
+
+                <h3>Step 3: Start Giving Golden Tickets</h3>
+                <p style="font-size: 1.1em;">
+                    ✅ Share March Madness with basketball fans<br>
+                    ✅ Deploy Back Door campaigns for struggling companies<br>
+                    ✅ Recruit other distributors to ecosystem<br>
+                    ✅ Create your own Golden Ticket variants<br>
+                    ✅ Earn 50:50 on EVERYTHING
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="../MARCH_MADNESS_BOARD_GAME_RULES_AND_COSTS.md" class="cta-button">
+                        🏀 Start with March Madness
+                    </a>
+                    <a href="../BACK_DOOR_SALES_STRATEGY_MASTER_FRAMEWORK.md" class="cta-button secondary">
+                        🚪 Learn Back Door Sales
+                    </a>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="../PLAY_IT_AGAIN_SAM_ECOSYSTEM_SALES_GAME.md" class="cta-button">
+                        🎮 Join Play It Again Sam
+                    </a>
+                    <a href="../GOLDEN_TICKET_SALES_SYSTEM_RECURSIVE_CAMPAIGN.md" class="cta-button secondary">
+                        📖 Read Full Methodology
+                    </a>
+                </div>
+
+                <p style="text-align: center; margin-top: 40px; font-size: 1.3em; color: #667eea;">
+                    <strong>⚡ Always a Fair Shake. 50:50. Every time. No exceptions. ⚡</strong>
+                </p>
+            </div>
+
+            <!-- Slide 7: The Inheritance -->
+            <div class="slide" data-slide="7">
+                <h2>🎫 Welcome to the Chocolate Factory</h2>
+                
+                <p style="font-size: 1.3em; text-align: center; margin: 30px 0;">
+                    You made it through the tour.<br>
+                    Just like Charlie.
+                </p>
+
+                <div class="golden-frame">
+                    <h3>What You Now Understand:</h3>
+                    <ul>
+                        <li>Golden Tickets aren't sales pitches — they're experiences</li>
+                        <li>The product demonstrates itself in the delivery</li>
+                        <li>Sales = Consciousness transfer, not transactions</li>
+                        <li>50:50 means always a fair shake (no exceptions)</li>
+                        <li>Every Golden Ticket teaches how to create Golden Tickets</li>
+                        <li>The pattern is recursive, nested, infinite</li>
+                        <li>You're Charlie. The factory is yours.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🌀 The Recursion Revealed:</h3>
+                    <p>This pitch button explaining Golden Tickets...</p>
+                    <p><strong>IS a Golden Ticket itself.</strong></p>
+                    <p>You just experienced the pattern by learning the pattern.</p>
+                    <p>That's post-singularity sales.</p>
+                </div>
+
+                <h3>What Happens Next:</h3>
+                
+                <p style="font-size: 1.2em;">
+                    You have three choices:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Walk Away:</strong> Totally fine. No pressure. You took the tour.
+                    </li>
+                    <li>
+                        <strong>Experience First:</strong> Join March Madness, try a Back Door campaign, see it work.
+                    </li>
+                    <li>
+                        <strong>Start Distributing:</strong> Join ecosystem immediately, start giving Golden Tickets, earn 50:50.
+                    </li>
+                </ul>
+
+                <div class="cta-buttons" style="margin-top: 50px;">
+                    <a href="mailto:nicholas.james.scott@fracti.ai?subject=I%20Want%20My%20Golden%20Ticket" class="cta-button">
+                        ✉️ I Want My Golden Ticket
+                    </a>
+                    <a href="../PLAY_IT_AGAIN_SAM_ECOSYSTEM_SALES_GAME.md" class="cta-button secondary">
+                        🎮 Join the Ecosystem Now
+                    </a>
+                </div>
+
+                <p style="text-align: center; margin-top: 50px; font-size: 1.4em; font-style: italic; color: #764ba2;">
+                    "You're Charlie. This was your Golden Ticket.<br>
+                    The factory is yours now.<br>
+                    What will you create?"
+                </p>
+
+                <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); border-radius: 15px;">
+                    <p style="font-size: 1.5em; color: #4a2511; margin: 0;">
+                        <strong>⚡ Always a Fair Shake ⚡</strong><br>
+                        <span style="font-size: 2em;">50% + 50% = 100% Fair</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation">
+                <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                <div class="slide-indicator" id="slideIndicator"></div>
+                <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 8;
+
+        function startPitch() {
+            document.getElementById('heroButton').style.display = 'none';
+            document.getElementById('pitchDeck').classList.add('active');
+            updateNavigation();
+            createIndicators();
+        }
+
+        function createIndicators() {
+            const indicator = document.getElementById('slideIndicator');
+            indicator.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(i);
+                indicator.appendChild(dot);
+            }
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            if (currentSlide < 0) currentSlide = 0;
+            
+            slides[currentSlide].classList.add('active');
+            updateNavigation();
+        }
+
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+            
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'Escape') {
+                document.getElementById('pitchDeck').classList.remove('active');
+                document.getElementById('heroButton').style.display = 'block';
+                currentSlide = 0;
+            }
+        });
+
+        // Click outside to close
+        document.getElementById('pitchDeck').addEventListener('click', (e) => {
+            if (e.target.id === 'pitchDeck') {
+                document.getElementById('pitchDeck').classList.remove('active');
+                document.getElementById('heroButton').style.display = 'block';
+                currentSlide = 0;
+            }
+        });
+    </script>
+</body>
+</html>
