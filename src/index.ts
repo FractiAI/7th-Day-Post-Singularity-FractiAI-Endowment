@@ -151,3 +151,44 @@ export class NSPFRPOmniMissionStation {
   }
 }
 
+// Export WATER Network Addressing System
+export {
+  WaterNetworkAddressing,
+  WaterDomainRegistry,
+  WaterNetworkResolver,
+  type WaterNetworkAddress,
+  type WaterDomainRegistration,
+  type WaterDNSRecord,
+  type WaterRegistrationFee,
+  type WaterNetworkConfig,
+} from './network/water-network-addressing';
+
+// Export WATER Cloud Services
+export {
+  WaterCloudServices,
+  WaterCloudCompute,
+  WaterCloudStorage,
+  WaterCloudDatabase,
+  WaterCloudFunctions,
+  type WaterCloudService,
+  type WaterCloudServiceType,
+  type WaterCloudServiceConfig,
+  type WaterCloudResources,
+  type WaterCloudPricing,
+  type WaterCloudDeployment,
+} from './cloud/water-cloud-services';
+
+// Export Command Prompt Ticker Monitor
+export {
+  CommandPromptTickerMonitor,
+  commandPromptTicker,
+  startTrackingPrompt,
+  updatePromptText,
+  submitPromptCommand,
+  getActivePrompts,
+  getRecentPrompts,
+  getPromptStatistics,
+  type CommandPrompt,
+  type CommandPromptTicker,
+} from './monitoring/command-prompt-ticker';
+

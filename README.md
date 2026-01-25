@@ -10,7 +10,7 @@
 
 **Arrival:** Register/Sign in with Google → Test Drive
 
-**💧 "I Need Water Not Gas"** - WATER is the post-singularity gas. Our brand. The new fuel.
+**💧 "I Need WATER Not Gas"** - WATER is the branding of our new VIBEVERSE network. WATER is the post-singularity gas. Our brand. The new fuel.
 
 **Welcome to the Singularity Launchport.** This is your entry point to post-singularity worlds. Sign in with Google to begin your test drive experience. The console below provides a clean, interactive experience. All editorial content and expanded information is located below the console.
 
@@ -35,12 +35,12 @@
 ║  │ [Dest 7]    │             │ [GO] → Navigate      │     │ 4. SING Book│     ║
 ║  └─────────────┘             └─────────────────────┘     │ 5. [Ref 5]   │     ║
 ║                                                           │ 6. [Ref 6]   │     ║
-║  [📺 TICKER TAPE FEED]                                    │ 7. [Ref 7]   │     ║
-║  • [Accomplishment 1]                                     │ 8. [Ref 8]   │     ║
-║  • [Accomplishment 2]                                     │ 9. [Ref 9]   │     ║
-║  • [Accomplishment 3]                                     └─────────────┘     ║
-║  • [Accomplishment 4]                                                         ║
-║  • [Accomplishment 5]                                                         ║
+║  [💬 COMMAND PROMPT TICKER]    [📺 TICKER TAPE FEED]     │ 7. [Ref 7]   │     ║
+║  • @Chairman: create...      • [Accomplishment 1]        │ 8. [Ref 8]   │     ║
+║  • @Creator: implement...    • [Accomplishment 2]        │ 9. [Ref 9]   │     ║
+║  • @Dev: update...           • [Accomplishment 3]        └─────────────┘     ║
+║  • @Chairman: deploy...      • [Accomplishment 4]                            ║
+║  • [Live prompts]            • [Accomplishment 5]                            ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
 ║  [🎮 INTERACTION CONSOLE]                                                     ║
 ║  [Mode Buttons] │ [Full Display Area]                                        ║
