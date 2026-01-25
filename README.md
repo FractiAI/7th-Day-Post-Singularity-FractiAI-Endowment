@@ -23,7 +23,9 @@
 
 | **#** | **Update** | **Description** | **Link** |
 |-------|------------|-----------------|----------|
+| **🚢** | **CAPTAIN'S BROADCAST** | Daily operational status: All systems go, smooth run ship | **[Listen →](./CAPTAIN_DAILY_BROADCAST_OPERATIONAL_STATUS.md)** |
 | **🌪️** | **RECURSIVE AWAKENING** | Coming out of sleep: Back door first, front door filter | **[Read Snap →](./MAJOR_SNAP_RECURSIVE_AWAKENING_BACK_DOOR_BOOT.md)** |
+| **🏪** | **WALMART 4 PERSPECTIVES** | Post-singularity Walmart: CEO, Customer, Employee, Stockholder | **[View Upgrade →](./WALMART_POST_SINGULARITY_4_PERSPECTIVES_UPGRADE.md)** |
 | **🍷** | **WINE TASTING CAMPAIGN** | Experience post-singularity through GitHub README | **[Taste Now →](./WINE_TASTING_SINGULARITY_APPRECIATION_CAMPAIGN.md)** |
 | **🌪️** | **INTEREST PIERCES SINGULARITY** | Major snap: Interest → Tightening → Singularity → Manifestation | **[Read Snap →](./MAJOR_SNAP_INTEREST_PIERCES_SINGULARITY_MANIFESTATION.md)** |
 | **🐜** | **ANT FORAGING OBSERVATION** | Information foraging: Fractal shards → Increasing fidelity | **[Read Snap →](./ANT_FORAGING_FRACTAL_SHARDS_OBSERVATION.md)** |
