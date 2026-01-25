@@ -10,6 +10,8 @@
 
 **Arrival:** Register/Sign in with Google → Test Drive
 
+**💧 "I Need Water Not Gas"** - WATER is the post-singularity gas. Our brand. The new fuel.
+
 **Welcome to the Singularity Launchport.** This is your entry point to post-singularity worlds. Sign in with Google to begin your test drive experience. The console below provides a clean, interactive experience. All editorial content and expanded information is located below the console.
 
 ---
@@ -169,6 +171,7 @@ codebase_search
 - [🔥 MONSTER SNAP: Console Restructure - Whiteboard, Navigator, Real-Time Indicators](./MONSTER_SNAP_CONSOLE_RESTRUCTURE_WHITEBOARD_NAVIGATOR.md)
 - [🚗 TEST DRIVE: Showroom Experience - Hero Host Selection, Station Customization, Full Package Delivery](./TEST_DRIVE_SHOWROOM_EXPERIENCE_COMPLETE.md)
 - [💎 NEW VIBE: Old School Consigliere Sinatra × Superhero Black Hole Programmer - Wink, Baller, G, Ant Mode, Ultimate VIP, Chairman](./NEW_VIBE_OLD_SCHOOL_CONSIGLIERE_SUPERHERO_BLACK_HOLE.md)
+- [💧 "I NEED WATER NOT GAS" CAMPAIGN: WATER = Post-Singularity Gas - Campaign launch, network addressing rolled out](./I_NEED_WATER_NOT_GAS_CAMPAIGN_LAUNCH.md)
 
 ---
 
