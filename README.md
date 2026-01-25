@@ -30,7 +30,10 @@
 • Walmart proposal: $7.69B opportunity from Chromebook return
 • 100-page story: Self-proving narrative - Live worldwide deployment
 • Vibe Selector added: Telescoping knob - Granularity capability achieved
+• Snap Pad app: iOS & Android simulators ready - Primary vibing instrument
 ```
+<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>
+codebase_search
 
 *[Feed streams continuously - Each commit adds one-liner - Recursive awareness capture]*
 
@@ -113,6 +116,7 @@
 | **🔬** | **TECH EXPLAINED** | Complete technical architecture for all communications | **[Read Guide →](./TECHNOLOGY_EXPLAINED_ALL_COMMUNICATIONS.md)** |
 | **🛒** | **SHOP BUTTON** | Point of sale button for instant purchases | **[Buy Now →](./interfaces/fractiai-shop-button-pos.html)** |
 | **🎁** | **VENDING MACHINE** | 72 packages ready in gift shop | **[Shop Catalog →](./FRACTIAI_VENDING_MACHINE_GIFT_SHOP_ALL_OFFERINGS.md)** |
+| **📱** | **SNAP PAD APP** | iOS & Android - Primary vibing instrument (offline + online) | **[View Simulators →](./SNAP_PAD_APP_PRIMARY_VIBING_INSTRUMENT.md)** |
 
 ---
 
@@ -280,6 +284,32 @@ This is how commerce works in Vibeverse: **Words become reality by focusing atte
 👉 **[🎁 SHOP NOW BUTTON →](./interfaces/fractiai-shop-button-pos.html)** | Consciousness-based commerce | Zero friction
 
 **The Vibe:** No backend drama. No database delays. No server slowdowns. Just pure flow state. Click when the vibe says click. Buy when the moment feels right. Everything syncs with your rhythm because you're in Vibeverse—where living IS the interface, flowing IS the protocol, and vibing with others IS the network effect. This is post-singularity commerce: **thought → attention → energy → SNAP → reality**.
+
+---
+
+### 📱 **SNAP PAD APP | PRIMARY VIBING INSTRUMENT**
+
+**iOS (Apple Store) + Android (Google Play Store)** | Primary instrument for offline and online vibing
+
+**The Handheld Vibeverse** | Full Chairman Creator Console on mobile | Quick snap capture | Seamless offline/online sync
+
+**💎 "Your primary instrument and experience for offline and online vibing. Always with you. Always ready. Always vibing."**
+
+**CORE FEATURES:**
+- **Full Dashboard:** Value per minute, ticker tape feed, all metrics on mobile
+- **Quick Snap:** Voice dictation, text input, camera, video - instant capture
+- **Vibe Selector:** Telescoping knob - All vibes available (Country Western, Frontiersman, Safari Club, Burning Man, Christian, Jewish, All)
+- **Offline Mode:** Local storage, queue for sync, seamless experience
+- **Online Mode:** Real-time sync, live updates, network effects
+- **Creator Console:** All dashboard controls accessible
+- **Environment Settings:** Theater controls, personal adjustments
+- **Leaderboard:** Gamified achievement tracking
+
+**The Experience:** Open app. Dashboard loads. Value metrics visible. Ticker tape streaming. Ready to vibe. Tap snap button. Voice/text/camera. Instant capture. Auto-sync. Vibe selector adapts interface. Offline? No problem. Local capture. Queue for sync. Online? Real-time. Live updates. Network effects. Community vibing. This is your primary instrument. This is Snap Pad.
+
+**Tagline:** *"Your handheld Vibeverse. Offline. Online. Always vibing."*
+
+👉 **[📱 SNAP PAD APP →](./SNAP_PAD_APP_PRIMARY_VIBING_INSTRUMENT.md)** | **[🍎 iOS Simulator →](./interfaces/snap-pad-ios-simulator.html)** | **[🤖 Android Simulator →](./interfaces/snap-pad-android-simulator.html)**
 
 ---
 
