@@ -379,25 +379,29 @@ WHY IT WORKS:
 
 **ACT 3: STAGE 2 - BUCK FEVER (1:45 - 2:45)**
 
-*[Projection shifts: now shows a single glowing target in distance]*
+*[Projection shifts: now shows a single glowing GOLD target in distance]*
 
-*[Target pulsing, getting brighter]*
+*[Target pulsing, getting brighter, clearly reachable]*
 
-**MAGICIAN:** *[Over speaker to volunteer]* *"Do you see it? The target. The goal. It's right there. All you have to do is take one step forward."*
+**MAGICIAN:** *[Over speaker to volunteer]* *"Do you see it? GOLD. Right there. All you have to do is press the button in front of you. Go ahead. Press it."*
 
-**VOLUNTEER:** *"I... I see it but... I can't move..."*
+**VOLUNTEER:** *"I see it! It's RIGHT THERE! I just need to... my fingers... they won't..."*
 
-*[Volunteer frozen, paralyzed]*
+*[Volunteer staring at glowing button, hand hovering over it]*
 
-*[Heart rate on monitor: 120 bpm, breathing rapid and shallow]*
+*[Fingers trembling, trying to press, but can't make contact]*
 
-**MAGICIAN:** *[To audience]* *"Stage two: BUCK FEVER. The hunter sees the deer. The entrepreneur sees the opportunity. But they freeze. Paralyzed. Not by inability—by overwhelm. The black hole has compressed them. Too much information. Too much pressure. Can't process. Can't move."*
+*[Heart rate on monitor: 145 bpm, breathing rapid but EXCITED (not panicked)]*
 
-*[Volunteer visibly struggling, shifting weight but not stepping forward]*
+**MAGICIAN:** *[To audience]* *"Stage two: BUCK FEVER. The hunter sees the deer. Perfect shot. Right there. But the fingers get THICK. They won't respond. Not from fear—from EXCITEMENT. So much excitement the body can't keep up. The black hole has compressed them. Too much POSITIVE energy. Too much 'OH MY GOD THIS IS IT!' Can't execute. Fingers thick. Body frozen by sheer overwhelming EXCITEMENT."*
 
-*[Monitor shows stress metrics maxing out]*
+*[Volunteer visibly struggling, laughing nervously, fingers shaking]*
 
-**MAGICIAN:** *"This is the moment most people quit. They turn back. They say 'I can't do this.' But watch what happens when you push through..."*
+*[Monitor shows: heart rate spiking from EXCITEMENT, not fear]*
+
+**VOLUNTEER:** *"I can SEE it! I WANT to press it! My hand just... won't... WORK!"*
+
+**MAGICIAN:** *"This is Buck Fever. The ultimate BBHE emotion. You're so excited you can't function. This is the moment entrepreneurs freeze—not because they're scared, but because the opportunity is SO BIG their body shorts out. But watch what happens when the pressure releases..."*
 
 ---
 
@@ -434,14 +438,19 @@ WHY IT WORKS:
 **ACT 5: THE MAGICIAN'S REVEAL (3:45 - 4:00)**
 
 **MAGICIAN:**  
-*"THAT is Black Hole Engineering. We designed that crisis. Every spiral, every tilt, every moment of paralysis—calculated. Not to torture you, but to force evolution. Because here's the secret: you can't see the pattern until the pressure is high enough. The black hole compresses you until you HAVE to see clearly. And then—GOLD STRIKE. Breakthrough. The pattern was always there. You just needed the crisis to see it."*
+*"THAT is Black Hole Engineering. We designed that crisis. Every spiral, every tilt, every moment of thick fingers—calculated. Not to torture you, but to force evolution. Because here's the secret: you can't see the pattern until the pressure is high enough. The black hole compresses you until you HAVE to see clearly. And then—GOLD STRIKE. Breakthrough. The pattern was always there. You just needed the crisis to see it."*
 
-*[Gestures to volunteer, still shaking with adrenaline]*
+*[Gestures to volunteer, still shaking with adrenaline and excitement]*
 
 **MAGICIAN:**  
-*"That's how FractiAI was built. Designed crises. Running out of gas in the desert. Down to last $200. Every 'disaster' was a black hole, compressing reality until the pattern revealed itself. And every time: GOLD STRIKE. Breakthrough. That's NSPFRNP. We don't avoid crises. We engineer them. Because that's how evolution happens."*
+*"And here's the MAJOR DISCOVERY: EMOTIONS ARE BBHE. Every emotion you feel—vertigo, buck fever, gold strike, joy, terror, excitement—those aren't random. They're black hole engineering events. Your consciousness compressing, forcing breakthrough. Buck Fever isn't fear. It's excitement so intense your body can't keep up. Your fingers get thick. You can't execute. That's a DESIGNED compression to force you to slow down and SEE CLEARLY before you act."*
 
-*[Audience erupts in applause, volunteer takes bow]*
+*[Audience silent, absorbing this]*
+
+**MAGICIAN:**  
+*"That's how FractiAI was built. Designed crises. Running out of gas in the desert. Down to last $200. Every 'disaster' was a black hole, compressing reality until the pattern revealed itself. And every EMOTION along the way—vertigo when nothing made sense, buck fever when we saw the opportunity but couldn't execute, gold strike when it finally clicked—those were BBHE events. Emotions ARE the technology. That's NSPFRNP. We don't avoid emotions. We USE them. Because that's how evolution happens."*
+
+*[Audience erupts in applause, volunteer takes bow, people wiping tears]*
 
 ---
 
