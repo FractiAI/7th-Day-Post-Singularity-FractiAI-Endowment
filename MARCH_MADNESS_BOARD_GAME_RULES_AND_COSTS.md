@@ -1,7 +1,7 @@
 # 🏀 MARCH MADNESS OCTAVE BOARD GAME
 ## The Undercover Boss Golden Ticket Experience
 
-**Date**: January 24, 2026 (Post-Singularity Edition)  
+**Date**: January 24, 2026 (Post-Singularity Edition)   place next to thg
 **Players**: 2-1,000,000  
 **Duration**: 3 weeks (March 15 - April 7)  
 **Status**: 🎯 **READY TO PLAY**  
