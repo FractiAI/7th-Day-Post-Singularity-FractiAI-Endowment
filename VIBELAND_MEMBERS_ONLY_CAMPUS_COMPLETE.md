@@ -141,19 +141,19 @@ WHY IT WORKS:
 
 ---
 
-## 🏕️ **THE GYPSY FAIR AESTHETIC**
+## 🌀 **THE NSPFRNP AESTHETIC**
 
-### Magical, Artistic, Healing Campus
+### Natural Protocol Living Campus
 
 ```yaml
 VIBELAND VIBE:
-├─ Gypsy fair magical
+├─ NSPFRNP natural protocols
 ├─ Artistic expression everywhere
 ├─ Healing sanctuary
-├─ Place for tarot cards, universe learning
-├─ Meet wizards and fairies
-├─ Something magical happens here
-└─ Creative, colorful, expressive
+├─ Innovation and discovery center
+├─ Creative collaboration spaces
+├─ Natural self-organization
+└─ Post-singularity living
 
 THE EXPERIENCE:
 You come here to vibe.
@@ -287,12 +287,62 @@ JUST:
 
 ---
 
-## 💰 **THE ECONOMICS**
+## 💰 **THE 4 MEMBERSHIP PACKAGES**
 
-### SYNTH Token Payment System
+### SYNTH Token Payment Tiers
 
 ```yaml
-MEMBERSHIP COST: $9,999/month
+PACKAGE 1: SANDBOX ($999/month SYNTH)
+├─ Entry level membership
+├─ Campus visit access
+├─ Man Cave access (limited hours)
+├─ House menu included (basic meals)
+├─ Shared spaces only
+├─ Winks app access (basic)
+└─ Path to Cloud upgrade
+
+PACKAGE 2: CLOUD ($4,999/month SYNTH)
+├─ Full campus membership
+├─ Downtown Reno access
+├─ House menu included (full meals)
+├─ Shared living spaces
+├─ Innovation center access
+├─ Winks app (full access)
+└─ Community vibing 24/7
+
+PACKAGE 3: SHELL ($9,999/month SYNTH)
+├─ Premium membership
+├─ Private living quarters
+├─ House menu included (gourmet)
+├─ Wine Cave access
+├─ Priority innovation center
+├─ Winks app (premium features)
+├─ Valet service included
+└─ Backroom access
+
+PACKAGE 4: CORE ($24,999/month SYNTH)
+├─ Ultimate VIP membership
+├─ Private suite accommodation
+├─ House menu included (chef-prepared)
+├─ All venues unlimited access
+├─ Private innovation lab
+├─ Winks app (VIP tier)
+├─ Personal valet & concierge
+├─ Co-creation participation
+└─ Lifetime legacy benefits
+
+ALL PACKAGES INCLUDE:
+├─ House menu (meals included in tier)
+├─ Campus access (tier appropriate)
+├─ Winks dating app (tier level)
+└─ Community participation
+
+ADDITIONAL CHARGES:
+├─ Alcohol (all tiers - paid separately)
+├─ Premium food delivery (paid extra)
+├─ Special requests (à la carte)
+├─ Off-campus services (as needed)
+└─ Guest passes (fee per guest)
 
 PAYMENT METHOD: SYNTH tokens only
 ├─ Must buy SYNTH from contributions
@@ -386,10 +436,10 @@ VENUES INCLUDED:
 └─ All downtown Reno (accessible)
 
 THE VIBE:
-├─ Gypsy fair magical
+├─ NSPFRNP natural protocols
 ├─ Artistic everywhere
 ├─ Healing sanctuary
-├─ Wizard and fairy energy
+├─ Natural coordination
 ├─ Creative expression
 └─ Post-singularity living
 
@@ -399,7 +449,8 @@ WHAT YOU DO:
 ├─ Connect through Winks
 ├─ Network with high-value nodes
 ├─ Explore downtown freely
-└─ Live carefree, bill-free life
+├─ Live carefree life (house menu included)
+└─ Alcohol and extras à la carte
 ```
 
 ---
@@ -503,7 +554,7 @@ VIBELAND IS:
 ├─ Innovation tornado
 ├─ Networking ecosystem
 ├─ Relationship incubator (Winks)
-├─ Gypsy fair magical sanctuary
+├─ NSPFRNP natural protocol sanctuary
 ├─ Post-singularity living laboratory
 └─ Complete community immersion
 
@@ -580,16 +631,25 @@ VIBELAND IS:
 ```yaml
 VIBELAND = MEMBERS-ONLY CAMPUS
 
-COST: $9,999/month in SYNTH tokens
+4 PACKAGES AVAILABLE:
+├─ SANDBOX: $999/month SYNTH
+├─ CLOUD: $4,999/month SYNTH
+├─ SHELL: $9,999/month SYNTH
+└─ CORE: $24,999/month SYNTH
 
-INCLUDES:
-├─ Home base (no bills)
-├─ Full campus access
-├─ Winks dating app
+ALL PACKAGES INCLUDE:
+├─ House menu (meals at tier level)
+├─ Campus access (tier appropriate)
+├─ Winks dating app (tier features)
 ├─ Innovation center
-├─ Community vibing 24/7
-├─ Downtown Reno access
-└─ Carefree living
+├─ Community vibing
+└─ Downtown Reno access (varies by tier)
+
+ADDITIONAL CHARGES:
+├─ Alcohol (à la carte all tiers)
+├─ Premium delivery (extra)
+├─ Special requests (extra)
+└─ Guest passes (fee applies)
 
 ACCESS:
 ├─ Invitation-based (mainly)
@@ -598,20 +658,25 @@ ACCESS:
 ├─ Members only
 └─ Quality aligned community
 
-YOUR ONLY CONNECTION TO OLD WORLD:
-└─ That $9,999/month SYNTH payment
+YOUR MONTHLY CONNECTION:
+└─ Choose your tier SYNTH payment
+    ($999, $4,999, $9,999, or $24,999)
 
 EVERYTHING ELSE:
 └─ Pure Vibeverse immersion
     Vibing all day long
     With high-value aligned community
     Creating, connecting, living
-    In gypsy fair magical campus
+    In NSPFRNP natural protocol campus
     Downtown Reno
     Now operational
     Members only
     Hush hush
     Backdoor access
+    
+    House menu included
+    Alcohol à la carte
+    Delivery extra
     
     This is Vibeland. 🌐💎⚡
 ```

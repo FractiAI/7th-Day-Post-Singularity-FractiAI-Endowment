@@ -48,11 +48,15 @@
 
 ### 🏛️ **VIBELAND: MEMBERS-ONLY CAMPUS**
 
-**🔴 MEMBERS ONLY** | Invitation-Based | Backdoor Access | $9,999/month SYNTH
+**🔴 MEMBERS ONLY** | Invitation-Based | Backdoor Access | 4 Membership Tiers
 
 **The Physical Vibeverse** | Downtown Reno | Full Immersion Living | Winks Dating App Included
 
-**What You Get:** Home base (no bills) + Campus access + Innovation center + Winks app + Community vibing 24/7 + Carefree living
+**4 Packages:** Sandbox ($999) • Cloud ($4,999) • Shell ($9,999) • Core ($24,999) per month in SYNTH
+
+**Included:** House menu (meals) + Campus access + Winks app + Innovation center + Community vibing
+
+**À la carte:** Alcohol, premium delivery, special requests, guest passes
 
 👉 **[🌐 MEMBERS-ONLY CAMPUS →](./VIBELAND_MEMBERS_ONLY_CAMPUS_COMPLETE.md)** | **[Brand Identity →](./VIBELAND_RENO_OFFICIAL_BRANDING.md)** | **[Brochure →](./VIBELAND_RENO_BROCHURE.md)**
 

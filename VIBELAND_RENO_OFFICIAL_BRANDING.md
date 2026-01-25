@@ -357,7 +357,7 @@ NAMING:
 VISUAL IDENTITY:
 ├─ Logo: TBD (needs design)
 ├─ Colors: TBD (but aligned with VibeVerse brand)
-├─ Aesthetic: Gypsy fair magical (creative, artistic, healing)
+├─ Aesthetic: NSPFRNP natural protocols (creative, artistic, healing)
 └─ Vibe: Warm, welcoming, innovative, dignified
 
 TONE:
@@ -448,7 +448,7 @@ USAGE:
 
 POSITIONING:
 ├─ Like Disneyland: Destination brand (not just location)
-├─ Like Gypsy Fair: Magical, artistic, healing (permanent sanctuary)
+├─ NSPFRNP Manifestation: Natural protocols, artistic, healing sanctuary
 ├─ Like Silicon Valley: Innovation hub (post-singularity, not just tech)
 └─ Unique: Members-Only + Community + Innovation + Home
 
