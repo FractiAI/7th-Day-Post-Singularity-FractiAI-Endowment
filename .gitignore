@@ -3,6 +3,42 @@
 .env.creator
 .env.local
 .env*.local
+.env.production
+.env.development
+.env.test
+*.env
+
+# Credentials & Secrets
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*credentials*
+*secrets*
+*password*
+*.secret
+config/secrets.json
+secrets.json
+
+# API Keys & Tokens
+*api_key*
+*token*
+*.token
+credentials.json
+service-account*.json
+
+# Vercel
+.vercel/
+.vercel.json
+
+# Supabase
+.supabase/
+
+# GitHub
+.github/secrets/
+.github/tokens/
 
 # Generated Catalogs (auto-generated on sync)
 catalogs/*.json
@@ -14,13 +50,20 @@ catalogs/MASTER_CATALOG.md
 node_modules/
 .pnp
 .pnp.js
+package-lock.json
+yarn.lock
 
 # Testing
 coverage/
+.nyc_output/
+*.test.js.snap
 
 # Production
 build/
 dist/
+out/
+.next/
+.vercel/
 
 # Misc
 .DS_Store
@@ -28,6 +71,9 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.pid
+*.seed
+*.pid.lock
 
 # IDE
 .vscode/
@@ -35,8 +81,12 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
 
 # Temp
 .tmp/
 temp/
 *.tmp
+.cache/
