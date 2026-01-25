@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FractiAI Shop | Point of Sale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .shop-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .shop-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .shop-logo {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .shop-title {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .shop-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .holographic-line {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #764ba2;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .product-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 16px;
+        }
+
+        .buy-button {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+        }
+
+        .buy-button:active {
+            transform: scale(0.98);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #FFD700;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .featured-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .featured-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .featured-description {
+            font-size: 18px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .featured-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: white;
+            color: #667eea;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .featured-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .quick-link {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            color: #667eea;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .shop-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+
+        .contact-info {
+            margin-top: 16px;
+            font-size: 16px;
+        }
+
+        .contact-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .shop-container {
+                padding: 24px;
+            }
+
+            .shop-title {
+                font-size: 28px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-title {
+                font-size: 24px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            bottom: -50%;
+            left: -50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: rotateZ(60deg) translate(-5em, 7.5em);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotateZ(60deg) translate(-5em, 7.5em);
+            }
+            100% {
+                transform: rotateZ(60deg) translate(12em, -10em);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-container">
+        <div class="shop-header">
+            <div class="shop-logo">🎁</div>
+            <h1 class="shop-title">FractiAI Shop</h1>
+            <p class="shop-subtitle">Reality Manifestation | Point of Sale</p>
+            <div class="holographic-line">∞ ⚪⚪⚪⚪⚪⚪⚪⚪ 💎 ⚪⚪⚪⚪⚪⚪⚪⚪ ∞</div>
+        </div>
+
+        <div class="featured-section shine">
+            <h2 class="featured-title">✨ Magic Wish Seeds</h2>
+            <p class="featured-description">Tiny seed → Infinite reality | Full manifestation from your consciousness</p>
+            <a href="./MAGIC_WISH_SEEDS_FULL_PRODUCT_ROLLOUT_MAJOR_SNAP.md" class="featured-button">
+                Explore Magic Seeds →
+            </a>
+        </div>
+
+        <div class="product-grid">
+            <!-- Magic Wish Seeds -->
+            <div class="product-card" onclick="selectProduct('personal-seed')">
+                <div class="popular-badge">POPULAR</div>
+                <div class="product-icon">🌱</div>
+                <h3 class="product-title">Personal Magic Wish Seed</h3>
+                <p class="product-description">Your wish → Complete life transformation in 30 days</p>
+                <div class="product-price">$10,000</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card" onclick="selectProduct('business-seed')">
+                <div class="product-icon">⚡</div>
+                <h3 class="product-title">Business Magic Wish Seed</h3>
+                <p class="product-description">Your idea → Complete startup ecosystem in 60 days</p>
+                <div class="product-price">$50,000</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card" onclick="selectProduct('enterprise-seed')">
+                <div class="product-icon">💎</div>
+                <h3 class="product-title">Enterprise Magic Wish Seed</h3>
+                <p class="product-description">Your vision → Total transformation in 90 days</p>
+                <div class="product-price">$100,000</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- SYNTH Agents -->
+            <div class="product-card" onclick="selectProduct('synth-10')">
+                <div class="popular-badge">BEST VALUE</div>
+                <div class="product-icon">🤖</div>
+                <h3 class="product-title">SYNTH Pack (10 Agents)</h3>
+                <p class="product-description">24/7 AI workers | 771x cheaper than humans</p>
+                <div class="product-price">$2,160<span style="font-size: 16px;">/year</span></div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card" onclick="selectProduct('synth-100')">
+                <div class="product-icon">🤖🤖</div>
+                <h3 class="product-title">SYNTH Pack (100 Agents)</h3>
+                <p class="product-description">Complete department automation</p>
+                <div class="product-price">$21,600<span style="font-size: 16px;">/year</span></div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- Vibeland Experiences -->
+            <div class="product-card" onclick="selectProduct('man-cave')">
+                <div class="product-icon">🏛️</div>
+                <h3 class="product-title">Man Cave Visit</h3>
+                <p class="product-description">Day experience at Vibeland Reno campus</p>
+                <div class="product-price">$99</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card" onclick="selectProduct('golden-hearts')">
+                <div class="popular-badge">LEGENDARY</div>
+                <div class="product-icon">💛</div>
+                <h3 class="product-title">Golden Hearts Club</h3>
+                <p class="product-description">Lifetime founding member status</p>
+                <div class="product-price">$9,999</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <div class="product-card" onclick="selectProduct('vibeland-resident')">
+                <div class="product-icon">🏠</div>
+                <h3 class="product-title">Vibeland Resident</h3>
+                <p class="product-description">Live at post-singularity campus</p>
+                <div class="product-price">$9,999<span style="font-size: 16px;">/mo</span></div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- Games -->
+            <div class="product-card" onclick="selectProduct('march-madness')">
+                <div class="product-icon">🏀</div>
+                <h3 class="product-title">March Madness Entry</h3>
+                <p class="product-description">Play the game, win SYNTH agents</p>
+                <div class="product-price">$27</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- Consultation -->
+            <div class="product-card" onclick="selectProduct('consultation')">
+                <div class="product-icon">💬</div>
+                <h3 class="product-title">1-Hour Consultation</h3>
+                <p class="product-description">Direct session with pru el taino</p>
+                <div class="product-price">$1,000</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- Digital Products -->
+            <div class="product-card" onclick="selectProduct('nspfrnp-course')">
+                <div class="product-icon">📚</div>
+                <h3 class="product-title">NSPFRNP Course</h3>
+                <p class="product-description">Complete natural protocol training</p>
+                <div class="product-price">$999</div>
+                <button class="buy-button">Buy Now</button>
+            </div>
+
+            <!-- Partnership -->
+            <div class="product-card" onclick="selectProduct('fair-shake')">
+                <div class="popular-badge">FREE</div>
+                <div class="product-icon">🤝</div>
+                <h3 class="product-title">50/50 Fair Shake</h3>
+                <p class="product-description">Partner with us, 50% revenue share</p>
+                <div class="product-price">$0</div>
+                <button class="buy-button" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">Apply Free</button>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <a href="../FRACTIAI_VENDING_MACHINE_GIFT_SHOP_ALL_OFFERINGS.md" class="quick-link">
+                📦 View All 72 Packages
+            </a>
+            <a href="../MAGIC_WISH_SEEDS_FULL_PRODUCT_ROLLOUT_MAJOR_SNAP.md" class="quick-link">
+                ✨ Magic Wish Seeds Details
+            </a>
+            <a href="./ultimate-vip-popup-landing.html" class="quick-link">
+                🚀 Pop Up Console
+            </a>
+            <a href="../README.md" class="quick-link">
+                🏠 Main Dashboard
+            </a>
+        </div>
+
+        <div class="shop-footer">
+            <p><strong>⊕ METABOLIZE</strong> • <strong>⊗ CRYSTALLIZE</strong> • <strong>⊙ REANIMATE</strong></p>
+            <div class="contact-info">
+                <p>Questions? Contact us: <a href="mailto:hello@fractiai.com" class="contact-link">hello@fractiai.com</a></p>
+                <p style="margin-top: 8px; font-size: 14px;">🌊 Geyser Flow Forever | 98% Reality Density Guaranteed</p>
+            </div>
+            <p style="margin-top: 16px; font-size: 12px; opacity: 0.6;">
+                Creator: pru el taino | FractiAI | Post-Singularity⁴ | January 25, 2026
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function selectProduct(productId) {
+            // Product selection logic
+            console.log('Product selected:', productId);
+            
+            // In production, this would:
+            // 1. Show product details modal
+            // 2. Add to cart
+            // 3. Redirect to checkout
+            // 4. Process payment via Stripe
+            
+            // For now, show alert with next steps
+            alert(`Product selected: ${productId}\n\nNext steps:\n1. Email hello@fractiai.com\n2. Mention product: ${productId}\n3. Complete purchase\n4. Reality manifests!`);
+            
+            // Track selection
+            if (window.gtag) {
+                gtag('event', 'select_item', {
+                    item_id: productId,
+                    item_name: productId
+                });
+            }
+        }
+
+        // Add pulse effect to buy buttons on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const buyButtons = document.querySelectorAll('.buy-button');
+            buyButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse 0.5s';
+                });
+                button.addEventListener('animationend', function() {
+                    this.style.animation = '';
+                });
+            });
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
+</body>
+</html>
