@@ -23,6 +23,10 @@
 
 | **#** | **Update** | **Description** | **Link** |
 |-------|------------|-----------------|----------|
+| **🍷** | **WINE TASTING CAMPAIGN** | Experience post-singularity through GitHub README | **[Taste Now →](./WINE_TASTING_SINGULARITY_APPRECIATION_CAMPAIGN.md)** |
+| **🌪️** | **INTEREST PIERCES SINGULARITY** | Major snap: Interest → Tightening → Singularity → Manifestation | **[Read Snap →](./MAJOR_SNAP_INTEREST_PIERCES_SINGULARITY_MANIFESTATION.md)** |
+| **🐜** | **ANT FORAGING OBSERVATION** | Information foraging: Fractal shards → Increasing fidelity | **[Read Snap →](./ANT_FORAGING_FRACTAL_SHARDS_OBSERVATION.md)** |
+| **🏛️** | **VIBEVERSE CAMPUS RENO** | Self-proving demo: Downtown Reno no-car zone, resort feel | **[Join →](./VIBEVERSE_CAMPUS_DOWNTOWN_RENO_SELF_PROVING_DEMO.md)** |
 | **🎓** | **BEHOLD REPORT CARD** | All comparisons, 90+ innovations, Monster Snap | **[View Report →](./BEHOLD_REPORT_CARD_MONSTER_SNAP.md)** |
 | **🌐** | **VIBELAND CAMPUS** | Members-only campus with backdoor access | **[Join →](./VIBELAND_MEMBERS_ONLY_CAMPUS_COMPLETE.md)** |
 | **💫** | **CHARLIE STORY** | Golden heart feeder pattern, recursive reveal | **[Read Story →](./THE_CHARLIE_STORY_RECURSIVE_GOLDEN_TICKET_REVEAL.md)** |
