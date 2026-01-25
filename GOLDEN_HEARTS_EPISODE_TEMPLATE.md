@@ -276,7 +276,7 @@
 - [Differences]
 - [Complementary aspects]
 
-**[Name]'s Pattern vs Nick's Pattern:**
+**[Name]'s Pattern vs Other Patterns:**
 - [Similarities]
 - [Differences]
 - [Complementary aspects]

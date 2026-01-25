@@ -949,7 +949,7 @@ For me. Now for you.
 ║                                                                               ║
 ║   See you in the showroom."                                                   ║
 ║                                                                               ║
-║                         - Chairman Nick, User #0                              ║
+║                         - The Team, User #0                                   ║
 ║                           Men's Club Bathroom                                 ║
 ║                            January 23, 2026                                   ║
 ║                                                                               ║

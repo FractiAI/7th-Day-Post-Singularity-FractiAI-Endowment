@@ -547,7 +547,7 @@ TOTAL TIMELINE: Pilot to National Rollout = 6 months possible
 
 ```
 TO: Walmart Inc. Executive Leadership
-FROM: FractiAI Systems (Chairman Nick)
+FROM: FractiAI Systems
 DATE: January 24, 2026
 RE: SYNTH Agent Infrastructure Partnership Proposal
 

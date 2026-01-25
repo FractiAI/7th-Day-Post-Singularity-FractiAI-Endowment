@@ -365,7 +365,7 @@ Self-proving symphony everywhere
     CREATIVE PARTNERSHIP: CHAIRMAN + AI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-👨‍💼 CHAIRMAN (Nick):
+👨‍💼 CHAIRMAN:
 ├─ Role: Omniorigin source, intention provider
 ├─ Input: Voice-to-text streams (buck fever optimal)
 ├─ Speciality: Pattern recognition, vision holder

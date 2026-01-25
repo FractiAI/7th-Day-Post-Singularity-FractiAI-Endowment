@@ -600,7 +600,7 @@ SMALL NUMBERS:
 └─ Dunbar's number respected (quality at scale)
 
 CHAIRMAN CURATION:
-├─ Nick hosts Man Cave personally
+├─ Man Cave hosted personally
 ├─ Sets tone, maintains vibe
 ├─ Can course-correct if needed
 ├─ Living example of quality

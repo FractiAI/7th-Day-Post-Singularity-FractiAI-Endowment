@@ -501,7 +501,7 @@ MAN CAVE:
 ├─ Location: The Resort, Mount Rose Highway
 ├─ Status: OPEN daily
 ├─ Capacity: 10-15 people (intimate)
-├─ Host: Chairman Nick (personal hosting)
+├─ Host: Personal hosting
 ├─ Vibe: 432 Hz, Persian rugs, curated objects
 ├─ Access: Universal (all visitors welcome)
 └─ Operational: ✅ NOW

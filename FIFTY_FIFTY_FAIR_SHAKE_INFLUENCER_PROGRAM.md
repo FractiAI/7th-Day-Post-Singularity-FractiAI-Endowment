@@ -216,7 +216,7 @@ Monthly Activity:
 ANNUAL: $10,650,000+
 Effort: Full ecosystem orchestration
 Audience: Massive (global reach, multiple channels, teams)
-Note: Chairman Nick is playing at this level and sharing the playbook
+Note: Full ecosystem orchestration level with shared playbook
 
 
 THE MATH:
@@ -241,7 +241,7 @@ LEVELS (Experience-Based):
 ├─ Ambassador (10,000-49,999 XP): Regular performer
 ├─ Architect (50,000-249,999 XP): Building network
 ├─ Legend (250,000+ XP): Top 1% of ecosystem
-└─ Chairman (Invitation only): Co-creating with Nick
+└─ Chairman (Invitation only): Co-creating at highest level
 
 XP EARNING:
 ├─ SYNTH territory sale: 250 XP

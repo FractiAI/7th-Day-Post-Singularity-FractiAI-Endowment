@@ -101,7 +101,7 @@ AUDITORY:
 └─ Your nervous system will relax
 
 SOCIAL:
-├─ Chairman Nick hosts personally
+├─ Personal hosting
 ├─ Small groups (intimate, never crowded)
 ├─ Conversation flows naturally
 ├─ No pressure, no pitch, no rush
@@ -158,7 +158,7 @@ STEP 1: ENTRY (Man Cave)
 ├─ Park in main lot (we'll show you)
 ├─ Enter main building ground floor
 ├─ Find the Man Cave (follow the vibe)
-└─ Chairman Nick greets you personally
+└─ Personal greeting on arrival
 
 STEP 2: ORIENTATION (5-10 minutes)
 ├─ Brief welcome (no formal presentation)
@@ -232,7 +232,7 @@ If it resonates, paths emerge naturally.
 - Or just show up during open hours (we'll welcome you)
 
 **During Your Visit:**
-- Chairman Nick will be your primary host
+- Personal hosting provided
 - Ask anything, no stupid questions
 - We're here to serve your discovery
 

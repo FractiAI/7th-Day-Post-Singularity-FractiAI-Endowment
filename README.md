@@ -27,15 +27,17 @@
 
 ---
 
-### 🏛️ **VIBELAND RENO: NOW OPERATIONAL**
+### 🏛️ **VIBELAND: MEMBERS-ONLY CAMPUS**
 
-**The World's First Post-Singularity Living Campus** | Reno, Nevada | 100 Ultimate VIP Members | $9,999/month
+**🔴 MEMBERS ONLY** | Invitation-Based | Backdoor Access | $9,999/month SYNTH
 
-**Experience:** Man Cave (front door) + Wine Cave (back door) + Cabaret (creative expression) + Campus Housing + 24×7 Kitchen + Valet Service + R&D Participation + Natural Dating + Intentional Community
+**The Physical Vibeverse** | Downtown Reno | Full Immersion Living | Winks Dating App Included
 
-👉 **[📖 DOWNLOAD BROCHURE →](./VIBELAND_RENO_BROCHURE.md)** | **[Brand Identity →](./VIBELAND_RENO_OFFICIAL_BRANDING.md)** | **[Operational Status →](./RENO_RD_HUB_ULTIMATE_VIP_CAMPUS_NOW_OPERATIONAL.md)**
+**What You Get:** Home base (no bills) + Campus access + Innovation center + Winks app + Community vibing 24/7 + Carefree living
 
-📧 **Apply:** hello@fractiai.com
+👉 **[🌐 MEMBERS-ONLY CAMPUS →](./VIBELAND_MEMBERS_ONLY_CAMPUS_COMPLETE.md)** | **[Brand Identity →](./VIBELAND_RENO_OFFICIAL_BRANDING.md)** | **[Brochure →](./VIBELAND_RENO_BROCHURE.md)**
+
+🔐 **Access:** Invitation only | Backdoor through GitHub
 
 ---
 

@@ -40,7 +40,6 @@ THE MEANING:
     
     Like:
     ├─ Disneyland (not Disney Park)
-    ├─ Burning Man (not Burning Festival)
     └─ Vibeland (not VibeVerse Location)
     
     Vibeland = The physical manifestation
@@ -100,7 +99,7 @@ THE EXPERIENCE:
 ├─ Ultimate VIP Campus (100 living black holes)
 ├─ Cultural Center (Man Cave conversations, Cabaret performances)
 ├─ Living Community (housing, 24×7 kitchen, valet service)
-└─ Innovation Playground (Burning Man meets intentional community)
+└─ Innovation Playground (NSPFRNP intentional community)
 
 THE VIBE:
 ├─ Post-singularity living (∞⁴ consciousness)
@@ -216,7 +215,7 @@ LIKE SILICON VALLEY:
 
 UNIQUE POSITIONING:
 └─ Vibeland Reno is:
-    ├─ More permanent than Burning Man (year-round, not week)
+    ├─ Permanent NSPFRNP manifestation (year-round living)
     ├─ More community than Disneyland (live here, not just visit)
     ├─ More cultural than Silicon Valley (vibe-first, not just business)
     └─ More innovative than all (post-singularity living, ∞⁴)
@@ -240,12 +239,12 @@ LOCATION:
     (Specific address TBD based on venue acquisitions)
     
     Near downtown Reno (accessible)
-    Close to Burning Man (cultural connection: 2 hours away)
+    Black Rock Desert proximity (2 hours away)
     Silicon Valley proximity (4 hours drive: innovation corridor)
     
     Perfect location for:
     ├─ Post-singularity experimentation
-    ├─ Burning Man cultural affinity
+    ├─ NSPFRNP natural protocol development
     ├─ Silicon Valley spillover (playground to SV)
     ├─ Nevada advantages (business-friendly, open-minded)
     └─ Natural beauty (Sierra Nevada mountains nearby)
@@ -293,7 +292,7 @@ FUTURE EXPANSION:
 ```yaml
 ELEVATOR PITCH:
 └─ "Vibeland Reno is a permanent, creative community where 
-    post-singularity living meets Burning Man principles. 
+    post-singularity living meets NSPFRNP natural protocols. 
     It's where the VibeVerse manifests physically—a destination 
     for Ultimate VIPs, innovators, and those ready to live at ∞⁴."
 
@@ -303,7 +302,7 @@ ONE-SENTENCE:
 TAGLINES:
 ├─ "Vibeland Reno: Post-Singularity Living, Now Operational"
 ├─ "Come to Vibeland Reno: Where Vibe Meets Land"
-├─ "Vibeland Reno: Burning Man Meets Intentional Community"
+├─ "Vibeland Reno: NSPFRNP Members-Only Campus"
 └─ "Welcome to Vibeland Reno: Your Home at ∞⁴"
 
 FOR DIFFERENT AUDIENCES:
@@ -320,8 +319,8 @@ TO VISITORS:
     you resonate. No requirements, just curiosity."
 
 TO MEDIA:
-└─ "Vibeland Reno is applying Burning Man's 10 principles 
-    to permanent community living. It's an R&D hub for 
+└─ "Vibeland Reno is a members-only NSPFRNP campus for 
+    permanent community living. It's an R&D hub for 
     post-singularity economics and Ultimate VIP experiences. 
     Innovation + Culture + Dignity = Vibeland."
 
@@ -358,11 +357,11 @@ NAMING:
 VISUAL IDENTITY:
 ├─ Logo: TBD (needs design)
 ├─ Colors: TBD (but aligned with VibeVerse brand)
-├─ Aesthetic: Burning Man-inspired (creative, colorful, expressive)
+├─ Aesthetic: Gypsy fair magical (creative, artistic, healing)
 └─ Vibe: Warm, welcoming, innovative, dignified
 
 TONE:
-├─ Inclusive (everyone welcome, no judgment)
+├─ Members-only (backdoor access, invitation-based)
 ├─ Confident (we know what we're building)
 ├─ Playful (vibe-first, not corporate)
 ├─ Profound (post-singularity is serious innovation)
@@ -438,7 +437,7 @@ KEY STATEMENT:
 THE MEANING:
 ├─ Vibeland = Physical manifestation of VibeVerse
 ├─ Reno = Location (first, expandable model)
-├─ Combined = Destination brand (like Disneyland, Burning Man)
+├─ Combined = Members-only destination campus
 └─ Identity = Where post-singularity living happens
 
 USAGE:
@@ -449,9 +448,9 @@ USAGE:
 
 POSITIONING:
 ├─ Like Disneyland: Destination brand (not just location)
-├─ Like Burning Man: Cultural movement (permanent, not temporary)
+├─ Like Gypsy Fair: Magical, artistic, healing (permanent sanctuary)
 ├─ Like Silicon Valley: Innovation hub (post-singularity, not just tech)
-└─ Unique: Destination + Community + Innovation + Home
+└─ Unique: Members-Only + Community + Innovation + Home
 
 BRAND GUIDELINES:
 ├─ Naming: "Vibeland Reno" (capital V, capital R, two words)
