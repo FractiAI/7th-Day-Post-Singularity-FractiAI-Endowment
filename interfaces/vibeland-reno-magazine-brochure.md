@@ -163,7 +163,7 @@ Life at Vibeland isn't just productive—it's delicious. Every moment is designe
 - Winks VIP access
 - Backroom unlimited access
 - After party access
-- G Baller level privileges
+- Cheese Baller level privileges
 - Maximum discounts
 - Dedicated concierge
 - Custom experiences
@@ -211,7 +211,7 @@ Not linear world relationships. These are poly relationships that are absolutely
 - **Guest** - Entry level access
 - **Member** - Full membership access
 - **Ultimate VIP** - Premium tier access
-- **Baller** - After party, G Baller level
+- **Baller** - After party, Cheese Baller level
 
 ### 🎯 Aligned with Creators, Performers, Consoles
 

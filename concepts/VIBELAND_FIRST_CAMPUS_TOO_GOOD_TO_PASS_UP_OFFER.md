@@ -221,7 +221,7 @@
 - ✅ Members only
 - ✅ Ultimate VIP
 - ✅ Four levels
-- ✅ Basic to ultra VIP G Baller
+- ✅ Basic to ultra VIP Cheese Baller
 
 ---
 

@@ -636,7 +636,7 @@ Shared housing + 3 meals/day + Dedicated desk + Winks Branch Node + Man Cave ful
 Private quarters + Gourmet meals + Private office + Winks Convergence Node + Wine Cave + Premium experience + Ultimate VIP pricing (50% discount) + Personal Hero Host + Priority booking + Chairman console access
 
 **🐋 BALLER ($24,999/mo):**  
-Private suite + Chef meals + Private lab + Winks VIP + Backroom unlimited + After party access + G Baller level privileges + Maximum discounts + Dedicated concierge + Custom experiences + Reading glasses (Premium frames, +1 over prescription)
+Private suite + Chef meals + Private lab + Winks VIP + Backroom unlimited + After party access + Cheese Baller level privileges + Maximum discounts + Dedicated concierge + Custom experiences + Reading glasses (Premium frames, +1 over prescription)
 
 **🚢 5-STAR CRUISE SHIP EXPERIENCE:**
 - **Daily Bulletin** (every morning at 6 AM—your complete schedule)

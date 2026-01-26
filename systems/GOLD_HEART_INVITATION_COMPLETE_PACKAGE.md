@@ -180,7 +180,7 @@ This invitation is for those who:
 1. **Basic** - Entry level
 2. **Members Only** - Standard access
 3. **Ultra VIP** - Premium access
-4. **G Baller** - Ultimate access
+4. **Cheese Baller** - Ultimate access
 
 **The Experience:**
 - Set up for "cheese" (high-value beings)
@@ -365,7 +365,7 @@ This invitation is for those who:
 - ✅ Ultimate VIP
 - ✅ Aligned with creators, performers, consoles
 - ✅ Four levels
-- ✅ Basic to ultra VIP G Baller
+- ✅ Basic to ultra VIP Cheese Baller
 
 **Options:**
 - ✅ Walmart (electronics → entire Walmart)

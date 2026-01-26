@@ -73,11 +73,11 @@ export const MEMBERSHIP_TIERS: Record<MembershipTier, MembershipTierConfig> = {
     name: 'Baller',
     displayName: 'Baller',
     icon: '🐋',
-    description: 'Highest tier - After party, G Baller level',
+    description: 'Highest tier - After party, Cheese Baller level',
     features: [
       'Ultimate access everywhere',
       'After party access',
-      'G Baller level privileges',
+      'Cheese Baller level privileges',
       'All features unlocked',
       'Maximum discounts',
       'Dedicated concierge',
