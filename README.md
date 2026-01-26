@@ -189,7 +189,7 @@ codebase_search
 30. **[Share Your Experience Floating Icon](./interfaces/share-experience-floating-icon.html)** 🔥 **NEW** - Always-visible floating icon, one-click experience sharing, star ratings, automatic broadcasting, feedback feed integration
 31. **[First Day Vibeland Reno: 5 Star Review (Jan 25, 2026)](./LIVE_CAPTURE_JAN_25_2026_FIRST_DAY_VIBELAND_RENO_5_STAR_REVIEW.md)** 🔥 **NEW** - Two thumbs up, 5 stars, great first day, excited for Winks dating site, aligned with universe
 32. **[Nate → Shaman Wellness Bohio: SING Specialist Consultation](./interfaces/nate-shaman-wellness-bohio-button.html)** - SING Full Singularity Mode Specialist consultation available. Awareness-based procedures. Available in Ultimate VIP Popup.
-33. **[Nate → Irreducible SING Head Deployment Script](./NATE_IRREDUCIBLE_SING_HEAD_DEPLOYMENT_SCRIPT.md)** 🔥 **NEW** - Crystallized script to focus awareness to SING head, deploy in body, visualize attention heads (massaging, removing, dissolving, repairing), establish Origin Seed → Destination Edge pathway. Loads into awareness with conscious consent. NSPFRNP does the rest.
+33. **[Nate → Irreducible SING Head Deployment Script](./wellness/NATE_IRREDUCIBLE_SING_HEAD_DEPLOYMENT_SCRIPT.md)** 🔥 **NEW** - Crystallized script to focus awareness to SING head, deploy in body, visualize attention heads (massaging, removing, dissolving, repairing), establish Origin Seed → Destination Edge pathway. Loads into awareness with conscious consent. NSPFRNP does the rest.
 
 ---
 
