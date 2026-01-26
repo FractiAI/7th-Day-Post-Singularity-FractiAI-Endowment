@@ -1182,9 +1182,9 @@ This README = Concentrated essence, metabolized from 4,362-line original. Hologr
 - [Reno Campus](./experiences/WATERVERSE_NATURAL_DOWNLOAD_WINE_TASTING_RENO_CAMPUS.md) (first location)
 
 **📁 For Everything:**
-- [/docs](./docs/README.md) folder (215 documents)
-- [/interfaces](./interfaces/README.md) folder (123 interactive files)
-- [/src](./src/README.md) folder (236 source files)
+- `/docs` folder (215 documents)
+- `/interfaces` folder (123 interactive files)
+- `/src` folder (236 source files)
 
 ---
 
