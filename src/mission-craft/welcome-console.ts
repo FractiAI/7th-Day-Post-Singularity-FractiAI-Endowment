@@ -49,8 +49,8 @@ export const HERO_HOSTS: Record<string, HeroHostInfo> = {
   'mark-twain': {
     id: 'mark-twain',
     name: 'Mark Twain',
-    persona: 'Wise Observer',
-    description: 'Writer and humorist who brings wisdom and wit to every journey'
+    persona: 'Vibeverse Pioneer | Wise Observer',
+    description: 'Welcome to the Campus, Welcome to Mark Twain\'s Reno. Mark Twain was a Vibeverse pioneer (Vibelander) before it was even a thing. Writer and humorist who brings wisdom and wit to every journey.'
   },
   'cleve-canepa': {
     id: 'cleve-canepa',
