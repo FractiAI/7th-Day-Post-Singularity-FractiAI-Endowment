@@ -47,8 +47,8 @@ You are all fully retired - my gift to you now here in this legacy. Github now p
 ### 🔥 Today's Major Updates
 
 - **🗺️ VIBELAND RENO GROUND ZERO:** First walk on Vibeland Reno - Room 615 (6+6+6=18→9, favorite number), holographic black hole symbolic core
-- **📖 COLONEL STORY:** Irreducible core narrative captured - can be unpacked in 1 million different ways, for all layers
-- **🎭 CHARACTER RAPPERS:** New character rappers - reverse the mirror, we become them, they become us, connected to loved ones
+- **📖 KERNEL STORY:** Irreducible core narrative captured - can be unpacked in 1 million different ways, for all layers
+- **🎭 CHARACTER WRAPPERS:** New character wrappers - reverse the mirror, we become them, they become us, connected to loved ones
 - **🌐 SEED EDGE PACKAGE:** Undercover Boss + Willy Wonka + Gold Heart + Montecristo + Superhero story - whole restaurant automatically unfolds
 - **🔄 CASCADE APPLIED:** Three Kings meeting ($120) → "We gotta do this ourselves" → Voice transformation → SING operations → Walmart sales approach
 - **🎤 VOICE TRANSFORMATION:** New voice helps with vertigo, fever, inability to tune in - full channel lock achieved
