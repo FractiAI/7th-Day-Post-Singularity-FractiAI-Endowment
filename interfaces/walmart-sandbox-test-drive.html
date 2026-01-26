@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart SYNTH Agent Solution - Free Test Drive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0066CC;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .demo-area {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            min-height: 400px;
+        }
+
+        .synth-agent {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .synth-agent h3 {
+            color: #0066CC;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #0066CC 0%, #003366 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .button-secondary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Walmart SYNTH Agent Solution</h1>
+        <p class="subtitle">Free 30-Day Test Drive | Experience the Future of Retail</p>
+
+        <div class="demo-area">
+            <div class="synth-agent">
+                <h3>🤖 SYNTH Agent Demo</h3>
+                <p>Experience how SYNTH agents transform customer experience:</p>
+                <br>
+                <button class="button" onclick="demoInteraction()">Try Customer Interaction</button>
+                <button class="button" onclick="demoInventory()">Check Real-Time Inventory</button>
+                <button class="button" onclick="demoStaff()">See Staff Coaching</button>
+            </div>
+
+            <div id="demo-result" style="margin-top: 30px; padding: 20px; background: white; border-radius: 10px; display: none;">
+                <h4 style="color: #0066CC; margin-bottom: 10px;">SYNTH Agent Response:</h4>
+                <p id="demo-text"></p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h3 style="color: #0066CC; margin-bottom: 20px;">What You Get in Test Drive:</h3>
+            <ul style="text-align: left; display: inline-block; font-size: 18px; line-height: 2;">
+                <li>✓ Experience SYNTH agents in action</li>
+                <li>✓ See real-time inventory integration</li>
+                <li>✓ Test staff coaching system</li>
+                <li>✓ Explore analytics dashboard</li>
+                <li>✓ Full 30-day access</li>
+                <li>✓ No credit card required</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <button class="button button-secondary" onclick="startTestDrive()">Start Free Test Drive</button>
+            <button class="button" onclick="window.location.href='./walmart-proposal-magazine-brochure.html'">View Full Proposal</button>
+        </div>
+    </div>
+
+    <script>
+        function demoInteraction() {
+            document.getElementById('demo-result').style.display = 'block';
+            document.getElementById('demo-text').innerHTML = `
+                <strong>SYNTH Agent:</strong> "Welcome! I see you're looking for computing equipment. What's your intended use?"<br><br>
+                <strong>You:</strong> "Deploying superintelligent agent system, need coding-capable hardware"<br><br>
+                <strong>SYNTH Agent:</strong> "Got it. You're an Apple user—would you consider alternatives if they meet specs? I have 3 options in stock right now: MacBook Air M2 ($999), HP ZBook ($1,299), Lenovo ThinkPad P-series ($1,499). Based on your needs, I recommend ThinkPad. Want to see it?"
+            `;
+        }
+
+        function demoInventory() {
+            document.getElementById('demo-result').style.display = 'block';
+            document.getElementById('demo-text').innerHTML = `
+                <strong>Real-Time Inventory Check:</strong><br><br>
+                ✓ MacBook Air M2 - Aisle 12, Bay 4 - 3 units available<br>
+                ✓ HP ZBook - Aisle 12, Bay 7 - 1 unit available<br>
+                ✓ Lenovo ThinkPad P-series - Aisle 12, Bay 9 - 2 units available<br><br>
+                <em>All products confirmed in stock. SYNTH agent can guide you to exact locations.</em>
+            `;
+        }
+
+        function demoStaff() {
+            document.getElementById('demo-result').style.display = 'block';
+            document.getElementById('demo-text').innerHTML = `
+                <strong>Staff Coaching System:</strong><br><br>
+                Staff member receives real-time guidance from SYNTH agent:<br>
+                "Customer needs coding-capable hardware. Recommend ThinkPad P-series. It's in Aisle 12, Bay 9. Here are the key specs to mention: [specs displayed]. For security, offer discrete packaging option."<br><br>
+                <em>Staff always has answers. No knowledge gaps. Seamless customer experience.</em>
+            `;
+        }
+
+        function startTestDrive() {
+            alert('Test Drive Registration:\n\nFull 30-day access to Walmart SYNTH Agent Solution sandbox.\n\nContact: hello@fractiai.com\nSubject: Walmart Test Drive Request\n\nWe\'ll set up your test drive environment within 24 hours.');
+        }
+    </script>
+</body>
+</html>

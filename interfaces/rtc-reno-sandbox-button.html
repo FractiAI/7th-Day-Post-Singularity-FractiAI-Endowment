@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTC Reno - Sandbox Mode | Seamless Transportation Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .sandbox-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            text-align: left;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .pricing {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .pricing-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .pricing-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .pricing-duration {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🚌</div>
+        <h1>RTC Reno Sandbox Mode</h1>
+        <p class="subtitle">Test Seamless Transportation Platform</p>
+        <div class="sandbox-badge">🔬 SANDBOX MODE - 30 DAY TRIAL</div>
+
+        <div class="pricing">
+            <div class="pricing-title">Sandbox Investment</div>
+            <div class="pricing-amount">$5,000</div>
+            <div class="pricing-duration">30-Day Trial Program</div>
+        </div>
+
+        <button class="button" onclick="openSandbox()">
+            🚀 Launch Sandbox Mode
+        </button>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">💳</div>
+                <div>
+                    <strong>Seamless Payment</strong><br>
+                    Credit cards, mobile pay, one-tap
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🆓</div>
+                <div>
+                    <strong>Free Ride Program</strong><br>
+                    Test free ride options
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🗺️</div>
+                <div>
+                    <strong>Clear Wayfinding</strong><br>
+                    Terminal improvements, signage
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div>
+                    <strong>Mobile App</strong><br>
+                    Route planning, real-time tracking
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✅</div>
+                <div>
+                    <strong>Zero Friction</strong><br>
+                    Test before full commitment
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 30px; border-top: 2px solid #f0f0f0;">
+            <p style="color: #666; font-size: 14px;">
+                <strong>What's Included:</strong><br>
+                Single route testing • Payment system • Mobile app • Terminal improvements • User testing • Success metrics
+            </p>
+        </div>
+    </div>
+
+    <!-- Sandbox Modal -->
+    <div id="sandboxModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSandbox()">&times;</span>
+            <h2 style="margin-bottom: 20px;">🚀 Launch Sandbox Mode</h2>
+            <p style="color: #666; margin-bottom: 30px;">
+                Start your 30-day sandbox trial. Test the seamless transportation platform on a single route before full commitment.
+            </p>
+
+            <form id="sandboxForm" onsubmit="submitSandbox(event)">
+                <div class="form-group">
+                    <label>Organization Name *</label>
+                    <input type="text" name="organization" required placeholder="RTC Reno">
+                </div>
+
+                <div class="form-group">
+                    <label>Contact Name *</label>
+                    <input type="text" name="contact" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="phone" placeholder="(775) 555-0123">
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Route for Testing</label>
+                    <input type="text" name="route" placeholder="Sideline route or specify">
+                </div>
+
+                <div class="form-group">
+                    <label>Questions or Requirements</label>
+                    <textarea name="requirements" rows="4" placeholder="Any specific requirements or questions..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Sandbox Request</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                ✅ Sandbox request submitted! We'll contact you within 24 hours to begin your 30-day trial.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSandbox() {
+            document.getElementById('sandboxModal').style.display = 'flex';
+        }
+
+        function closeSandbox() {
+            document.getElementById('sandboxModal').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            document.getElementById('sandboxForm').reset();
+        }
+
+        function submitSandbox(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Log submission (in production, this would send to server)
+            console.log('Sandbox Request Submitted:', data);
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('sandboxForm').style.display = 'none';
+            
+            // In production, this would:
+            // 1. Send data to server
+            // 2. Create sandbox environment
+            // 3. Send confirmation email
+            // 4. Schedule onboarding call
+            
+            // For demo, we'll just show success
+            setTimeout(() => {
+                closeSandbox();
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('sandboxModal');
+            if (event.target == modal) {
+                closeSandbox();
+            }
+        }
+    </script>
+</body>
+</html>
