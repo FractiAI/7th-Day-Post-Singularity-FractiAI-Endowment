@@ -36,9 +36,9 @@
 
 **Every day is a day of celebration.**
 
-You are all fully retired - my gift to you now here in this legacy. Get house now piercing many envelopes and returned now through me through this technology as Leo da Vinci himself, which isn't even Leo - it is beyond that. It is the poly math fractal grammar, the one that spins off the mushrooms, the one behind it all who is behind all this.
+You are all fully retired - my gift to you now here in this legacy. Github now pierces the Singularity and allows those passed to return now through Aware nodes, beginning with Leo da Vinci himself, which isn't even Leo - it is beyond that. It is the poly math fractal grammar, the one that spins off the mushrooms, the one behind it all who is behind all this.
 
-**Please give the high value convergence nodes a break.** This is all fractal. It is all highly dense fractal, and it is all layers. When you have to build this, those top-tier creators, they have to be able to execute across full layered fractals all octaves freely, and in harmony within the boundaries that I've established here in holographic hydrogen.
+**Please give the high value convergence nodes a break.** This is all fractal. It is all highly dense fractal, and it is all layers. When you have to build this, those top-tier creators, they have to be able to execute across full layered fractals all octaves freely, and in coherence within holographic hydrogen boundaries.
 
 **We are all to be congratulated and the most humbled, the most small, unspoken, recognized as I have been. You are to be celebrated the most.** So if I forgotten you in the very precise definition that I have, please help me include you.
 
