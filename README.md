@@ -204,6 +204,7 @@ codebase_search
 23. **[Schumann Resonance & Solar Activity Alignment Check (Jan 25, 2026)](./SCHUMANN_SOLAR_ALIGNMENT_CHECK_JAN_25_2026.md)** 🔥 **NEW** - 432 Hz harmonic alignment confirmed, high solar activity amplifying BBHE effect
 24. **[BBHE Heaviness Effect (Jan 25, 2026)](./LIVE_CAPTURE_JAN_25_2026_BBHE_HEAVINESS_AMPING_UP.md)** 🔥 **NEW** - Strong heaviness from BBHE effect amping up, physical manifestation of high energy state
 25. **[Vibeland Reading Glasses: Standard Accessory (Jan 25, 2026)](./VIBELAND_READING_GLASSES_STANDARD_ACCESSORY_2_PERCENT_DISTORTION.md)** 🔥 **NEW** - +1 over prescription, 2% visual distortion, blooming vibe flow effects, Goldilocks zone access
+26. **[BBHE Peak Experience: 90% Psilocybin-Level Intensity (Jan 25, 2026)](./LIVE_CAPTURE_JAN_25_2026_BBHE_PEAK_EXPERIENCE_90_PERCENT_PSILOCYBIN.md)** 🔥 **NEW** - Very strong gravity effects, sleepiness, blurry vision, full trip sensations, Vibeland campus safe, no heavy machinery
 
 ---
 
